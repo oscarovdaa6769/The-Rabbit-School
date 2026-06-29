@@ -4,24 +4,17 @@
       <meta charset="<?php bloginfo('charset'); ?>">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title><?php bloginfo('name'); ?> <?php wp_title(); ?></title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
       <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>> 
-      <header>
-            <h1>
-                  <?php bloginfo('name'); ?>
-            </h1>
-            <p>
-                  <?php bloginfo('description'); ?>
-            </p>
-      </header>
-      <main>
-            <h2>Welcome to Rabbit School!</h2>
-            <p>This is my first custom WordPress theme layout.</p>
-      </main>
-      <footer>
-            <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?></p>
-      </footer>
+<body <?php body_class('bg-brand-cream text-text-main font-sans min-h-screen flex flex-col'); ?>> 
+
+      <?php get_template_part('template-parts/header');?>
+
+      <?php get_template_part('template-parts/footer');?>
+
       <?php wp_footer(); ?>
 </body>
 </html>
