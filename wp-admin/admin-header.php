@@ -24,7 +24,7 @@ if ( ! defined( 'WP_ADMIN' ) ) {
  * @global WP_Screen $current_screen     WordPress current screen object.
  * @global WP_Locale $wp_locale          WordPress date and time locale object.
  * @global string    $pagenow            The filename of the current screen.
- * @global string    $update_title
+ * @global string    $update_titlecd
  * @global int       $total_update_count
  * @global string    $parent_file
  * @global string    $typenow            The post type of the current screen.
