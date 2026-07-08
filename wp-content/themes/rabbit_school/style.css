@@ -743,6 +743,9 @@
   .flex-1 {
     flex: 1;
   }
+  .max-w-\[700px\] {
+    max-width: 700px;
+  }
   .flex-shrink {
     flex-shrink: 1;
   }
@@ -937,9 +940,6 @@
   }
   .rounded-2xl {
     border-radius: var(--radius-2xl);
-  }
-  .rounded-3xl {
-    border-radius: var(--radius-3xl);
   }
   .rounded-\[8px\] {
     border-radius: 8px;
@@ -1277,9 +1277,6 @@
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
   }
-  .px-8 {
-    padding-inline: calc(var(--spacing) * 8);
-  }
   .px-12 {
     padding-inline: calc(var(--spacing) * 12);
   }
@@ -1294,9 +1291,6 @@
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
-  }
-  .py-2\.5 {
-    padding-block: calc(var(--spacing) * 2.5);
   }
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
@@ -2661,7 +2655,7 @@
   }
   .\[\&_a\]\:py-2\.5 {
     & a {
-      padding-block: calc(var(--spacing) * 2.5);
+      padding-inline: 20px;
     }
   }
   .\[\&_a\]\:py-3 {
