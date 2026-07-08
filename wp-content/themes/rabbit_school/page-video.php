@@ -34,7 +34,7 @@ get_header();
 
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-    <!-- Card 1 -->
+
     <div class="flex flex-col justify-between h-full group bg-white rounded-2xl p-4 shadow-xs border border-gray-100 hover:shadow-md transition-shadow duration-300">
       <div>
         <div class="overflow-hidden rounded-xl aspect-video bg-black mb-6">
@@ -50,7 +50,7 @@ get_header();
       
     </div>
 
-    <!-- Card 2 -->
+    
     <div class="flex flex-col justify-between h-full group bg-white rounded-2xl p-4 shadow-xs border border-gray-100 hover:shadow-md transition-shadow duration-300">
       <div>
         <div class="overflow-hidden rounded-xl aspect-video bg-black mb-6">
@@ -66,7 +66,7 @@ get_header();
      
     </div>
 
-    <!-- Card 3 -->
+   
     <div class="flex flex-col justify-between h-full group bg-white rounded-2xl p-4 shadow-xs border border-gray-100 hover:shadow-md transition-shadow duration-300">
       <div>
         <div class="overflow-hidden rounded-xl aspect-video bg-black mb-6">
@@ -82,7 +82,7 @@ get_header();
       
     </div>
 
-    <!-- Card 4 -->
+  
     <div class="flex flex-col justify-between h-full group bg-white rounded-2xl p-4 shadow-xs border border-gray-100 hover:shadow-md transition-shadow duration-300">
       <div>
         <div class="overflow-hidden rounded-xl aspect-video bg-black mb-6">
