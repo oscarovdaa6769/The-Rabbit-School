@@ -11,9 +11,9 @@
 </head>
 <body <?php body_class('bg-brand-cream text-text-main font-sans min-h-screen flex flex-col'); ?>> 
 
-      <?php get_template_part('template-parts/header');?>
-
-      <?php get_template_part('template-parts/footer');?>
+      <?php get_header();?> 
+      
+      <?php get_footer();?>
 
       <?php wp_footer(); ?>
 </body>
