@@ -26,17 +26,17 @@
                         <?php wp_nav_menu(array(
                               'theme_location' => 'navigation-menu', 
                               'container' => false, 
-                              'menu_class' => 'flex items-center gap-1 font-semibold text-sm 
-                              [&_a]:transition-all [&_a]:duration-300 [&_a]:ease-in-out [&_a]:px-4 [&_a]:py-2.5 [&_a]:rounded-full [&_a]:border-2 [&_a]:border-transparent [&_a]:ring-2 [&_a]:ring-transparent
+                              'menu_class' => 'flex items-center gap-[10px] font-semibold text-sm 
+                              [&_a]:transition-all [&_a]:duration-300 [&_a]:ease-in-out [&_a]:px-[20px] [&_a]:py-[10px] [&_a]:rounded-full [&_a]:border-2 [&_a]:border-transparent [&_a]:ring-2 [&_a]:ring-transparent
                               [&_a:hover]:text-text-light [&_a:hover]:bg-brand-brown 
                               [&_.current-menu-item_a]:bg-brand-brown [&_.current-menu-item_a]:text-text-light [&_.current-menu-item_a]:border-white [&_.current-menu-item_a]:ring-brand-brown'));?>
                   </nav>
 
-                  <div class="flex items-center gap-2 sm:gap-4">
+                  <div class="flex items-center gap-[10px] sm:gap-4">
                         
                         <div class="hidden sm:inline-block relative text-left group">
-                              <button class="text-sm font-semibold text-text-main hover:bg-brand-brown hover:text-text-light flex items-center gap-2 border border-brand-brown px-4 py-2 rounded-lg transition-colors duration-200 focus:outline-none">
-                                    <span class="icon-[solar--global-linear] w-5 h-5"></span>
+                              <button class="text-sm font-semibold text-text-main hover:bg-brand-brown hover:text-text-light flex items-center gap-2 border border-brand-brown px-[24px] py-[10px] rounded-[8px] transition-colors duration-200 focus:outline-none">
+                                    <span class="icon-[solar--global-bold] w-5 h-5"></span>
                                     <span>English</span>
                                     <span class="icon-[solar--alt-arrow-down-line-duotone] w-5 h-5 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"></span>
                               </button>
@@ -51,8 +51,8 @@
                               </div>
                         </div>
 
-                        <a href="#" class="group bg-brand-yellow text-brand-brown font-bold text-sm px-4 sm:px-5 py-2.5 rounded-full shadow-sm hover:scale-105 active:scale-95 transition-all flex gap-2 items-center tracking-wider uppercase">
-                              <span class="icon-[solar--heart-linear] w-5 h-5"></span>
+                        <a href="#" class="group bg-brand-yellow text-brand-brown font-bold text-sm px-[24px] py-[10px] rounded-full shadow-sm hover:scale-105 active:scale-95 transition-all flex gap-2 items-center tracking-wider uppercase">
+                              <span class="icon-[solar--heart-bold] w-5 h-5"></span>
                               <span>Donate</span>
                               <div class="hidden sm:inline-flex items-center transition-all duration-300 transform opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0">
                                     <span class="icon-[solar--arrow-right-linear] w-5 h-5 text-brand-brown"></span>
