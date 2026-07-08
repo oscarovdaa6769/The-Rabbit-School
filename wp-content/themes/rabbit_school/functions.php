@@ -14,3 +14,4 @@ function rabbit_styles() {
       wp_enqueue_style('main-style', get_stylesheet_uri(), array(), time());
 }
 add_action('wp_enqueue_scripts', 'rabbit_styles');
+
