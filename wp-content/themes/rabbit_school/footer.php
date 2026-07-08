@@ -3,7 +3,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-12 gap-8 lg:gap-6 pb-12 border-b border-white/10">
                   
                   <div class="sm:col-span-2 md:col-span-3 lg:col-span-3 flex flex-col gap-6 items-start">
-                        <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3 transition-transform duration-300 hover:scale-102">
+                        <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3 transition-transform duration-300">
                               <img src="<?php echo esc_url(get_theme_file_uri('assets/images/logo2.png')); ?>"
                                    alt="<?php echo esc_attr(get_bloginfo('name')); ?> Logo"
                                    class="h-14 w-auto object-contain invert brightness-0" />

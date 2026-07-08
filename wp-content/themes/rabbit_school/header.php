@@ -6,12 +6,14 @@
       <title><?php bloginfo('name'); ?> <?php wp_title(); ?></title>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
       <?php wp_head(); ?>
 </head>
 <body <?php body_class('bg-brand-cream text-text-main font-sans min-h-screen flex flex-col'); ?>> 
 
-      <header class="bg-white sticky top-0 z-[1000] shadow-sm border-b border-gray-100 px-4 sm:px-6 lg:px-8">
+      <header class="bg-white sticky top-0 z-[1000] border-b border-gray-100 px-4 sm:px-6 lg:px-8">
             <div class="max-w-7xl mx-auto flex items-center justify-between h-24">
                   
                   <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3 group shrink-0">

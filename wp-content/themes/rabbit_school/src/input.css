@@ -22,7 +22,7 @@ Version: 1.0
   --color-text-light: #F7F5F4;
 
   /* Font Assignment Rules */
-  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: "Inter", sans-serif;
   --font-heading: "Oswald", sans-serif;
 }
 
