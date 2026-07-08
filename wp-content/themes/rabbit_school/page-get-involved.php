@@ -73,7 +73,7 @@
           <div class="bg-[#623D3C] hover:bg-[#623D3C]/95 rounded-3xl shadow-xl p-8 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl border border-white/30 group">
         <div class="mb-8">
         <div class="mb-6 p-4 bg-white/20 rounded-full w-16 h-16 flex items-center justify-center backdrop-blur-md shadow-sm border border-white/20 transition-transform duration-300 group-hover:scale-110">
-        <img src="<?php echo get_theme_file_uri('assets/icons/group.png'); ?>"
+        <img src="<?php echo get_theme_file_uri('assets/icons/groupg.png'); ?>"
         alt="Donation Icon"
         loading="lazy"
         class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
