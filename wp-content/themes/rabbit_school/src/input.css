@@ -5,6 +5,7 @@ Version: 1.0
 */
 @import "tailwindcss";
 @plugin "@iconify/tailwind4";
+@source "./**/*.php";
 
 @theme {
   /* Brand Theme Palette */
