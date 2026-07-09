@@ -27,6 +27,11 @@ Version: 1.0
   --font-heading: "Oswald", sans-serif;
 }
 
+:lang(km) {
+  --font-sans: "Battambang", sans-serif;
+  --font-heading: "Koulen", sans-serif;
+}
+
 @layer utilities {
   @keyframes marqueeLeft {
     0% { transform: translateX(0%); }

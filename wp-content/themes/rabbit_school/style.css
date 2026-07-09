@@ -16,6 +16,7 @@
     --color-amber-950: oklch(27.9% 0.077 45.635);
     --color-yellow-50: oklch(98.7% 0.026 102.212);
     --color-yellow-100: oklch(97.3% 0.071 103.193);
+    --color-yellow-500: oklch(79.5% 0.184 86.047);
     --color-yellow-800: oklch(47.6% 0.114 61.907);
     --color-sky-500: oklch(68.5% 0.169 237.323);
     --color-sky-600: oklch(58.8% 0.158 241.966);
@@ -35,6 +36,7 @@
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
+    --container-xl: 36rem;
     --container-2xl: 42rem;
     --container-3xl: 48rem;
     --container-4xl: 56rem;
@@ -2922,6 +2924,10 @@
       color: var(--color-text-light);
     }
   }
+}
+:lang(km) {
+  --font-sans: "Battambang", sans-serif;
+  --font-heading: "Koulen", sans-serif;
 }
 @layer utilities {
   @keyframes marqueeLeft {

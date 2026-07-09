@@ -3,12 +3,9 @@
 <head>
       <meta charset="<?php bloginfo('charset'); ?>">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title><?php bloginfo('name'); ?> <?php wp_title(); ?></title>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@100;300;400;700;900&family=Inter:opsz@14..32&family=Koulen&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
       <?php wp_head(); ?>
 </head>
 <body <?php body_class('bg-brand-cream text-text-main font-sans min-h-screen flex flex-col'); ?>> 
@@ -37,7 +34,17 @@
                         <div class="hidden sm:inline-block relative text-left group">
                               <button class="text-sm font-semibold text-text-main hover:bg-brand-brown hover:text-text-light flex items-center gap-2 border border-brand-brown px-[24px] py-[10px] rounded-[8px] transition-colors duration-200 focus:outline-none">
                                     <span class="icon-[solar--global-bold] w-5 h-5"></span>
-                                    <span>English</span>
+                                    
+                                    <span>
+                                          <?php 
+                                          if (function_exists('pll_current_language')) {
+                                                echo pll_current_language('name'); 
+                                          } else {
+                                                echo (get_locale() === 'km' || get_locale() === 'km_KH') ? 'ខ្មែរ' : 'English'; 
+                                          }
+                                          ?>
+                                    </span>
+                                    
                                     <span class="icon-[solar--alt-arrow-down-line-duotone] w-5 h-5 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"></span>
                               </button>
 
@@ -45,8 +52,14 @@
                               group-hover:opacity-100 group-hover:visible group-hover:scale-100 group-hover:translate-y-0
                               group-focus-within:opacity-100 group-focus-within:visible group-focus-within:scale-100 group-focus-within:translate-y-0 z-50">
                                     <div class="py-1 flex flex-col">
-                                          <a href="?lang=en" class="px-4 py-2 text-sm text-text-main hover:bg-brand-brown hover:text-text-light transition-colors duration-150">English</a>
-                                          <a href="?lang=kh" class="px-4 py-2 text-sm text-text-main hover:bg-brand-brown hover:text-text-light transition-colors duration-150">Khmer</a>
+                                          <?php 
+                                          $locations = get_nav_menu_locations();
+                                          if (isset($locations['language-switcher']) && $menu = wp_get_nav_menu_object($locations['language-switcher'])) {
+                                                foreach (wp_get_nav_menu_items($menu->term_id) as $item) {
+                                                      printf('<a href="%s" class="px-4 py-2 text-sm text-text-main hover:bg-brand-brown hover:text-text-light transition-colors duration-150">%s</a>', esc_url($item->url), esc_html($item->title));
+                                                }
+                                          }
+                                          ?>
                                     </div>
                               </div>
                         </div>

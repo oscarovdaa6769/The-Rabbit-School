@@ -2,6 +2,7 @@
 function rabbit_register_menus() {
       register_nav_menus(array(
             'navigation-menu' => 'Main Header Navigation',
+            'language-switcher' => 'Language Switcher Dropdown',
             'our-program-footer' => 'Footer - Our Program',
             'about-us-footer' => 'Footer - About Us',
             'news-footer' => 'Footer - News',
@@ -15,3 +16,4 @@ function rabbit_styles() {
 }
 add_action('wp_enqueue_scripts', 'rabbit_styles');
 
+add_theme_support('title-tag');

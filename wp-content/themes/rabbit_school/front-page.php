@@ -1,36 +1,60 @@
 <?php get_header();?>
+<?php
+
+// section 1
+$img_1_url = get_field('banner_1_image') ?: get_theme_file_uri('assets/images/error.png');
+$title_1 = get_field('heading_1') ?: 'SECTION 1 NOT WORKING';
+$desc_1 = get_field('description_1') ?: 'DESC 1 NOT WORKING';
+
+// section 2
+$img_2_url = get_field('banner_2_image') ?: get_theme_file_uri('assets/images/error.png');
+$title_2 = get_field('heading_2') ?: 'SECTION 2 NOT WORKING';
+$desc_2 = get_field('description_2') ?: 'DESC 2 NOT WORKING';
+$btn_2_txt = get_field('button_2_text') ?: 'BTN 2 NOT WORKING';
+$btn_2_lnk = get_field('button_2_link') ?: '#';
+
+// section 3
+$img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png');
+$sub_title_3 = get_field('sub_heading_3') ?: 'SUB SECTION 3 NOT WORKING';
+$title_3 = get_field('heading_3') ?: 'SECTION 3 NOT WORKING';
+$desc_3 = get_field('description_3') ?: 'DESC 3 NOT WORKING';
+$btn_3_txt = get_field('button_3_text') ?: 'BTN 3 NOT WORKING';
+$btn_3_lnk = get_field('button_3_link') ?: '#';
+?>
 
 <!-- section 1 -->
 <div class="relative overflow-hidden">
-      <img src="<?php echo get_theme_file_uri('assets/images/banner1.png'); ?>" alt="" class="h-[500px] md:h-[700px] w-full object-cover">
+      <img src="<?php echo esc_url($img_1_url); ?>" alt="<?php echo esc_attr($title_1); ?>" class="h-[500px] md:h-[700px] w-full object-cover">
       
       <div class="absolute bottom-6 md:bottom-20 left-[20px] right-[20px] md:left-[100px] max-w-2xl text-text-light z-50">
-            <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4">
-                  <?php the_title();?>
+            <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
+                  <?php echo esc_html($title_1); ?>
             </h1>
             <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] leading-relaxed opacity-90">
-                  <?php the_content();?>
+                  <?php echo esc_html($desc_1); ?>
             </p>
       </div>
 </div> 
 
 <!-- section 2 -->
 <div class="relative overflow-hidden">
-      <img src="<?php echo get_theme_file_uri('assets/images/banner2.jpg'); ?>" alt="" class="h-[500px] md:h-[700px] w-full object-cover">
+      <img src="<?php echo esc_url($img_2_url); ?>" alt="<?php echo esc_attr($title_2); ?>" class="h-[500px] md:h-[700px] w-full object-cover">
       
       <div class="absolute bottom-6 md:bottom-20 left-[20px] right-[20px] md:left-[100px] max-w-2xl text-text-light z-50">
-            <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4">
-                  OUR STORY
+            <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
+                  <?php echo esc_html($title_2); ?>
             </h1>
             <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] leading-relaxed opacity-90">
-                  The Rabbit School was founded in Phnom Penh in the early 1990s with a bold vision: to ensure that children with intellectual disabilities and autism are given the same right to learn, grow, and thrive as any other child.
+                  <?php echo esc_html($desc_2); ?>
             </p>
+            <?php if ( !empty($btn_2_txt) ) : ?>
             <div class="flex justify-start mt-6">
-                  <a href="#" class="group bg-brand-brown text-text-light font-bold text-sm px-[24px] py-[12px] rounded-[8px] shadow-lg hover:scale-105 active:scale-95 transition-all inline-flex gap-3 items-center uppercase tracking-wider">
-                        read more
+                  <a href="<?php echo esc_url($btn_2_lnk); ?>" class="group bg-brand-brown text-text-light font-bold text-sm px-[24px] py-[12px] rounded-[8px] shadow-lg hover:scale-105 active:scale-95 transition-all inline-flex gap-3 items-center uppercase tracking-wider">
+                        <?php echo esc_html($btn_2_txt); ?>
                         <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
                   </a>
             </div>
+            <?php endif; ?>
       </div>
 </div>
 
@@ -40,24 +64,30 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
             
             <div class="flex flex-col">
-                <span class="text-brand-brown/60 font-bold tracking-[0.2em] text-[14px] uppercase mb-3">Our Methodology</span>
-                <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown mb-6 leading-tight">HOW WE WORK</h2>
-                <p class="text-text-main text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] leading-relaxed mb-8">
-                    Our programs empower children and youth with intellectual disabilities to reach their full potential through tailored education, vocational training, inclusive community building, and advocacy for lasting change.
-                </p>
-                <div class="flex justify-start">
-                    <a href="#" class="group bg-brand-brown text-text-light font-bold text-sm px-[24px] py-[12px] rounded-[8px] shadow-md hover:bg-brand-brown/90 hover:shadow-xl transition-all inline-flex gap-3 items-center uppercase tracking-widest">
-                        explore more
-                        <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
-                    </a>
-                </div>
+                  <span class="text-brand-brown/60 font-bold tracking-[0.2em] text-[14px] uppercase mb-3">
+                        <?php echo esc_html($sub_title_3); ?>
+                  </span>
+                  <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown mb-6 uppercase leading-tight">
+                        <?php echo esc_html($title_3); ?>
+                  </h2>
+                  <p class="text-text-main text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] leading-relaxed mb-8">
+                        <?php echo esc_html($desc_3); ?>
+                  </p>
+                  <?php if ( !empty($btn_3_txt) ) : ?>
+                  <div class="flex justify-start">
+                        <a href="<?php echo esc_url($btn_3_lnk); ?>" class="group bg-brand-brown text-text-light font-bold text-sm px-[24px] py-[12px] rounded-[8px] shadow-md hover:bg-brand-brown/90 hover:shadow-xl transition-all inline-flex gap-3 items-center uppercase tracking-widest">
+                              <?php echo esc_html($btn_3_txt); ?>
+                              <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
+                        </a>
+                  </div>
+                  <?php endif; ?>
             </div>
-            
+                  
             <div class="relative">
-                <div class="absolute -top-4 -right-4 w-full h-full border-2 border-brand-yellow rounded-2xl -z-10 hidden md:block"></div>
-                <div class="w-full aspect-[4/3] md:aspect-video rounded-[24px] overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
-                    <img src="<?php echo get_theme_file_uri('assets/images/image.png'); ?>" alt="How We Work Banner" class="h-full w-full object-cover">
-                </div>
+                  <div class="absolute -top-4 -right-4 w-full h-full border-2 border-brand-yellow rounded-2xl -z-10 hidden md:block"></div>
+                  <div class="w-full aspect-[4/3] md:aspect-video rounded-[24px] overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+                        <img src="<?php echo esc_url($img_3_url) ?>" alt="<?php echo esc_attr($title_3); ?>" class="h-full w-full object-cover">
+                  </div>
             </div>
 
         </div>
