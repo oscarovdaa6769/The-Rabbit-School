@@ -8,7 +8,7 @@
                                    alt="<?php echo esc_attr(get_bloginfo('name')); ?> Logo"
                                    class="h-14 w-auto object-contain invert brightness-0" />
                         </a>
-                        <a href="#" class="group w-full sm:w-auto bg-brand-yellow text-brand-brown font-bold text-sm px-6 py-3 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all inline-flex gap-2 items-center justify-center uppercase tracking-wider">
+                        <a href="#" class="group w-full sm:w-auto bg-brand-yellow text-brand-brown font-bold text-sm px-6 py-3 rounded-[8px] shadow-lg hover:scale-105 active:scale-95 transition-all inline-flex gap-2 items-center justify-center uppercase tracking-wider">
                               <span class="icon-[solar--heart-bold] w-5 h-5"></span>
                               <span>Donate</span>
                               <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
