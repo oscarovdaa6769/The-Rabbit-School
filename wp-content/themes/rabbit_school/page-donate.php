@@ -6,7 +6,7 @@
 get_header();
 ?>
 
-<section class="w-full h-[60vh] min-h-[600px] max-h-[600px] relative bg-gray-300 overflow-hidden">
+<section id="donate" class="w-full h-[60vh] min-h-[600px] max-h-[600px] relative bg-gray-300 overflow-hidden">
   <img src="https://www.rabbitschoolcambodia.net/_next/image?url=%2Fimages%2FNew%20Pictures%20P14.jpg&w=1920&q=75" alt="Smiling boy at school" class="w-full h-full object-cover object-center">
 </section>
 

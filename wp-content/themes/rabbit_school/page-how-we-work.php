@@ -137,69 +137,67 @@ get_header();
 
     <hr class="border-gray-200" />
 
-    <section id="vocational" class="scroll-mt-32 grid grid-cols-1 lg:grid-cols-12 gap-12 hover-trigger">
-        <div class="lg:col-span-5 order-2 lg:order-1 ">
-
-            <!-- RIGHT: Location Image Card -->
-                <div class=" anim-slide-right anim-delay-2 relative w-full h-[300px] md:h-[400px] lg:h-[0%] rounded-2xl overflow-hidden shadow-lg group">
-                <img
-                    src="<?php echo get_theme_file_uri(); ?>/assets/images/NewPictureP15.webp"
-                    alt="Our Location"
-                    class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
-                <div class="absolute bottom-3 left-3 right-3 md:bottom-5 md:left-5 md:right-5 bg-white rounded-xl shadow-lg p-4 md:p-5">
-                    <h3 class="font-extrabold text-[#5c1f2e] uppercase tracking-wide mb-1 text-base">Our Location</h3>
-                    <p class="text-[#5c1f2e] text-sm">Toul Kork Primary School, Phnom Penh</p>
-                </div>
-            </div>
-
-
+   <section id="vocational" class="scroll-mt-32 grid grid-cols-1 lg:grid-cols-12 gap-12 hover-trigger items-center">
+    <div class="lg:col-span-5 order-2 lg:order-1 flex justify-center items-center w-full">
+        <div class="anim-slide-right anim-delay-2 relative w-full max-w-md h-[350px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg group mx-auto">
+            <img
+                src="<?php echo get_theme_file_uri(); ?>/assets/images/NewPictureP15.webp"
+                alt="Our Location"
+                class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
+            
+             <div class="absolute bottom-3 left-3 right-3 md:bottom-5 md:left-5 md:right-5 bg-white rounded-xl shadow-lg p-4 md:p-5">
+            <h3 class="font-extrabold text-[#5c1f2e] uppercase tracking-wide mb-1 text-base">Our Location</h3>
+            <p class="text-[#5c1f2e] text-sm">Toul Kork Primary School, Phnom Penh</p>
+        </div>
         </div>
 
-        <div class="lg:col-span-7 space-y-6 order-1 lg:order-2">
-            <h2 class="text-3xl font-extrabold text-amber-950 sm:text-4xl tracking-tight">
-                VOCATIONAL TRAINING & JOB PLACEMENT
-            </h2>
-            <h3 class="text-xl font-semibold text-amber-600">Building Life-Long Skills</h3>
-            <p class="text-gray-600 leading-relaxed">
-                Our vocational training program is the natural next step after our special education classes. We teach life-long skills that help youth over the age of 16 gain independence and prepare for future employment, opening doors to a world of opportunities.
+    </div>
+
+    <div class="lg:col-span-7 space-y-6 order-1 lg:order-2">
+        <h2 class="text-3xl font-extrabold text-amber-950 sm:text-4xl tracking-tight">
+            VOCATIONAL TRAINING & JOB PLACEMENT
+        </h2>
+        <h3 class="text-xl font-semibold text-amber-600">Building Life-Long Skills</h3>
+        <p class="text-gray-600 leading-relaxed">
+            Our vocational training program is the natural next step after our special education classes. We teach life-long skills that help youth over the age of 16 gain independence and prepare for future employment, opening doors to a world of opportunities.
+        </p>
+        <div class="space-y-4 pt-2">
+            <h4 class="text-xl font-bold text-[#623D3C]">
+                What Students Learn
+            </h4>
+            <p class="font-normal text-sm md:text-base text-amber-600">
+                Through hands-on activities and guided instruction, students develop essential skills such as:
             </p>
-            <div class="space-y-4 pt-2">
-                <h4 class="text-xl font-bold text-[#623D3C]">
-                    What Students Learn
-                </h4>
-                <p class="font-normal text-sm md:text-base text-amber-600">
-                    Through hands-on activities and guided instruction, students develop essential skills such as:
-                </p>
 
-                <ul class="space-y-2.5 pl-1">
-                    <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
-                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                        <span>Cleaning and basic hygiene routines</span>
-                    </li>
-                    <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
-                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                        <span>Preparing tables and washing dishes</span>
-                    </li>
-                    <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
-                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                        <span>Gardening and outdoor maintenance</span>
-                    </li>
-                    <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
-                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                        <span>Following instructions and working in teams</span>
-                    </li>
-                    <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
-                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                        <span>Developing a positive job attitude and social behavior</span>
-                    </li>
-                    <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
-                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                        <span>Expressing themselves through music, sports, and games</span>
-                    </li>
-                </ul>
-            </div>
+            <ul class="space-y-2.5 pl-1">
+                <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
+                    <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                    <span>Cleaning and basic hygiene routines</span>
+                </li>
+                <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
+                    <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                    <span>Preparing tables and washing dishes</span>
+                </li>
+                <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
+                    <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                    <span>Gardening and outdoor maintenance</span>
+                </li>
+                <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
+                    <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                    <span>Following instructions and working in teams</span>
+                </li>
+                <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
+                    <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                    <span>Developing a positive job attitude and social behavior</span>
+                </li>
+                <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
+                    <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                    <span>Expressing themselves through music, sports, and games</span>
+                </li>
+            </ul>
         </div>
-    </section>
+    </div>
+</section>
 
     <hr class="border-gray-200" />
 
@@ -245,67 +243,64 @@ get_header();
                 <img
                     src="https://www.rabbitschoolcambodia.net/_next/image?url=%2Fimages%2FNew%20Pictures%20P12.jpg&w=750&q=75"
                     alt="Classroom learning"
-                    class="w-full h-80 object-cover hover-target transform transition-transform duration-700 ease-out" />
+                    class="w-full h-80 object-cover hover-target transform transition-transform duration-700 ease-out " />
             </div>
         </div>
     </section>
 
     <hr class="border-gray-200" />
 
-    <section id="advocacy" class="scroll-mt-32 text-center max-w-7xl mx-auto space-y-8">
-        <div class="space-y-3">
-            <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black  text-amber-950 uppercase mb-6m">
-                ADVOCACY AND COMMUNITY BUILDING
-            </h2>
+ <section id="advocacy" class="scroll-mt-32 text-center max-w-7xl mx-auto space-y-8 flex flex-col items-center">
+    <div class="space-y-3">
+        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-amber-950 uppercase mb-6">
+            ADVOCACY AND COMMUNITY BUILDING
+        </h2>
+    </div>
+
+    <p class="text-gray-600 text-lg leading-relaxed max-w-5xl mx-auto px-4">
+        We work closely with local authorities and parents to integrate Rabbit School’s programs into the public system. At the same time, we work to break down the stigma around intellectual disabilities - promoting understanding, inclusion, and lasting change within communities. This way we are not just teaching children—we are building a more inclusive society, one where everyone is valued for who they are and the contributions they can make.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full mx-auto px-4">
+
+        <div class="bg-[#f9f6f0] rounded-2xl border border-[#e5dec9] flex flex-col items-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group cursor-pointer">
+            <a href="YOUR_LINK_HERE" class="w-full aspect-[4/3] rounded-xl overflow-hidden mb-4 block">
+                <img
+                    src="https://www.rabbitschoolcambodia.net/_next/image?url=%2Fimages%2FRun%20With%20Sai.jpg&w=1080&q=75"
+                    alt="Event run with Sai"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            </a>
+            <h3 class="text-[#6d5045] font-semibold text-lg text-center mb-2">
+                Event run with Sai
+            </h3>
         </div>
 
-        <p class="text-gray-600 text-lg leading-relaxed max-w-5xl mx-auto">
-            We work closely with local authorities and parents to integrate Rabbit School’s programs into the public system. At the same time, we work to break down the stigma around intellectual disabilities - promoting understanding, inclusion, and lasting change within communities. This way we are not just teaching children—we are building a more inclusive society, one where everyone is valued for who they are and the contributions they can make.
-        </p>
-
-
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
-
-            <div class="bg-[#f9f6f0] rounded-2xl border border-[#e5dec9]  flex flex-col items-center">
-                <div class="w-full aspect-[4/3] rounded-xl overflow-hidden mb-6">
-                    <img
-                        src="https://www.rabbitschoolcambodia.net/_next/image?url=%2Fimages%2FRun%20With%20Sai.jpg&w=1080&q=75"
-                        alt="Event run with Sai"
-                        class="w-full h-full object-cover" />
-                </div>
-                <h3 class="text-[#6d5045] font-semibold text-lg text-center mb-2">
-                    Event run with Sai
-                </h3>
-            </div>
-
-            <div class="bg-[#f9f6f0] rounded-2xl border border-[#e5dec9]  flex flex-col items-center">
-                <div class="w-full aspect-[4/3] rounded-xl overflow-hidden mb-6">
-                    <img
-                        src="https://www.rabbitschoolcambodia.net/_next/image?url=%2Fimages%2FNew%20Picture%2013.jpg&w=1080&q=75"
-                        alt="Parent's Training"
-                        class="w-full h-full object-cover" />
-                </div>
-                <h3 class="text-[#6d5045] font-semibold text-lg text-center mb-2">
-                    Parent's Training
-                </h3>
-            </div>
-
-            <div class="bg-[#f9f6f0] rounded-2xl border border-[#623D3C]  flex flex-col items-center">
-                <div class="w-full aspect-[4/3] rounded-xl overflow-hidden mb-6">
-                    <img
-                        src="https://www.rabbitschoolcambodia.net/_next/image?url=%2Fimages%2FNational%20Forum.jpg&w=1080&q=75"
-                        alt="Participation in Employment National Forum"
-                        class="w-full h-full object-cover " />
-                </div>
-                <h3 class="text-[#6d5045] font-semibold text-lg text-center max-w-[250px] mb-2 leading-snug">
-                    Participation in Employment National Forum
-                </h3>
-            </div>
-
+        <div class="bg-[#f9f6f0] rounded-2xl border border-[#e5dec9] flex flex-col items-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group cursor-pointer">
+            <a href="YOUR_LINK_HERE" class="w-full aspect-[4/3] rounded-xl overflow-hidden mb-4 block">
+                <img
+                    src="https://www.rabbitschoolcambodia.net/_next/image?url=%2Fimages%2FNew%20Picture%2013.jpg&w=1080&q=75"
+                    alt="Parent's Training"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            </a>
+            <h3 class="text-[#6d5045] font-semibold text-lg text-center mb-2">
+                Parent's Training
+            </h3>
         </div>
-    </section>
 
+        <div class="bg-[#f9f6f0] rounded-2xl border border-[#623D3C] flex flex-col items-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group cursor-pointer">
+            <a href="YOUR_LINK_HERE" class="w-full aspect-[4/3] rounded-xl overflow-hidden mb-4 block">
+                <img
+                    src="https://www.rabbitschoolcambodia.net/_next/image?url=%2Fimages%2FNational%20Forum.jpg&w=1080&q=75"
+                    alt="Participation in Employment National Forum"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            </a>
+            <h3 class="text-[#6d5045] font-semibold text-lg text-center max-w-[250px] mb-2 leading-snug">
+                Participation in Employment National Forum
+            </h3>
+        </div>
+
+    </div>
+</section>
 </main>
 
 <?php
