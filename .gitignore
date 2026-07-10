@@ -20,8 +20,9 @@ wp-config.php
 
 # Ignore ALL themes EXCEPT your custom theme
 /wp-content/themes/*
+!/wp-content/themes/
 !/wp-content/themes/rabbit_school/
 
-# Tailwind & Node.js Ignores (Fixes your environment push)
+# Tailwind & Node.js Ignores
 **/node_modules/
 **/.DS_Store
