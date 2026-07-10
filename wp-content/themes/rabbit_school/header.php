@@ -64,13 +64,27 @@
                               </div>
                         </div>
 
-                        <a href="#" class="group bg-brand-yellow text-brand-brown font-bold text-sm px-[24px] py-[10px] rounded-[8px] shadow-sm hover:scale-105 active:scale-95 transition-all flex gap-2 items-center tracking-wider uppercase">
-                              <span class="icon-[solar--heart-bold] w-5 h-5"></span>
-                              <span>Donate</span>
-                              <div class="hidden sm:inline-flex items-center transition-all duration-300 transform opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0">
+                        <?php
+                        $locations = get_nav_menu_locations();
+                        if ( isset( $locations['donate'] ) && $menu = wp_get_nav_menu_object( $locations['donate'] ) ) {
+                        $menu_items = wp_get_nav_menu_items( $menu->term_id );
+                        if ( ! empty( $menu_items ) ) {
+                              $donate = $menu_items[0];
+                              
+                              // Dynamic Title: Fallback to a translatable string if the menu item title is empty
+                              $btn_title = ! empty( $donate->title ) ? $donate->title : __( 'Donate', 'rabbit-school' );
+                              ?>
+                              <a href="<?php echo esc_url( $donate->url ); ?>" class="group bg-brand-yellow text-brand-brown font-bold text-sm px-[24px] py-[10px] rounded-[8px] shadow-sm hover:scale-105 active:scale-95 transition-all flex gap-2 items-center tracking-wider uppercase">
+                                    <span class="icon-[solar--heart-bold] w-5 h-5"></span>
+                                    <span class="font-sans"><?php echo esc_html( $btn_title ); ?></span>
+                                    <div class="hidden sm:inline-flex items-center transition-all duration-300 transform opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0">
                                     <span class="icon-[solar--arrow-right-linear] w-5 h-5 text-brand-brown"></span>
-                              </div>
-                        </a>
+                                    </div>
+                              </a>
+                              <?php
+                        }
+                        }
+                        ?>
 
                         <button id="mobile-menu-btn" class="lg:hidden text-text-main p-2 hover:bg-gray-100 rounded-lg focus:outline-none transition-colors flex items-center justify-center" aria-label="Toggle Navigation Menu">
                               <span id="hamburger-icon-slot" class="block">

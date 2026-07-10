@@ -72,13 +72,17 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
 <div class="relative overflow-hidden">
       <img src="<?php echo esc_url($img_1_url); ?>" alt="<?php echo esc_attr($title_1); ?>" class="h-[500px] md:h-[700px] w-full object-cover">
       
-      <div class="absolute bottom-6 md:bottom-20 left-[20px] right-[20px] md:left-[100px] max-w-2xl text-text-light z-50">
-            <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
-                  <?php echo esc_html($title_1); ?>
-            </h1>
-            <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] leading-relaxed opacity-90">
-                  <?php echo esc_html($desc_1); ?>
-            </p>
+      <div class="absolute inset-0 z-50 flex items-end pb-6 md:pb-20">
+            <div class="w-full max-w-7xl mx-auto px-6 lg:px-8">
+                  <div class="max-w-2xl text-text-light">
+                        <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
+                              <?php echo esc_html($title_1); ?>
+                        </h1>
+                        <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] leading-relaxed opacity-90">
+                              <?php echo esc_html($desc_1); ?>
+                        </p>
+                  </div>
+            </div>
       </div>
 </div> 
 
@@ -86,21 +90,25 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
 <div class="relative overflow-hidden">
       <img src="<?php echo esc_url($img_2_url); ?>" alt="<?php echo esc_attr($title_2); ?>" class="h-[500px] md:h-[700px] w-full object-cover">
       
-      <div class="absolute bottom-6 md:bottom-20 left-[20px] right-[20px] md:left-[100px] max-w-2xl text-text-light z-50">
-            <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
-                  <?php echo esc_html($title_2); ?>
-            </h1>
-            <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] leading-relaxed opacity-90">
-                  <?php echo esc_html($desc_2); ?>
-            </p>
-            <?php if ( !empty($btn_2_txt) ) : ?>
-            <div class="flex justify-start mt-6">
-                  <a href="<?php echo esc_url($btn_2_lnk); ?>" class="group bg-brand-brown text-text-light font-bold text-sm px-[24px] py-[12px] rounded-[8px] shadow-lg hover:scale-105 active:scale-95 transition-all inline-flex gap-3 items-center uppercase tracking-wider">
-                        <?php echo esc_html($btn_2_txt); ?>
-                        <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
-                  </a>
+      <div class="absolute inset-0 z-50 flex items-end pb-6 md:pb-20">
+            <div class="w-full max-w-7xl mx-auto px-6 lg:px-8">
+                  <div class="max-w-2xl text-text-light">
+                        <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
+                              <?php echo esc_html($title_2); ?>
+                        </h1>
+                        <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] leading-relaxed opacity-90">
+                              <?php echo esc_html($desc_2); ?>
+                        </p>
+                        <?php if ( !empty($btn_2_txt) ) : ?>
+                        <div class="flex justify-start mt-6">
+                              <a href="<?php echo esc_url($btn_2_lnk); ?>" class="group bg-brand-brown text-text-light font-bold text-sm px-[24px] py-[12px] rounded-[8px] shadow-lg hover:scale-105 active:scale-95 transition-all inline-flex gap-3 items-center uppercase tracking-widest">
+                                    <?php echo esc_html($btn_2_txt); ?>
+                                    <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
+                              </a>
+                        </div>
+                        <?php endif; ?>
+                  </div>
             </div>
-            <?php endif; ?>
       </div>
 </div>
 
