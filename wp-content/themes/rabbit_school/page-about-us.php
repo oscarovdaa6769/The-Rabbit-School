@@ -5,7 +5,7 @@ get_header();
 
 <main class="bg-brand-cream text-text-main">
 
-    <section class="relative h-[650px] overflow-hidden">
+    <section id="about" class="relative h-[650px] overflow-hidden">
         <img src="<?php echo get_theme_file_uri('assets/images/1.webp'); ?>"
             alt=""
             class="absolute inset-0 w-full h-full object-cover">

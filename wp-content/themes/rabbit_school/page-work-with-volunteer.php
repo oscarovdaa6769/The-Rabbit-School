@@ -53,7 +53,7 @@
                 <p class="text-base md:text-lg font-medium mb-8 text-gray-200 max-w-xl leading-relaxed">
                     help create opportunities for children and youth with intellectual disabilities and autism Cambodia
                 </p>
-                <a href="#" class="bg-amber-950/90 border border-white/20 text-white px-6 py-3.5 rounded-md text-xs font-bold uppercase tracking-widest flex items-center space-x-3 hover:bg-amber-950 transition shadow-lg inline-flex decoration-none">
+                <a href="about" class="bg-amber-950/90 border border-white/20 text-white px-6 py-3.5 rounded-md text-xs font-bold uppercase tracking-widest flex items-center space-x-3 hover:bg-amber-950 transition shadow-lg inline-flex decoration-none">
                     <span>Learn More About Us</span>
                     <i class="fa-solid fa-arrow-right-long"></i>
                 </a>
