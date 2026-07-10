@@ -1,28 +1,29 @@
 # WordPress Core Ignores
-wp-admin/
-wp-includes/
-index.php
-license.txt
-readme.html
-wp-*.php
-xmlrpc.php
+/wp-admin/
+/wp-content/index.php
+/wp-content/languages
+/wp-includes/
+/index.php
+/license.txt
+/readme.html
+/wp-*.php
+/xmlrpc.php
 wp-config.php
-.htaccess
+/.htaccess
 *.log
 wp-content/index.php
 wp-content/languages/
 
 # Ignore all uploads
-wp-content/uploads/
+/wp-content/uploads/
 
 # Ignore ALL plugins 
-wp-content/plugins/
+/wp-content/plugins/
 
 # Ignore ALL themes EXCEPT your custom theme
-wp-content/themes/*
-!wp-content/themes/rabbit_school/
+/wp-content/themes/*
+!/wp-content/themes/rabbit_school/
 
-# Tailwind & Node.js Ignores
+# Tailwind & Node.js Ignores (Fixes your environment push)
 **/node_modules/
-**/package-lock.json
 **/.DS_Store

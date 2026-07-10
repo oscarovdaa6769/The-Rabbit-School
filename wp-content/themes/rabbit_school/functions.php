@@ -2,6 +2,11 @@
 function rabbit_register_menus() {
       register_nav_menus(array(
             'navigation-menu' => 'Main Header Navigation',
+<<<<<<< HEAD
+=======
+            'language-switcher' => 'Language Switcher Dropdown',
+            'donate' => 'Donate',
+>>>>>>> 0c338b92074e8356bcf2f5e73e9325df5cc5a01c
             'our-program-footer' => 'Footer - Our Program',
             'about-us-footer' => 'Footer - About Us',
             'news-footer' => 'Footer - News',
@@ -14,3 +19,5 @@ function rabbit_styles() {
       wp_enqueue_style('main-style', get_stylesheet_uri(), array(), time());
 }
 add_action('wp_enqueue_scripts', 'rabbit_styles');
+
+add_theme_support('title-tag');
