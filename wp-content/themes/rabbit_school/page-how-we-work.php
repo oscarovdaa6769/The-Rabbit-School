@@ -1,3 +1,6 @@
+
+<?php get_header();?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -298,3 +301,5 @@
 </body>
 
 </html>
+
+<?php get_footer();?>

@@ -1,18 +1,6 @@
 <?php get_header();?>
 
 <!-- section 1 -->
-<div class="relative overflow-hidden">
-      <img src="<?php echo get_theme_file_uri('assets/images/banner1.png'); ?>" alt="" class="h-[500px] md:h-[700px] w-full object-cover">
-      
-      <div class="absolute bottom-6 md:bottom-20 left-[20px] right-[20px] md:left-[100px] max-w-2xl text-text-light z-50">
-            <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4">
-                  EXTRAORDINARY LEARNING FOR EXTRAORDINARY LEARNERS
-            </h1>
-            <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] leading-relaxed opacity-90">
-                  Providing children and youth with intellectual disabilities and autism access to education, support, confidence, and skills to reach their full potential.
-            </p>
-      </div>
-</div> 
 
 <!-- section 2 -->
 <div class="relative overflow-hidden">

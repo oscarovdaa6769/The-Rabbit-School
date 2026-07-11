@@ -1,3 +1,5 @@
+<?php get_header(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,7 +68,7 @@
 
   </div>
 </div>
-   <div class="bg-[#fcd05d] rounded-2xl p-6 md:p-8 flex flex-col md:flex-row justify-between items-stretch text-left shadow-sm max-w-2xl mx-auto">
+   <div class="bg-[#fcd05d] rounded-2xl p-6 md:p-8 flex flex-col md:flex-row justify-between items-stretch text-left shadow-sm max-w-2xl mx-auto mb-50">
   <div class="space-y-3 flex-1 pr-0 md:pr-6 border-b md:border-b-0 md:border-r border-[#e3b844] pb-6 md:pb-0">
     <h3 class="text-xl font-black text-[#5c3e35] uppercase tracking-wide">ACLEDA BANK</h3>
     <p class="text-sm text-gray-900"><strong class="font-bold">SWIFT Code:</strong> ACLBKHPP</p>
@@ -138,3 +140,5 @@
 
 </body>
 </html>
+
+<?php get_footer();?>
