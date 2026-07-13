@@ -9,21 +9,21 @@ $hero_heading = get_field('hero_heading') ?: 'HERO HEADING NOT WORKING';
 $hero_text = get_field('hero_text') ?: 'HERO SUBTEXT NOT WORKING';
 
 // Card 1
-$card1_icon  = get_field('card_1_icon') ?: $fallback_img;
+
 $card1_title = get_field('card_1_title') ?: 'CARD 1 TITLE NOT WORKING';
 $card1_desc  = get_field('card_1_description') ?: 'CARD 1 DESCRIPTION NOT WORKING';
 $card1_btn_txt = get_field('card_1_button_text') ?: 'CARD 1 BUTTON TEXT NOT WORKING';
 $card1_btn_lnk = get_field('card_1_button_link') ?: '#';
 
 // Card 2
-$card2_icon  = get_field('card_2_icon') ?: $fallback_img;
+
 $card2_title = get_field('card_2_title') ?: 'CARD 2 TITLE NOT WORKING';
 $card2_desc  = get_field('card_2_description') ?: 'CARD 2 DESCRIPTION NOT WORKING';
 $card2_btn_txt = get_field('card_2_button_text') ?: 'CARD 2 BUTTON TEXT NOT WORKING';
 $card2_btn_lnk = get_field('card_2_button_link') ?: '#';
 
 // Card 3
-$card3_icon  = get_field('card_3_icon') ?: $fallback_img;
+
 $card3_title = get_field('card_3_title') ?: 'CARD 3 TITLE NOT WORKING';
 $card3_desc  = get_field('card_3_description') ?: 'CARD 3 DESCRIPTION NOT WORKING';
 $card3_btn_txt = get_field('card_3_button_text') ?: 'CARD 3 BUTTON TEXT NOT WORKING';
@@ -72,7 +72,7 @@ $cta_btn2_lnk = get_field('cta_button_2_link') ?: '';
       <div class="<?php echo esc_attr($colors['bg']); ?> rounded-3xl shadow-xl p-8 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl border border-white/30 group">
         <div class="mb-8">
           <div class="mb-6 p-4 bg-white/20 rounded-full w-16 h-16 flex items-center justify-center backdrop-blur-md shadow-sm border border-white/20 transition-transform duration-300 group-hover:scale-110">
-            <img src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>" loading="lazy"
+            <img src="<?php echo get_theme_file_uri('assets/icons/donation.png'); ?>" alt="<?php echo esc_attr($title); ?>" loading="lazy"
                  class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
           </div>
           <h3 class="text-2xl font-bold <?php echo esc_attr($colors['text']); ?> mb-4 tracking-tight">
