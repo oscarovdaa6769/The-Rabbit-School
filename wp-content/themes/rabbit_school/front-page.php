@@ -72,31 +72,31 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
 <div class="relative overflow-hidden">
       <img src="<?php echo esc_url($img_1_url); ?>" alt="<?php echo esc_attr($title_1); ?>" class="h-[500px] md:h-[700px] w-full object-cover">
       
-      <div class="absolute inset-0 z-50 flex items-end pb-6 md:pb-20">
+      <div class="absolute inset-0 z-50 bg-black/20 flex items-end pb-6 md:pb-20">
             <div class="w-full max-w-7xl mx-auto px-6 lg:px-8">
                   <div class="max-w-2xl text-text-light">
                         <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
                               <?php echo esc_html($title_1); ?>
                         </h1>
-                        <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] leading-relaxed opacity-90">
+                        <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
                               <?php echo esc_html($desc_1); ?>
                         </p>
                   </div>
             </div>
       </div>
-</div> 
+</div>
 
 <!-- section 2 -->
 <div class="relative overflow-hidden">
       <img src="<?php echo esc_url($img_2_url); ?>" alt="<?php echo esc_attr($title_2); ?>" class="h-[500px] md:h-[700px] w-full object-cover">
       
-      <div class="absolute inset-0 z-50 flex items-end pb-6 md:pb-20">
+      <div class="absolute inset-0 z-50 bg-black/20 flex items-end pb-6 md:pb-20">
             <div class="w-full max-w-7xl mx-auto px-6 lg:px-8">
                   <div class="max-w-2xl text-text-light">
                         <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
                               <?php echo esc_html($title_2); ?>
                         </h1>
-                        <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] leading-relaxed opacity-90">
+                        <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
                               <?php echo esc_html($desc_2); ?>
                         </p>
                         <?php if ( !empty($btn_2_txt) ) : ?>
@@ -118,13 +118,13 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
             
             <div class="flex flex-col">
-                  <span class="text-brand-brown/60 font-bold tracking-[0.2em] text-[14px] uppercase mb-3">
+                  <span class="text-brand-brown/60 font-bold tracking-[0.2em] text-[16px] uppercase mb-3">
                         <?php echo esc_html($sub_title_3); ?>
                   </span>
                   <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown mb-6 uppercase leading-tight">
                         <?php echo esc_html($title_3); ?>
                   </h2>
-                  <p class="text-text-main text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] leading-relaxed mb-8">
+                  <p class="text-text-main text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed mb-8">
                         <?php echo esc_html($desc_3); ?>
                   </p>
                   <?php if ( !empty($btn_3_txt) ) : ?>
@@ -157,7 +157,7 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
                   <?php echo esc_html($title_4); ?>
             </h2>
             <div class="w-20 h-1.5 bg-brand-brown mx-auto mb-8 rounded-full"></div>
-            <p class="max-w-3xl mx-auto text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] text-brand-brown leading-relaxed font-medium mb-16 opacity-90">
+            <p class="max-w-3xl mx-auto text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] text-brand-brown leading-relaxed font-medium mb-16 opacity-90">
                   <?php echo esc_html($desc_4); ?>
             </p>
 
@@ -171,7 +171,7 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
                         <h3 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown mb-4 tracking-tighter">
                               <?php echo esc_html($item[1]); ?>
                         </h3>
-                        <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] text-text-main leading-relaxed font-medium opacity-80">
+                        <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] text-text-main leading-relaxed font-medium opacity-80">
                               <?php echo esc_html($item[2]); ?>
                         </p>
                   </div>
@@ -188,7 +188,7 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
             <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase mb-3">
                   <?php echo esc_html(get_field('title_5_1') ?: 'TITLE 5_1 NOT WORKING'); ?>
             </h2>
-            <p class="max-w-3xl mx-auto text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] text-text-main/80 leading-relaxed font-medium">
+            <p class="max-w-3xl mx-auto text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] text-text-main/80 leading-relaxed font-medium">
                   <?php echo esc_html(get_field('description_5') ?: 'DESCRIPTION 5 NOT WORKING'); ?>
             </p>
       </div>
@@ -270,13 +270,13 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
                   </div>
                   
                   <div class="flex flex-col">
-                        <span class="text-brand-brown/60 font-bold tracking-[0.2em] text-xs uppercase mb-3">
+                        <span class="text-brand-brown/60 font-bold tracking-[0.2em] text-[16px] uppercase mb-3">
                               <?php echo esc_html($sub_title_6); ?>
                         </span>
-                        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-brand-brown mb-6 leading-tight">
+                        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-brand-brown mb-6 leading-tight uppercase">
                               <?php echo esc_html($title_6); ?>
                         </h2>
-                        <p class="text-text-main text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] leading-relaxed mb-8">
+                        <p class="text-text-main text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed mb-8">
                               <?php echo esc_html($desc_6); ?>
                         </p>
                         <div class="flex justify-start">

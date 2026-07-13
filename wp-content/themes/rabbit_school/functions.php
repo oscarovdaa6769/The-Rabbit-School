@@ -18,3 +18,9 @@ function rabbit_styles() {
 add_action('wp_enqueue_scripts', 'rabbit_styles');
 
 add_theme_support('title-tag');
+
+add_action( 'init', function() {
+    if ( function_exists( 'pll_register_string' ) ) {
+        pll_register_string( 'Header Program Label', 'Our Program', 'rabbit_school' );
+    }
+});
