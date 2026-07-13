@@ -31,37 +31,19 @@
 
                   <div class="flex items-center gap-[10px] sm:gap-4">
                         
-                        <div class="hidden sm:inline-block relative text-left group">
+                        <div class="hidden sm:inline-block text-left group">
                               <button class="text-sm font-semibold text-text-main hover:bg-brand-brown hover:text-text-light flex items-center gap-2 border border-brand-brown px-[24px] py-[10px] rounded-[8px] transition-colors duration-200 focus:outline-none">
                                     <span class="icon-[solar--global-bold] w-5 h-5"></span>
                                     
                                     <span>
-                                          <?php 
-                                          if (function_exists('pll_current_language')) {
-                                                echo pll_current_language('name'); 
-                                          } else {
-                                                echo (get_locale() === 'km' || get_locale() === 'km_KH') ? 'ខ្មែរ' : 'English'; 
-                                          }
+                                          <?php wp_nav_menu(array(
+                                          'theme_location' => 'language-switcher', 
+                                          'container' => false,)); 
                                           ?>
                                     </span>
                                     
                                     <span class="icon-[solar--alt-arrow-down-line-duotone] w-5 h-5 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"></span>
                               </button>
-
-                              <div class="absolute right-0 mt-2 w-40 origin-top-right rounded-lg bg-white border border-brand-brown shadow-lg opacity-0 invisible scale-95 translate-y-[-10px] transition-all duration-200 ease-in-out
-                              group-hover:opacity-100 group-hover:visible group-hover:scale-100 group-hover:translate-y-0
-                              group-focus-within:opacity-100 group-focus-within:visible group-focus-within:scale-100 group-focus-within:translate-y-0 z-50">
-                                    <div class="py-1 flex flex-col">
-                                          <?php 
-                                          $locations = get_nav_menu_locations();
-                                          if (isset($locations['language-switcher']) && $menu = wp_get_nav_menu_object($locations['language-switcher'])) {
-                                                foreach (wp_get_nav_menu_items($menu->term_id) as $item) {
-                                                      printf('<a href="%s" class="px-4 py-2 text-sm text-text-main hover:bg-brand-brown hover:text-text-light transition-colors duration-150">%s</a>', esc_url($item->url), esc_html($item->title));
-                                                }
-                                          }
-                                          ?>
-                                    </div>
-                              </div>
                         </div>
 
                         <?php

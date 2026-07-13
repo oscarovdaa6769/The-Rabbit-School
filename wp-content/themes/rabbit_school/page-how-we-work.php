@@ -1,37 +1,33 @@
 <?php
-
-/**
- * Template Name: How We Work Page
- */
-
+/*
+Template Name: How We Work
+*/
 get_header();
 ?>
+<!-- section 1 -->
+<section class="relative overflow-hidden">
+    <img src="<?php echo esc_url(get_field('section_1_image') ?: get_theme_file_uri('assets/images/error.png')); ?>"
+        alt="<?php echo esc_attr(get_field('section_1_title') ?: 'Error'); ?>"
+        class="h-[500px] md:h-[700px] w-full object-cover">
 
-<section class="relative bg-amber-950 text-white min-h-[480px] md:min-h-[600px] flex items-end overflow-hidden">
-    <div class="absolute inset-0 z-0">
-        <img
-            src="<?php echo get_theme_file_uri(); ?>/assets/images/NewPicturesP10.webp"
-            alt="Child leaning against a blue wall"
-            class="w-full h-full object-cover object-center transform scale-105 hover:scale-100 transition-transform duration-700 brightness-[0.85]" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-    </div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pb-16 pt-32 w-full">
-        <div class="max-w-3xl space-y-4">
-            <h1 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-white uppercase mb-6m">
-                How We Work
-            </h1>
-            <p class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed max-w-2xl drop-shadow">
-                Our programs empower children and youth with intellectual disabilities to reach their full potential through tailored education, vocational training, inclusive community building, and advocacy for lasting change.
-            </p>
+    <div class="absolute inset-0 z-50 bg-black/20 flex items-end pb-6 md:pb-20">
+        <div class="w-full max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="max-w-2xl text-text-light">
+                    <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
+                            <?php echo esc_html(get_field('section_1_title') ?: 'Error'); ?>
+                    </h1>
+                    <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
+                            <?php echo esc_html(get_field('section_1_description') ?: 'Error'); ?>
+                    </p>
+                </div>
         </div>
     </div>
 </section>
-
-<section class="pt-12 md:pt-16 text-center ">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black  uppercase mb-6  text-[#477CAF] ">
-            Learn More About Our Programs
+<!-- section 2 -->
+<section class="bg-brand-cream py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-brand-teal mb-6 leading-tight">
+            <?php echo esc_html(get_field('section_2_title') ?: 'Error'); ?>
         </h2>
     </div>
 </section>
