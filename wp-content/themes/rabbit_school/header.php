@@ -50,15 +50,19 @@
 
                               <div class="absolute right-0 mt-2 w-40 origin-top-right rounded-lg bg-white border border-brand-brown shadow-lg opacity-0 invisible scale-95 translate-y-[-10px] transition-all duration-200 ease-in-out
                               group-hover:opacity-100 group-hover:visible group-hover:scale-100 group-hover:translate-y-0
-                              group-focus-within:opacity-100 group-focus-within:visible group-focus-within:scale-100 group-focus-within:translate-y-0 z-50">
-                                    <div class="py-1 flex flex-col">
-                                          <?php 
-                                          $locations = get_nav_menu_locations();
-                                          if (isset($locations['language-switcher']) && $menu = wp_get_nav_menu_object($locations['language-switcher'])) {
-                                                foreach (wp_get_nav_menu_items($menu->term_id) as $item) {
-                                                      printf('<a href="%s" class="px-4 py-2 text-sm text-text-main hover:bg-brand-brown hover:text-text-light transition-colors duration-150">%s</a>', esc_url($item->url), esc_html($item->title));
-                                                }
-                                          }
+                              group-focus-within:opacity-100 group-focus-within:visible group-focus-within:scale-100 group-focus-within:translate-y-0 z-50"><div class="py-1 flex flex-col">
+                                          <?php
+                                          if (function_exists('pll_the_languages')):
+                                                $languages = pll_the_languages(array('raw' => 1, 'hide_if_empty' => 0));
+                                                foreach ($languages as $lang):
+                                          ?>
+                                                <a href="<?php echo esc_url($lang['url']); ?>"
+                                                   class="px-4 py-2 text-sm transition-colors duration-150 <?php echo $lang['current_lang'] ? 'bg-brand-brown text-text-light' : 'text-text-main hover:bg-brand-brown hover:text-text-light'; ?>">
+                                                      <?php echo esc_html($lang['name']); ?>
+                                                </a>
+                                          <?php
+                                                endforeach;
+                                          endif;
                                           ?>
                                     </div>
                               </div>
@@ -102,8 +106,7 @@
                         <?php wp_nav_menu(array(
                               'theme_location' => 'navigation-menu', 
                               'container' => false, 
-                              'menu_class' => 'flex flex-col gap-1 font-semibold text-sm
-                              [&_a]:block [&_a]:px-4 [&_a]:py-3 [&_a]:rounded-lg
+                              'menu_class' => 'flex flex-col gap-1 font-semibold text-sm[&_a]:block [&_a]:px-4 [&_a]:py-3 [&_a]:rounded-lg
                               [&_a:hover]:bg-brand-brown [&_a:hover]:text-text-light
                               [&_.current-menu-item_a]:bg-brand-brown [&_.current-menu-item_a]:text-text-light'));?>
                   </nav>
@@ -111,8 +114,19 @@
                   <div class="sm:hidden border-t border-gray-100 pt-4 px-4 flex items-center justify-between">
                         <span class="text-xs font-bold uppercase tracking-widest text-gray-400">Select Language</span>
                         <div class="flex gap-2">
-                              <a href="?lang=en" class="px-3 py-1.5 text-xs font-semibold rounded-md bg-brand-brown text-text-light">EN</a>
-                              <a href="?lang=kh" class="px-3 py-1.5 text-xs font-semibold rounded-md border border-gray-200 text-text-main hover:bg-gray-50">KH</a>
+                              <?php
+                              if (function_exists('pll_the_languages')):
+                                    $languages = pll_the_languages(array('raw' => 1, 'hide_if_empty' => 0));
+                                    foreach ($languages as $lang):
+                              ?>
+                                    <a href="<?php echo esc_url($lang['url']); ?>"
+                                       class="px-3 py-1.5 text-xs font-semibold rounded-md <?php echo $lang['current_lang'] ? 'bg-brand-brown text-text-light' : 'border border-gray-200 text-text-main hover:bg-gray-50'; ?>">
+                                          <?php echo esc_html(strtoupper($lang['slug'])); ?>
+                                    </a>
+                              <?php
+                                    endforeach;
+                              endif;
+                              ?>
                         </div>
                   </div>
             </div>
