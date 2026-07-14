@@ -7,298 +7,323 @@ get_header();
 <!-- section 1 -->
 <section class="relative overflow-hidden">
     <img src="<?php echo esc_url(get_field('section_1_image') ?: get_theme_file_uri('assets/images/error.png')); ?>"
-        alt="<?php echo esc_attr(get_field('section_1_title') ?: 'Error'); ?>"
+        alt="<?php echo esc_attr(get_field('section_1_title') ?: 'How We Work'); ?>"
         class="h-[500px] md:h-[700px] w-full object-cover">
 
     <div class="absolute inset-0 z-50 bg-black/20 flex items-end pb-6 md:pb-20">
-        <div class="w-full max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="w-full max-w-7xl mx-auto">
                 <div class="max-w-2xl text-text-light">
                     <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
-                            <?php echo esc_html(get_field('section_1_title') ?: 'Error'); ?>
+                            <?php echo esc_html(get_field('section_1_title') ?: 'How We Work'); ?>
                     </h1>
                     <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
-                            <?php echo esc_html(get_field('section_1_description') ?: 'Error'); ?>
+                            <?php echo esc_html(get_field('section_1_description') ?: 'Our programs empower children and youth with intellectual disabilities  to reach their full potential through tailored education, vocational  training, inclusive community building, and advocacy for lasting change.'); ?>
                     </p>
                 </div>
         </div>
     </div>
 </section>
 <!-- section 2 -->
-<section class="bg-brand-cream py-16 md:py-24">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-brand-teal mb-6 leading-tight">
-            <?php echo esc_html(get_field('section_2_title') ?: 'Error'); ?>
+<section class="bg-brand-cream py-[64px] md:py-[50px] shadow-md">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-brand-teal mb-6 leading-tight text-center">
+            LEARN MORE ABOUT OUR PROGRAMS
         </h2>
+
+        <div class="flex flex-col lg:flex-row gap-[10px] lg:gap-[20px] items-center justify-between">
+                <button class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
+                    <span>Education Programs</span>
+                    <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-200"></span>
+                </button>
+                <button class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
+                    <span>Vocational Training & Job Placement</span>
+                    <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-200"></span>
+                </button>
+                <button class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
+                    <span>Teacher Training</span>
+                    <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-200"></span>
+                </button>
+                <button class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
+                    <span>Advocacy and Community Building</span>
+                    <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-200"></span>
+                </button>
+        </div>
     </div>
+
 </section>
-
-
-<div class="sticky top-0 z-50 shadow-md py-4 px-4 bg-gray-50/90 backdrop-blur-sm">
-    <div class="flex flex-wrap items-center justify-center gap-3 md:gap-4 max-w-7xl mx-auto">
-        <a href="#education" class="inline-flex items-center space-x-2 bg-stone-100/80 hover:bg-[#623D3C] text-stone-800 hover:text-white text-xs md:text-sm font-semibold py-3 px-5 rounded-xl shadow-sm hover:shadow transition-all duration-200 group">
-            <span>Education Programs</span>
-            <svg class="w-3.5 h-3.5 text-stone-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
-            </svg>
-        </a>
-
-        <a href="#vocational" class="inline-flex items-center space-x-2 bg-stone-100/80 hover:bg-[#623D3C] text-stone-800 hover:text-white text-xs md:text-sm font-semibold py-3 px-5 rounded-xl shadow-sm hover:shadow transition-all duration-200 group">
-            <span>Vocational Training & Job Placement</span>
-            <svg class="w-3.5 h-3.5 text-stone-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
-            </svg>
-        </a>
-
-        <a href="#teacher" class="inline-flex items-center space-x-2 bg-stone-100/80 hover:bg-[#623D3C] text-stone-800 hover:text-white text-xs md:text-sm font-semibold py-3 px-5 rounded-xl shadow-sm hover:shadow transition-all duration-200 group">
-            <span>Teacher Training</span>
-            <svg class="w-3.5 h-3.5 text-stone-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
-            </svg>
-        </a>
-
-        <a href="#advocacy" class="inline-flex items-center space-x-2 bg-stone-100/80 hover:bg-[#623D3C] text-stone-800 hover:text-white text-xs md:text-sm font-semibold py-3 px-5 rounded-xl shadow-sm hover:shadow transition-all duration-200 group">
-            <span>Advocacy and Community Building</span>
-            <svg class="w-3.5 h-3.5 text-stone-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
-            </svg>
-        </a>
-    </div>
-</div>
-
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
-
-    <section id="education" class="scroll-mt-32 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center hover-trigger">
-        <div class="lg:col-span-7 space-y-6">
-            <h2 class="text-3xl font-extrabold text-amber-950 sm:text-4xl tracking-tight">
-                EDUCATION PROGRAMS
+<!-- section 3 -->
+<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] font-sans">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+        
+        <div class="lg:col-span-7 flex flex-col items-start">
+            <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase mb-3 leading-tight">
+                <?php echo esc_html(get_field('section_3_title') ?: 'Education Programs'); ?>
             </h2>
-            <h3 class="text-xl font-semibold text-sky-600">Empowering Bright Minds to Embrace Life's Opportunities</h3>
-            <h5 class="text-xl font-semibold text-amber-950">Specialized Education</h5>
-
-            <p class="text-gray-600 leading-relaxed">
-                At The Rabbit School, we believe that education should adapt to the child—not the other way around. That’s why we’ve developed a flexible education model that supports children and youth with intellectual disabilities from early childhood through adolescence.We operate specialized classrooms in public schools across Cambodia for students aged 5 to 16. Each child follows an individual learning plan, designed to develop essential motor, self-help, cognitive, and social skills. Our programs lay the foundation for lifelong learning and meaningful inclusion in society.
-            </p>
-
-            <div class="space-y-4 pt-2">
-                <div class="border-l-4 border-amber-500 pl-4">
-                    <h4 class="font-bold text-gray-900">Integrated Classrooms</h4>
-                    <ul class="space-y-3 pl-2">
-                        <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-                            <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                            <span>Follow an adapted curriculum designed to their level</span>
-                        </li>
-                        <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-                            <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                            <span>Access to support services such as speech and occupational therapy</span>
-                        </li>
-                        <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-                            <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                            <span>Receive an Individual Education Plan (IEP) updated every 3 months</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="border-l-4 border-sky-500 pl-4">
-                    <h4 class="font-bold text-gray-900">Inclusive Environments</h4>
-                    <ul class="space-y-3 pl-2">
-                        <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-                            <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                            <span>Teachers receive ongoing training and support from our team</span>
-                        </li>
-                        <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-                            <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                            <span>Each child with a disability has a personalized IEP</span>
-                        </li>
-                        <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-                            <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                            <span>Follows the national curriculum and schedule with adapted teaching methods</span>
-                        </li>
-                        <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-                            <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                            <span>Focus on peer interaction, mutual respect, and building inclusive values</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="lg:col-span-5">
-            <div class="overflow-hidden rounded-xl  ">
-                <img
-                    src="https://www.rabbitschoolcambodia.net/_next/image?url=%2Fimages%2FNew%20Pictures%20P11.jpg&w=750&q=75"
-                    alt="Classroom learning"
-                    class="w-full h-80 object-cover hover-target transform transition-transform duration-700 ease-out" />
-            </div>
-        </div>
-    </section>
-
-    <hr class="border-gray-200" />
-
-   <section id="vocational" class="scroll-mt-32 grid grid-cols-1 lg:grid-cols-12 gap-12 hover-trigger items-center">
-    <div class="lg:col-span-5 order-2 lg:order-1 flex justify-center items-center w-full">
-        <div class="anim-slide-right anim-delay-2 relative w-full max-w-md h-[350px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg group mx-auto">
-            <img
-                src="<?php echo get_theme_file_uri(); ?>/assets/images/NewPictureP15.webp"
-                alt="Our Location"
-                class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
             
-             <div class="absolute bottom-3 left-3 right-3 md:bottom-5 md:left-5 md:right-5 bg-white rounded-xl shadow-lg p-4 md:p-5">
-            <h3 class="font-extrabold text-[#5c1f2e] uppercase tracking-wide mb-1 text-base">Our Location</h3>
-            <p class="text-[#5c1f2e] text-sm">Toul Kork Primary School, Phnom Penh</p>
-        </div>
-        </div>
-
-    </div>
-
-    <div class="lg:col-span-7 space-y-6 order-1 lg:order-2">
-        <h2 class="text-3xl font-extrabold text-amber-950 sm:text-4xl tracking-tight">
-            VOCATIONAL TRAINING & JOB PLACEMENT
-        </h2>
-        <h3 class="text-xl font-semibold text-amber-600">Building Life-Long Skills</h3>
-        <p class="text-gray-600 leading-relaxed">
-            Our vocational training program is the natural next step after our special education classes. We teach life-long skills that help youth over the age of 16 gain independence and prepare for future employment, opening doors to a world of opportunities.
-        </p>
-        <div class="space-y-4 pt-2">
-            <h4 class="text-xl font-bold text-[#623D3C]">
-                What Students Learn
-            </h4>
-            <p class="font-normal text-sm md:text-base text-amber-600">
-                Through hands-on activities and guided instruction, students develop essential skills such as:
+            <span class="text-[16px] sm:text-[18px] md:text-[20px] font-sans font-bold text-brand-blue mb-1">
+                <?php echo esc_html(get_field('section_3_subtitle') ?: 'Empowering Bright Minds to Embrace Life\'s Opportunities'); ?>
+            </span>
+            
+            <span class="text-[16px] sm:text-[18px] md:text-[20px] font-heading font-bold text-brand-brown mb-4 uppercase">
+                <?php echo esc_html(get_field('section_3_title2') ?: 'Specialized Education'); ?>
+            </span>
+            
+            <p class="text-text-muted text-[14px] sm:text-[15px] md:text-[16px] font-sans leading-relaxed mb-8">
+                <?php echo esc_html(get_field('section_3_description') ?: 'At The Rabbit School, we believe that education should adapt to the child—not the other way around. That\'s why we\'ve developed a flexible education model that supports children and youth with intellectual disabilities from early childhood through adolescence.'); ?>
             </p>
 
-            <ul class="space-y-2.5 pl-1">
-                <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
-                    <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                    <span>Cleaning and basic hygiene routines</span>
-                </li>
-                <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
-                    <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                    <span>Preparing tables and washing dishes</span>
-                </li>
-                <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
-                    <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                    <span>Gardening and outdoor maintenance</span>
-                </li>
-                <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
-                    <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                    <span>Following instructions and working in teams</span>
-                </li>
-                <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
-                    <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                    <span>Developing a positive job attitude and social behavior</span>
-                </li>
-                <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
-                    <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                    <span>Expressing themselves through music, sports, and games</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
+            <div class="mb-6 w-full">
+                <h3 class="text-[20px] sm:text-[22px] font-heading font-bold text-brand-brown mb-3 uppercase">
+                    <?php echo esc_html(get_field('integrated_title') ?: 'Integrated Classrooms'); ?>
+                </h3>
+                <ul class="list-disc list-outside pl-5 space-y-2 text-text-muted text-[14px] sm:text-[15px] md:text-[16px] font-sans marker:text-brand-brown">
+                    <?php 
+                    $integrated_items_raw = get_field('integrated_items');
+                    if (!empty($integrated_items_raw)) :
+                        $items = explode("\n", str_replace("\r", "", $integrated_items_raw));
 
-    <hr class="border-gray-200" />
+                        foreach ($items as $item) :
+                            $trimmed_item = trim($item);
+                            if (!empty($trimmed_item)) : ?>
+                                <li><?php echo esc_html($trimmed_item); ?></li>
+                            <?php endif;
+                        endforeach;
+                    else :
+                        ?>
+                        <li>Follow an adapted curriculum designed to their level</li>
+                        <li>Access to support services such as speech and occupational therapy</li>
+                        <li>Receive an Individual Education Plan (IEP) updated every 3 months</li>
+                    <?php endif; ?>
+                </ul>
+            </div>
 
-    <section id="teacher" class="scroll-mt-32 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center hover-trigger">
-        <div class="lg:col-span-7 space-y-6">
-            <h2 class="text-3xl font-extrabold text-amber-950 sm:text-4xl tracking-tight">
-                TEACHER TRAINING
-            </h2>
-            <h3 class="text-xl font-semibold text-sky-600">Building Teacher Capacity for Inclusive Education</h3>
-            <p class="text-gray-600 leading-relaxed">
-                Since 2010, Rabbit School has been training teachers to provide inclusive, individualized education for children with intellectual disabilities and autism. With initial support from the University of London, our training focused on quality teaching, child-friendly methods, and practical tools for working with children with special needs.Our goal is to expand these specialized services across Cambodia—ensuring more educators are equipped to help all children thrive.
-            </p>
-
-            <div class="space-y-4 pt-2">
-                <h4 class="font-bold text-amber-950 text-xl">What we Do:</h4>
-                <ul class="space-y-3 pl-2">
-                    <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                        <span> Train teachers to assess students and develop Individual Education Plans (IEPs) tailored to each child’s abilities and needs.</span>
-                    </li>
-                    <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                        <span>Organize monthly teacher meetings to reflect on challenges, share solutions, and improve communication with students.</span>
-                    </li>
-                    <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                        <span>Offer ongoing training in Phnom Penh and provinces, not only for teachers, but also for school directors, education authorities, commune committees, and civil society.</span>
-                    </li>
-                    <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                        <span>Collaborate with NGO partners and local experts to provide continuous learning opportunities for our staff.</span>
-                    </li>
-                    <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                        <span>Develop and distribute special education curricula and manuals for use by teachers and parents.</span>
-                    </li>
+            <div class="w-full">
+                <h3 class="text-[20px] sm:text-[22px] font-heading font-bold text-brand-brown mb-3 uppercase">
+                    <?php echo esc_html(get_field('inclusive_title') ?: 'Inclusive Classrooms'); ?>
+                </h3>
+                <ul class="list-disc list-outside pl-5 space-y-2 text-text-muted text-[14px] sm:text-[15px] md:text-[16px] font-sans marker:text-brand-brown">
+                    <?php 
+                    $inclusive_items_raw = get_field('inclusive_items');
+                    
+                    if (!empty($inclusive_items_raw)) :
+                        $items = explode("\n", str_replace("\r", "", $inclusive_items_raw));
+                        
+                        foreach ($items as $item) :
+                            $trimmed_item = trim($item);
+                            if (!empty($trimmed_item)) : ?>
+                                <li><?php echo esc_html($trimmed_item); ?></li>
+                            <?php endif;
+                        endforeach;
+                    else : 
+                        ?>
+                        <li>Follow an adapted curriculum designed to their level</li>
+                        <li>Access to support services such as speech and occupational therapy</li>
+                        <li>Receive an Individual Education Plan (IEP) updated every 3 Teachers receive ongoing training and support from our team</li>
+                        <li>Each child with a disability has a personalized IEP</li>
+                        <li>Follows the national curriculum and schedule with adapted teaching methods</li>
+                        <li>Focus on peer interaction, mutual respect, and building inclusive values</li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
-
-        <div class="lg:col-span-5">
-            <div class="overflow-hidden rounded-xl">
-                <img
-                    src="https://www.rabbitschoolcambodia.net/_next/image?url=%2Fimages%2FNew%20Pictures%20P12.jpg&w=750&q=75"
-                    alt="Classroom learning"
-                    class="w-full h-80 object-cover hover-target transform transition-transform duration-700 ease-out " />
+        
+        <div class="lg:col-span-5 w-full">
+            <div class="relative max-w-[500px] lg:max-w-none mx-auto">
+                <div class="absolute -top-4 -right-4 w-full h-full border-2 border-brand-yellow rounded-[24px] -z-10 hidden md:block"></div>
+                
+                <div class="w-full aspect-[4/3] rounded-[24px] overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+                    <img src="<?php echo esc_url(get_field('section_3_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" 
+                         alt="<?php echo esc_attr(get_field('section_3_title') ?: 'Education Programs'); ?>" 
+                         class="h-full w-full object-cover">
+                </div>
             </div>
-        </div>
-    </section>
-
-    <hr class="border-gray-200" />
-
- <section id="advocacy" class="scroll-mt-32 text-center max-w-7xl mx-auto space-y-8 flex flex-col items-center">
-    <div class="space-y-3">
-        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-amber-950 uppercase mb-6">
-            ADVOCACY AND COMMUNITY BUILDING
-        </h2>
-    </div>
-
-    <p class="text-gray-600 text-lg leading-relaxed max-w-5xl mx-auto px-4">
-        We work closely with local authorities and parents to integrate Rabbit School’s programs into the public system. At the same time, we work to break down the stigma around intellectual disabilities - promoting understanding, inclusion, and lasting change within communities. This way we are not just teaching children—we are building a more inclusive society, one where everyone is valued for who they are and the contributions they can make.
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full mx-auto px-4">
-
-        <div class="bg-[#f9f6f0] rounded-2xl border border-[#e5dec9] flex flex-col items-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group cursor-pointer">
-            <a href="YOUR_LINK_HERE" class="w-full aspect-[4/3] rounded-xl overflow-hidden mb-4 block">
-                <img
-                    src="https://www.rabbitschoolcambodia.net/_next/image?url=%2Fimages%2FRun%20With%20Sai.jpg&w=1080&q=75"
-                    alt="Event run with Sai"
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-            </a>
-            <h3 class="text-[#6d5045] font-semibold text-lg text-center mb-2">
-                Event run with Sai
-            </h3>
-        </div>
-
-        <div class="bg-[#f9f6f0] rounded-2xl border border-[#e5dec9] flex flex-col items-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group cursor-pointer">
-            <a href="YOUR_LINK_HERE" class="w-full aspect-[4/3] rounded-xl overflow-hidden mb-4 block">
-                <img
-                    src="https://www.rabbitschoolcambodia.net/_next/image?url=%2Fimages%2FNew%20Picture%2013.jpg&w=1080&q=75"
-                    alt="Parent's Training"
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-            </a>
-            <h3 class="text-[#6d5045] font-semibold text-lg text-center mb-2">
-                Parent's Training
-            </h3>
-        </div>
-
-        <div class="bg-[#f9f6f0] rounded-2xl border border-[#623D3C] flex flex-col items-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group cursor-pointer">
-            <a href="YOUR_LINK_HERE" class="w-full aspect-[4/3] rounded-xl overflow-hidden mb-4 block">
-                <img
-                    src="https://www.rabbitschoolcambodia.net/_next/image?url=%2Fimages%2FNational%20Forum.jpg&w=1080&q=75"
-                    alt="Participation in Employment National Forum"
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-            </a>
-            <h3 class="text-[#6d5045] font-semibold text-lg text-center max-w-[250px] mb-2 leading-snug">
-                Participation in Employment National Forum
-            </h3>
         </div>
 
     </div>
 </section>
-</main>
+<!-- section 4 -->
+<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] font-sans">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+        
+        <div class="lg:col-span-5 w-full order-2 lg:order-1">
+            <div class="relative max-w-[500px] lg:max-w-none mx-auto rounded-[24px] overflow-hidden shadow-2xl">
+                <img src="<?php echo esc_url(get_field('vocational_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" 
+                     alt="<?php echo esc_attr(get_field('vocational_title') ?: 'Vocational Training & Job Placement'); ?>" 
+                     class="w-full aspect-[4/3] md:aspect-square lg:aspect-[4/3] object-cover block">
+                
+                <div class="absolute bottom-4 left-4 right-4 bg-brand-cream p-4 rounded-xl shadow-md border border-gray-100">
+                    <span class="block text-[14px] font-sans font-bold text-text-main uppercase tracking-wider mb-1">
+                        <?php echo esc_html(get_field('location_label') ?: 'Our Location'); ?>
+                    </span>
+                    <span class="block text-[14px] font-sans text-text-muted">
+                        <?php echo esc_html(get_field('location_details') ?: 'Toul Kork Primary School, Phnom Penh'); ?>
+                    </span>
+                </div>
+            </div>
+        </div>
 
-<?php
-get_footer();
-?>
+        <div class="lg:col-span-7 flex flex-col items-start order-1 lg:order-2">
+            <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase mb-4 leading-tight">
+                <?php echo esc_html(get_field('vocational_title') ?: 'Vocational Training & Job Placement'); ?>
+            </h2>
+            
+            <span class="text-[16px] sm:text-[18px] md:text-[20px] font-sans font-bold text-brand-orange mb-3">
+                <?php echo esc_html(get_field('vocational_subtitle') ?: 'Building Life-Long Skills'); ?>
+            </span>
+            
+            <p class="text-text-muted text-[14px] sm:text-[15px] md:text-[16px] font-sans leading-relaxed mb-6">
+                <?php echo esc_html(get_field('vocational_description') ?: 'Our vocational training program is the natural next step after our special education classes. We teach life-long skills that help youth over the age of 16 gain independence and prepare for future employment, opening doors to a world of opportunities.'); ?>
+            </p>
+
+            <h3 class="text-[20px] sm:text-[22px] font-heading font-bold text-brand-brown mb-2 uppercase">
+                <?php echo esc_html(get_field('learning_title') ?: 'What Students Learn'); ?>
+            </h3>
+            
+            <p class="text-brand-orange font-sans font-medium text-[14px] sm:text-[15px] md:text-[16px] mb-4">
+                <?php echo esc_html(get_field('learning_subtitle') ?: 'Through hands-on activities and guided instruction, students develop essential skills such as:'); ?>
+            </p>
+
+            <ul class="list-disc list-outside pl-5 space-y-2 text-text-muted text-[14px] sm:text-[15px] md:text-[16px] font-sans marker:text-brand-brown">
+                <?php 
+                $vocational_skills_raw = get_field('vocational_skills');
+                
+                if (!empty($vocational_skills_raw)) :
+                    $items = explode("\n", str_replace("\r", "", $vocational_skills_raw));
+                    
+                    foreach ($items as $item) :
+                        $trimmed_item = trim($item);
+                        if (!empty($trimmed_item)) : ?>
+                            <li><?php echo esc_html($trimmed_item); ?></li>
+                        <?php endif;
+                    endforeach;
+                else : 
+                    ?>
+                    <li>Cleaning and basic hygiene routines</li>
+                    <li>Preparing tables and washing dishes</li>
+                    <li>Gardening and outdoor maintenance</li>
+                    <li>Following instructions and working in teams</li>
+                    <li>Developing a positive job attitude and social behavior</li>
+                    <li>Expressing themselves through music, sports, and games</li>
+                <?php endif; ?>
+            </ul>
+        </div>
+
+    </div>
+</section>
+<!-- section 5 -->
+<section class="max-w-7xl mx-auto py-[64px] md:py-[80px] font-sans">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+        
+        <div class="lg:col-span-7 flex flex-col items-start">
+            <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase mb-3 leading-tight">
+                <?php echo esc_html(get_field('teacher_training_title') ?: 'Teacher Training'); ?>
+            </h2>
+            
+            <span class="text-[16px] sm:text-[18px] md:text-[20px] font-sans font-bold text-brand-blue mb-4 block">
+                <?php echo esc_html(get_field('teacher_training_subtitle') ?: 'Building Teacher Capacity for Inclusive Education'); ?>
+            </span>
+            
+            <p class="text-text-muted text-[14px] sm:text-[15px] md:text-[16px] font-sans leading-relaxed mb-6">
+                <?php echo esc_html(get_field('teacher_training_description') ?: 'Since 2010, Rabbit School has been training teachers to provide inclusive, individualized education for children with intellectual disabilities and autism. With initial support from the University of London, our training focused on quality teaching, child-friendly methods, and practical tools for working with children with special needs. Our goal is to expand these specialized services across Cambodia—ensuring more educators are equipped to help all children thrive.'); ?>
+            </p>
+
+            <div class="w-full">
+                <h3 class="text-[20px] sm:text-[22px] font-heading font-bold text-brand-brown mb-3 uppercase">
+                    <?php echo esc_html(get_field('what_we_do_title') ?: 'What we Do:'); ?>
+                </h3>
+                <ul class="list-disc list-outside pl-5 space-y-2 text-text-muted text-[14px] sm:text-[15px] md:text-[16px] font-sans marker:text-brand-brown">
+                    <?php 
+                    $teacher_training_tasks_raw = get_field('teacher_training_tasks');
+                    
+                    if (!empty($teacher_training_tasks_raw)) :
+                        $items = explode("\n", str_replace("\r", "", $teacher_training_tasks_raw));
+                        
+                        foreach ($items as $item) :
+                            $trimmed_item = trim($item);
+                            if (!empty($trimmed_item)) : ?>
+                                <li><?php echo esc_html($trimmed_item); ?></li>
+                            <?php endif;
+                        endforeach;
+                    else : 
+                        ?>
+                        <li>Train teachers to assess students and develop Individual Education Plans (IEPs) tailored to each child's abilities and needs.</li>
+                        <li>Organize monthly teacher meetings to reflect on challenges, share solutions, and improve communication with students.</li>
+                        <li>Offer ongoing training in Phnom Penh and provinces, not only for teachers, but also for school directors, education authorities, commune committees, and civil society.</li>
+                        <li>Collaborate with NGO partners and local experts to provide continuous learning opportunities for our staff.</li>
+                        <li>Develop and distribute special education curricula and manuals for use by teachers and parents.</li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="lg:col-span-5 w-full">
+            <div class="relative max-w-[500px] lg:max-w-none mx-auto">
+                <div class="absolute -top-4 -right-4 w-full h-full border-2 border-brand-yellow rounded-[24px] -z-10 hidden md:block"></div>
+                
+                <div class="w-full aspect-[4/3] rounded-[24px] overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+                    <img src="<?php echo esc_url(get_field('teacher_training_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" 
+                         alt="<?php echo esc_attr(get_field('teacher_training_title') ?: 'Teacher Training'); ?>" 
+                         class="h-full w-full object-cover">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- section 6 -->
+<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] font-sans">
+    
+    <div class="max-w-5xl mx-auto text-center mb-12">
+        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase mb-4 leading-tight">
+            <?php echo esc_html(get_field('advocacy_title') ?: 'Advocacy and Community Building'); ?>
+        </h2>
+        
+        <p class="text-text-muted text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed max-w-4xl mx-auto">
+            <?php echo esc_html(get_field('advocacy_description') ?: 'We work closely with local authorities and parents to integrate Rabbit School\'s programs into the public system. At the same time, we work to break down the stigma around intellectual disabilities - promoting understanding, inclusion, and lasting change within communities. This way we are not just teaching children—we are building a more inclusive society, one where everyone is valued for who they are and the contributions they can make.'); ?>
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+    
+    <div class="bg-brand-cream border border-brand-brown/30 rounded-[24px] overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow duration-300">
+        <div class="w-full aspect-[4/3] overflow-hidden">
+            <img src="<?php echo esc_url(get_field('card_1_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" 
+                 alt="Event run with Sai" 
+                 class="w-full h-full object-cover">
+        </div>
+        <div class="p-6 flex justify-center items-center flex-grow">
+            <h4 class="text-[16px] sm:text-[18px] font-sans font-bold text-brand-brown text-center leading-tight">
+                <?php echo esc_html(get_field('card_1_label') ?: 'Event run with Sai'); ?>
+            </h4>
+        </div>
+    </div>
+
+    <div class="bg-brand-cream border border-brand-brown/30 rounded-[24px] overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow duration-300">
+        <div class="w-full aspect-[4/3] overflow-hidden">
+            <img src="<?php echo esc_url(get_field('card_2_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" 
+                 alt="Parent's Training" 
+                 class="w-full h-full object-cover">
+        </div>
+        <div class="p-6 flex justify-center items-center flex-grow">
+            <h4 class="text-[16px] sm:text-[18px] font-sans font-bold text-brand-brown text-center leading-tight">
+                <?php echo esc_html(get_field('card_2_label') ?: 'Parent\'s Training'); ?>
+            </h4>
+        </div>
+    </div>
+
+    <div class="bg-brand-cream border border-brand-brown/30 rounded-[24px] overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow duration-300">
+        <div class="w-full aspect-[4/3] overflow-hidden">
+            <img src="<?php echo esc_url(get_field('card_3_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" 
+                 alt="Participation in Employment National Forum" 
+                 class="w-full h-full object-cover">
+        </div>
+        <div class="p-6 flex justify-center items-center flex-grow">
+            <h4 class="text-[16px] sm:text-[18px] font-sans font-bold text-brand-brown text-center leading-tight">
+                <?php echo esc_html(get_field('card_3_label') ?: 'Participation in Employment National Forum'); ?>
+            </h4>
+        </div>
+    </div>
+
+</div>
+</section>
+<?php get_footer(); ?>

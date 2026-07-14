@@ -73,7 +73,7 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
       <img src="<?php echo esc_url($img_1_url); ?>" alt="<?php echo esc_attr($title_1); ?>" class="h-[500px] md:h-[700px] w-full object-cover">
       
       <div class="absolute inset-0 z-50 bg-black/20 flex items-end pb-6 md:pb-20">
-            <div class="w-full max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="w-full max-w-7xl mx-auto">
                   <div class="max-w-2xl text-text-light">
                         <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
                               <?php echo esc_html($title_1); ?>
@@ -91,7 +91,7 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
       <img src="<?php echo esc_url($img_2_url); ?>" alt="<?php echo esc_attr($title_2); ?>" class="h-[500px] md:h-[700px] w-full object-cover">
       
       <div class="absolute inset-0 z-50 bg-black/20 flex items-end pb-6 md:pb-20">
-            <div class="w-full max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="w-full max-w-7xl mx-auto">
                   <div class="max-w-2xl text-text-light">
                         <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
                               <?php echo esc_html($title_2); ?>
@@ -114,7 +114,7 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
 
 <!-- section 3 -->
 <section class="bg-white py-16 md:py-24">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
             
             <div class="flex flex-col">
@@ -259,7 +259,7 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
 
 <!-- section 6 -->
 <section class="bg-brand-teal py-16 md:py-24">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
                   
                   <div class="relative">
