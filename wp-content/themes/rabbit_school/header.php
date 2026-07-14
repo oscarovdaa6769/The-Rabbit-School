@@ -31,19 +31,49 @@
 
                   <div class="flex items-center gap-[10px] sm:gap-4">
                         
-                        <div class="hidden sm:inline-block text-left group">
+                        <div class="hidden sm:inline-block text-left group relative">
                               <button class="text-sm font-semibold text-text-main hover:bg-brand-brown hover:text-text-light flex items-center gap-2 border border-brand-brown px-[24px] py-[10px] rounded-[8px] transition-colors duration-200 focus:outline-none">
                                     <span class="icon-[solar--global-bold] w-5 h-5"></span>
                                     
                                     <span>
-                                          <?php wp_nav_menu(array(
-                                          'theme_location' => 'language-switcher', 
-                                          'container' => false,)); 
+                                          <?php 
+                                          if (function_exists('pll_current_language')) {
+                                          echo esc_html(pll_current_language('name')); 
+                                          } 
+                                          elseif (defined('ICL_LANGUAGE_CODE')) {
+                                          $languages = apply_filters('wpml_active_languages', NULL);
+                                          if (!empty($languages)) {
+                                                foreach ($languages as $l) {
+                                                      if ($l['active']) {
+                                                      echo esc_html($l['native_name']);
+                                                      break;
+                                                      }
+                                                }
+                                          }
+                                          } 
+                                          else {
+                                          $locale = get_locale();
+                                          echo esc_html($locale === 'km' || $locale === 'km_KH' ? 'Khmer' : 'English');
+                                          }
                                           ?>
                                     </span>
                                     
-                                    <span class="icon-[solar--alt-arrow-down-line-duotone] w-5 h-5 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"></span>
+                                    <span class="icon-[solar--alt-arrow-down-line-duotone] w-5 h-5 transition-transform duration-200 group-hover:rotate-180"></span>
                               </button>
+
+                              <div class="absolute right-0 pt-2 w-40 hidden group-hover:block z-50 transition-all duration-200">
+                                    <div class="bg-brand-cream border border-brand-brown/20 rounded-[12px] shadow-lg py-2
+                                                [&_ul]:list-none [&_ul]:p-0 [&_ul]:m-0 
+                                                [&_a]:block [&_a]:px-4 [&_a]:py-2 [&_a]:text-sm [&_a]:text-text-main [&_a]:font-semibold [&_a]:transition-colors [&_a]:duration-150
+                                                [&_a]:hover:bg-brand-brown [&_a]:hover:text-text-light">
+                                          <?php 
+                                          wp_nav_menu(array(
+                                          'theme_location' => 'language-switcher', 
+                                          'container'      => false,
+                                          )); 
+                                          ?>
+                                    </div>
+                              </div>
                         </div>
 
                         <?php
