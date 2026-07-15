@@ -81,6 +81,7 @@
                               <li>
                                     <a href="mailto:info@rabbitschoolcambodia.net" class="hover:text-brand-yellow transition-all flex items-start gap-2.5 group">
                                           <span class="icon-[solar--letter-bold] w-5 h-5 shrink-0 text-white/60 group-hover:text-brand-yellow transition-colors"></span>
+                                          <span class="icon-[solar--letter-linear] w-5 h-5 shrink-0 text-white/60 group-hover:text-brand-yellow transition-colors"></span>
                                           <span class="break-all">info@rabbitschoolcambodia.net</span>
                                     </a>
                               </li>
@@ -90,6 +91,11 @@
                               </li>
                               <li class="flex items-start gap-2.5">
                                     <span class="icon-[solar--map-point-bold] w-5 h-5 shrink-0 text-white/60"></span>
+                                    <span class="icon-[solar--phone-linear] w-5 h-5 shrink-0 text-white/60"></span>
+                                    <span class="leading-tight">(+855) 68 901 971<br>(+855) 17 525 815</span>
+                              </li>
+                              <li class="flex items-start gap-2.5">
+                                    <span class="icon-[solar--map-point-linear] w-5 h-5 shrink-0 text-white/60"></span>
                                     <span class="leading-snug">Toul Kork Primary School, Phnom Penh</span>
                               </li>
                         </ul>
@@ -108,6 +114,10 @@
                               </a>
                               <a href="#" class="w-8 h-8 rounded-full bg-white/5 hover:bg-brand-yellow hover:text-brand-brown flex items-center justify-center transition-all duration-300" aria-label="YouTube">
                                     <span class="icon-[solar--videocamera-record-bold] w-4 h-4"></span>
+                                    <span class="icon-[solar--users-group-rounded-linear] w-4 h-4"></span>
+                              </a>
+                              <a href="#" class="w-8 h-8 rounded-full bg-white/5 hover:bg-brand-yellow hover:text-brand-brown flex items-center justify-center transition-all duration-300" aria-label="YouTube">
+                                    <span class="icon-[solar--videocamera-record-linear] w-4 h-4"></span>
                               </a>
                         </div>
                   </div>

@@ -6,6 +6,12 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@100;300;400;700;900&family=Inter:opsz@14..32&family=Koulen&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+      <title><?php bloginfo('name'); ?> <?php wp_title(); ?></title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
       <?php wp_head(); ?>
 </head>
 <body <?php body_class('bg-brand-cream text-text-main font-sans min-h-screen flex flex-col'); ?>> 
@@ -45,6 +51,7 @@
                                           ?>
                                     </span>
                                     
+                                    <span>English</span>
                                     <span class="icon-[solar--alt-arrow-down-line-duotone] w-5 h-5 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"></span>
                               </button>
 
@@ -64,6 +71,10 @@
                                                 endforeach;
                                           endif;
                                           ?>
+                              group-focus-within:opacity-100 group-focus-within:visible group-focus-within:scale-100 group-focus-within:translate-y-0 z-50">
+                                    <div class="py-1 flex flex-col">
+                                          <a href="?lang=en" class="px-4 py-2 text-sm text-text-main hover:bg-brand-brown hover:text-text-light transition-colors duration-150">English</a>
+                                          <a href="?lang=kh" class="px-4 py-2 text-sm text-text-main hover:bg-brand-brown hover:text-text-light transition-colors duration-150">Khmer</a>
                                     </div>
                               </div>
                         </div>
@@ -89,6 +100,13 @@
                         }
                         }
                         ?>
+                        <a href="#" class="group bg-brand-yellow text-brand-brown font-bold text-sm px-[24px] py-[10px] rounded-full shadow-sm hover:scale-105 active:scale-95 transition-all flex gap-2 items-center tracking-wider uppercase">
+                              <span class="icon-[solar--heart-bold] w-5 h-5"></span>
+                              <span>Donate</span>
+                              <div class="hidden sm:inline-flex items-center transition-all duration-300 transform opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0">
+                                    <span class="icon-[solar--arrow-right-linear] w-5 h-5 text-brand-brown"></span>
+                              </div>
+                        </a>
 
                         <button id="mobile-menu-btn" class="lg:hidden text-text-main p-2 hover:bg-gray-100 rounded-lg focus:outline-none transition-colors flex items-center justify-center" aria-label="Toggle Navigation Menu">
                               <span id="hamburger-icon-slot" class="block">
@@ -107,6 +125,8 @@
                               'theme_location' => 'navigation-menu', 
                               'container' => false, 
                               'menu_class' => 'flex flex-col gap-1 font-semibold text-sm[&_a]:block [&_a]:px-4 [&_a]:py-3 [&_a]:rounded-lg
+                              'menu_class' => 'flex flex-col gap-1 font-semibold text-sm
+                              [&_a]:block [&_a]:px-4 [&_a]:py-3 [&_a]:rounded-lg
                               [&_a:hover]:bg-brand-brown [&_a:hover]:text-text-light
                               [&_.current-menu-item_a]:bg-brand-brown [&_.current-menu-item_a]:text-text-light'));?>
                   </nav>
@@ -127,6 +147,8 @@
                                     endforeach;
                               endif;
                               ?>
+                              <a href="?lang=en" class="px-3 py-1.5 text-xs font-semibold rounded-md bg-brand-brown text-text-light">EN</a>
+                              <a href="?lang=kh" class="px-3 py-1.5 text-xs font-semibold rounded-md border border-gray-200 text-text-main hover:bg-gray-50">KH</a>
                         </div>
                   </div>
             </div>

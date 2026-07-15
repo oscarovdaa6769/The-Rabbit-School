@@ -25,6 +25,8 @@ Version: 1.0
   /* Font Assignment Rules */
   --font-sans: "Inter", "Battambang", sans-serif;
   --font-heading: "Oswald", "Koulen", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --font-heading: "Oswald", sans-serif;
 }
 
 @layer utilities {
