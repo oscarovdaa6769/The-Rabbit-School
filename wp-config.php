@@ -20,7 +20,7 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'rabbit_school' );
+define( 'DB_NAME', 'rabbit_db' );
 
 /** Database username */
 define( 'DB_USER', 'root' );
