@@ -1,14 +1,11 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
       <meta charset="<?php bloginfo('charset'); ?>">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title><?php bloginfo('name'); ?> <?php wp_title(); ?></title>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@100;300;400;700;900&family=Inter:opsz@14..32&family=Koulen&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
       <?php wp_head(); ?>
 </head>
 <body <?php body_class('bg-brand-cream text-text-main font-sans min-h-screen flex flex-col'); ?>> 
@@ -37,7 +34,17 @@
                         <div class="hidden sm:inline-block relative text-left group">
                               <button class="text-sm font-semibold text-text-main hover:bg-brand-brown hover:text-text-light flex items-center gap-2 border border-brand-brown px-[24px] py-[10px] rounded-[8px] transition-colors duration-200 focus:outline-none">
                                     <span class="icon-[solar--global-bold] w-5 h-5"></span>
-                                    <span>English</span>
+                                    
+                                    <span>
+                                          <?php 
+                                          if (function_exists('pll_current_language')) {
+                                                echo pll_current_language('name'); 
+                                          } else {
+                                                echo (get_locale() === 'km' || get_locale() === 'km_KH') ? 'ខ្មែរ' : 'English'; 
+                                          }
+                                          ?>
+                                    </span>
+                                    
                                     <span class="icon-[solar--alt-arrow-down-line-duotone] w-5 h-5 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"></span>
                               </button>
 
@@ -45,19 +52,44 @@
                               group-hover:opacity-100 group-hover:visible group-hover:scale-100 group-hover:translate-y-0
                               group-focus-within:opacity-100 group-focus-within:visible group-focus-within:scale-100 group-focus-within:translate-y-0 z-50">
                                     <div class="py-1 flex flex-col">
-                                          <a href="?lang=en" class="px-4 py-2 text-sm text-text-main hover:bg-brand-brown hover:text-text-light transition-colors duration-150">English</a>
-                                          <a href="?lang=kh" class="px-4 py-2 text-sm text-text-main hover:bg-brand-brown hover:text-text-light transition-colors duration-150">Khmer</a>
+                                          <?php
+                                          if (function_exists('pll_the_languages')):
+                                                $languages = pll_the_languages(array('raw' => 1, 'hide_if_empty' => 0));
+                                                foreach ($languages as $lang):
+                                          ?>
+                                                <a href="<?php echo esc_url($lang['url']); ?>"
+                                                   class="px-4 py-2 text-sm transition-colors duration-150 <?php echo $lang['current_lang'] ? 'bg-brand-brown text-text-light' : 'text-text-main hover:bg-brand-brown hover:text-text-light'; ?>">
+                                                      <?php echo esc_html($lang['name']); ?>
+                                                </a>
+                                          <?php
+                                                endforeach;
+                                          endif;
+                                          ?>
                                     </div>
                               </div>
                         </div>
 
-                        <a href="#" class="group bg-brand-yellow text-brand-brown font-bold text-sm px-[24px] py-[10px] rounded-full shadow-sm hover:scale-105 active:scale-95 transition-all flex gap-2 items-center tracking-wider uppercase">
-                              <span class="icon-[solar--heart-bold] w-5 h-5"></span>
-                              <span>Donate</span>
-                              <div class="hidden sm:inline-flex items-center transition-all duration-300 transform opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0">
+                        <?php
+                        $locations = get_nav_menu_locations();
+                        if ( isset( $locations['donate'] ) && $menu = wp_get_nav_menu_object( $locations['donate'] ) ) {
+                        $menu_items = wp_get_nav_menu_items( $menu->term_id );
+                        if ( ! empty( $menu_items ) ) {
+                              $donate = $menu_items[0];
+                              
+                              // Dynamic Title: Fallback to a translatable string if the menu item title is empty
+                              $btn_title = ! empty( $donate->title ) ? $donate->title : __( 'Donate', 'rabbit-school' );
+                              ?>
+                              <a href="<?php echo esc_url( $donate->url ); ?>" class="group bg-brand-yellow text-brand-brown font-bold text-sm px-[24px] py-[10px] rounded-[8px] shadow-sm hover:scale-105 active:scale-95 transition-all flex gap-2 items-center tracking-wider uppercase">
+                                    <span class="icon-[solar--heart-bold] w-5 h-5"></span>
+                                    <span class="font-sans"><?php echo esc_html( $btn_title ); ?></span>
+                                    <div class="hidden sm:inline-flex items-center transition-all duration-300 transform opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0">
                                     <span class="icon-[solar--arrow-right-linear] w-5 h-5 text-brand-brown"></span>
-                              </div>
-                        </a>
+                                    </div>
+                              </a>
+                              <?php
+                        }
+                        }
+                        ?>
 
                         <button id="mobile-menu-btn" class="lg:hidden text-text-main p-2 hover:bg-gray-100 rounded-lg focus:outline-none transition-colors flex items-center justify-center" aria-label="Toggle Navigation Menu">
                               <span id="hamburger-icon-slot" class="block">
@@ -84,8 +116,19 @@
                   <div class="sm:hidden border-t border-gray-100 pt-4 px-4 flex items-center justify-between">
                         <span class="text-xs font-bold uppercase tracking-widest text-gray-400">Select Language</span>
                         <div class="flex gap-2">
-                              <a href="?lang=en" class="px-3 py-1.5 text-xs font-semibold rounded-md bg-brand-brown text-text-light">EN</a>
-                              <a href="?lang=kh" class="px-3 py-1.5 text-xs font-semibold rounded-md border border-gray-200 text-text-main hover:bg-gray-50">KH</a>
+                              <?php
+                              if (function_exists('pll_the_languages')):
+                                    $languages = pll_the_languages(array('raw' => 1, 'hide_if_empty' => 0));
+                                    foreach ($languages as $lang):
+                              ?>
+                                    <a href="<?php echo esc_url($lang['url']); ?>"
+                                       class="px-3 py-1.5 text-xs font-semibold rounded-md <?php echo $lang['current_lang'] ? 'bg-brand-brown text-text-light' : 'border border-gray-200 text-text-main hover:bg-gray-50'; ?>">
+                                          <?php echo esc_html(strtoupper($lang['slug'])); ?>
+                                    </a>
+                              <?php
+                                    endforeach;
+                              endif;
+                              ?>
                         </div>
                   </div>
             </div>

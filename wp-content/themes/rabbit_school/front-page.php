@@ -2,7 +2,7 @@
 
 <!-- section 1 -->
 <div class="relative overflow-hidden">
-      <img src="<?php echo get_theme_file_uri('assets/images/banner1.png'); ?>" alt="" class="h-[500px] md:h-[700px] w-full object-cover">
+      <img src="<?php echo get_theme_file_uri('assets/images/2.png'); ?>" alt="" class="h-[500px] md:h-[700px] w-full object-cover">
       
       <div class="absolute bottom-6 md:bottom-20 left-[20px] right-[20px] md:left-[100px] max-w-2xl text-text-light z-50">
             <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4">
