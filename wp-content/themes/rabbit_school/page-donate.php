@@ -1,3 +1,11 @@
+<?php
+/*
+Template Name: videos
+Template Post Type: post, page, product
+*/
+get_header();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,24 +27,39 @@
   
   <div class="text-center max-w-2xl mx-auto mb-10">
     <h2 class="text-3xl font-extrabold text-[#5c3e35] uppercase tracking-wide mb-4">
-      Donate Now
+       <?php echo esc_html(get_field('heading_1')?: 'error'); ?>
     </h2>
     <p class="text-sm md:text-base text-gray-600 leading-relaxed ">
-      Your donation will help us continue to deliver critical support to the community and life transforming education opportunities for the most vulnerable. All donations are processed via our secure online payment portal. Simply complete the donation form below or contact your local office for support.
+       <?php echo esc_html(get_field('paragraph_1')?: 'error'); ?>
     </p>
   </div>
 
   <div class="space-y-10">
     
     <div class="space-y-3">
-      <h3 class="text-xl font-bold text-[#5c3e35]">Give In-Kind</h3>
+      <h3 class="text-xl font-bold text-[#5c3e35]"> <?php echo esc_html(get_field('heading_2')?: 'error'); ?></h3>
       <p class="text-sm md:text-base text-gray-700">
-        If you would like to contribute with resources, these are things that are needed most:
+        <?php echo esc_html(get_field('paragraph_2')?: 'error'); ?>
       </p>
       <ul class="space-y-2 pl-5 list-disc text-sm md:text-base text-gray-600 marker:text-gray-700">
+        <?php 
+        $Give_In_Kind = get_field('Give_In_Kind');
+                    
+          if (!empty($Give_In_Kind)) :
+            $items = explode("\n", str_replace("\r", "", $Give_In_Kind));
+                        
+              foreach ($items as $item) :
+                $trimmed_item = trim($item);
+                  if (!empty($trimmed_item)) : ?>
+                    <li><?php echo esc_html($trimmed_item); ?></li>
+                      <?php endif;
+                    endforeach;
+                  else : 
+                        ?>
         <li>School materials such as books, pencils, DVDs (player) and educational games</li>
         <li>Children's books in Khmer</li>
         <li>Physiotherapy special devices and toys</li>
+        <?php endif; ?>
       </ul>
     </div>
 
@@ -49,18 +72,33 @@
       </div>
       
       <ul class="space-y-3 pl-5 list-disc text-sm md:text-base text-gray-600  marker:text-gray-700">
+        <?php 
+        $Financial = get_field('Financial');
+                    
+          if (!empty($Financial)) :
+            $items = explode("\n", str_replace("\r", "", $Financial));
+                        
+              foreach ($items as $item) :
+                $trimmed_item = trim($item);
+                  if (!empty($trimmed_item)) : ?>
+                    <li><?php echo esc_html($trimmed_item); ?></li>
+                      <?php endif;
+                    endforeach;
+                  else : 
+                  ?>
         <li>
           <strong class="font-bold text-[#FF8D28]">$60</strong> opens the classroom door for one month.
         </li>
         <li>
           <strong class="font-bold text-[#FF8D28]">$800</strong> keeps that door open for a full year—giving one child safety, routine, and a chance to grow.
         </li>
+        <?php endif; ?>
       </ul>
     </div>
 
     <div class="pt-4 border-t border-gray-100">
       <p class="text-sm md:text-base font-semibold text-gray-900 leading-normal">
-        If you would like to make a financial contribution, please deposit your donation to the following bank account:
+        <?php echo esc_html(get_field('paragraph_5')?: 'error'); ?>
       </p>
     </div>
 
@@ -138,3 +176,4 @@
 
 </body>
 </html>
+<?php get_footer(); ?>
