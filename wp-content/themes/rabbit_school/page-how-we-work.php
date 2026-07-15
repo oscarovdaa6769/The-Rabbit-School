@@ -11,7 +11,7 @@ get_header();
         class="h-[500px] md:h-[700px] w-full object-cover">
 
     <div class="absolute inset-0 z-50 bg-black/20 flex items-end pb-6 md:pb-20">
-        <div class="w-full max-w-7xl mx-auto">
+        <div class="w-full max-w-7xl mx-auto px-4 md:px-[20px]">
                 <div class="max-w-2xl text-text-light">
                     <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
                             <?php echo esc_html(get_field('section_1_title') ?: 'How We Work'); ?>
@@ -24,35 +24,35 @@ get_header();
     </div>
 </section>
 <!-- section 2 -->
-<section class="bg-brand-cream py-[64px] md:py-[50px] shadow-md">
+<section class="bg-brand-cream py-[64px] md:py-[50px] px-4 md:px-[20px] shadow-md">
     <div class="max-w-7xl mx-auto">
         <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-brand-teal mb-6 leading-tight text-center">
-            LEARN MORE ABOUT OUR PROGRAMS
+            <?php echo esc_html(get_field('section_2_title') ?: 'LEARN MORE ABOUT OUR PROGRAMS'); ?>
         </h2>
 
-        <div class="flex flex-col lg:flex-row gap-[10px] lg:gap-[20px] items-center justify-between">
-                <button class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
-                    <span>Education Programs</span>
+        <div class="flex flex-col lg:flex-row gap-[10px] lg:gap-[20px] items-center justify-center">
+                <a href="<?php echo esc_url('section_2_button_link') ?>" class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
+                    <span><?php echo esc_html(get_field('section_2_button_text') ?: 'Education Programs'); ?></span>
                     <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-200"></span>
-                </button>
-                <button class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
-                    <span>Vocational Training & Job Placement</span>
+                </a>
+                <a href="<?php echo esc_url('section_2_button_2_link') ?>" class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
+                    <span><?php echo esc_html(get_field('section_2_button_2_text') ?: 'Vocational Training & Job Placement'); ?></span>
                     <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-200"></span>
-                </button>
-                <button class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
-                    <span>Teacher Training</span>
+                </a>
+                <a href="<?php echo esc_url('section_2_button_3_link') ?>" class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
+                    <span><?php echo esc_html(get_field('section_2_button_3_text') ?: 'Teacher Training'); ?></span>
                     <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-200"></span>
-                </button>
-                <button class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
-                    <span>Advocacy and Community Building</span>
+                </a>
+                <a href="<?php echo esc_url('section_2_button_4_link') ?>" class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
+                    <span><?php echo esc_html(get_field('section_2_button_4_text') ?: 'Advocacy and Community Building'); ?></span>
                     <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-200"></span>
-                </button>
+                </a>
         </div>
     </div>
 
 </section>
 <!-- section 3 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] font-sans">
+<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-4 md:px-[20px] font-sans">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
         
         <div class="lg:col-span-7 flex flex-col items-start">
@@ -142,7 +142,7 @@ get_header();
     </div>
 </section>
 <!-- section 4 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] font-sans">
+<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-4 md:px-[20px] font-sans">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
         
         <div class="lg:col-span-5 w-full order-2 lg:order-1">
@@ -211,7 +211,7 @@ get_header();
     </div>
 </section>
 <!-- section 5 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[80px] font-sans">
+<section class="max-w-7xl mx-auto py-[64px] md:py-[80px] px-4 md:px-[20px] font-sans">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
         
         <div class="lg:col-span-7 flex flex-col items-start">
@@ -271,7 +271,7 @@ get_header();
     </div>
 </section>
 <!-- section 6 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] font-sans">
+<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-4 md:px-[20px] font-sans">
     
     <div class="max-w-5xl mx-auto text-center mb-12">
         <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase mb-4 leading-tight">
