@@ -9,7 +9,7 @@ get_header();
 // Hero
 $hero_title = get_field('hero_title');
 $hero_description = get_field('hero_description');
-$hero_background_image = get_field('hero_background_image');
+$hero_image = get_field('hero_image');
 
 // Learn More
 $learn_more_title = get_field('learn_more_title');
@@ -80,21 +80,29 @@ $advocacy_description = get_field('advocacy_description');
 
 $card_1_title = get_field('card_1_title');
 $card_1_image = get_field('card_1_image');
+$card_1_link = get_field('card_1_link');
+
 
 $card_2_title = get_field('card_2_title');
 $card_2_image = get_field('card_2_image');
+$card_2_link = get_field('card_2_link');
+
 
 $card_3_title = get_field('card_3_title');
 $card_3_image = get_field('card_3_image');
+$card_3_link = get_field('card_3_link');
+
 
 ?>
 
 <section class="relative bg-amber-950 text-white min-h-[480px] md:min-h-[600px] flex items-end overflow-hidden">
     <div class="absolute inset-0 z-0">
-        <img
-            src="<?php echo get_theme_file_uri(); ?>/assets/images/NewPicturesP10.webp"
-            alt="Child leaning against a blue wall"
-            class="w-full h-full object-cover object-center transform scale-105 hover:scale-100 transition-transform duration-700 brightness-[0.85]" />
+        <?php if ($hero_image): ?>
+            <img
+                src="<?php echo esc_url($hero_image['url']); ?>"
+                alt="<?php echo esc_attr($hero_image['alt']); ?>"
+                class="w-full h-full object-cover object-center">
+        <?php endif; ?>
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
     </div>
 
@@ -173,55 +181,57 @@ $card_3_image = get_field('card_3_image');
                 <div class="border-l-4 border-amber-500 pl-4">
                     <h4 class="font-bold text-gray-900"><?php echo esc_html($education_subtitle_2); ?> </h4>
                     <ul class="space-y-3 pl-2">
-    <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-        <span><?php echo esc_html($education_description_2_1); ?></span>
-    </li>
+                        <li class="flex items-start text-gray-600 font-medium leading-relaxed">
+                            <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                            <span><?php echo esc_html($education_description_2_1); ?></span>
+                        </li>
 
-    <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-        <span><?php echo esc_html($education_description_2_2); ?></span>
-    </li>
+                        <li class="flex items-start text-gray-600 font-medium leading-relaxed">
+                            <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                            <span><?php echo esc_html($education_description_2_2); ?></span>
+                        </li>
 
-    <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-        <span><?php echo esc_html($education_description_2_3); ?></span>
-    </li>
-</ul>
+                        <li class="flex items-start text-gray-600 font-medium leading-relaxed">
+                            <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                            <span><?php echo esc_html($education_description_2_3); ?></span>
+                        </li>
+                    </ul>
                 </div>
                 <div class="border-l-4 border-sky-500 pl-4">
                     <h4 class="font-bold text-gray-900"><?php echo esc_html($education_subtitle_3); ?></h4>
                     <ul class="space-y-3 pl-2">
-    <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-        <span><?php echo esc_html($education_description_3_1); ?></span>
-    </li>
+                        <li class="flex items-start text-gray-600 font-medium leading-relaxed">
+                            <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                            <span><?php echo esc_html($education_description_3_1); ?></span>
+                        </li>
 
-    <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-        <span><?php echo esc_html($education_description_3_2); ?></span>
-    </li>
+                        <li class="flex items-start text-gray-600 font-medium leading-relaxed">
+                            <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                            <span><?php echo esc_html($education_description_3_2); ?></span>
+                        </li>
 
-    <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-        <span><?php echo esc_html($education_description_3_3); ?></span>
-    </li>
+                        <li class="flex items-start text-gray-600 font-medium leading-relaxed">
+                            <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                            <span><?php echo esc_html($education_description_3_3); ?></span>
+                        </li>
 
-    <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-        <span><?php echo esc_html($education_description_3_4); ?></span>
-    </li>
-</ul>
+                        <li class="flex items-start text-gray-600 font-medium leading-relaxed">
+                            <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                            <span><?php echo esc_html($education_description_3_4); ?></span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
 
         <div class="lg:col-span-5">
             <div class="overflow-hidden rounded-xl  ">
-                <img
-                    src="https://www.rabbitschoolcambodia.net/_next/image?url=%2Fimages%2FNew%20Pictures%20P11.jpg&w=750&q=75"
-                    alt="Classroom learning"
-                    class="w-full h-80 object-cover hover-target transform transition-transform duration-700 ease-out" />
+                <?php if ($vocational_image): ?>
+                    <img
+                        src="<?php echo esc_url($vocational_image['url']); ?>"
+                        alt="<?php echo esc_attr($vocational_image['alt']); ?>"
+                        class="w-full h-full object-cover object-center">
+                <?php endif; ?>
             </div>
         </div>
     </section>
@@ -233,10 +243,18 @@ $card_3_image = get_field('card_3_image');
 
             <!-- RIGHT: Location Image Card -->
             <div class=" anim-slide-right anim-delay-2 relative w-full h-[300px] md:h-[400px] lg:h-[0%] rounded-2xl overflow-hidden shadow-lg group">
-                <img
-                    src="<?php echo get_theme_file_uri(); ?>/assets/images/NewPictureP15.webp"
-                    alt="Our Location"
-                    class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
+                <?php if (
+                    $vocational_image
+                ): ?>
+                    <img
+                        src="<?php echo esc_url(
+                                    $vocational_image['url']
+                                ); ?>"
+                        alt="<?php echo esc_attr(
+                                    $vocational_image['alt']
+                                ); ?>"
+                        class="w-full h-full object-cover object-center">
+                <?php endif; ?>
                 <div class="absolute bottom-3 left-3 right-3 md:bottom-5 md:left-5 md:right-5 bg-white rounded-xl shadow-lg p-4 md:p-5">
                     <h3 class="font-extrabold text-[#5c1f2e] uppercase tracking-wide mb-1 text-base"> <?php echo esc_html($vocational_location_title); ?> </h3>
                     <p class="text-[#5c1f2e] text-sm"> <?php echo esc_html($vocational_location_name); ?> </p>
@@ -256,38 +274,38 @@ $card_3_image = get_field('card_3_image');
                 <h4 class="text-xl font-bold text-[#623D3C]">
                     <?php echo esc_html($vocational_subtitle_2); ?> </h4>
                 <p class="font-normal text-sm md:text-base text-amber-600">
-    <?php echo esc_html($vocational_small_title); ?>                </p>
-<ul class="space-y-2.5 pl-1">
-    <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
-        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-        <span><?php echo esc_html($vocational_description_2_1); ?></span>
-    </li>
+                    <?php echo esc_html($vocational_small_title); ?> </p>
+                <ul class="space-y-2.5 pl-1">
+                    <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
+                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                        <span><?php echo esc_html($vocational_description_2_1); ?></span>
+                    </li>
 
-    <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
-        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-        <span><?php echo esc_html($vocational_description_2_2); ?></span>
-    </li>
+                    <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
+                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                        <span><?php echo esc_html($vocational_description_2_2); ?></span>
+                    </li>
 
-    <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
-        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-        <span><?php echo esc_html($vocational_description_2_3); ?></span>
-    </li>
+                    <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
+                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                        <span><?php echo esc_html($vocational_description_2_3); ?></span>
+                    </li>
 
-    <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
-        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-        <span><?php echo esc_html($vocational_description_2_4); ?></span>
-    </li>
+                    <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
+                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                        <span><?php echo esc_html($vocational_description_2_4); ?></span>
+                    </li>
 
-    <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
-        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-        <span><?php echo esc_html($vocational_description_2_5); ?></span>
-    </li>
+                    <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
+                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                        <span><?php echo esc_html($vocational_description_2_5); ?></span>
+                    </li>
 
-    <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
-        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-        <span><?php echo esc_html($vocational_description_2_6); ?></span>
-    </li>
-</ul>
+                    <li class="flex items-start text-gray-600 text-sm md:text-base font-medium leading-relaxed">
+                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                        <span><?php echo esc_html($vocational_description_2_6); ?></span>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
@@ -295,66 +313,75 @@ $card_3_image = get_field('card_3_image');
     <hr class="border-gray-200" />
 
     <section id="teacher" class="scroll-mt-32 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center hover-trigger">
-    <div class="lg:col-span-7 space-y-6">
+        <div class="lg:col-span-7 space-y-6">
 
-    <h2 class="text-3xl font-extrabold text-amber-950 sm:text-4xl tracking-tight">
-        <?php echo esc_html($teacher_title); ?>
-    </h2>
+            <h2 class="text-3xl font-extrabold text-amber-950 sm:text-4xl tracking-tight">
+                <?php echo esc_html($teacher_title); ?>
+            </h2>
 
-    <h3 class="text-xl font-semibold text-sky-600">
-        <?php echo esc_html($teacher_subtitle); ?>
-    </h3>
+            <h3 class="text-xl font-semibold text-sky-600">
+                <?php echo esc_html($teacher_subtitle); ?>
+            </h3>
 
-    <p class="text-gray-600 leading-relaxed">
-    <?php echo wp_kses_post($teacher_description); ?>    </p>
+            <p class="text-gray-600 leading-relaxed">
+                <?php echo wp_kses_post($teacher_description); ?> </p>
 
-    <div class="space-y-4 pt-2">
+            <div class="space-y-4 pt-2">
 
-        <h4 class="font-bold text-amber-950 text-xl">
-            <?php echo esc_html($teacher_subtitle_2); ?>
-        </h4>
+                <h4 class="font-bold text-amber-950 text-xl">
+                    <?php echo esc_html($teacher_subtitle_2); ?>
+                </h4>
 
-        <ul class="space-y-3 pl-2">
+                <ul class="space-y-3 pl-2">
 
-            <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-                <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                <span><?php echo esc_html($teacher_description_2_1); ?></span>
-            </li>
+                    <li class="flex items-start text-gray-600 font-medium leading-relaxed">
+                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                        <span><?php echo esc_html($teacher_description_2_1); ?></span>
+                    </li>
 
-            <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-                <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                <span><?php echo esc_html($teacher_description_2_2); ?></span>
-            </li>
+                    <li class="flex items-start text-gray-600 font-medium leading-relaxed">
+                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                        <span><?php echo esc_html($teacher_description_2_2); ?></span>
+                    </li>
 
-            <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-                <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                <span><?php echo esc_html($teacher_description_2_3); ?></span>
-            </li>
+                    <li class="flex items-start text-gray-600 font-medium leading-relaxed">
+                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                        <span><?php echo esc_html($teacher_description_2_3); ?></span>
+                    </li>
 
-            <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-                <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                <span><?php echo esc_html($teacher_description_2_4); ?></span>
-            </li>
+                    <li class="flex items-start text-gray-600 font-medium leading-relaxed">
+                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                        <span><?php echo esc_html($teacher_description_2_4); ?></span>
+                    </li>
 
-            <li class="flex items-start text-gray-600 font-medium leading-relaxed">
-                <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
-                <span><?php echo esc_html($teacher_description_2_5); ?></span>
-            </li>
+                    <li class="flex items-start text-gray-600 font-medium leading-relaxed">
+                        <span class="text-gray-400 mr-3 select-none text-base">&#8226;</span>
+                        <span><?php echo esc_html($teacher_description_2_5); ?></span>
+                    </li>
 
-        </ul>
+                </ul>
 
-    </div>
+            </div>
 
-</div>
+        </div>
 
         <div class="lg:col-span-5">
             <div class="overflow-hidden rounded-xl">
-                <img
-                    src="https://www.rabbitschoolcambodia.net/_next/image?url=%2Fimages%2FNew%20Pictures%20P12.jpg&w=750&q=75"
-                    alt="Classroom learning"
-                    class="w-full h-80 object-cover hover-target transform transition-transform duration-700 ease-out" />
+                <?php if (
+                    $teacher_image
+                ): ?>
+                    <img
+                        src="<?php echo esc_url(
+                                    $teacher_image['url']
+                                ); ?>"
+                        alt="<?php echo esc_attr(
+                                    $teacher_image['alt']
+                                ); ?>"
+                        class="w-full h-full object-cover object-center">
+                <?php endif; ?>
             </div>
         </div>
+
     </section>
 
     <hr class="border-gray-200" />
@@ -367,46 +394,64 @@ $card_3_image = get_field('card_3_image');
         </div>
 
         <p class="text-gray-600 text-lg leading-relaxed max-w-5xl mx-auto">
-                <?php echo esc_html($advocacy_description); ?>
+            <?php echo esc_html($advocacy_description); ?>
         </p>
 
 
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
 
-            <div class="bg-[#f9f6f0] rounded-2xl border border-[#e5dec9]  flex flex-col items-center">
+            <div class="bg-[#f9f6f0] rounded-2xl border border-[#e5dec9] flex flex-col items-center">
                 <div class="w-full aspect-[4/3] rounded-xl overflow-hidden mb-6">
-                    <img
-                        src="https://www.rabbitschoolcambodia.net/_next/image?url=%2Fimages%2FRun%20With%20Sai.jpg&w=1080&q=75"
-                        alt="Event run with Sai"
-                        class="w-full h-full object-cover" />
+                    <?php if ($card_1_image): ?>
+                        <a href="<?php echo esc_url($card_1_link['url']); ?>"
+                            target="<?php echo esc_attr($card_1_link['target'] ?: '_self'); ?>">
+                            <img
+                                src="<?php echo esc_url($card_1_image['url']); ?>"
+                                alt="<?php echo esc_attr($card_1_image['alt']); ?>"
+                                class="w-full h-full object-cover object-center hover:scale-105 transition duration-300">
+                        </a>
+                    <?php endif; ?>
                 </div>
+
                 <h3 class="text-[#6d5045] font-semibold text-lg text-center mb-2">
-                <?php echo esc_html($card_1_title ); ?>
+                    <?php echo esc_html($card_1_title); ?>
                 </h3>
             </div>
 
-            <div class="bg-[#f9f6f0] rounded-2xl border border-[#e5dec9]  flex flex-col items-center">
+            <div class="bg-[#f9f6f0] rounded-2xl border border-[#e5dec9] flex flex-col items-center">
                 <div class="w-full aspect-[4/3] rounded-xl overflow-hidden mb-6">
-                    <img
-                        src="https://www.rabbitschoolcambodia.net/_next/image?url=%2Fimages%2FNew%20Picture%2013.jpg&w=1080&q=75"
-                        alt="Parent's Training"
-                        class="w-full h-full object-cover" />
+                    <?php if ($card_2_image): ?>
+                        <a href="<?php echo esc_url($card_2_link['url']); ?>"
+                            target="<?php echo esc_attr($card_2_link['target'] ?: '_self'); ?>">
+                            <img
+                                src="<?php echo esc_url($card_2_image['url']); ?>"
+                                alt="<?php echo esc_attr($card_2_image['alt']); ?>"
+                                class="w-full h-full object-cover object-center hover:scale-105 transition duration-300">
+                        </a>
+                    <?php endif; ?>
                 </div>
+
                 <h3 class="text-[#6d5045] font-semibold text-lg text-center mb-2">
-                <?php echo esc_html($card_2_title); ?>
+                    <?php echo esc_html($card_2_title); ?>
                 </h3>
             </div>
 
-            <div class="bg-[#f9f6f0] rounded-2xl border border-[#623D3C]  flex flex-col items-center">
+            <div class="bg-[#f9f6f0] rounded-2xl border border-[#623D3C] flex flex-col items-center">
                 <div class="w-full aspect-[4/3] rounded-xl overflow-hidden mb-6">
-                    <img
-                        src="https://www.rabbitschoolcambodia.net/_next/image?url=%2Fimages%2FNational%20Forum.jpg&w=1080&q=75"
-                        alt="Participation in Employment National Forum"
-                        class="w-full h-full object-cover " />
+                    <?php if ($card_3_image): ?>
+                        <a href="<?php echo esc_url($card_3_link['url']); ?>"
+                            target="<?php echo esc_attr($card_3_link['target'] ?: '_self'); ?>">
+                            <img
+                                src="<?php echo esc_url($card_3_image['url']); ?>"
+                                alt="<?php echo esc_attr($card_3_image['alt']); ?>"
+                                class="w-full h-full object-cover object-center hover:scale-105 transition duration-300">
+                        </a>
+                    <?php endif; ?>
                 </div>
+
                 <h3 class="text-[#6d5045] font-semibold text-lg text-center max-w-[250px] mb-2 leading-snug">
-                <?php echo esc_html($card_3_title); ?>
+                    <?php echo esc_html($card_3_title); ?>
                 </h3>
             </div>
 
