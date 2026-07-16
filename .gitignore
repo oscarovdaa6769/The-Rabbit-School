@@ -20,13 +20,11 @@ wp-config.php
 
 # Ignore ALL themes EXCEPT your custom theme
 /wp-content/themes/*
-!/wp-content/themes/
 !/wp-content/themes/rabbit_school/
 
 # Tailwind & Node.js Ignores
 **/node_modules/
 **/.DS_Store
 
-# Ignore compiled CSS files
-style.css
-assets/css/style.css
+# Ignore any file named style.css anywhere in the project
+**/style.css
