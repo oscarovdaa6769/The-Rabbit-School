@@ -33,19 +33,19 @@ get_header();
         <div class="flex flex-col lg:flex-row gap-[10px] lg:gap-[20px] items-center justify-center">
                 <a href="<?php echo esc_url('section_2_button_link') ?>" class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
                     <span><?php echo esc_html(get_field('section_2_button_text') ?: 'Education Programs'); ?></span>
-                    <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-200"></span>
+                    <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
                 </a>
                 <a href="<?php echo esc_url('section_2_button_2_link') ?>" class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
                     <span><?php echo esc_html(get_field('section_2_button_2_text') ?: 'Vocational Training & Job Placement'); ?></span>
-                    <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-200"></span>
+                    <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
                 </a>
                 <a href="<?php echo esc_url('section_2_button_3_link') ?>" class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
                     <span><?php echo esc_html(get_field('section_2_button_3_text') ?: 'Teacher Training'); ?></span>
-                    <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-200"></span>
+                    <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
                 </a>
                 <a href="<?php echo esc_url('section_2_button_4_link') ?>" class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
                     <span><?php echo esc_html(get_field('section_2_button_4_text') ?: 'Advocacy and Community Building'); ?></span>
-                    <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-200"></span>
+                    <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
                 </a>
         </div>
     </div>
