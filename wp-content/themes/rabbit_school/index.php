@@ -16,5 +16,18 @@
       <?php get_template_part('template-parts/footer');?>
 
       <?php wp_footer(); ?>
+
+      <?php
+/*
+Template Name: Contact Page
+*/
+get_header();
+?>
+
+ <?php
+get_footer();
+?>
+
+
 </body>
 </html>
