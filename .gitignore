@@ -25,6 +25,3 @@ wp-config.php
 # Tailwind & Node.js Ignores
 **/node_modules/
 **/.DS_Store
-
-# Ignore any file named style.css anywhere in the project
-**/style.css
