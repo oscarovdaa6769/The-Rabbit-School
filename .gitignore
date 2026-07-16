@@ -22,6 +22,9 @@ wp-config.php
 /wp-content/themes/*
 !/wp-content/themes/rabbit_school/
 
-# Tailwind & Node.js Ignores (Fixes your environment push)
+# Tailwind & Node.js Ignores
 **/node_modules/
 **/.DS_Store
+
+# Ignore any file named style.css anywhere in the project
+**/style.css

@@ -2,6 +2,8 @@
 function rabbit_register_menus() {
       register_nav_menus(array(
             'navigation-menu' => 'Main Header Navigation',
+            'language-switcher' => 'Language Switcher Dropdown',
+            'donate' => 'Donate',
             'our-program-footer' => 'Footer - Our Program',
             'about-us-footer' => 'Footer - About Us',
             'news-footer' => 'Footer - News',
@@ -23,4 +25,10 @@ function rabbit_styles() {
 }
 add_action('wp_enqueue_scripts', 'rabbit_styles');
 
-    
+add_theme_support('title-tag');
+
+add_action( 'init', function() {
+    if ( function_exists( 'pll_register_string' ) ) {
+        pll_register_string( 'Header Program Label', 'Our Program', 'rabbit_school' );
+    }
+});

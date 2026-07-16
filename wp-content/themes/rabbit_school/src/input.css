@@ -23,8 +23,8 @@ Version: 1.0
   --color-text-light: #F7F5F4;
 
   /* Font Assignment Rules */
-  --font-sans: "Inter", sans-serif;
-  --font-heading: "Oswald", sans-serif;
+  --font-sans: "Inter", "Battambang", sans-serif;
+  --font-heading: "Oswald", "Koulen", sans-serif;
 }
 
 @layer utilities {
