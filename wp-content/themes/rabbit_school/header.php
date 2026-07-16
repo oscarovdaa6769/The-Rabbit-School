@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
       <meta charset="<?php bloginfo('charset'); ?>">
@@ -123,8 +123,19 @@
                   <div class="sm:hidden border-t border-gray-100 pt-4 px-4 flex items-center justify-between">
                         <span class="text-xs font-bold uppercase tracking-widest text-gray-400">Select Language</span>
                         <div class="flex gap-2">
-                              <a href="?lang=en" class="px-3 py-1.5 text-xs font-semibold rounded-md bg-brand-brown text-text-light">EN</a>
-                              <a href="?lang=kh" class="px-3 py-1.5 text-xs font-semibold rounded-md border border-gray-200 text-text-main hover:bg-gray-50">KH</a>
+                              <?php
+                              if (function_exists('pll_the_languages')):
+                                    $languages = pll_the_languages(array('raw' => 1, 'hide_if_empty' => 0));
+                                    foreach ($languages as $lang):
+                              ?>
+                                    <a href="<?php echo esc_url($lang['url']); ?>"
+                                       class="px-3 py-1.5 text-xs font-semibold rounded-md <?php echo $lang['current_lang'] ? 'bg-brand-brown text-text-light' : 'border border-gray-200 text-text-main hover:bg-gray-50'; ?>">
+                                          <?php echo esc_html(strtoupper($lang['slug'])); ?>
+                                    </a>
+                              <?php
+                                    endforeach;
+                              endif;
+                              ?>
                         </div>
                   </div>
             </div>

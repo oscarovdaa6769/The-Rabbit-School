@@ -3,6 +3,94 @@
 Template Name: How We Work
 */
 get_header();
+
+// Hero
+$hero_title = get_field('hero_title');
+$hero_description = get_field('hero_description');
+$hero_image = get_field('hero_image');
+
+// Learn More
+$learn_more_title = get_field('learn_more_title');
+$button_1_text = get_field('button_1_text');
+$button_1_link = get_field('button_1_link');
+$button_2_text = get_field('button_2_text');
+$button_2_link = get_field('button_2_link');
+$button_3_text = get_field('button_3_text');
+$button_3_link = get_field('button_3_link');
+$button_4_text = get_field('button_4_text');
+$button_4_link = get_field('button_4_link');
+
+
+// Education Program
+$education_title = get_field('education_title');
+$education_subtitle = get_field('education_subtitle');
+$education_small_title = get_field('education_small_title');
+$education_description = get_field('education_description');
+
+$education_subtitle_2 = get_field('education_subtitle_2');
+$education_description_2_1 = get_field('education_description_2_1');
+$education_description_2_2 = get_field('education_description_2_2');
+$education_description_2_3 = get_field('education_description_2_3');
+
+$education_subtitle_3 = get_field('education_subtitle_3');
+$education_description_3_1 = get_field('education_description_3_1');
+$education_description_3_2 = get_field('education_description_3_2');
+$education_description_3_3 = get_field('education_description_3_3');
+$education_description_3_4 = get_field('education_description_3_4');
+
+$education_image = get_field('education_image');
+
+// Vocational
+$vocational_title = get_field('vocational_title');
+$vocational_subtitle_1 = get_field('vocational_subtitle_1');
+$vocational_description_1 = get_field('vocational_description_1');
+
+$vocational_subtitle_2 = get_field('vocational_subtitle_2');
+$vocational_small_title = get_field('vocational_small_title');
+$vocational_description_2_1 = get_field('vocational_description_2_1');
+$vocational_description_2_2 = get_field('vocational_description_2_2');
+$vocational_description_2_3 = get_field('vocational_description_2_3');
+$vocational_description_2_4 = get_field('vocational_description_2_4');
+$vocational_description_2_5 = get_field('vocational_description_2_5');
+$vocational_description_2_6 = get_field('vocational_description_2_6');
+
+$vocational_image = get_field('vocational_image');
+$vocational_location_title = get_field('vocational_location_title');
+$vocational_location_name = get_field('vocational_location_name');
+
+
+// Teacher
+$teacher_title = get_field('teacher_title');
+$teacher_subtitle = get_field('teacher_subtitle');
+$teacher_description = get_field('teacher_description');
+$teacher_subtitle_2 = get_field('teacher_subtitle_2');
+$teacher_description_2_1 = get_field('teacher_description_2_1');
+$teacher_description_2_2 = get_field('teacher_description_2_2');
+$teacher_description_2_3 = get_field('teacher_description_2_3');
+$teacher_description_2_4 = get_field('teacher_description_2_4');
+$teacher_description_2_5 = get_field('teacher_description_2_5');
+
+$teacher_image = get_field('teacher_image');
+
+// Advocacy
+$advocacy_title = get_field('advocacy_title');
+$advocacy_description = get_field('advocacy_description');
+
+$card_1_title = get_field('card_1_title');
+$card_1_image = get_field('card_1_image');
+$card_1_link = get_field('card_1_link');
+
+
+$card_2_title = get_field('card_2_title');
+$card_2_image = get_field('card_2_image');
+$card_2_link = get_field('card_2_link');
+
+
+$card_3_title = get_field('card_3_title');
+$card_3_image = get_field('card_3_image');
+$card_3_link = get_field('card_3_link');
+
+
 ?>
 <!-- section 1 -->
 <section class="relative overflow-hidden">
@@ -266,6 +354,7 @@ get_header();
                          class="h-full w-full object-cover">
                 </div>
             </div>
+
         </div>
 
     </div>
