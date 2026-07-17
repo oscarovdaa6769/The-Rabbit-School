@@ -114,24 +114,24 @@ $card_3_link = get_field('card_3_link');
 <!-- section 2 -->
 <section class="bg-brand-cream py-[64px] md:py-[50px] px-[20px] 2xl:px-0 shadow-md">
     <div class="max-w-7xl mx-auto">
-        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-brand-teal mb-6 leading-tight text-center">
+        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-brand-teal mb-6 leading-tight text-center uppercase">
             <?php echo esc_html(get_field('section_2_title') ?: 'LEARN MORE ABOUT OUR PROGRAMS'); ?>
         </h2>
 
         <div class="flex flex-col lg:flex-row gap-[10px] lg:gap-[20px] items-center justify-center">
-                <a href="<?php echo esc_url('section_2_button_link') ?>" class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
+                <a href="#education-program" class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-md hover:shadow-xl transition-all duration-200 group">
                     <span><?php echo esc_html(get_field('section_2_button_text') ?: 'Education Programs'); ?></span>
                     <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
                 </a>
-                <a href="<?php echo esc_url('section_2_button_2_link') ?>" class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
+                <a href="#vocational" class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-md hover:shadow-xl transition-all duration-200 group">
                     <span><?php echo esc_html(get_field('section_2_button_2_text') ?: 'Vocational Training & Job Placement'); ?></span>
                     <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
                 </a>
-                <a href="<?php echo esc_url('section_2_button_3_link') ?>" class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
+                <a href="#teacher-training" class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-md hover:shadow-xl transition-all duration-200 group">
                     <span><?php echo esc_html(get_field('section_2_button_3_text') ?: 'Teacher Training'); ?></span>
                     <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
                 </a>
-                <a href="<?php echo esc_url('section_2_button_4_link') ?>" class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
+                <a href="#advocacy" class="uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-md hover:shadow-xl transition-all duration-200 group">
                     <span><?php echo esc_html(get_field('section_2_button_4_text') ?: 'Advocacy and Community Building'); ?></span>
                     <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
                 </a>
@@ -140,7 +140,8 @@ $card_3_link = get_field('card_3_link');
 
 </section>
 <!-- section 3 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0 font-sans">
+<div class="py-[64px] md:py-[50px]" id="education-program"></div>
+<section class="max-w-7xl mx-auto px-[20px] 2xl:px-0 font-sans">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
         
         <div class="lg:col-span-7 flex flex-col items-start">
@@ -230,7 +231,8 @@ $card_3_link = get_field('card_3_link');
     </div>
 </section>
 <!-- section 4 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0 font-sans">
+<div class="py-[64px] md:py-[50px]" id="vocational"></div>
+<section class="max-w-7xl mx-auto px-[20px] 2xl:px-0 font-sans">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
         
         <div class="lg:col-span-5 w-full order-2 lg:order-1">
@@ -299,7 +301,8 @@ $card_3_link = get_field('card_3_link');
     </div>
 </section>
 <!-- section 5 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0 font-sans">
+<div class="py-[64px] md:py-[50px]" id="teacher-training"></div>
+<section class="max-w-7xl mx-auto px-[20px] 2xl:px-0 font-sans">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
         
         <div class="lg:col-span-7 flex flex-col items-start">
@@ -360,7 +363,8 @@ $card_3_link = get_field('card_3_link');
     </div>
 </section>
 <!-- section 6 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0 font-sans">
+<div class="py-[64px] md:py-[50px]" id="advocacy"></div>
+<section class="max-w-7xl mx-auto pb-[64px] md:pb-[50px] px-[20px] 2xl:px-0 font-sans">
     
     <div class="max-w-5xl mx-auto text-center mb-12">
         <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase mb-4 leading-tight">
