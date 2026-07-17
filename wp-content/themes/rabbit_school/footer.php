@@ -120,14 +120,14 @@
                         <ul class="flex flex-col gap-3 text-white/80 font-medium">
                               <li>
                                     <a href="mailto:info@rabbitschoolcambodia.net" class="hover:text-brand-yellow transition-all flex items-start gap-2.5 group">
-                                          <span class="icon-[solar--letter-bold] w-5 h-5 shrink-0 text-white/60 group-hover:text-brand-yellow transition-colors"></span>
+                                          <span class="icon-[material-symbols--mail-outline-rounded] w-5 h-5 shrink-0 text-white/60 group-hover:text-brand-yellow transition-colors"></span>
                                           <span class="break-all">
                                                 info@rabbitschoolcambodia.net
                                           </span>
                                     </a>
                               </li>
                               <li class="flex items-start gap-2.5">
-                                    <span class="icon-[solar--phone-bold] w-5 h-5 shrink-0 text-white/60"></span>
+                                    <span class="icon-[material-symbols--call] w-5 h-5 shrink-0 text-white/60"></span>
                                     <span class="leading-tight">
                                           (+855) 68 901 971
                                           <br>
@@ -135,7 +135,7 @@
                                     </span>
                               </li>
                               <li class="flex items-start gap-2.5">
-                                    <span class="icon-[solar--map-point-bold] w-5 h-5 shrink-0 text-white/60"></span>
+                                    <span class="icon-[material-symbols--location-on] w-5 h-5 shrink-0 text-white/60"></span>
                                     <span class="leading-snug">
                                           <?php 
                                           if ( function_exists('pll_current_language') && pll_current_language() == 'km' ) {
@@ -151,20 +151,8 @@
 
             </div>
 
-            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-white/60 text-xs font-medium">
+            <div class="pt-8 text-white/60 text-sm font-medium">
                   <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All rights reserved.</p>
-                  
-                  <div class="flex items-center gap-4">
-                        <span class="uppercase tracking-wider opacity-60 text-[10px] font-bold">Follow Us</span>
-                        <div class="flex items-center gap-2">
-                              <a href="#" class="w-8 h-8 rounded-full bg-white/5 hover:bg-brand-yellow hover:text-brand-brown flex items-center justify-center transition-all duration-300" aria-label="Facebook">
-                                    <span class="icon-[solar--users-group-rounded-bold] w-4 h-4"></span>
-                              </a>
-                              <a href="#" class="w-8 h-8 rounded-full bg-white/5 hover:bg-brand-yellow hover:text-brand-brown flex items-center justify-center transition-all duration-300" aria-label="YouTube">
-                                    <span class="icon-[solar--videocamera-record-bold] w-4 h-4"></span>
-                              </a>
-                        </div>
-                  </div>
             </div>
       </div>
 </footer>

@@ -1,7 +1,7 @@
 <?php
-/**
+/*
  * Template Name: Work With Volunteer
- */
+*/
 get_header();
 
 // Hero Content Fields with strict Design Mockup fallbacks
@@ -44,7 +44,8 @@ $connected_heading     = get_field('connected_heading') ?: 'STAY CONNECTED';
 $connected_description = get_field('connected_description') ?: "While we're preparing this page, we'd love to hear from passionate people who want to make a difference.";
 $email_title           = get_field('email_title') ?: 'EMAIL US';
 $email_address         = get_field('email_address') ?: 'info@rabbitschoolcambodia.net';
-$telegram_title        = get_field('telegram_title') ?: 'TELEGRAM CHANNEL';
+$facebook_title        = get_field('facebook_title') ?: 'FACEBOOK PAGE';
+$facebook_link         = get_field('facebook_link') ?: 'https://www.facebook.com/rabbitschoolcambodia';
 $telegram_link         = get_field('telegram_link') ?: 't.me/rabbitschool';
 $phone_title           = get_field('phone_title') ?: 'CALL HOTLINE';
 $phone_number          = get_field('phone_number') ?: '(+855) 68 901 971';
@@ -87,12 +88,12 @@ $phone_number          = get_field('phone_number') ?: '(+855) 68 901 971';
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="bg-brand-cream border border-brand-brown/10 rounded-[24px] p-8 pb-10 text-center flex flex-col items-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
             <div class="mb-6 h-16 w-16 bg-white border border-brand-brown/10 rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-brand-brown group-hover:text-text-light text-brand-brown shadow-sm">
-                <span class="inline-block icon-[solar--case-minimalistic-bold] w-7 h-7"></span>
+                <span class="inline-block icon-[ph--briefcase-fill] w-7 h-7"></span>
             </div>
-            <h3 class="text-brand-yellow text-[24px] font-heading font-black uppercase tracking-wide mb-3">
+            <h3 class="text-brand-yellow text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black uppercase tracking-wide mb-3">
                 <?php echo esc_html($card_1_title); ?>
             </h3>
-            <p class="text-text-muted text-[14px] sm:text-[15px] leading-relaxed max-w-xs font-semibold opacity-90 mb-6">
+            <p class="text-text-muted text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed max-w-xs font-semibold opacity-90 mb-6">
                 <?php echo esc_html($card_1_description); ?>
             </p>
             <div class="w-16 h-[3px] bg-brand-yellow rounded-full mt-auto"></div>
@@ -100,12 +101,12 @@ $phone_number          = get_field('phone_number') ?: '(+855) 68 901 971';
 
         <div class="bg-brand-cream border border-brand-brown/10 rounded-[24px] p-8 pb-10 text-center flex flex-col items-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
             <div class="mb-6 h-16 w-16 bg-white border border-brand-brown/10 rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-brand-brown group-hover:text-text-light text-brand-brown shadow-sm">
-                <span class="inline-block icon-[solar--hand-heart-bold] w-7 h-7"></span>
+                <span class="inline-block icon-[fa6-solid--hand-holding-heart] w-7 h-7"></span>
             </div>
-            <h3 class="text-brand-yellow text-[24px] font-heading font-black uppercase tracking-wide mb-3">
+            <h3 class="text-brand-yellow text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black uppercase tracking-wide mb-3">
                 <?php echo esc_html($card_2_title); ?>
             </h3>
-            <p class="text-text-muted text-[14px] sm:text-[15px] leading-relaxed max-w-xs font-semibold opacity-90 mb-6">
+            <p class="text-text-muted text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed max-w-xs font-semibold opacity-90 mb-6">
                 <?php echo esc_html($card_2_description); ?>
             </p>
             <div class="w-16 h-[3px] bg-brand-yellow rounded-full mt-auto"></div>
@@ -113,12 +114,12 @@ $phone_number          = get_field('phone_number') ?: '(+855) 68 901 971';
 
         <div class="bg-brand-cream border border-brand-brown/10 rounded-[24px] p-8 pb-10 text-center flex flex-col items-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
             <div class="mb-6 h-16 w-16 bg-white border border-brand-brown/10 rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-brand-brown group-hover:text-text-light text-brand-brown shadow-sm">
-                <span class="inline-block icon-[solar--diploma-verified-bold] w-7 h-7"></span>
+                <span class="inline-block icon-[fluent--hat-graduation-24-filled] w-7 h-7"></span>
             </div>
-            <h3 class="text-brand-yellow text-[24px] font-heading font-black uppercase tracking-wide mb-3">
+            <h3 class="text-brand-yellow text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black uppercase tracking-wide mb-3">
                 <?php echo esc_html($card_3_title); ?>
             </h3>
-            <p class="text-text-muted text-[14px] sm:text-[15px] leading-relaxed max-w-xs font-semibold opacity-90 mb-6">
+            <p class="text-text-muted text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed max-w-xs font-semibold opacity-90 mb-6">
                 <?php echo esc_html($card_3_description); ?>
             </p>
             <div class="w-16 h-[3px] bg-brand-yellow rounded-full mt-auto"></div>
@@ -130,7 +131,7 @@ $phone_number          = get_field('phone_number') ?: '(+855) 68 901 971';
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
         
         <div class="lg:col-span-6 flex flex-col">
-            <h2 class="text-[32px] sm:text-[36px] md:text-[40px] font-heading font-black text-brand-brown uppercase mb-6 tracking-wide">
+            <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase mb-6 tracking-wide">
                 <?php echo esc_html($open_roles_heading); ?>
             </h2>
 
@@ -138,8 +139,8 @@ $phone_number          = get_field('phone_number') ?: '(+855) 68 901 971';
                 <?php if ($role_1_title): ?>
                 <div class="bg-brand-cream border border-brand-brown/5 p-5 rounded-[16px] flex justify-between items-center group transition-colors duration-200 hover:bg-brand-cream/80">
                     <div>
-                        <h4 class="font-heading font-black text-brand-brown text-[16px] tracking-wide uppercase"><?php echo esc_html($role_1_title); ?></h4>
-                        <p class="text-[13px] text-text-muted mt-1 font-semibold opacity-80"><?php echo esc_html($role_1_typelocation); ?></p>
+                        <h4 class="font-heading font-black text-brand-brown text-[16px] md:text-[20px] tracking-wide uppercase"><?php echo esc_html($role_1_title); ?></h4>
+                        <p class="text-[13px] md:text-[16px] text-text-muted mt-1 font-semibold opacity-80"><?php echo esc_html($role_1_typelocation); ?></p>
                     </div>
                     <a href="<?php echo esc_url($role_1_link); ?>" class="w-10 h-10 bg-white border border-brand-brown/10 rounded-full flex items-center justify-center text-brand-brown shadow-sm group-hover:bg-brand-brown group-hover:text-white group-hover:border-transparent transition-all duration-300" aria-label="View role details">
                         <span class="inline-block icon-[solar--arrow-right-linear] w-5 h-5"></span>
@@ -150,8 +151,8 @@ $phone_number          = get_field('phone_number') ?: '(+855) 68 901 971';
                 <?php if ($role_2_title): ?>
                 <div class="bg-brand-cream border border-brand-brown/5 p-5 rounded-[16px] flex justify-between items-center group transition-colors duration-200 hover:bg-brand-cream/80">
                     <div>
-                        <h4 class="font-heading font-black text-brand-brown text-[16px] tracking-wide uppercase"><?php echo esc_html($role_2_title); ?></h4>
-                        <p class="text-[13px] text-text-muted mt-1 font-semibold opacity-80"><?php echo esc_html($role_2_typelocation); ?></p>
+                        <h4 class="font-heading font-black text-brand-brown text-[16px] md:text-[20px] tracking-wide uppercase"><?php echo esc_html($role_2_title); ?></h4>
+                        <p class="text-[13px] md:text-[16px] text-text-muted mt-1 font-semibold opacity-80"><?php echo esc_html($role_2_typelocation); ?></p>
                     </div>
                     <a href="<?php echo esc_url($role_2_link); ?>" class="w-10 h-10 bg-white border border-brand-brown/10 rounded-full flex items-center justify-center text-brand-brown shadow-sm group-hover:bg-brand-brown group-hover:text-white group-hover:border-transparent transition-all duration-300" aria-label="View role details">
                         <span class="inline-block icon-[solar--arrow-right-linear] w-5 h-5"></span>
@@ -162,8 +163,8 @@ $phone_number          = get_field('phone_number') ?: '(+855) 68 901 971';
                 <?php if ($role_3_title): ?>
                 <div class="bg-brand-cream border border-brand-brown/5 p-5 rounded-[16px] flex justify-between items-center group transition-colors duration-200 hover:bg-brand-cream/80">
                     <div>
-                        <h4 class="font-heading font-black text-brand-brown text-[16px] tracking-wide uppercase"><?php echo esc_html($role_3_title); ?></h4>
-                        <p class="text-[13px] text-text-muted mt-1 font-semibold opacity-80"><?php echo esc_html($role_3_typelocation); ?></p>
+                        <h4 class="font-heading font-black text-brand-brown text-[16px] md:text-[20px] tracking-wide uppercase"><?php echo esc_html($role_3_title); ?></h4>
+                        <p class="text-[13px] md:text-[16px] text-text-muted mt-1 font-semibold opacity-80"><?php echo esc_html($role_3_typelocation); ?></p>
                     </div>
                     <a href="<?php echo esc_url($role_3_link); ?>" class="w-10 h-10 bg-white border border-brand-brown/10 rounded-full flex items-center justify-center text-brand-brown shadow-sm group-hover:bg-brand-brown group-hover:text-white group-hover:border-transparent transition-all duration-300" aria-label="View role details">
                         <span class="inline-block icon-[solar--arrow-right-linear] w-5 h-5"></span>
@@ -175,10 +176,10 @@ $phone_number          = get_field('phone_number') ?: '(+855) 68 901 971';
 
         <div class="lg:col-span-6 bg-brand-brown text-white rounded-[24px] p-8 md:p-10 shadow-lg flex flex-col justify-between min-h-[440px]">
             <div class="mb-8">
-                <h3 class="font-heading text-[32px] sm:text-[36px] uppercase tracking-wide mb-4 font-black text-brand-cream">
+                <h3 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] uppercase tracking-wide mb-4 font-black text-brand-cream">
                     <?php echo esc_html($connected_heading); ?>
                 </h3>
-                <p class="text-[14px] sm:text-[15px] text-brand-cream/80 leading-relaxed font-semibold opacity-90">
+                <p class="text-[14px] sm:text-[15px] md:text-[16px] text-brand-cream/80 leading-relaxed font-semibold opacity-90">
                     <?php echo esc_html($connected_description); ?>
                 </p>
             </div>
@@ -196,16 +197,16 @@ $phone_number          = get_field('phone_number') ?: '(+855) 68 901 971';
                 </div>
                 <?php endif; ?>
 
-                <?php if ($telegram_link): ?>
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 text-white">
-                        <span class="inline-block icon-[solar--paperplane-bold] w-5 h-5"></span>
+                <?php if ($facebook_link): ?>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 text-white">
+                            <span class="inline-block icon-[fa6-brands--facebook-f] w-5 h-5"></span>
+                        </div>
+                        <div>
+                            <h5 class="text-[12px] font-black uppercase tracking-wider text-brand-cream/60"><?php echo esc_html($facebook_title ?: 'FACEBOOK PAGE'); ?></h5>
+                            <a href="<?php echo esc_url($facebook_link); ?>" target="_blank" rel="noopener noreferrer" class="text-[15px] hover:underline font-semibold text-white block mt-0.5 break-all no-underline"><?php echo esc_html(str_replace(['https://', 'http://', 'www.'], '', $facebook_link)); ?></a>
+                        </div>
                     </div>
-                    <div>
-                        <h5 class="text-[12px] font-black uppercase tracking-wider text-brand-cream/60"><?php echo esc_html($telegram_title); ?></h5>
-                        <a href="https://<?php echo esc_attr(str_replace('https://', '', $telegram_link)); ?>" target="_blank" rel="noopener noreferrer" class="text-[15px] hover:underline font-semibold text-white block mt-0.5 break-all no-underline"><?php echo esc_html($telegram_link); ?></a>
-                    </div>
-                </div>
                 <?php endif; ?>
 
                 <?php if ($phone_number): ?>

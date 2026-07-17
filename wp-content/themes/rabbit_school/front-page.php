@@ -70,10 +70,12 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
 
 <!-- section 1 -->
 <div class="relative overflow-hidden">
-      <img src="<?php echo esc_url($img_1_url); ?>" alt="<?php echo esc_attr($title_1); ?>" class="h-[500px] md:h-[700px] w-full object-cover">
+      <img src="<?php echo esc_url($img_1_url); ?>" 
+      alt="<?php echo esc_attr($title_1); ?>" 
+      class="h-[500px] md:h-[700px] w-full object-cover">
       
       <div class="absolute inset-0 z-50 bg-black/20 flex items-end pb-6 md:pb-20">
-            <div class="w-full max-w-7xl mx-auto">
+            <div class="w-full max-w-7xl mx-auto px-[20px] 2xl:px-0">
                   <div class="max-w-2xl text-text-light">
                         <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
                               <?php echo esc_html($title_1); ?>
@@ -91,7 +93,7 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
       <img src="<?php echo esc_url($img_2_url); ?>" alt="<?php echo esc_attr($title_2); ?>" class="h-[500px] md:h-[700px] w-full object-cover">
       
       <div class="absolute inset-0 z-50 bg-black/20 flex items-end pb-6 md:pb-20">
-            <div class="w-full max-w-7xl mx-auto">
+            <div class="w-full max-w-7xl mx-auto px-[20px] 2xl:px-0">
                   <div class="max-w-2xl text-text-light">
                         <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
                               <?php echo esc_html($title_2); ?>
@@ -113,7 +115,7 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
 </div>
 
 <!-- section 3 -->
-<section class="bg-white py-16 md:py-24">
+<section class="bg-white py-[64px] md:py-[50px] px-[20px] 2xl:px-0">
     <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
             
@@ -149,10 +151,10 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
 </section>
 
 <!-- section 4 -->
-<section class="bg-brand-yellow py-20 px-6 relative overflow-hidden">
+<section class="bg-brand-yellow relative overflow-hidden ">
       <div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]"></div>
 
-      <div class="max-w-7xl mx-auto text-center relative z-10">
+      <div class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0 text-center relative z-10">
             <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase mb-6">
                   <?php echo esc_html($title_4); ?>
             </h2>
@@ -161,7 +163,7 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
                   <?php echo esc_html($desc_4); ?>
             </p>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[20px] 2xl:gap-[50px]">
             
                   <?php foreach ($impacts as $item): ?>
                   <div class="bg-white/95 backdrop-blur-sm rounded-[24px] shadow-xl p-10 flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl group border-b-8 border-transparent hover:border-brand-brown">
@@ -184,7 +186,7 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
 <!-- section 5 -->
 <section class="bg-gray-50/50 py-16 overflow-hidden border-t border-b border-gray-100">
       
-      <div class="max-w-7xl mx-auto px-6 text-center mb-10">
+      <div class="max-w-7xl mx-auto px-[20px] 2xl:px-0 text-center mb-10">
             <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase mb-3">
                   <?php echo esc_html(get_field('title_5_1') ?: 'TITLE 5_1 NOT WORKING'); ?>
             </h2>
@@ -221,7 +223,7 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
       </div>
 
 
-      <div class="max-w-4xl mx-auto px-6 text-center mb-10">
+      <div class="max-w-4xl mx-auto px-[20px] 2xl:px-0 text-center mb-10">
             <div class="w-16 h-0.5 bg-brand-brown/10 mx-auto mb-10"></div>
             <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase mb-4">
                   <?php echo esc_html(get_field('title_5_2') ?: 'TITLE 5_2 NOT WORKING'); ?>
@@ -258,7 +260,7 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
 </section>
 
 <!-- section 6 -->
-<section class="bg-brand-teal py-16 md:py-24">
+<section class="bg-brand-teal py-[64px] md:py-[50px] md:py-24 px-[20px] 2xl:px-0">
       <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
                   

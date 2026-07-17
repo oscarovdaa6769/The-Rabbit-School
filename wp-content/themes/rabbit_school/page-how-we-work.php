@@ -112,7 +112,7 @@ $card_3_link = get_field('card_3_link');
     </div>
 </section>
 <!-- section 2 -->
-<section class="bg-brand-cream py-[64px] md:py-[50px] px-4 md:px-[20px] shadow-md">
+<section class="bg-brand-cream py-[64px] md:py-[50px] px-[20px] 2xl:px-0 shadow-md">
     <div class="max-w-7xl mx-auto">
         <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-brand-teal mb-6 leading-tight text-center">
             <?php echo esc_html(get_field('section_2_title') ?: 'LEARN MORE ABOUT OUR PROGRAMS'); ?>
@@ -140,7 +140,7 @@ $card_3_link = get_field('card_3_link');
 
 </section>
 <!-- section 3 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-4 md:px-[20px] font-sans">
+<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0 font-sans">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
         
         <div class="lg:col-span-7 flex flex-col items-start">
@@ -161,7 +161,7 @@ $card_3_link = get_field('card_3_link');
             </p>
 
             <div class="mb-6 w-full">
-                <h3 class="text-[20px] sm:text-[22px] font-heading font-bold text-brand-brown mb-3 uppercase">
+                <h3 class="text-[16px] sm:text-[18px] md:text-[20px] font-heading font-bold text-brand-brown mb-3 uppercase">
                     <?php echo esc_html(get_field('integrated_title') ?: 'Integrated Classrooms'); ?>
                 </h3>
                 <ul class="list-disc list-outside pl-5 space-y-2 text-text-muted text-[14px] sm:text-[15px] md:text-[16px] font-sans marker:text-brand-brown">
@@ -186,7 +186,7 @@ $card_3_link = get_field('card_3_link');
             </div>
 
             <div class="w-full">
-                <h3 class="text-[20px] sm:text-[22px] font-heading font-bold text-brand-brown mb-3 uppercase">
+                <h3 class="text-[16px] sm:text-[18px] md:text-[20px] font-heading font-bold text-brand-brown mb-3 uppercase">
                     <?php echo esc_html(get_field('inclusive_title') ?: 'Inclusive Classrooms'); ?>
                 </h3>
                 <ul class="list-disc list-outside pl-5 space-y-2 text-text-muted text-[14px] sm:text-[15px] md:text-[16px] font-sans marker:text-brand-brown">
@@ -230,7 +230,7 @@ $card_3_link = get_field('card_3_link');
     </div>
 </section>
 <!-- section 4 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-4 md:px-[20px] font-sans">
+<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0 font-sans">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
         
         <div class="lg:col-span-5 w-full order-2 lg:order-1">
@@ -263,7 +263,7 @@ $card_3_link = get_field('card_3_link');
                 <?php echo esc_html(get_field('vocational_description') ?: 'Our vocational training program is the natural next step after our special education classes. We teach life-long skills that help youth over the age of 16 gain independence and prepare for future employment, opening doors to a world of opportunities.'); ?>
             </p>
 
-            <h3 class="text-[20px] sm:text-[22px] font-heading font-bold text-brand-brown mb-2 uppercase">
+            <h3 class="text-[16px] sm:text-[18px] md:text-[20px] font-heading font-bold text-brand-brown mb-2 uppercase">
                 <?php echo esc_html(get_field('learning_title') ?: 'What Students Learn'); ?>
             </h3>
             
@@ -299,7 +299,7 @@ $card_3_link = get_field('card_3_link');
     </div>
 </section>
 <!-- section 5 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[80px] px-4 md:px-[20px] font-sans">
+<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0 font-sans">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
         
         <div class="lg:col-span-7 flex flex-col items-start">
@@ -316,7 +316,7 @@ $card_3_link = get_field('card_3_link');
             </p>
 
             <div class="w-full">
-                <h3 class="text-[20px] sm:text-[22px] font-heading font-bold text-brand-brown mb-3 uppercase">
+                <h3 class="text-[16px] sm:text-[18px] md:text-[20px] font-heading font-bold text-brand-brown mb-3 uppercase">
                     <?php echo esc_html(get_field('what_we_do_title') ?: 'What we Do:'); ?>
                 </h3>
                 <ul class="list-disc list-outside pl-5 space-y-2 text-text-muted text-[14px] sm:text-[15px] md:text-[16px] font-sans marker:text-brand-brown">
@@ -360,7 +360,7 @@ $card_3_link = get_field('card_3_link');
     </div>
 </section>
 <!-- section 6 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-4 md:px-[20px] font-sans">
+<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0 font-sans">
     
     <div class="max-w-5xl mx-auto text-center mb-12">
         <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase mb-4 leading-tight">
@@ -374,45 +374,45 @@ $card_3_link = get_field('card_3_link');
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
     
-    <div class="bg-brand-cream border border-brand-brown/30 rounded-[24px] overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow duration-300">
-        <div class="w-full aspect-[4/3] overflow-hidden">
-            <img src="<?php echo esc_url(get_field('card_1_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" 
-                 alt="Event run with Sai" 
-                 class="w-full h-full object-cover">
+        <div class="bg-brand-cream border border-brand-brown/30 rounded-[24px] overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div class="w-full aspect-[4/3] overflow-hidden">
+                <img src="<?php echo esc_url(get_field('card_1_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" 
+                    alt="Event run with Sai" 
+                    class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 flex justify-center items-center flex-grow">
+                <h4 class="text-[16px] sm:text-[18px] font-sans font-bold text-brand-brown text-center leading-tight">
+                    <?php echo esc_html(get_field('card_1_label') ?: 'Event run with Sai'); ?>
+                </h4>
+            </div>
         </div>
-        <div class="p-6 flex justify-center items-center flex-grow">
-            <h4 class="text-[16px] sm:text-[18px] font-sans font-bold text-brand-brown text-center leading-tight">
-                <?php echo esc_html(get_field('card_1_label') ?: 'Event run with Sai'); ?>
-            </h4>
-        </div>
-    </div>
 
-    <div class="bg-brand-cream border border-brand-brown/30 rounded-[24px] overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow duration-300">
-        <div class="w-full aspect-[4/3] overflow-hidden">
-            <img src="<?php echo esc_url(get_field('card_2_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" 
-                 alt="Parent's Training" 
-                 class="w-full h-full object-cover">
+        <div class="bg-brand-cream border border-brand-brown/30 rounded-[24px] overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div class="w-full aspect-[4/3] overflow-hidden">
+                <img src="<?php echo esc_url(get_field('card_2_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" 
+                    alt="Parent's Training" 
+                    class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 flex justify-center items-center flex-grow">
+                <h4 class="text-[16px] sm:text-[18px] font-sans font-bold text-brand-brown text-center leading-tight">
+                    <?php echo esc_html(get_field('card_2_label') ?: 'Parent\'s Training'); ?>
+                </h4>
+            </div>
         </div>
-        <div class="p-6 flex justify-center items-center flex-grow">
-            <h4 class="text-[16px] sm:text-[18px] font-sans font-bold text-brand-brown text-center leading-tight">
-                <?php echo esc_html(get_field('card_2_label') ?: 'Parent\'s Training'); ?>
-            </h4>
-        </div>
-    </div>
 
-    <div class="bg-brand-cream border border-brand-brown/30 rounded-[24px] overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow duration-300">
-        <div class="w-full aspect-[4/3] overflow-hidden">
-            <img src="<?php echo esc_url(get_field('card_3_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" 
-                 alt="Participation in Employment National Forum" 
-                 class="w-full h-full object-cover">
+        <div class="bg-brand-cream border border-brand-brown/30 rounded-[24px] overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div class="w-full aspect-[4/3] overflow-hidden">
+                <img src="<?php echo esc_url(get_field('card_3_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" 
+                    alt="Participation in Employment National Forum" 
+                    class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 flex justify-center items-center flex-grow">
+                <h4 class="text-[16px] sm:text-[18px] font-sans font-bold text-brand-brown text-center leading-tight">
+                    <?php echo esc_html(get_field('card_3_label') ?: 'Participation in Employment National Forum'); ?>
+                </h4>
+            </div>
         </div>
-        <div class="p-6 flex justify-center items-center flex-grow">
-            <h4 class="text-[16px] sm:text-[18px] font-sans font-bold text-brand-brown text-center leading-tight">
-                <?php echo esc_html(get_field('card_3_label') ?: 'Participation in Employment National Forum'); ?>
-            </h4>
-        </div>
-    </div>
 
-</div>
+    </div>
 </section>
 <?php get_footer(); ?>

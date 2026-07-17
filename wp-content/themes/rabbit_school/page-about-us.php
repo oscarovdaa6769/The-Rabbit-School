@@ -11,7 +11,7 @@ get_header();?>
         class="h-[500px] md:h-[700px] w-full object-cover">
 
     <div class="absolute inset-0 z-50 bg-black/20 flex items-end pb-6 md:pb-20">
-        <div class="w-full max-w-7xl mx-auto">
+        <div class="w-full max-w-7xl mx-auto px-[20px] 2xl:px-0">
                 <div class="max-w-2xl text-text-light">
                     <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
                             <?php echo esc_html(get_field('section_1_title') ?: 'Error'); ?>
@@ -25,7 +25,7 @@ get_header();?>
 </section>
 <!-- section 2 -->
 <section class="bg-brand-cream py-16 md:py-24">
-    <div class="max-w-7xl mx-auto">
+    <div class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
             <!-- image -->
             <div class="relative">
@@ -49,8 +49,8 @@ get_header();?>
     </div>
 </section>
 <!-- section 3 -->
-<section class="bg-brand-yellow py-16 md:py-24">
-    <div class="max-w-7xl mx-auto">
+<section class="bg-brand-yellow">
+    <div class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
             <!-- context -->
             <div class="flex flex-col">
@@ -74,8 +74,8 @@ get_header();?>
     </div>
 </section>
 <!-- section 4 -->
-<section class="bg-brand-blue py-16 md:py-24">
-    <div class="max-w-7xl mx-auto">
+<section class="bg-brand-blue">
+    <div class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
             <!-- image -->
             <div class="relative">
@@ -99,8 +99,8 @@ get_header();?>
     </div>
 </section>
 <!-- section 5 -->
-<section class="bg-brand-pink py-16 md:py-24">
-    <div class="max-w-7xl mx-auto">
+<section class="bg-brand-pink">
+    <div class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
             <!-- context -->
             <div class="flex flex-col">
@@ -124,8 +124,8 @@ get_header();?>
     </div>
 </section>
 <!-- section 6 -->
-<section class="bg-brand-teal py-[100px] text-center">
-    <div class="max-w-7xl mx-auto">
+<section class="bg-brand-teal text-center">
+    <div class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0">
         <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-text-light mb-6 leading-tight uppercase">
             <?php echo esc_html(get_field('section_6_title') ?: 'Error'); ?>
         </h2>

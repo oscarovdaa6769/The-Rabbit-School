@@ -1,58 +1,40 @@
-<?php get_header(); ?>
+<?php 
+/*
+ * Template Name: Photo Essays      
+*/
+get_header(); 
+?>
 
 <!-- section 1 -->
 <section class="relative overflow-hidden">
       <img src="<?php echo get_theme_file_uri('assets/images/photo1.png'); ?>" alt="" class="h-[500px] md:h-[700px] w-full object-cover">
       
-      <div class="absolute bottom-6 md:bottom-20 left-[20px] right-[20px] md:left-[100px] max-w-[700px] text-text-light z-50">
-            <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
-                  Photo Essays Stories of Impact
-            </h1>
-            <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] leading-relaxed opacity-90">
-                  Explore the lives, achievements, and everyday joys of children and young adults with intellectual disabilities in Cambodia through powerful visual stories 
-            </p>
+      <div class="absolute inset-0 z-50 bg-black/20 flex items-end pb-6 md:pb-20">
+            <div class="w-full max-w-7xl mx-auto px-[20px] 2xl:px-0">
+                  <div class="max-w-2xl text-text-light">
+                        <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
+                              <?php echo esc_html(get_field('hero_title') ?: 'Photo Essays Stories of Impact'); ?>
+                        </h1>
+                        <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] leading-relaxed opacity-90">
+                              <?php echo esc_html(get_field('hero_description') ?: 'Explore the lives, achievements, and everyday joys of children and young adults with intellectual disabilities in Cambodia through powerful visual stories'); ?>
+                        </p>
+                  </div>
+            </div>
       </div>
 </section> 
 <!-- section 2 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-4 md:px-[20px] w-full">
-      <div class="flex flex-col sm:flex-row gap-4 justify-between items-stretch sm:items-center w-full mb-8">
+<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0 w-full font-sans">
+      <div class="flex flex-col sm:flex-row gap-4 justify-between items-stretch sm:items-center w-full">
             
-            <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 sm:flex-1">
-                  
-                  <div class="relative w-full sm:w-auto text-left group">
-                        <button 
-                              type="button"
-                              class="w-full sm:w-auto border border-brand-brown text-brand-brown text-[16px] font-medium px-[28px] py-[14px] rounded-[8px] inline-flex gap-8 items-center justify-between bg-transparent transition-colors duration-200 hover:bg-brand-brown/5"
-                        >
-                              <span>Filter</span>
-                              <span class="icon-[solar--alt-arrow-down-line-duotone] w-5 h-5 transition-transform duration-300 group-hover:rotate-180"></span>
-                        </button>
-
-                        <div 
-                              class="invisible overflow-hidden opacity-0 scale-95 pointer-events-none group-hover:visible group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto absolute left-0 mt-2 w-full sm:w-60 origin-top-left rounded-[16px] border border-brand-brown/20 bg-white shadow-xl transition-all duration-200 z-50"
-                        >
-                              <div class="py-1 divide-y divide-brand-brown/10" role="none">
-                                    <a href="#" class="block px-5 py-3.5 text-sm text-brand-brown font-semibold hover:bg-brand-brown hover:text-white transition-colors duration-150">Education Programs</a>
-                                    <a href="#" class="block px-5 py-3.5 text-sm text-brand-brown font-semibold hover:bg-brand-brown hover:text-white transition-colors duration-150">Vocational Training</a>
-                                    <a href="#" class="block px-5 py-3.5 text-sm text-brand-brown font-semibold hover:bg-brand-brown hover:text-white transition-colors duration-150">Teacher Training</a>
-                                    <a href="#" class="block px-5 py-3.5 text-sm text-brand-brown font-semibold hover:bg-brand-brown hover:text-white transition-colors duration-150">Advocacy & Community</a>
-                              </div>
-                        </div>
-                  </div>
-
-                  <div class="flex items-center justify-between sm:justify-start gap-4 bg-brand-brown text-white px-[28px] py-[14px] rounded-[8px] shadow-sm w-full sm:w-auto">
-                        <span class="text-[16px] font-medium tracking-wide">Education</span>
-                        <button type="button" class="hover:opacity-80 transition-opacity focus:outline-none flex items-center justify-center" aria-label="Remove filter">
-                              <span class="icon-[solar--close-circle-outline] w-5 h-5 text-white"></span>
-                        </button>
-                  </div>
-            </div>
+            <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase">
+                  <?php echo esc_html(get_field('featured_text') ?: 'Featured Artical'); ?>
+            </h2>
 
             <div class="relative w-full sm:flex-1 sm:max-w-md">
                   <input 
                       type="text" 
-                      placeholder="Search" 
-                      class="w-full border border-brand-brown/40 text-brand-brown placeholder-brand-brown/50 px-6 py-[14px] pr-12 rounded-[8px] bg-transparent focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown transition-all duration-200 text-[16px] shadow-sm hover:border-brand-brown/70"
+                      placeholder="<?php echo esc_attr(get_field('placeholder_text') ?: 'Search program...'); ?>" 
+                      class="w-full border border-brand-brown/40 text-brand-brown placeholder-brand-brown/50 px-6 py-[14px] pr-12 rounded-full bg-transparent focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown transition-all duration-200 text-[16px] shadow-sm hover:border-brand-brown/70"
                   />
                   <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none">
                       <span class="icon-[solar--magnifer-linear] w-5 h-5 text-brand-brown/60"></span>
@@ -62,18 +44,88 @@
       </div>
 </section>
 <!-- section 3 -->
-<section class="max-w-7xl mx-auto px-4 md:px-[20px]">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="border border-brand-brown rounded-[24px] p-4">
-                  <img src="<?php echo esc_url(get_field('program_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" alt="" class="w-full h-[300px] object-cover rounded-[16px] mb-4">
-                  <h3 class="font-heading text-[20px] md:text-[22px] lg:text-[24px] font-bold leading-tight mb-2 uppercase">Education Programs</h3>
-                  <p class="text-[14px] md:text-[15px] lg:text-[16px] leading-relaxed opacity-90 mb-2">
-                        Discover how our education programs are transforming the lives of children with intellectual disabilities in Cambodia, providing them with the skills and knowledge they need to thrive.
-                  </p>
-                  <a href="" class="group bg-brand-brown text-text-light font-bold text-sm px-[24px] py-[12px] rounded-[8px] shadow-lg transition-all inline-flex gap-3 items-center uppercase tracking-widest">
-                        read more
-                        <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
-                  </a>
+<section class="max-w-7xl mx-auto px-4 md:px-[20px] font-sans">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+            <?php 
+                  // CARD 1
+                  $img_card1_url = get_field('card_1_image') ?: get_theme_file_uri('assets/images/error.png');
+                  $title_card1 = get_field('card_1_title') ?: 'Discover Something New';
+                  $desc_card1 = get_field('card_1_description') ?: "Explore high-quality products and services designed to make your everyday life easier. Whether you're looking for the latest trends or trusted solutions, you'll find options that fit your needs and lifestyle.";
+                  $btn_text_card1 = get_field('card_1_button_text') ?: 'read more';
+                  $btn_link_card1 = get_field('card_1_button_link') ?: '#';
+                  // CARD 2
+                  $img_card2_url = get_field('card_2_image') ?: get_theme_file_uri('assets/images/error.png');
+                  $title_card2 = get_field('card_2_title') ?: 'Discover Something New';
+                  $desc_card2 = get_field('card_2_description') ?: "Explore high-quality products and services designed to make your everyday life easier. Whether you're looking for the latest trends or trusted solutions, you'll find options that fit your needs and lifestyle.";
+                  $btn_text_card2 = get_field('card_2_button_text') ?: 'read more';
+                  $btn_link_card2 = get_field('card_2_button_link') ?: '#';
+                  // CARD 3
+                  $img_card3_url = get_field('card_3_image') ?: get_theme_file_uri('assets/images/error.png');
+                  $title_card3 = get_field('card_3_title') ?: 'Discover Something New';
+                  $desc_card3 = get_field('card_3_description') ?: "Explore high-quality products and services designed to make your everyday life easier. Whether you're looking for the latest trends or trusted solutions, you'll find options that fit your needs and lifestyle.";
+                  $btn_text_card3 = get_field('card_3_button_text') ?: 'read more';
+                  $btn_link_card3 = get_field('card_3_button_link') ?: '#';
+                  // CARD 4
+                  $img_card4_url = get_field('card_4_image') ?: get_theme_file_uri('assets/images/error.png');
+                  $title_card4 = get_field('card_4_title') ?: 'Discover Something New';
+                  $desc_card4 = get_field('card_4_description') ?: "Explore high-quality products and services designed to make your everyday life easier. Whether you're looking for the latest trends or trusted solutions, you'll find options that fit your needs and lifestyle.";
+                  $btn_text_card4 = get_field('card_4_button_text') ?: 'read more';
+                  $btn_link_card4 = get_field('card_4_button_link') ?: '#';
+                  // CARD 5
+                  $img_card5_url = get_field('card_5_image') ?: get_theme_file_uri('assets/images/error.png');
+                  $title_card5 = get_field('card_5_title') ?: 'Discover Something New';
+                  $desc_card5 = get_field('card_5_description') ?: "Explore high-quality products and services designed to make your everyday life easier. Whether you're looking for the latest trends or trusted solutions, you'll find options that fit your needs and lifestyle.";
+                  $btn_text_card5 = get_field('card_5_button_text') ?: 'read more';
+                  $btn_link_card5 = get_field('card_5_button_link') ?: '#';
+                  // CARD 6
+                  $img_card6_url = get_field('card_6_image') ?: get_theme_file_uri('assets/images/error.png');
+                  $title_card6 = get_field('card_6_title') ?: 'Discover Something New';
+                  $desc_card6 = get_field('card_6_description') ?: "Explore high-quality products and services designed to make your everyday life easier. Whether you're looking for the latest trends or trusted solutions, you'll find options that fit your needs and lifestyle.";
+                  $btn_text_card6 = get_field('card_6_button_text') ?: 'read more';
+                  $btn_link_card6 = get_field('card_6_button_link') ?: '#';
+                  $photos = [
+                        [$img_card1_url, $title_card1, $desc_card1, $btn_text_card1, $btn_link_card1],
+                        [$img_card2_url, $title_card2, $desc_card2, $btn_text_card2, $btn_link_card2],
+                        [$img_card3_url, $title_card3, $desc_card3, $btn_text_card3, $btn_link_card3],
+                        [$img_card4_url, $title_card4, $desc_card4, $btn_text_card4, $btn_link_card4],
+                        [$img_card5_url, $title_card5, $desc_card5, $btn_text_card5, $btn_link_card5],
+                        [$img_card6_url, $title_card6, $desc_card6, $btn_text_card6, $btn_link_card6],
+                  ];
+            ?>
+            <?php foreach ($photos as $item): ?>
+                  <div class="bg-brand-cream border border-brand-brown/30 rounded-[24px] overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-full aspect-[4/3] overflow-hidden">
+                        <img src="<?php echo esc_url($item[0]);?>" 
+                              alt="" 
+                              class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 flex flex-col gap-[10px] md:gap-[20px] flex-grow">
+                        <h4 class="text-[16px] sm:text-[18px] font-bold text-brand-teal leading-tight uppercase">
+                              <?php echo esc_html($item[1]); ?>
+                        </h4>
+                        <p class="text-text-muted text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed">
+                              <?php echo esc_html($item[2]); ?>
+                        </p>
+                        <a href="<?php echo esc_url($item[4]); ?>" class="bg-brand-yellow px-[24px] py-[12px] rounded-[8px] inline-flex items-center self-start gap-[10px] group shadow-md hover:shadow-xl transition-all font-bold text-sm uppercase tracking-widest">
+                              <?php echo esc_html($item[3]); ?>
+                              <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
+                        </a>
+                        </div>
+                  </div>
+            <?php endforeach; ?>
+      </div>
+</section>
+<!-- section 4 -->
+<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-4 md:px-[20px] font-sans">
+      <div class="flex items-center gap-[20px]">
+            <div class="border border-brand-brown flex items-center justify-center rounded-full p-[16px] group hover:bg-brand-brown hover:text-text-light transition-all shadow-md hover:shadow-xl">
+                  <span class="icon-[solar--arrow-left-linear] w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1"></span>
+            </div>
+            <span>
+                  1 of 10
+            </span>
+            <div class="border border-brand-brown flex items-center justify-center rounded-full p-[16px] group hover:bg-brand-brown hover:text-text-light transition-all shadow-md hover:shadow-xl">
+                  <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
             </div>
       </div>
 </section>
