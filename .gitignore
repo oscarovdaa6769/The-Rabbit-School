@@ -32,8 +32,9 @@ wp-config.php
 # Log files
 *.log
 
-# htaccess
-/.htaccess
+# Ignore ALL themes EXCEPT your custom theme
+/wp-content/themes/*
+!/wp-content/themes/rabbit_school/
 
 # All plugins
 #
@@ -41,17 +42,5 @@ wp-config.php
 # uncomment the next line
 #/wp-content/plugins
 
-# All themes
-#
-# Note: If you wish to whitelist themes,
-# uncomment the next line
-#/wp-content/themes
-
-# Node dependencies and Tailwind build files
-node_modules/
-.npm/
-npm-debug.log*
-
-# Optional: If you want to ignore your raw tailwind config file on GitHub
-# tailwind.config.js
+# Ignore any file named style.css anywhere in the project
 **/style.css
