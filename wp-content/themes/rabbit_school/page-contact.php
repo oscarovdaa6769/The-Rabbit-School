@@ -134,14 +134,33 @@ get_header();
 
 <!-- GENERAL INQUIRIES FORM -->
 <section class="bg-[#623D3C]/[9%] py-12 md:py-24">
+    <style>
+    @keyframes title-float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+    }
+    .title-float {
+        animation: title-float 3s ease-in-out infinite;
+    }
+    </style>
     <div class="anim-fade-up anim-delay-3 max-w-2xl mx-auto px-6">
         <div class="bg-white rounded-3xl shadow-lg border border-[#f0e4e0] p-8 sm:p-10 md:p-12">
             <div class="text-center mb-8">
-                <h2 class="text-3xl md:text-4xl font-extrabold uppercase text-[#5c1f2e] mb-3 tracking-wide"><?php echo esc_html( get_field('general_inquiries') ); ?></h2>
+                <h2 class="title-float text-3xl md:text-4xl font-extrabold uppercase text-[#5c1f2e] mb-3 tracking-wide"><?php echo esc_html( get_field('general_inquiries') ); ?></h2>
                 <p class="text-[#5c1f2e] text-base text-ls"><?php echo esc_html( get_field('feel_free_to_drop_us_a_line_below') ); ?></p>
             </div>
 
-            <form id="contact-form" action="" method="post" class="space-y-6" novalidate>
+            <?php if ( isset($_GET['inquiry']) ) : ?>
+                <?php if ($_GET['inquiry'] === 'success') : ?>
+                    <p class="text-center text-green-700 font-medium mb-4">Thanks! Your message has been sent.</p>
+                <?php else : ?>
+                    <p class="text-center text-red-600 font-medium mb-4">Something went wrong. Please try again.</p>
+                <?php endif; ?>
+            <?php endif; ?>
+
+            <form id="contact-form" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" class="space-y-6" novalidate>
+                <input type="hidden" name="action" value="handle_general_inquiry">
+                <?php wp_nonce_field('general_inquiry_nonce', 'general_inquiry_nonce_field'); ?>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>

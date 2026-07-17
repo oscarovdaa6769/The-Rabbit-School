@@ -54,3 +54,4 @@ npm-debug.log*
 
 # Optional: If you want to ignore your raw tailwind config file on GitHub
 # tailwind.config.js
+**/style.css
