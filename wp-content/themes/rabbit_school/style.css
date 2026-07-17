@@ -363,6 +363,9 @@
   .mt-6 {
     margin-top: calc(var(--spacing) * 6);
   }
+  .mt-\[10px\] {
+    margin-top: 10px;
+  }
   .mt-auto {
     margin-top: auto;
   }
@@ -392,6 +395,12 @@
   }
   .mb-16 {
     margin-bottom: calc(var(--spacing) * 16);
+  }
+  .mb-\[10px\] {
+    margin-bottom: 10px;
+  }
+  .mb-\[50px\] {
+    margin-bottom: 50px;
   }
   .icon-\[fa6-brands--facebook-f\] {
     display: inline-block;
@@ -1423,6 +1432,9 @@
   }
   .py-\[14px\] {
     padding-block: 14px;
+  }
+  .py-\[50px\] {
+    padding-block: 50px;
   }
   .py-\[64px\] {
     padding-block: 64px;
@@ -2586,6 +2598,11 @@
       margin-bottom: calc(var(--spacing) * 8);
     }
   }
+  .md\:mb-\[20px\] {
+    @media (width >= 48rem) {
+      margin-bottom: 20px;
+    }
+  }
   .md\:block {
     @media (width >= 48rem) {
       display: block;
@@ -2989,6 +3006,11 @@
   .lg\:gap-\[20px\] {
     @media (width >= 64rem) {
       gap: 20px;
+    }
+  }
+  .lg\:gap-\[50px\] {
+    @media (width >= 64rem) {
+      gap: 50px;
     }
   }
   .lg\:px-8 {
