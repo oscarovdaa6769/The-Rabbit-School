@@ -59,7 +59,7 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
 <section class="rso-animate bg-[#4A2E2A] text-white px-6 md:px-12 pt-50 pb-[30px]" style="animation-delay: 0s;">
     <div class="max-w-6xl mx-auto grid <?php echo !empty($rso_hero_image) ? 'md:grid-cols-2' : ''; ?> gap-10 items-center">
         <div>
-            <p class="uppercase tracking-widest text-sm text-white/80 mb-3"><?php echo esc_html( get_field('news') ?: 'News' ); ?></p>
+            <p class="uppercase tracking-widest text-sm text-white/80 mb-3"><?php echo esc_html( get_field('news') ?: 'RSOS Corner' ); ?></p>
             <h1 class="text-4xl md:text-5xl font-extrabold uppercase mb-4"><?php echo esc_html( $rsos_corner_fallback ); ?></h1>
             <p class="text-white/85 max-w-2xl mb-8 leading-relaxed">
                <?php echo esc_html( get_field('stories_from_the_ground') ?: 'Stories from the ground.' ); ?>
@@ -514,16 +514,126 @@ function toggleReadMore(id, btn) {
                 </p>
             </div>
 
-            <form class="flex flex-col sm:flex-row items-stretch gap-3 w-full md:w-auto">
-                <input type="email" required placeholder="<?php echo esc_attr( get_field('ex') ?: 'your.email@example.com' ); ?>"
-                       class="bg-[#F5F3EF] text-gray-700 placeholder-gray-500 text-sm rounded-[10px] px-5 py-3 w-full sm:w-72 focus:outline-none focus:ring-2 focus:ring-white/40">
-                <button type="submit"
-                        class="bg-black text-white text-sm font-semibold rounded-[10px] px-6 py-3 hover:bg-gray-900 active:scale-95 transition cursor-pointer whitespace-nowrap">
-                    <?php echo esc_html( get_field('subscribe') ?: 'Subscribe' ); ?>
-                </button>
-            </form>
+            <div>
+                <form id="newsletter-form" class="flex flex-col sm:flex-row items-stretch gap-3 w-full md:w-auto" novalidate>
+                    <input type="email" id="newsletter-email" name="newsletter_email" required
+                           placeholder="<?php echo esc_attr( get_field('ex') ?: 'your.email@example.com' ); ?>"
+                           class="bg-[#F5F3EF] text-gray-700 placeholder-gray-500 text-sm rounded-[10px] px-5 py-3 w-full sm:w-72 focus:outline-none focus:ring-2 focus:ring-white/40">
+                    <button type="submit" id="newsletter-submit-btn"
+                            class="bg-black text-white text-sm font-semibold rounded-[10px] px-6 py-3 hover:bg-gray-900 active:scale-95 transition cursor-pointer whitespace-nowrap">
+                        <?php echo esc_html( get_field('subscribe') ?: 'Subscribe' ); ?>
+                    </button>
+                </form>
+                <p id="newsletter-feedback" class="hidden text-sm mt-2"></p>
+            </div>
         </div>
     </div>
 </section>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    // ---- Config ----
+    // Replace with your EmailJS public key / service / template IDs.
+    // This template only needs to accept an {{email}} variable, since
+    // the subscribe form just collects an email address.
+    const EMAILJS_PUBLIC_KEY = "9t73pdHwxTmtiFX1S";
+    const EMAILJS_SERVICE_ID = "service_cknh7a8";
+    const EMAILJS_NEWSLETTER_TEMPLATE_ID = "template_19do9sw";
+
+    const form = document.getElementById('newsletter-form');
+    const emailInput = document.getElementById('newsletter-email');
+    const submitBtn = document.getElementById('newsletter-submit-btn');
+    const feedback = document.getElementById('newsletter-feedback');
+
+    if (!form || !emailInput || !submitBtn || !feedback) {
+        console.error('Newsletter form: required element(s) missing.');
+        return;
+    }
+
+    let hideTimer = null;
+
+    function showFeedback(message, type) {
+        if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+
+        feedback.textContent = message;
+        feedback.classList.remove('hidden', 'text-red-300', 'text-green-300');
+        feedback.classList.add(type === 'error' ? 'text-red-300' : 'text-green-300');
+        feedback.setAttribute('role', 'status');
+        feedback.setAttribute('aria-live', 'polite');
+
+        if (type === 'success') {
+            hideTimer = setTimeout(function () {
+                feedback.classList.add('hidden');
+                hideTimer = null;
+            }, 5000);
+        }
+    }
+
+    function isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+    }
+
+    // Guard: make sure the EmailJS library actually loaded
+if (typeof emailjs === 'undefined') {
+    console.error('<?php echo esc_html( get_field('emailjs_library_failed_to_load_check_ad-blockers_network_or_cdn_access') ?: 'EmailJS library failed to load (check ad-blockers, network, or CDN access).' ); ?>');
+    showFeedback('<?php echo esc_html( get_field('newsletter_signup_is_temporarily_unavailable') ?: 'Newsletter signup is temporarily unavailable.' ); ?>', 'error');
+    submitBtn.disabled = true;
+    submitBtn.classList.add('opacity-60', 'cursor-not-allowed');
+    return;
+}
+
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    let isSubmitting = false;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (isSubmitting) return;
+
+        const email = emailInput.value.trim();
+        if (!email || !isValidEmail(email)) {
+            feedback.style.color = 'red';
+            showFeedback('<?php echo esc_html( get_field('e') ?: 'Please enter a valid email address.' ); ?>', 'error');
+            emailInput.classList.add('ring-2', 'ring-red-400');
+            return;
+        }
+        emailInput.classList.remove('ring-2', 'ring-red-400');
+
+        isSubmitting = true;
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-60', 'cursor-not-allowed');
+        feedback.classList.add('hidden');
+
+        const templateParams = {
+            email: email
+        };
+emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_NEWSLETTER_TEMPLATE_ID, templateParams)
+            .then(function (response) {
+                console.log('EmailJS SUCCESS!', response.status, response.text);
+                feedback.style.color = 'green';
+                showFeedback('<?php echo esc_html( get_field('s') ?: "Thanks! You are subscribed." ); ?>', 'success');
+                form.reset();
+            })
+            .catch(function (error) {
+                console.error('EmailJS FAILED...', error);
+                feedback.style.color = 'red';
+                showFeedback(
+                    '<?php echo esc_html( get_field('something_went_wrong') ?: 'Something went wrong.' ); ?>' +
+                    (error && error.text ? ' (' + error.text + ')' : ''),
+                    'error'
+                );
+            })
+            .finally(function () {
+                isSubmitting = false;
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-60', 'cursor-not-allowed');
+            });
+    });
+});
+</script>
 
 <?php get_footer(); ?>

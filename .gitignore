@@ -44,3 +44,4 @@ wp-config.php
 
 # Ignore any file named style.css anywhere in the project
 **/style.css
+/wp-content/themes/rabbit_school/node_modules

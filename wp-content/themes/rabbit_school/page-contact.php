@@ -134,29 +134,15 @@ get_header();
 
 <!-- GENERAL INQUIRIES FORM -->
 <section class="bg-[#623D3C]/[9%] py-12 md:py-24">
-    <style>
-    @keyframes title-float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-8px); }
-    }
-    .title-float {
-        animation: title-float 3s ease-in-out infinite;
-    }
-    </style>
     <div class="anim-fade-up anim-delay-3 max-w-2xl mx-auto px-6">
         <div class="bg-white rounded-3xl shadow-lg border border-[#f0e4e0] p-8 sm:p-10 md:p-12">
             <div class="text-center mb-8">
-                <h2 class="title-float text-3xl md:text-4xl font-extrabold uppercase text-[#5c1f2e] mb-3 tracking-wide"><?php echo esc_html( get_field('general_inquiries') ); ?></h2>
+                <h2 class="text-3xl md:text-4xl font-extrabold uppercase text-[#5c1f2e] mb-3 tracking-wide"><?php echo esc_html( get_field('general_inquiries') ); ?></h2>
                 <p class="text-[#5c1f2e] text-base text-ls"><?php echo esc_html( get_field('feel_free_to_drop_us_a_line_below') ); ?></p>
             </div>
 
-            <?php if ( isset($_GET['inquiry']) ) : ?>
-                <?php if ($_GET['inquiry'] === 'success') : ?>
-                    <p class="text-center text-green-700 font-medium mb-4">Thanks! Your message has been sent.</p>
-                <?php else : ?>
-                    <p class="text-center text-red-600 font-medium mb-4">Something went wrong. Please try again.</p>
-                <?php endif; ?>
-            <?php endif; ?>
+            <!-- Success / error message shown after JS submission (no page reload now) -->
+            <p id="form-feedback" class="hidden text-center font-medium mb-4"></p>
 
             <form id="contact-form" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" class="space-y-6" novalidate>
                 <input type="hidden" name="action" value="handle_general_inquiry">
@@ -218,36 +204,172 @@ get_header();
                         <?php echo esc_html( get_field('message_is_required') ); ?>
                     </p>
                 </div>
-            <button type="submit"
-                class="inline-flex items-center justify-center gap-2 bg-[#5c1f2e] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#4a1824] focus:outline-none focus:ring-2 focus:ring-[#5c1f2e] focus:ring-offset-2 transition-all duration-300 ease-out hover:scale-105 active:scale-95">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M568.4 37.7C578.2 34.2 589 36.7 596.4 44C603.8 51.3 606.2 62.2 602.7 72L424.7 568.9C419.7 582.8 406.6 592 391.9 592C377.7 592 364.9 583.4 359.6 570.3L295.4 412.3C290.9 401.3 292.9 388.7 300.6 379.7L395.1 267.3C400.2 261.2 399.8 252.3 394.2 246.7C388.6 241.1 379.6 240.7 373.6 245.8L261.2 340.1C252.1 347.7 239.6 349.7 228.6 345.3L70.1 280.8C57 275.5 48.4 262.7 48.4 248.5C48.4 233.8 57.6 220.7 71.5 215.7L568.4 37.7z"/></svg>
-                <?php echo esc_html( get_field('send') ); ?>
-            </button>
+
+                <button type="submit" id="contact-submit-btn"
+                    class="inline-flex items-center justify-center gap-2 bg-[#5c1f2e] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#4a1824] focus:outline-none focus:ring-2 focus:ring-[#5c1f2e] focus:ring-offset-2 transition-all duration-300 ease-out hover:scale-105 active:scale-95">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M568.4 37.7C578.2 34.2 589 36.7 596.4 44C603.8 51.3 606.2 62.2 602.7 72L424.7 568.9C419.7 582.8 406.6 592 391.9 592C377.7 592 364.9 583.4 359.6 570.3L295.4 412.3C290.9 401.3 292.9 388.7 300.6 379.7L395.1 267.3C400.2 261.2 399.8 252.3 394.2 246.7C388.6 241.1 379.6 240.7 373.6 245.8L261.2 340.1C252.1 347.7 239.6 349.7 228.6 345.3L70.1 280.8C57 275.5 48.4 262.7 48.4 248.5C48.4 233.8 57.6 220.7 71.5 215.7L568.4 37.7z"/></svg>
+                    <?php echo esc_html( get_field('send') ); ?>
+                </button>
             </form>
         </div>
     </div>
 </section>
 
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 <script>
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    let valid = true;
-    this.querySelectorAll('[required]').forEach(function(field) {
-        const errorMsg = field.parentElement.querySelector('.error-message');
-        if (!field.value.trim()) {
-            valid = false;
-            errorMsg.classList.remove('hidden');
-            errorMsg.classList.add('flex');
-            field.classList.add('border-red-400');
-        } else {
-            errorMsg.classList.add('hidden');
-            errorMsg.classList.remove('flex');
-            field.classList.remove('border-red-400');
-        }
-    });
-    if (valid) {
-        this.submit();
+document.addEventListener('DOMContentLoaded', function () {
+
+    // ---- Config ----
+    const EMAILJS_PUBLIC_KEY = "9t73pdHwxTmtiFX1S";
+    const EMAILJS_SERVICE_ID = "service_rtxxxej";
+    const EMAILJS_TEMPLATE_ID = "template_wra01kt";
+    const SUCCESS_HIDE_DELAY_MS = 5000;
+
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('contact-submit-btn');
+    const feedback = document.getElementById('form-feedback');
+
+    if (!form || !submitBtn || !feedback) {
+        console.error('Contact form: required element(s) missing (#contact-form, #contact-submit-btn, #form-feedback).');
+        return;
     }
+
+    let hideTimer = null;
+
+    function showFeedback(message, type) {
+        // Clear any pending auto-hide from a previous message
+        if (hideTimer) {
+            clearTimeout(hideTimer);
+            hideTimer = null;
+        }
+
+        feedback.textContent = message;
+        feedback.classList.remove('hidden', 'text-red-600', 'text-green-700');
+        feedback.classList.add(type === 'error' ? 'text-red-600' : 'text-green-700');
+        feedback.setAttribute('role', 'status');
+        feedback.setAttribute('aria-live', 'polite');
+
+        // Only success messages auto-hide; errors stay until the user fixes things and resubmits
+        if (type === 'success') {
+            hideTimer = setTimeout(function () {
+                feedback.classList.add('hidden');
+                hideTimer = null;
+            }, SUCCESS_HIDE_DELAY_MS);
+        }
+    }
+
+    function setFieldError(field, hasError) {
+        const errorMsg = field.parentElement.querySelector('.error-message');
+        field.classList.toggle('border-red-400', hasError);
+        field.setAttribute('aria-invalid', hasError ? 'true' : 'false');
+        if (errorMsg) {
+            errorMsg.classList.toggle('hidden', !hasError);
+            errorMsg.classList.toggle('flex', hasError);
+        }
+    }
+
+    function isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+    }
+
+    function validateForm() {
+        let valid = true;
+
+        form.querySelectorAll('[required]').forEach(function (field) {
+            const value = field.value.trim();
+            let fieldValid = value.length > 0;
+
+            if (fieldValid && field.type === 'email' && !isValidEmail(value)) {
+                fieldValid = false;
+            }
+
+            setFieldError(field, !fieldValid);
+            if (!fieldValid) valid = false;
+        });
+
+        return valid;
+    }
+
+    function setLoading(isLoading) {
+        submitBtn.disabled = isLoading;
+        submitBtn.classList.toggle('opacity-60', isLoading);
+        submitBtn.classList.toggle('cursor-not-allowed', isLoading);
+        // Button text is left untouched so the layout never shifts
+    }
+
+    // Guard: make sure the EmailJS library actually loaded
+    if (typeof emailjs === 'undefined') {
+        console.error('EmailJS library failed to load (check ad-blockers, network, or CDN access).');
+        showFeedback('<?php echo esc_html( get_field('error_massage_not_fine') ); ?>', 'error');
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-60', 'cursor-not-allowed');
+        return;
+    }
+
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    // Clear inline error state as the user fixes a field
+    form.querySelectorAll('[required]').forEach(function (field) {
+        field.addEventListener('input', function () {
+            if (field.value.trim()) setFieldError(field, false);
+        });
+    });
+
+    let isSubmitting = false;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        if (isSubmitting) return; // guard against double-click / double-submit
+        if (!validateForm()) return;
+
+        // Honeypot check (add a hidden input named "website" in the form if not present)
+        const honeypot = form.querySelector('[name="website"]');
+        if (honeypot && honeypot.value.trim() !== '') {
+            console.warn('Honeypot triggered, silently ignoring submission.');
+            form.reset();
+            return;
+        }
+
+        isSubmitting = true;
+        setLoading(true);
+        feedback.classList.add('hidden');
+
+        const templateParams = {
+            name: document.getElementById('your_name').value.trim(),
+            email: document.getElementById('your_email').value.trim(),
+            subject: document.getElementById('subject').value.trim(),
+            message: document.getElementById('message').value.trim()
+        };
+
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+            .then(function (response) {
+                console.log('EmailJS SUCCESS!', response.status, response.text);
+
+                // Fire-and-forget WP logging; don't block success UX on it
+                const formData = new FormData(form);
+                fetch(form.action, { method: 'POST', body: formData })
+                    .catch(function (err) {
+                        console.error('WP logging failed (email still sent):', err);
+                    });
+
+                showFeedback('<?php echo esc_html( get_field('sent_message_fine') ); ?>', 'success');
+                form.reset();
+            })
+            .catch(function (error) {
+                console.error('EmailJS FAILED...', error);
+                showFeedback(
+                    'Something went wrong: ' + (error && error.text ? error.text : 'please try again.'),
+                    'error'
+                );
+            })
+            .finally(function () {
+                isSubmitting = false;
+                setLoading(false);
+            });
+    });
 });
 </script>
 
