@@ -6,12 +6,9 @@
 get_header();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Shop — The Rabbit School Cambodia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Koulen&family=Inter:wght@400;500;600;700;800&family=Battambang:wght@400;700&display=swap" rel="stylesheet">
@@ -56,7 +53,6 @@ get_header();
   #orderModal { transition: opacity .2s ease; }
 </style>
 </head>
-<body class="bg-white text-brand-brown">
 
   <!-- ============ HERO ============ -->
   <section class="relative overflow-hidden">
@@ -66,13 +62,12 @@ get_header();
     </div>
 
     <div class="max-w-4xl mx-auto text-center px-6 py-24 md:py-32">
-      <p class="uppercase tracking-widest text-brand-yellow text-sm font-semibold mb-4">Shop with purpose</p>
       <h1 class="font-heading text-white text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-6">
         Every Purchase Builds<br class="hidden sm:block"> A Future
       </h1>
       <p class="text-white/85 max-w-2xl mx-auto text-base md:text-lg leading-relaxed mb-10">
         Each item in this shop is crafted by students in Rabbit School's vocational training program. Your purchase directly covers training supplies, tools, and mentorship for students learning a valuable trade.
-      </p>
+      </p
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="#shop" class="bg-brand-yellow text-brand-brown font-semibold px-8 py-3 rounded-full hover:bg-white transition">Shop Now</a>
       </div>
@@ -104,7 +99,7 @@ get_header();
       <div class="flex flex-col items-center gap-3">
         <div class="w-14 h-14 rounded-full bg-brand-orange/20 flex items-center justify-center text-2xl">💬</div>
         <h3 class="font-heading text-base">Easy Direct Order</h3>
-        <p class="text-sm text-text-muted leading-snug">Order instantly via WhatsApp, Telegram, or Messenger.</p>
+        <p class="text-sm text-text-muted leading-snug">Order instantly via Email, Facebook, or Instagram.</p>
       </div>
 
     </div>
@@ -131,7 +126,7 @@ get_header();
         <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5 flex flex-col justify-between" data-category="daily">
           <div>
             <div class="aspect-[4/3] overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=800&auto=format&fit=crop" alt="Rabbit School Eco Water Bottle" class="w-full h-full object-cover">
+              <img src="<?php echo get_theme_file_uri('assets/images/bottle.jpg'); ?>" alt="Rabbit School Eco Water Bottle" class="w-full h-full object-cover">
             </div>
             <div class="p-5">
               <span class="text-xs font-semibold uppercase tracking-wide text-brand-teal">Daily Use</span>
@@ -142,7 +137,7 @@ get_header();
           <div class="p-5 pt-0">
             <div class="flex items-center justify-between border-t border-brand-brown/5 pt-4">
               <span class="font-heading text-lg">$8.00</span>
-              <button onclick="openOrderModal('Eco Stainless Water Bottle', '$8.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
+              <button onclick="openOrderModal('Eco Stainless Water Bottle', '$8.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full hover:bg-brand-brown hover:text-white transition">Buy Now</button>
             </div>
           </div>
         </div>
@@ -151,7 +146,7 @@ get_header();
         <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5 flex flex-col justify-between" data-category="weaving">
           <div>
             <div class="aspect-[4/3] overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1608234807905-4466023792f5?q=80&w=800&auto=format&fit=crop" alt="Handwoven Cambodian Scarf" class="w-full h-full object-cover">
+              <img src="<?php echo get_theme_file_uri('assets/images/scarf.jpg'); ?>" alt="Handwoven Cambodian Scarf" class="w-full h-full object-cover">
             </div>
             <div class="p-5">
               <span class="text-xs font-semibold uppercase tracking-wide text-brand-pink">Handwoven</span>
@@ -162,7 +157,7 @@ get_header();
           <div class="p-5 pt-0">
             <div class="flex items-center justify-between border-t border-brand-brown/5 pt-4">
               <span class="font-heading text-lg">$12.00</span>
-              <button onclick="openOrderModal('Handwoven Cotton Scarf', '$12.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
+              <button onclick="openOrderModal('Handwoven Cotton Scarf', '$12.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full hover:bg-brand-brown hover:text-white transition">Buy Now</button>
             </div>
           </div>
         </div>
@@ -171,7 +166,7 @@ get_header();
         <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5 flex flex-col justify-between" data-category="crafts">
           <div>
             <div class="aspect-[4/3] overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop" alt="Handmade Craft Earrings" class="w-full h-full object-cover">
+              <img src="<?php echo get_theme_file_uri('assets/images/earring.jpeg'); ?>" alt="Handmade Craft Earrings" class="w-full h-full object-cover">
             </div>
             <div class="p-5">
               <span class="text-xs font-semibold uppercase tracking-wide text-brand-orange">Crafts</span>
@@ -182,7 +177,7 @@ get_header();
           <div class="p-5 pt-0">
             <div class="flex items-center justify-between border-t border-brand-brown/5 pt-4">
               <span class="font-heading text-lg">$5.00</span>
-              <button onclick="openOrderModal('Artisan Handmade Earrings', '$5.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
+              <button onclick="openOrderModal('Artisan Handmade Earrings', '$5.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full hover:bg-brand-brown hover:text-white transition">Buy Now</button>
             </div>
           </div>
         </div>
@@ -199,7 +194,7 @@ get_header();
 
       <p class="uppercase tracking-widest text-brand-orange text-xs font-semibold mb-2">Place your order</p>
       <h3 class="font-heading text-2xl mb-1" id="modalProductName">Product Name</h3>
-      <p class="text-text-muted text-sm mb-7" id="modalProductPrice">$0.00</p>
+      <p class="text-text-muted text-sm mb-6" id="modalProductPrice">$0.00</p>
 
       <form id="orderForm" class="space-y-4" onsubmit="return false;">
         <div>
@@ -215,45 +210,48 @@ get_header();
           <input type="number" id="orderQty" min="1" value="1" required class="w-full border border-brand-brown/15 bg-brand-cream/40 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition">
         </div>
 
-        <div class="pt-3">
+        <!-- ============ CLEAN SIMPLE SHADOW BUTTONS ============ -->
+        <div class="pt-2">
           <p class="text-xs font-semibold uppercase tracking-wide text-text-muted mb-3">Send order via</p>
           <div class="grid grid-cols-1 gap-2.5">
 
-            <button type="button" onclick="submitOrder('whatsapp')" class="group flex items-center gap-3 w-full border border-brand-brown/10 hover:border-transparent hover:bg-[#25D366] rounded-xl px-4 py-3 transition">
-              <span class="w-9 h-9 rounded-full bg-[#25D366]/10 group-hover:bg-white/20 flex items-center justify-center shrink-0 transition">
-                <svg class="w-5 h-5 text-[#25D366] group-hover:text-white transition" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.39a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.51 2 12.04 2m5.79 14.06c-.24.68-1.42 1.3-1.96 1.35-.5.05-1.02.24-3.42-.71-2.9-1.15-4.76-4.08-4.9-4.27-.14-.19-1.17-1.56-1.17-2.98s.74-2.12 1-2.41c.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.16-.29.36-.42.48-.14.13-.28.28-.12.55.16.28.71 1.18 1.53 1.91 1.05.94 1.94 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.87.26.14.44.2.5.32.06.12.06.7-.18 1.38"/></svg>
+            <!-- Email / Gmail -->
+            <button type="button" onclick="submitOrder('gmail')" class="group flex items-center gap-3 w-full bg-white rounded-xl px-4 py-3 border border-brand-brown/10 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm transition-all duration-200">
+              <span class="w-8 h-8 rounded-lg bg-[#EA4335]/10 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4 text-[#EA4335]" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
               </span>
-              <span class="text-sm font-semibold group-hover:text-white transition">WhatsApp</span>
-              <span class="ml-auto text-text-muted group-hover:text-white/80 transition">›</span>
+              <span class="text-sm font-semibold text-brand-brown">Email / Gmail</span>
+              <span class="ml-auto text-text-muted/40 group-hover:text-brand-brown group-hover:translate-x-1 transition-all text-xs">➔</span>
             </button>
 
-            <button type="button" onclick="submitOrder('telegram')" class="group flex items-center gap-3 w-full border border-brand-brown/10 hover:border-transparent hover:bg-[#229ED9] rounded-xl px-4 py-3 transition">
-              <span class="w-9 h-9 rounded-full bg-[#229ED9]/10 group-hover:bg-white/20 flex items-center justify-center shrink-0 transition">
-                <svg class="w-5 h-5 text-[#229ED9] group-hover:text-white transition" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3c-.3-.2-.7-.3-1.4 0L2.9 11.1c-.9.3-.9 1.6 0 1.9l4.5 1.5 1.7 5.4c.2.6 1 .8 1.5.4l2.5-2.1 4.6 3.4c.6.4 1.5.1 1.6-.6l3.3-15.1c.1-.6-.1-1.1-.7-1.6M8.6 13.9l9-6.1c.3-.2.6.1.3.4l-7.4 6.9-.3 3.4-1.3-4.6z"/></svg>
+            <!-- Facebook -->
+            <button type="button" onclick="submitOrder('facebook')" class="group flex items-center gap-3 w-full bg-white rounded-xl px-4 py-3 border border-brand-brown/10 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm transition-all duration-200">
+              <span class="w-8 h-8 rounded-lg bg-[#1877F2]/10 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4 text-[#1877F2]" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
               </span>
-              <span class="text-sm font-semibold group-hover:text-white transition">Telegram</span>
-              <span class="ml-auto text-text-muted group-hover:text-white/80 transition">›</span>
+              <span class="text-sm font-semibold text-brand-brown">Facebook Page</span>
+              <span class="ml-auto text-text-muted/40 group-hover:text-brand-brown group-hover:translate-x-1 transition-all text-xs">➔</span>
             </button>
 
-            <button type="button" onclick="submitOrder('messenger')" class="group flex items-center gap-3 w-full border border-brand-brown/10 hover:border-transparent hover:bg-[#0084FF] rounded-xl px-4 py-3 transition">
-              <span class="w-9 h-9 rounded-full bg-[#0084FF]/10 group-hover:bg-white/20 flex items-center justify-center shrink-0 transition">
-                <svg class="w-5 h-5 text-[#0084FF] group-hover:text-white transition" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.15 2 11.27c0 2.91 1.44 5.51 3.7 7.21V22l3.38-1.86c.9.25 1.86.38 2.87.38 5.52 0 10-4.15 10-9.27S17.52 2 12 2m1.02 12.48-2.55-2.72-4.98 2.72 5.48-5.82 2.61 2.72 4.92-2.72z"/></svg>
+            <!-- Instagram -->
+            <button type="button" onclick="submitOrder('instagram')" class="group flex items-center gap-3 w-full bg-white rounded-xl px-4 py-3 border border-brand-brown/10 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm transition-all duration-200">
+              <span class="w-8 h-8 rounded-lg bg-[#E4405F]/10 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4 text-[#E4405F]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
               </span>
-              <span class="text-sm font-semibold group-hover:text-white transition">Messenger</span>
-              <span class="ml-auto text-text-muted group-hover:text-white/80 transition">›</span>
+              <span class="text-sm font-semibold text-brand-brown">Instagram Direct</span>
+              <span class="ml-auto text-text-muted/40 group-hover:text-brand-brown group-hover:translate-x-1 transition-all text-xs">➔</span>
             </button>
 
           </div>
-          <p class="text-xs text-text-muted text-center pt-4">Your order details are sent along automatically where the app supports it.</p>
         </div>
       </form>
     </div>
   </div>
 
   <script>
-    const WHATSAPP_NUMBER = "85512345678";     // country code + number, no spaces or plus sign
-    const TELEGRAM_USERNAME = "rabbitschoolshop"; // your Telegram username, no @
-    const MESSENGER_PAGE = "rabbitschoolcambodia"; // your Facebook Page username
+    const GMAIL_ADDRESS = "info@rabbitschoolcambodia.net";
+    const FACEBOOK_LINK = "https://www.facebook.com/share/199iFs28pU/";
+    const INSTAGRAM_LINK = "https://www.instagram.com/rabbitschoolcbd";
 
     let currentProduct = { name: "", price: "" };
 
@@ -294,14 +292,18 @@ get_header();
         `My phone: ${phone.value.trim()}`;
 
       let url = "";
-      if (platform === 'whatsapp') {
-        url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-      } else if (platform === 'telegram') {
-        url = `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(message)}`;
-      } else if (platform === 'messenger') {
+
+      if (platform === 'gmail') {
+        const subject = `Order Inquiry: ${currentProduct.name}`;
+        url = `https://mail.google.com/mail/?view=cm&fs=1&to=${GMAIL_ADDRESS}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+      } else if (platform === 'facebook') {
         navigator.clipboard?.writeText(message).catch(() => {});
-        url = `https://m.me/${MESSENGER_PAGE}`;
-        alert("Your order details were copied — just paste them into the Messenger chat that opens.");
+        url = FACEBOOK_LINK;
+        alert("Your order details were copied! Just paste them into our Facebook page message.");
+      } else if (platform === 'instagram') {
+        navigator.clipboard?.writeText(message).catch(() => {});
+        url = INSTAGRAM_LINK;
+        alert("Your order details were copied! Send them to us via Instagram Direct Message.");
       }
 
       window.open(url, '_blank');
@@ -339,7 +341,7 @@ get_header();
     });
   </script>
 
-</body>
-</html>
+
+
 
 <?php get_footer(); ?>
