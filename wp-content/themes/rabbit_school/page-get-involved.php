@@ -1,126 +1,107 @@
+<?php 
+/*
+Template Name: Get Involved
+*/
+get_header(); 
+?>
 
-<?php get_header();?>
 
-
-<main class="bg-[#F7F5F4] min-h-screen font-sans antialiased">
-  <!--Section -->
-  <section class="max-w-4xl mx-auto px-4 pt-20 pb-16 text-center">
-    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 text-[#623D3C] leading-tight">
-      Get Involved Today
-    </h1>
-    <p class="text-lg md:text-xl text-[#623D3C]/80 leading-relaxed max-w-3xl mx-auto">
-      There are many ways to support Rabbit School and help transform the lives of children and youth with intellectual disabilities and autism in Cambodia. Choose the path that speaks to you—and become the reason a child can grow up with dignity, opportunity, and self-reliance.
-    </p>
+<main class="bg-brand-cream font-sans antialiased">
+  <!-- SECTION 1 -->
+  <section class="w-full max-w-7xl mx-auto py-[64px] md:py[50px] px-[20px] 2xl:px-0">
+    <div class="max-w-2xl mx-auto text-center">
+      <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-[10px] md:mb-[20px] uppercase">
+        <?php echo esc_html(get_field('section_1_title') ?: 'Get Involved Today'); ?>
+      </h1>
+      <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed">
+        <?php echo esc_html(get_field('section_1_description') ?: 'There are many ways to support Rabbit School and help transform the lives of children...'); ?>
+      </p>
+    </div>
   </section>
-
-  <!-- Cards-Section -->
-  <section class="max-w-6xl mx-auto px-6 pb-24">
+  <!-- SECTION 2 -->
+  <section class="max-w-7xl mx-auto pb-[64px] md:pb-[50px] px-[20px] 2xl:px-0">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      
-      <!-- Card- Donation -->
-      <div class="bg-[#DDB0D1] hover:bg-[#DDB0D1]/95 rounded-3xl shadow-xl p-8 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl border border-white/30 group">
-        <div class="mb-8">
-        <div class="mb-6 p-4 bg-white/20 rounded-full w-16 h-16 flex items-center justify-center backdrop-blur-md shadow-sm border border-white/20 transition-transform duration-300 group-hover:scale-110">
-        <img src="<?php echo get_theme_file_uri('assets/icons/donation.png'); ?>"
-        alt="Donation Icon"
-        loading="lazy"
-        class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
-        </div>
-          <h3 class="text-2xl font-bold text-[#623D3C] mb-4 tracking-tight">Make a Donation</h3>
-          <p class="text-[#623D3C]/80 text-sm leading-relaxed">
-            Every contribution helps us strengthen and expand our programs, ensuring the highest quality education and opportunities for our students.
-          </p>
-        </div>
-        <a class="inline-flex items-center gap-2 text-[#623D3C] font-bold transition-all duration-300 focus:outline-none focus:underline" href="/donate">
-          <span class="relative py-1">
-            Donate now
-            <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#623D3C] transition-all duration-300 group-hover:w-full"></span>
-          </span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" aria-hidden="true">
-            <path d="M5 12h14"></path>
-            <path d="m12 5 7 7-7 7"></path>
-          </svg>
-        </a>
-      </div>
+      <?php
+        // CARD1
+        $img_card1_url = get_field('card_1_image') ?: get_theme_file_uri('assets/images/error.png');
+        $title_card1 = get_field('card_1_title') ?: 'Make a Donation';
+        $desc_card1 = get_field('card_1_description') ?: 'Every contribution helps us strengthen and expand our...';
+        $btn_text_card1 = get_field('card_1_button_text') ?: 'Donate Now';
+        $btn_link_card1 = get_field('card_1_button_link') ?: '#';
+        // CARD2
+        $img_card2_url = get_field('card_2_image') ?: get_theme_file_uri('assets/images/error.png');
+        $title_card2 = get_field('card_2_title') ?: 'Join Hands with Us';
+        $desc_card2 = get_field('card_2_description') ?: 'Partner your company with Rabbit School to create opportunities...';
+        $btn_text_card2 = get_field('card_2_button_text') ?: 'Join With Us';
+        $btn_link_card2 = get_field('card_2_button_link') ?: '#';
+        // CARD3
+        $img_card3_url = get_field('card_3_image') ?: get_theme_file_uri('assets/images/error.png');
+        $title_card3 = get_field('card_3_title') ?: 'Work with Volunteer';
+        $desc_card3 = get_field('card_3_description') ?: 'Join our passionate team and help empower children...';
+        $btn_text_card3 = get_field('card_3_button_text') ?: 'Work With Volunteer';
+        $btn_link_card3 = get_field('card_3_button_link') ?: '#';
 
-        <!-- card-join-hand -->
-        <div class="bg-[#8BAEA7] hover:bg-[#8BAEA7]/95 rounded-3xl shadow-xl p-8 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl border border-white/30 group">
-        <div class="mb-8">
-        <div class="mb-6 p-4 bg-white/20 rounded-full w-16 h-16 flex items-center justify-center backdrop-blur-md shadow-sm border border-white/20 transition-transform duration-300 group-hover:scale-110">
-        <img src="<?php echo get_theme_file_uri('assets/icons/cooperation.png'); ?>"
-        alt="Donation Icon"
-        loading="lazy"
-        class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
-        </div>
-          <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">Join Hands with Us</h3>
-          <p class="text-white/90 text-sm leading-relaxed">
-            Partner your company with Rabbit School to create opportunities for children and youth with intellectual disabilities and autism in Cambodia.
-          </p>
-        </div>
-        <a class="inline-flex items-center gap-2 text-white font-bold transition-all duration-300 focus:outline-none focus:underline" href="/donate">
-          <span class="relative py-1">
-            Join with us
-            <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
-          </span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" aria-hidden="true">
-            <path d="M5 12h14"></path>
-            <path d="m12 5 7 7-7 7"></path>
-          </svg>
-        </a>
-      </div>
-
-      <!-- Work with volunteer -->
-          <div class="bg-[#623D3C] hover:bg-[#623D3C]/95 rounded-3xl shadow-xl p-8 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl border border-white/30 group">
-        <div class="mb-8">
-        <div class="mb-6 p-4 bg-white/20 rounded-full w-16 h-16 flex items-center justify-center backdrop-blur-md shadow-sm border border-white/20 transition-transform duration-300 group-hover:scale-110">
-        <img src="<?php echo get_theme_file_uri('assets/icons/groupg.png'); ?>"
-        alt="Donation Icon"
-        loading="lazy"
-        class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
-        </div>
-          <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">Work with Vonlunteer</h3>
-          <p class="text-white/90 text-sm leading-relaxed">
-            Join our passionate team and help empower children and youth with intellectual disabilities and autism to reach their full potential.
-          </p>
-        </div>
-        <a class="inline-flex items-center gap-2 text-white font-bold transition-all duration-300 focus:outline-none focus:underline" href="work-with-volunteer">
-          <span class="relative py-1">
-            Work & volunteer
-            <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
-          </span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" aria-hidden="true">
-            <path d="M5 12h14"></path>
-            <path d="m12 5 7 7-7 7"></path>
-          </svg>
-        </a>
-      </div>
-        </div>
-      </section>
-
-      <!-- CTA-Section -->
-       <section class="bg-white py-24 border-t border-brand-brown/5">
-        <div class="max-w-4xl mx-auto text-center px-6">
-          <h2 class="text-3xl md:text-4xl font-bold text-brand-brown mb-6 tracking-tight">
-            Ready to Make a Difference?
-          </h2>
-          <p class="text-lg text-band-brown/80 mb-10 leading-relaxed max-w-2xl mx-auto">
-            Your support can change lives. Join us in creating a more inclusive world where every child has the opportunity to thrive.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-brown hover:bg-brand-brown/90 text-white font-semibold rounded-full transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-brand-brown/20" href="/donate">
-          <span>Get Involved</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true">
-            <path d="M5 12h14"></path>
-            <path d="m12 5 7 7-7 7"></path>
-          </svg>
-        </a>
-        <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-brand-brown text-brand-brown hover:bg-brand-brown hover:text-white font-semibold rounded-full transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-brand-brown/5" href="/contact">
-          <span>Contact Us</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true">
-            <path d="M5 12h14"></path>
-            <path d="m12 5 7 7-7 7"></path>
-          </svg>
-        </a>
+        $wrappers = [
+                [$img_card1_url, $title_card1, $desc_card1, $btn_text_card1, $btn_link_card1, 'bg-brand-pink hover:bg-brand-pink/95 text-text-main', 'bg-brand-brown'],
+                [$img_card2_url, $title_card2, $desc_card2, $btn_text_card2, $btn_link_card2, 'bg-brand-teal hover:bg-brand-teal/95 text-text-light', 'bg-brand-cream'],
+                [$img_card3_url, $title_card3, $desc_card3, $btn_text_card3, $btn_link_card3, 'bg-brand-brown hover:bg-brand-brown/95 text-text-light', 'bg-brand-cream'],
+        ];
+      ?>
+      <?php foreach ($wrappers as $item): ?>
+        <div class="<?php echo esc_attr($item[5]); ?> rounded-[28px] shadow-md hover:shadow-xl p-[24px] flex flex-col justify-between gap-[20px] transition-all transform hover:-translate-y-1 border border-white/30 group">
+          <div class="p-4 bg-white/20 rounded-full w-16 h-16 flex items-center justify-center backdrop-blur-md shadow-sm border border-white/20 transition-transform duration-300 group-hover:scale-110">
+            <img src="<?php echo esc_url($item[0]); ?>"
+            alt=""
+            loading="lazy"
+            class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
           </div>
+          <h3 class="text-[16px] sm:text-[18px] md:text-[20px] font-bold tracking-tight uppercase">
+            <?php echo esc_html($item[1]); ?>
+          </h3>
+          <p class="text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed">
+            <?php echo esc_html($item[2]); ?>
+          </p>
+          <a class="inline-flex items-center gap-2 font-bold transition-all focus:outline-none focus:underline" href="<?php echo esc_url($item[4]); ?>">
+            <span class="relative py-1">
+              <?php echo esc_html($item[3]); ?>
+              <span class="absolute left-0 bottom-0 h-[2px] w-0 <?php echo esc_attr($item[6]); ?> transition-all group-hover:w-full"></span>
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 transition-transform group-hover:translate-x-1.5" aria-hidden="true">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
         </div>
-       </section>
+      <?php endforeach; ?>
+    </div>
+  </section>
+  <!-- SECTION 3 -->
+  <section class="bg-white py-[64px] md:py-[50px] px-[20px] 2xl:px-0 border-t border-brand-brown/5">
+    <div class="max-w-7xl mx-auto text-center">
+      <div class="max-w-5xl mx-auto mb-[20px]">
+        <h2 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-[10px] md:mb-[20px] uppercase">
+          <?php echo esc_html(get_field('section_3_title') ?: 'Ready to Make a Difference?'); ?>
+        </h2>
+        <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed">
+          <?php echo esc_html(get_field('section_3_description') ?: 'Your support can change lives...'); ?>
+        </p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-[24px] py-[12px] bg-brand-brown text-white font-semibold rounded-[8px] transition-all transform focus:outline-none focus:ring-4 focus:ring-brand-brown/20 group shadow-md hover:shadow-xl" href="<?php echo esc_url(get_field('section_3_button_1_link') ?: '#'); ?>">
+          <span><?php echo esc_html(get_field('section_3_button_1_text') ?: 'Get Involved'); ?></span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 transition-transform group-hover:translate-x-1.5" aria-hidden="true">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
+        <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-[24px] py-[12px] border border-brand-brown text-brand-brown hover:bg-brand-brown hover:text-white font-semibold rounded-[8px] transition-all transform focus:outline-none focus:ring-4 focus:ring-brand-brown/5 group shadow-md hover:shadow-xl" href="<?php echo esc_url(get_field('section_3_button_2_link') ?: '#'); ?>">
+          <span><?php echo esc_html(get_field('section_3_button_2_text') ?: 'Contact Us'); ?></span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 transition-transform group-hover:translate-x-1.5" aria-hidden="true">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+<?php get_footer(); ?>

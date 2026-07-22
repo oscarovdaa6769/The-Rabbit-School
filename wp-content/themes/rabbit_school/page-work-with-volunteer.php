@@ -30,7 +30,6 @@ $email_title           = get_field('email_title') ?: 'EMAIL US';
 $email_address         = get_field('email_address') ?: 'info@rabbitschoolcambodia.net';
 $facebook_title        = get_field('facebook_title') ?: 'FACEBOOK PAGE';
 $facebook_link         = get_field('facebook_link') ?: 'https://www.facebook.com/rabbitschoolcambodia';
-$telegram_link         = get_field('telegram_link') ?: 't.me/rabbitschool';
 $phone_title           = get_field('phone_title') ?: 'CALL HOTLINE';
 $phone_number          = get_field('phone_number') ?: '(+855) 68 901 971';
 ?>

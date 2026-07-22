@@ -56,26 +56,28 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
 ?>
 
 <!-- Hero -->
-<section class="rso-animate bg-[#4A2E2A] text-white px-6 md:px-12 pt-50 pb-[30px]" style="animation-delay: 0s;">
-    <div class="max-w-6xl mx-auto grid <?php echo !empty($rso_hero_image) ? 'md:grid-cols-2' : ''; ?> gap-10 items-center">
-        <div>
-            <p class="uppercase tracking-widest text-sm text-white/80 mb-3"><?php echo esc_html( get_field('news') ?: 'News' ); ?></p>
-            <h1 class="text-4xl md:text-5xl font-extrabold uppercase mb-4"><?php echo esc_html( $rsos_corner_fallback ); ?></h1>
-            <p class="text-white/85 max-w-2xl mb-8 leading-relaxed">
+<section class="rso-animate bg-brand-brown h-[500px] md:h-[700px] text-text-light py-[64px] md:py-[50px] px-[20px] 2xl:px-0" style="animation-delay: 0s;">
+    <div class="max-w-7xl mx-auto grid <?php echo !empty($rso_hero_image) ? 'md:grid-cols-2' : ''; ?> gap-10 items-end justify-start h-full">
+        <div class="flex flex-col gap-[10px]">
+            <span class="uppercase tracking-widest text-[12px] sm:text-[13px] md:text-[14px] leading-relaxed text-text-light/80">
+                <?php echo esc_html( get_field('news') ?: 'News' ); ?>
+            </span>
+            <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight uppercase"><?php echo esc_html( $rsos_corner_fallback ); ?></h1>
+            <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] leading-relaxed opacity-90">
                <?php echo esc_html( get_field('stories_from_the_ground') ?: 'Stories from the ground.' ); ?>
             </p>
 
-            <div class="flex flex-wrap gap-3">
-               <a href="#rso-article-grid"> <button type="button" class="bg-[#D9A441] text-[#4A2E2A] text-xs font-bold uppercase tracking-wide px-4 py-3 rounded-[10px] hover:bg-[#c9953a] transition cursor-pointer">
+            <div class="flex flex-wrap gap-[20px]">
+               <a href="#rso-article-grid"> <button type="button" class="bg-brand-yellow text-text-main text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-bold uppercase tracking-wide px-[24px] py-[12px] rounded-[8px] hover:bg-brand-yellow/80 transition-all cursor-pointer">
                     <?php echo esc_html( get_field('education_box') ?: 'Education' ); ?>
                 </button></a>
-                <a href="#rso-article-grid"><button type="button" class="bg-[#D9A441] text-[#4A2E2A] text-xs font-bold uppercase tracking-wide px-4 py-3 rounded-[10px] hover:bg-[#c9953a] transition cursor-pointer">
+                <a href="#rso-article-grid"><button type="button" class="bg-brand-yellow text-text-main text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-bold uppercase tracking-wide px-[24px] py-[12px] rounded-[8px] hover:bg-brand-yellow/80 transition-all cursor-pointer">
                     <?php echo esc_html( get_field('community_box') ?: 'Community' ); ?>
                 </button></a>
-                <a href="#rso-article-grid"><button type="button" class="bg-[#D9A441] text-[#4A2E2A] text-xs font-bold uppercase tracking-wide px-4 py-3 rounded-[10px] hover:bg-[#c9953a] transition cursor-pointer">
+                <a href="#rso-article-grid"><button type="button" class="bg-brand-yellow text-text-main text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-bold uppercase tracking-wide px-[24px] py-[12px] rounded-[8px] hover:bg-brand-yellow/80 transition-all cursor-pointer">
                     <?php echo esc_html( get_field('advocacy_box') ?: 'Advocacy' ); ?>
                 </button></a>
-                <a href="#rso-article-grid"><button type="button" class="bg-[#D9A441] text-[#4A2E2A] text-xs font-bold uppercase tracking-wide px-4 py-3 rounded-[10px] hover:bg-[#c9953a] transition cursor-pointer">
+                <a href="#rso-article-grid"><button type="button" class="bg-brand-yellow text-text-main text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-bold uppercase tracking-wide px-[24px] py-[12px] rounded-[8px] hover:bg-brand-yellow/80 transition-all cursor-pointer">
                    <?php echo esc_html( get_field('vocational_training_box') ?: 'Vocational Training' ); ?>
                 </button></a>
             </div>
@@ -92,26 +94,26 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
 </section>
 
 <!-- Featured story -->
-<section class="rso-animate bg-white px-6 md:px-12 py-14" style="animation-delay: 0.15s;">
-    <div class="max-w-6xl mx-auto">
+<section class="rso-animate bg-white py-[64px] md:py-[50px] px-[20px] 2xl:px-0" style="animation-delay: 0.15s;">
+    <div class="max-w-7xl mx-auto">
 
-        <div class="flex items-center gap-4 mb-6">
-            <span class="uppercase text-xs font-bold tracking-widest text-[#4A2E2A]"><?php echo esc_html( get_field('featured_story') ?: 'Featured Story' ); ?></span>
+        <div class="flex items-center gap-[20px] mb-[20px]">
+            <span class="uppercase text-[12px] sm:text-[13px] md:text-[14px] font-bold tracking-widest text-text-main/80"><?php echo esc_html( get_field('featured_story') ?: 'Featured Story' ); ?></span>
             <span class="flex-1 h-px bg-gray-300"></span>
         </div>
 
-        <div class="bg-[#F5F3EF] rounded-3xl p-8 md:p-10">
-            <h2 class="text-xl md:text-2xl font-extrabold text-[#4A2E2A] mb-3 uppercase">
+        <div class="bg-brand-cream rounded-[28px] p-[20px] md:p-[30px]">
+            <h2 class="text-[16px] sm:text-[18px] font-extrabold text-text-main mb-[10px] uppercase">
                 <?php echo esc_html( get_field('from_classroom') ?: 'From Classroom to Employment' ); ?>
             </h2>
 
-            <p class="text-gray-700 leading-relaxed mb-6 max-w-3xl">
+            <p class="text-text-main/80 text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed">
                 <?php echo esc_html( get_field('at_19_dara_joined_rabbit_schools') ?: 'At 19, Dara joined Rabbit School...' ); ?>
             </p>
 
-            <div id="featured-more-wrapper" class="grid transition-all duration-300 ease-in-out mb-4" style="grid-template-rows: 0fr;">
+            <div id="featured-more-wrapper" class="grid transition-all duration-300 ease-in-out mb-[20px]" style="grid-template-rows: 0fr;">
                 <div class="overflow-hidden">
-                    <div class="text-gray-700 leading-relaxed space-y-3 border-t border-gray-300 pt-4 max-w-3xl">
+                    <div class="text-text-main/80 leading-relaxed space-y-3 border-t border-brand-brown/80 pt-4">
                         <p>
                            <?php echo esc_html( get_field('dara_struggled_to_find') ?: 'Dara struggled to find opportunities initially...' ); ?>
                         </p>
@@ -123,11 +125,11 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
             </div>
 
             <div class="flex flex-wrap gap-3">
-                <a href="#rso-article-grid"><button type="button" class="bg-[#4A2E2A] text-white text-xs font-bold uppercase tracking-wide px-4 py-3 rounded-[10px] hover:bg-[#3a2521] transition cursor-pointer">
+                <a href="#rso-article-grid"><button type="button" class="bg-brand-brown text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-bold uppercase tracking-wide px-[24px] py-[12px] rounded-[8px] hover:bg-brand-brown/90 transition-all cursor-pointer">
                     <?php echo esc_html( get_field('vocational_training_box1') ?: 'Vocational Training' ); ?>
                 </button></a>
                 <button type="button" onclick="toggleReadMore('featured-more', this)" aria-expanded="false" aria-controls="featured-more-wrapper"
-                        class="group bg-[#4A2E2A] text-white text-xs font-bold uppercase tracking-wide px-4 py-3 rounded-[10px] hover:bg-[#3a2521] transition cursor-pointer inline-flex items-center gap-2">
+                        class="group bg-brand-brown text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-bold uppercase tracking-wide px-[24px] py-[12px] rounded-[8px] hover:bg-brand-brown/90 transition-all cursor-pointer inline-flex items-center gap-2">
                     <span class="read-more-label"><?php echo esc_html( get_field('success_story_box') ?: 'Success Story' ); ?></span>
                     <svg class="read-more-icon w-3 h-3 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
@@ -140,11 +142,11 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
 </section>
 
 <!-- Latest articles -->
-<section class="rso-animate bg-white px-6 md:px-12" style="animation-delay: 0.3s;">
-    <div class="max-w-6xl mx-auto">
+<section class="rso-animate bg-white py-[64px] md:py-[50px] px-[20px] 2xl:px-0" style="animation-delay: 0.3s;">
+    <div class="max-w-7xl mx-auto">
  
-        <div class="flex items-center gap-4 mb-8">
-            <span class="uppercase text-xs font-bold tracking-widest text-[#4A2E2A] whitespace-nowrap"><?php echo esc_html( get_field('latest_articles') ?: 'Latest Articles' ); ?></span>
+        <div class="flex items-center gap-[20px] mb-[20px]">
+            <span class="uppercase text-[12px] sm:text-[13px] md:text-[14px] font-bold tracking-widest text-text-main/80"><?php echo esc_html( get_field('latest_articles') ?: 'Latest Articles' ); ?></span>
             <span class="flex-1 h-px bg-gray-300"></span>
         </div>
  
@@ -156,9 +158,9 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
             $f_voc = esc_html( get_field('filter_vocational_training') ?: 'Vocational Training' );
             $f_tea = esc_html( get_field('filter_teacher_training') ?: 'Teacher Training' );
         ?>
-        <div class="flex flex-wrap items-center gap-3 mb-10">
+        <div class="flex flex-wrap items-center gap-3 mb-[20px]">
             <div class="relative">
-                <select id="rso-filter-select" class="appearance-none bg-white border border-gray-300 rounded-[10px] text-ls text-gray-700 font-medium pl-4 pr-10 py-3 cursor-pointer hover:border-[#4A2E2A] focus:outline-none focus:border-[#4A2E2A] transition">
+                <select id="rso-filter-select" class="appearance-none bg-white border border-brand-brown/80 rounded-[8px] text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-medium pr-[24px] pl-[12px] py-[12px] cursor-pointer hover:border-brand-brown focus:outline-none focus:border-brand-brown transition-all">
                     <option value=""><?php echo esc_html( get_field('filter') ?: 'Filter by Category' ); ?></option>
                     <option value="<?php echo $f_edu; ?>"><?php echo $f_edu; ?></option>
                     <option value="<?php echo $f_com; ?>"><?php echo $f_com; ?></option>
@@ -177,195 +179,69 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
         <p id="rso-no-results" class="hidden text-gray-500 text-sm mb-6">No articles match your filter.</p>
  
         <!-- Article cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start" id="rso-article-grid">
- 
-            <article class="rso-grid-item bg-[#F5F3EF] rounded-3xl p-6 flex flex-col" data-category="<?php echo esc_attr( $f_edu ); ?>">
-                <p class="text-xs font-bold uppercase tracking-wide text-[#4A2E2A]/70 mb-3">
-                    <?php echo esc_html( get_field('june_2026_•_education') ?: 'June 2026 • Education' ); ?>
-                </p>
-                <h3 class="text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
-                     <?php echo esc_html( get_field('opening_7_new_classrooms_in_toul_kork_primary_school') ?: 'Opening New Classrooms' ); ?>
-                </h3>
-                <p class="text-gray-600 text-ls leading-relaxed mb-4 flex-1">
-                    <?php echo esc_html( get_field('more_children') ?: 'Providing resources for more children...' ); ?>
-                </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[20px] items-start" id="rso-article-grid">
+            <?php 
+                $contents = [
+                    [
+                        'subtitle' => get_field('card_1_subtitle') ?: 'June 2026 • Education',
+                        'title'    => get_field('card_1_title') ?: 'Opening New Classrooms',
+                        'desc'     => get_field('card_1_description') ?: 'Providing resources for more children...',
+                        'detail1'  => get_field('card_1_detail_1') ?: 'The expansion details...',
+                        'detail2'  => get_field('card_1_detail_2') ?: 'Local families feedback...',
+                    ],
+                    [
+                        'subtitle' => get_field('card_2_subtitle') ?: 'July 2026 • Community',
+                        'title'    => get_field('card_2_title') ?: 'Community Health Drive',
+                        'desc'     => get_field('card_2_description') ?: 'Supporting local families with health resources...',
+                        'detail1'  => get_field('card_2_detail_1') ?: 'The initiative details...',
+                        'detail2'  => get_field('card_2_detail_2') ?: 'Community impact and details...',
+                    ],
+                    [
+                        'subtitle' => get_field('card_3_subtitle') ?: 'August 2026 • Youth',
+                        'title'    => get_field('card_3_title') ?: 'Youth Sports Initiative',
+                        'desc'     => get_field('card_3_description') ?: 'Empowering local youth through sports programs...',
+                        'detail1'  => get_field('card_3_detail_1') ?: 'Program expansion details...',
+                        'detail2'  => get_field('card_3_detail_2') ?: 'Participant testimonials...',
+                    ],
+                ];
+            ?>
 
-                <div class="grid transition-all duration-300 ease-in-out" style="grid-template-rows: 0fr;" id="more-1-wrapper">
-                    <div class="overflow-hidden">
-                        <div class="text-gray-600 text-ls leading-relaxed space-y-3 border-t border-gray-300 pt-4 mb-4">
-                            <p>
-                                <?php echo esc_html( get_field('the_expansion') ?: 'The expansion details...' ); ?>
-                            </p>
-                            <p>
-                                 <?php echo esc_html( get_field('families_in_the') ?: 'Local families feedback...' ); ?> 
-                            </p>
-                        </div>
-                    </div>
-                </div>
+<?php foreach ($contents as $index => $item): 
+    $card_num = $index + 1;
+?>
+    <article class="rso-grid-item bg-brand-cream rounded-[28px] p-[20px] flex flex-col gap-[10px]" data-category="<?php echo esc_attr( $f_edu ); ?>">
+        <p class="text-[12px] sm:text-[13px] md:text-[14px] font-bold uppercase tracking-wide text-text-main/80 mb-[10px]">
+            <?php echo esc_html($item['subtitle']); ?>
+        </p>
+        <h3 class="text-[16px] sm:text-[18px] font-extrabold text-text-main uppercase leading-snug">
+            <?php echo esc_html($item['title']); ?>
+        </h3>
+        <p class="text-text-main/80 text-[12px] sm:text-[13px] md:text-[14px] leading-relaxed flex-1">
+            <?php echo esc_html($item['desc']); ?>
+        </p>
 
-                <button type="button" onclick="toggleReadMore('more-1', this)" aria-expanded="false" aria-controls="more-1-wrapper"
-                        class="group inline-flex items-center gap-2 bg-[#D9A441] text-[#4A2E2A] text-sm font-bold uppercase tracking-wide px-5 py-2.5 rounded-[10px] hover:bg-[#c9953a] active:scale-95 transition w-fit cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4A2E2A] focus-visible:ring-offset-2">
-                    <span class="read-more-label"><?php echo esc_html( get_field('read_more') ?: 'Read More' ); ?></span>
-                    <svg class="read-more-icon w-3.5 h-3.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </button>
-            </article>
- 
-            <article class="rso-grid-item bg-[#F5F3EF] rounded-3xl p-6 flex flex-col" data-category="<?php echo esc_attr( $f_com ); ?>">
-                <p class="text-xs font-bold uppercase tracking-wide text-[#4A2E2A]/70 mb-3">
-                    <?php echo esc_html( get_field('may_2026_•_community') ?: 'May 2026 • Community' ); ?>
-                </p>
-                <h3 class="text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
-                   <?php echo esc_html( get_field('parents_as_advocates:_how_families_are_shaping_policy') ?: 'Parents as Advocates' ); ?>
-                </h3>
-                <p class="text-gray-600 text-ls leading-relaxed mb-4 flex-1">
-                   <?php echo esc_html( get_field('the_rabbit_school_parents_association_is_becoming_a_powerful_voice_for_disability_rights_in_cambodia') ?: 'Shaping future community structures...' ); ?>
-                </p>
-
-                <div class="grid transition-all duration-300 ease-in-out" style="grid-template-rows: 0fr;" id="more-2-wrapper">
-                    <div class="overflow-hidden">
-                        <div class="text-gray-600 text-ls leading-relaxed space-y-3 border-t border-gray-300 pt-4 mb-4">
-                            <p>
-                               <?php echo esc_html( get_field('members_meet') ?: 'Members gather regularly...' ); ?>
-                            </p>
-                            <p>
-                                <?php echo esc_html( get_field('several_members') ?: 'Impact evaluations...' ); ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <button type="button" onclick="toggleReadMore('more-2', this)" aria-expanded="false" aria-controls="more-2-wrapper"
-                        class="group inline-flex items-center gap-2 bg-[#D9A441] text-[#4A2E2A] text-sm font-bold uppercase tracking-wide px-5 py-2.5 rounded-[10px] hover:bg-[#c9953a] active:scale-95 transition w-fit cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4A2E2A] focus-visible:ring-offset-2">
-                    <span class="read-more-label"><?php echo esc_html( get_field('read_more') ?: 'Read More' ); ?></span>
-                    <svg class="read-more-icon w-3.5 h-3.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </button>
-            </article>
- 
-            <article class="rso-grid-item bg-[#F5F3EF] rounded-3xl p-6 flex flex-col" data-category="<?php echo esc_attr( $f_tea ); ?>">
-                <p class="text-xs font-bold uppercase tracking-wide text-[#4A2E2A]/70 mb-3">
-                    <?php echo esc_html( get_field('april_2026_•_teacher_training') ?: 'April 2026 • Teacher Training' ); ?>
-                </p>
-                <h3 class="text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
-                    <?php echo esc_html( get_field('training_teachers_to_see_every_childs_potential') ?: 'Training Teachers' ); ?>
-                </h3>
-                <p class="text-gray-600 text-ls leading-relaxed mb-4 flex-1">
-                   <?php echo esc_html( get_field('rsos_teacher_training_program_is_expanding_to_kampong_speu_province_reaching_more_rural_communities') ?: 'Expanding systemic capabilities...' ); ?>
-                </p>
-
-                <div class="grid transition-all duration-300 ease-in-out" style="grid-template-rows: 0fr;" id="more-3-wrapper">
-                    <div class="overflow-hidden">
-                        <div class="text-gray-600 text-ls leading-relaxed space-y-3 border-t border-gray-300 pt-4 mb-4">
-                            <p>
-                               <?php echo esc_html( get_field('the_program') ?: 'Program structural models...' ); ?>
-                            </p>
-                            <p>
-                                <?php echo esc_html( get_field('early_feedback') ?: 'Initial classroom metrics...' ); ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <button type="button" onclick="toggleReadMore('more-3', this)" aria-expanded="false" aria-controls="more-3-wrapper"
-                        class="group inline-flex items-center gap-2 bg-[#D9A441] text-[#4A2E2A] text-sm font-bold uppercase tracking-wide px-5 py-2.5 rounded-[10px] hover:bg-[#c9953a] active:scale-95 transition w-fit cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4A2E2A] focus-visible:ring-offset-2">
-                    <span class="read-more-label"><?php echo esc_html( get_field('read_more') ?: 'Read More' ); ?></span>
-                    <svg class="read-more-icon w-3.5 h-3.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </button>
-            </article>
-
-            <!-- Hidden card 1 -->
-            <div class="rso-grid-item rso-hidden-wrapper grid" data-category="<?php echo esc_attr( $f_adv ); ?>" data-default-hidden="true">
-                <div class="overflow-hidden">
-                    <article class="bg-[#F5F3EF] rounded-3xl p-6 flex flex-col h-full">
-                        <p class="text-xs font-bold uppercase tracking-wide text-[#4A2E2A]/70 mb-3">
-                           <?php echo esc_html( get_field('march_2026_•_advocacy') ?: 'March 2026 • Advocacy' ); ?>
-                        </p>
-                        <h3 class="text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
-                            <?php echo esc_html( get_field('pushing_for_inclusive_education_policy_at_the_national_level') ?: 'Inclusive Education Policy' ); ?>
-                        </h3>
-                        <p class="text-gray-600 text-ls leading-relaxed mb-4 flex-1">
-                           <?php echo esc_html( get_field('rso_joined') ?: 'Collaborating with national partners...' ); ?>
-                        </p>
-
-                        <div class="grid transition-all duration-300 ease-in-out" style="grid-template-rows: 0fr;" id="more-4-wrapper">
-                            <div class="overflow-hidden">
-                                <div class="text-gray-600 text-ls leading-relaxed space-y-3 border-t border-gray-300 pt-4 mb-4">
-                                    <p>
-                                        <?php echo esc_html( get_field('the_coalitions_') ?: 'Coalition roadmaps...' ); ?>
-                                    </p>
-                                    <p>
-                                       <?php echo esc_html( get_field('while_policy') ?: 'Long term dynamic insights...' ); ?>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button type="button" onclick="toggleReadMore('more-4', this)" aria-expanded="false" aria-controls="more-4-wrapper"
-                                class="group inline-flex items-center gap-2 bg-[#D9A441] text-[#4A2E2A] text-sm font-bold uppercase tracking-wide px-5 py-2.5 rounded-[10px] hover:bg-[#c9953a] active:scale-95 transition w-fit cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4A2E2A] focus-visible:ring-offset-2">
-                            <span class="read-more-label"><?php echo esc_html( get_field('read_more') ?: 'Read More' ); ?></span>
-                            <svg class="read-more-icon w-3.5 h-3.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                    </article>
+        <div class="grid transition-all duration-300 ease-in-out" style="grid-template-rows: 0fr;" id="more-<?php echo $card_num; ?>-wrapper">
+            <div class="overflow-hidden">
+                <div class="text-text-main/80 text-[12px] sm:text-[13px] md:text-[14px] leading-relaxed space-y-3 border-t border-gray-300 pt-3 mt-2">
+                    <p>
+                        <?php echo esc_html( $item['detail1'] ); ?>
+                    </p>
+                    <p>
+                        <?php echo esc_html( $item['detail2'] ); ?> 
+                    </p>
                 </div>
             </div>
-
-            <!-- Hidden card 2 -->
-            <div class="rso-grid-item rso-hidden-wrapper grid" data-category="<?php echo esc_attr( $f_voc ); ?>" data-default-hidden="true">
-                <div class="overflow-hidden">
-                    <article class="bg-[#F5F3EF] rounded-3xl p-6 flex flex-col h-full">
-                        <p class="text-xs font-bold uppercase tracking-wide text-[#4A2E2A]/70 mb-3">
-                           <?php echo esc_html( get_field('february_2026_•_vocational_training') ?: 'February 2026 • Vocational Training' ); ?>
-                        </p>
-                        <h3 class="text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
-                            <?php echo esc_html( get_field('new_sewing_workshop_opens_doors_for_young_women') ?: 'New Sewing Workshop' ); ?>
-                        </h3>
-                        <p class="text-gray-600 text-ls leading-relaxed mb-4 flex-1">
-                           <?php echo esc_html( get_field('a_newly_equipped_sewing_workshop_is_giving_young_women_practical_marketable_skills_and_a_path_toward_financial_independence') ?: 'Providing key operational skills...' ); ?>
-                        </p>
-
-                        <div class="grid transition-all duration-300 ease-in-out" style="grid-template-rows: 0fr;" id="more-5-wrapper">
-                            <div class="overflow-hidden">
-                                <div class="text-gray-600 text-ls leading-relaxed space-y-3 border-t border-gray-300 pt-4 mb-4">
-                                    <p>
-                                       <?php echo esc_html( get_field('the_workshop_was_built') ?: 'Workshop facilities and logistics...' ); ?>
-                                    </p>
-                                    <p>
-                                       <?php echo esc_html( get_field('several_graduates_have_already') ?: 'Graduation status updates...' ); ?>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button type="button" onclick="toggleReadMore('more-5', this)" aria-expanded="false" aria-controls="more-5-wrapper"
-                                class="group inline-flex items-center gap-2 bg-[#D9A441] text-[#4A2E2A] text-sm font-bold uppercase tracking-wide px-5 py-2.5 rounded-[10px] hover:bg-[#c9953a] active:scale-95 transition w-fit cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4A2E2A] focus-visible:ring-offset-2">
-                            <span class="read-more-label"><?php echo esc_html( get_field('read_more') ?: 'Read More' ); ?></span>
-                            <svg class="read-more-icon w-3.5 h-3.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                    </article>
-                </div>
-            </div>
- 
         </div>
 
-        <!-- Show More / Show Less toggle -->
-        <div class="flex justify-center pt-10" id="rso-show-more-wrapper">
-            <button type="button" id="rso-show-more-btn" aria-expanded="false"
-                    class="group inline-flex items-center gap-2 bg-[#4A2E2A] text-white text-sm font-bold uppercase tracking-wide px-6 py-3 rounded-[10px] hover:bg-[#3a2521] active:scale-95 transition cursor-pointer">
-                <span id="rso-show-more-label"><?php echo esc_html( get_field('show_more_articles') ?: 'Show More Articles' ); ?></span>
-                <svg id="rso-show-more-icon" class="w-3.5 h-3.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-            </button>
-        </div>
+        <button type="button" onclick="toggleReadMore('more-<?php echo $card_num; ?>', this)" aria-expanded="false" aria-controls="more-<?php echo $card_num; ?>-wrapper"
+                class="group inline-flex items-center gap-2 bg-brand-yellow text-text-main text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-bold uppercase tracking-wide px-[24px] py-[12px] rounded-[8px] hover:bg-brand-yellow/90 active:scale-95 transition w-fit cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-brown focus-visible:ring-offset-2">
+            <span class="read-more-label"><?php echo esc_html( get_field('read_more') ?: 'Read More' ); ?></span>
+            <svg class="read-more-icon w-3.5 h-3.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+        </button>
+    </article>
+<?php endforeach; ?>
 
     </div>
 </section>
@@ -502,23 +378,23 @@ function toggleReadMore(id, btn) {
 </script>
 
 <!-- Newsletter subscribe -->
-<section class="rso-animate bg-white pt-10 px-6 md:px-12 pb-14" style="animation-delay: 0.45s;">
-    <div class="max-w-6xl mx-auto">
-        <div class="bg-[#4A2E2A] rounded-2xl px-8 py-8 md:px-10 md:py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+<section class="rso-animate bg-white py-[64px] md:py-[50px] px-[20px] 2xl:px-0" style="animation-delay: 0.45s;">
+    <div class="max-w-7xl mx-auto">
+        <div class="bg-brand-brown rounded-[28px] p-[50px] flex flex-col md:flex-row md:items-center md:justify-between gap-[50px]">
             <div>
-                <h2 class="text-white text-xl md:text-2xl font-extrabold uppercase mb-2">
+                <h2 class="text-text-light font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-extrabold uppercase mb-2">
                     <?php echo esc_html( get_field('stay_connected_with_rso') ?: 'Stay Connected' ); ?>
                 </h2>
-                <p class="text-white/80 text-sm md:text-base max-w-md">
+                <p class="text-text-light/80 text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px]">
                    <?php echo esc_html( get_field('get_the_latest_stories_and_updates_from_rabbit_school_delivered_to_your_inbox') ?: 'Subscribe to get the latest updates.' ); ?>
                 </p>
             </div>
 
-            <form class="flex flex-col sm:flex-row items-stretch gap-3 w-full md:w-auto">
+            <form class="flex flex-col sm:flex-row items-stretch gap-[10px] w-full md:w-auto">
                 <input type="email" required placeholder="<?php echo esc_attr( get_field('ex') ?: 'your.email@example.com' ); ?>"
-                       class="bg-[#F5F3EF] text-gray-700 placeholder-gray-500 text-sm rounded-[10px] px-5 py-3 w-full sm:w-72 focus:outline-none focus:ring-2 focus:ring-white/40">
+                       class="bg-brand-cream text-text-muted placeholder-text-muted text-sm rounded-[8px] px-[24px] py-[12px] w-full sm:w-72 focus:outline-none focus:ring-2 focus:ring-white/40">
                 <button type="submit"
-                        class="bg-black text-white text-sm font-semibold rounded-[10px] px-6 py-3 hover:bg-gray-900 active:scale-95 transition cursor-pointer whitespace-nowrap">
+                        class="bg-brand-yellow text-text-main text-sm uppercase font-bold rounded-[8px] px-[24px] py-[12px] hover:bg-brand-yellow/90 active:scale-95 transition cursor-pointer whitespace-nowrap">
                     <?php echo esc_html( get_field('subscribe') ?: 'Subscribe' ); ?>
                 </button>
             </form>
