@@ -1,13 +1,7 @@
-# Wordpress - ignore core, configuration, examples, uploads and logs.
-# https://github.com/github/gitignore/blob/main/WordPress.gitignore
-
-# Core
-#
-# Note: if you want to stage/commit WP core files
-# you can delete this whole section/until Configuration.
+# WordPress Core & Configuration
 /wp-admin/
 /wp-content/index.php
-/wp-content/languages
+/wp-content/languages/
 /wp-content/plugins/index.php
 /wp-content/themes/index.php
 /wp-includes/
@@ -16,41 +10,31 @@
 /readme.html
 /wp-*.php
 /xmlrpc.php
-
-# Configuration
 wp-config.php
-
-# Example themes
-/wp-content/themes/twenty*/
-
-# Example plugin
-/wp-content/plugins/hello.php
-
-# Uploads
-/wp-content/uploads/
-
-# Log files
+/.htaccess
 *.log
 
-# htaccess
-/.htaccess
+# Uploads & Plugins
+/wp-content/uploads/
+/wp-content/plugins/
 
-# All plugins
-#
-# Note: If you wish to whitelist plugins,
-# uncomment the next line
-#/wp-content/plugins
+# Ignore ALL themes EXCEPT your custom theme
+/wp-content/themes/*
+!/wp-content/themes/rabbit_school/
+!/wp-content/themes/rabbit_school/**
 
-# All themes
-#
-# Note: If you wish to whitelist themes,
-# uncomment the next line
-#/wp-content/themes
+# Safety rules for accidental WP copies inside theme
+/wp-content/themes/rabbit_school/wp-*.php
+/wp-content/themes/rabbit_school/wp-admin/
+/wp-content/themes/rabbit_school/wp-includes/
 
-# Node dependencies and Tailwind build files
-node_modules/
+# Node & OS Ignores
+**/node_modules/
 .npm/
 npm-debug.log*
+**/.DS_Store
+Thumbs.db
 
-# Optional: If you want to ignore your raw tailwind config file on GitHub
-# tailwind.config.js
+# Style.css Rules
+**/style.css
+!/wp-content/themes/rabbit_school/style.css
