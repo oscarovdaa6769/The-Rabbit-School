@@ -46,12 +46,15 @@ get_header();
         </p>
     </div>
 
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+    <div class="max-w-7xl mx-auto mb-6">
+        <h2 class="text-3xl font-extrabold text-[#5c2e2e] mb-1"><?php echo esc_html( get_field('title') ); ?></h2>
+        <p class="text-[#5c2e2e]"><?php echo esc_html( get_field('text_long') ); ?></p>
+    </div>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
 
         <!-- LEFT: Get In Touch -->
         <div class="anim-slide-left anim-delay-1 order-2 lg:order-1">
-            <h2 class="text-3xl font-extrabold text-[#5c2e2e] mb-1"><?php echo esc_html( get_field('title') ); ?></h2>
-            <p class="text-[#5c2e2e]  mb-6"><?php echo esc_html( get_field('text_long') ); ?></p>
 
             <!-- Email -->
             <div class="border border-gray-200 rounded-3xl p-5 mb-4 flex items-center gap-4">
@@ -117,7 +120,7 @@ get_header();
         </div>
 
         <!-- RIGHT: Location Image Card -->
-        <div class="anim-slide-right anim-delay-2 order-1 lg:order-2 relative w-full h-[300px] md:h-[400px] lg:h-[73%] rounded-3xl overflow-hidden shadow-lg group">
+        <div class="anim-slide-right anim-delay-2 order-1 lg:order-2 relative w-full h-[300px] md:h-[400px] lg:h-[420px] rounded-3xl overflow-hidden shadow-lg group">
             <img
                 src="<?php echo esc_html( get_field('pata') ); ?>"
                 alt="Our Location"
