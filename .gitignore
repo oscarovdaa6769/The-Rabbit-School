@@ -20,8 +20,8 @@ wp-config.php
 
 # Ignore ALL themes EXCEPT your custom theme
 /wp-content/themes/*
-!/wp-content/themes/rabbit_school/
-!/wp-content/themes/rabbit_school/**
+!/wp-content/themes/rabbit_school_backup/
+!/wp-content/themes/rabbit_school_backup/**
 
 # Safety rules for accidental WP copies inside theme
 /wp-content/themes/rabbit_school/wp-*.php
