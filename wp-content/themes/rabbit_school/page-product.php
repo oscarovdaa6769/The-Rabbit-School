@@ -47,61 +47,60 @@
   .product-card.is-hidden { display: none; }
   #orderModal { transition: opacity .2s ease; }
 </style>
-</head>
-<body class="bg-white text-brand-brown">
 
-  <!-- ============ HERO ============ -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 -z-10">
-      <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1600&auto=format&fit=crop" alt="" class="w-full h-full object-cover">
-      <div class="absolute inset-0 bg-brand-brown/80"></div>
-    </div>
+<script>
+    const WHATSAPP_NUMBER   = "<?php echo esc_js($whatsapp_number); ?>";
+    const TELEGRAM_USERNAME = "<?php echo esc_js($telegram_username); ?>";
+    const MESSENGER_PAGE    = "<?php echo esc_js($messenger_page); ?>";
 
-    <div class="max-w-4xl mx-auto text-center px-6 py-24 md:py-32">
-      <p class="uppercase tracking-widest text-brand-yellow text-sm font-semibold mb-4">Shop with purpose</p>
-      <h1 class="font-heading text-white text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-6">
-        Every Purchase Builds<br class="hidden sm:block"> A Future
-      </h1>
-      <p class="text-white/85 max-w-2xl mx-auto text-base md:text-lg leading-relaxed mb-10">
-        Each item in this shop is made by students in Rabbit School's vocational program. Your order helps cover training, tools, and mentorship for the next student ready to learn a trade.
-      </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#shop" class="bg-brand-yellow text-brand-brown font-semibold px-8 py-3 rounded-full hover:bg-white transition">Shop Now</a>
-        <a href="#categories" class="border border-white/40 text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">Explore Collection</a>
-      </div>
-    </div>
-  </section>
+    let currentProduct = { name: "", price: "" };
 
-  <!-- ============ FEATURES STRIP ============ -->
-  <section class="max-w-7xl mx-auto px-6 py-16">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6 text-center">
+    function openOrderModal(name, price) {
+        currentProduct = { name, price };
+        document.getElementById('modalProductName').textContent = name;
+        document.getElementById('modalProductPrice').textContent = price;
+        const modal = document.getElementById('orderModal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    }
 
-      <div class="flex flex-col items-center gap-3">
-        <div class="w-14 h-14 rounded-full bg-brand-yellow/20 flex items-center justify-center text-2xl">🚚</div>
-        <h3 class="font-heading text-base">Free Shipping</h3>
-        <p class="text-sm text-text-muted leading-snug">On orders over $30, delivered anywhere in Cambodia.</p>
-      </div>
+    function closeOrderModal() {
+        const modal = document.getElementById('orderModal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+        document.getElementById('orderForm').reset();
+    }
 
-      <div class="flex flex-col items-center gap-3">
-        <div class="w-14 h-14 rounded-full bg-brand-teal/20 flex items-center justify-center text-2xl">✋</div>
-        <h3 class="font-heading text-base">Handmade with Care</h3>
-        <p class="text-sm text-text-muted leading-snug">Every piece crafted by hand in our student workshops.</p>
-      </div>
+    function submitOrder(platform) {
+        const name = document.getElementById('orderName');
+        const phone = document.getElementById('orderPhone');
+        const qty = document.getElementById('orderQty');
 
-      <div class="flex flex-col items-center gap-3">
-        <div class="w-14 h-14 rounded-full bg-brand-pink/20 flex items-center justify-center text-2xl">🎓</div>
-        <h3 class="font-heading text-base">Funds Real Training</h3>
-        <p class="text-sm text-text-muted leading-snug">100% of profit goes back into student scholarships.</p>
-      </div>
+        if (!name.value.trim() || !phone.value.trim() || !qty.value) {
+            [name, phone, qty].forEach(f => { if (!f.value.trim()) f.reportValidity(); });
+            return;
+        }
 
-      <div class="flex flex-col items-center gap-3">
-        <div class="w-14 h-14 rounded-full bg-brand-orange/20 flex items-center justify-center text-2xl">🔒</div>
-        <h3 class="font-heading text-base">Secure Checkout</h3>
-        <p class="text-sm text-text-muted leading-snug">Pay safely by card, ABA, or Wing.</p>
-      </div>
+        const message =
+            `Hello! I'd like to order from the Rabbit School Shop:\n\n` +
+            `Product: ${currentProduct.name}\n` +
+            `Price: ${currentProduct.price}\n` +
+            `Quantity: ${qty.value}\n\n` +
+            `My name: ${name.value.trim()}\n` +
+            `My phone: ${phone.value.trim()}`;
 
-    </div>
-  </section>
+        let url = "";
+        if (platform === 'whatsapp') {
+            url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        } else if (platform === 'telegram') {
+            url = `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(message)}`;
+        } else if (platform === 'messenger') {
+            navigator.clipboard?.writeText(message).catch(() => {});
+            url = `https://m.me/${MESSENGER_PAGE}`;
+            alert("Your order details were copied — just paste them into the Messenger chat that opens.");
+        }
 
   <!-- ============ LATEST PRODUCTS ============ -->
   <section id="shop" class="bg-brand-cream py-20">
