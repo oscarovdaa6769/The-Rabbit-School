@@ -1,3 +1,11 @@
+<?php
+/**
+ * Template Name: Rabbit School Shop
+ */
+
+get_header();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,72 +55,69 @@
   .product-card.is-hidden { display: none; }
   #orderModal { transition: opacity .2s ease; }
 </style>
+</head>
+<body class="bg-white text-brand-brown">
 
-<script>
-    const WHATSAPP_NUMBER   = "<?php echo esc_js($whatsapp_number); ?>";
-    const TELEGRAM_USERNAME = "<?php echo esc_js($telegram_username); ?>";
-    const MESSENGER_PAGE    = "<?php echo esc_js($messenger_page); ?>";
+  <!-- ============ HERO ============ -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1600&auto=format&fit=crop" alt="Rabbit School Vocational Workshop" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-brand-brown/80"></div>
+    </div>
 
-    let currentProduct = { name: "", price: "" };
+    <div class="max-w-4xl mx-auto text-center px-6 py-24 md:py-32">
+      <p class="uppercase tracking-widest text-brand-yellow text-sm font-semibold mb-4">Shop with purpose</p>
+      <h1 class="font-heading text-white text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-6">
+        Every Purchase Builds<br class="hidden sm:block"> A Future
+      </h1>
+      <p class="text-white/85 max-w-2xl mx-auto text-base md:text-lg leading-relaxed mb-10">
+        Each item in this shop is crafted by students in Rabbit School's vocational training program. Your purchase directly covers training supplies, tools, and mentorship for students learning a valuable trade.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#shop" class="bg-brand-yellow text-brand-brown font-semibold px-8 py-3 rounded-full hover:bg-white transition">Shop Now</a>
+      </div>
+    </div>
+  </section>
 
-    function openOrderModal(name, price) {
-        currentProduct = { name, price };
-        document.getElementById('modalProductName').textContent = name;
-        document.getElementById('modalProductPrice').textContent = price;
-        const modal = document.getElementById('orderModal');
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        document.body.style.overflow = 'hidden';
-    }
+  <!-- ============ FEATURES STRIP ============ -->
+  <section class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6 text-center">
 
-    function closeOrderModal() {
-        const modal = document.getElementById('orderModal');
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        document.body.style.overflow = '';
-        document.getElementById('orderForm').reset();
-    }
+      <div class="flex flex-col items-center gap-3">
+        <div class="w-14 h-14 rounded-full bg-brand-yellow/20 flex items-center justify-center text-2xl">🚚</div>
+        <h3 class="font-heading text-base">Local Delivery</h3>
+        <p class="text-sm text-text-muted leading-snug">Quick delivery options available across Phnom Penh & Cambodia.</p>
+      </div>
 
-    function submitOrder(platform) {
-        const name = document.getElementById('orderName');
-        const phone = document.getElementById('orderPhone');
-        const qty = document.getElementById('orderQty');
+      <div class="flex flex-col items-center gap-3">
+        <div class="w-14 h-14 rounded-full bg-brand-teal/20 flex items-center justify-center text-2xl">✋</div>
+        <h3 class="font-heading text-base">Handmade with Care</h3>
+        <p class="text-sm text-text-muted leading-snug">Every piece crafted by hand in our student workshops.</p>
+      </div>
 
-        if (!name.value.trim() || !phone.value.trim() || !qty.value) {
-            [name, phone, qty].forEach(f => { if (!f.value.trim()) f.reportValidity(); });
-            return;
-        }
+      <div class="flex flex-col items-center gap-3">
+        <div class="w-14 h-14 rounded-full bg-brand-pink/20 flex items-center justify-center text-2xl">🎓</div>
+        <h3 class="font-heading text-base">Funds Real Training</h3>
+        <p class="text-sm text-text-muted leading-snug">100% of profit goes back into student vocational training.</p>
+      </div>
 
-        const message =
-            `Hello! I'd like to order from the Rabbit School Shop:\n\n` +
-            `Product: ${currentProduct.name}\n` +
-            `Price: ${currentProduct.price}\n` +
-            `Quantity: ${qty.value}\n\n` +
-            `My name: ${name.value.trim()}\n` +
-            `My phone: ${phone.value.trim()}`;
+      <div class="flex flex-col items-center gap-3">
+        <div class="w-14 h-14 rounded-full bg-brand-orange/20 flex items-center justify-center text-2xl">💬</div>
+        <h3 class="font-heading text-base">Easy Direct Order</h3>
+        <p class="text-sm text-text-muted leading-snug">Order instantly via WhatsApp, Telegram, or Messenger.</p>
+      </div>
 
-        let url = "";
-        if (platform === 'whatsapp') {
-            url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-        } else if (platform === 'telegram') {
-            url = `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(message)}`;
-        } else if (platform === 'messenger') {
-            navigator.clipboard?.writeText(message).catch(() => {});
-            url = `https://m.me/${MESSENGER_PAGE}`;
-            alert("Your order details were copied — just paste them into the Messenger chat that opens.");
-        }
+    </div>
+  </section>
 
-  <!-- ============ LATEST PRODUCTS ============ -->
+  <!-- ============ PRODUCTS SECTION ============ -->
   <section id="shop" class="bg-brand-cream py-20">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex items-end justify-between mb-10">
         <div>
-          <p class="uppercase tracking-widest text-brand-orange text-xs font-semibold mb-2">From the workshop</p>
-          <h2 class="font-heading text-3xl md:text-4xl">Latest Products</h2>
+          <p class="uppercase tracking-widest text-brand-orange text-xs font-semibold mb-2">From our student workshop</p>
+          <h2 class="font-heading text-3xl md:text-4xl">Our Products</h2>
         </div>
-        <a href="#" class="hidden sm:flex items-center gap-1 text-sm font-semibold text-brand-brown hover:text-brand-orange transition">
-          View All <span class="icon-[solar--arrow-right-linear] w-4 h-4"></span>
-        </a>
       </div>
 
       <div id="filterStatus" class="hidden items-center gap-3 mb-6">
@@ -122,98 +127,62 @@
 
       <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <!-- Product 1 -->
-        <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5" data-category="weaving">
-          <div class="aspect-[4/3] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=800&auto=format&fit=crop" alt="Woven rattan basket" class="w-full h-full object-cover">
+        <!-- Product 1: Water Bottle -->
+        <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5 flex flex-col justify-between" data-category="daily">
+          <div>
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=800&auto=format&fit=crop" alt="Rabbit School Eco Water Bottle" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5">
+              <span class="text-xs font-semibold uppercase tracking-wide text-brand-teal">Daily Use</span>
+              <h3 class="font-heading text-lg mt-1 mb-1">Eco Stainless Water Bottle</h3>
+              <p class="text-sm text-text-muted mb-4">Reusable, stainless steel bottle featuring the Rabbit School logo design.</p>
+            </div>
           </div>
-          <div class="p-5">
-            <span class="text-xs font-semibold uppercase tracking-wide text-brand-teal">Weaving</span>
-            <h3 class="font-heading text-lg mt-1 mb-1">Rattan Storage Basket</h3>
-            <p class="text-sm text-text-muted mb-4">Hand-woven by our craft students, finished with a natural lacquer coat.</p>
-            <div class="flex items-center justify-between">
-              <span class="font-heading text-lg">$18.00</span>
-              <button onclick="openOrderModal('Rattan Storage Basket', '$18.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
+          <div class="p-5 pt-0">
+            <div class="flex items-center justify-between border-t border-brand-brown/5 pt-4">
+              <span class="font-heading text-lg">$8.00</span>
+              <button onclick="openOrderModal('Eco Stainless Water Bottle', '$8.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
             </div>
           </div>
         </div>
 
-        <!-- Product 2 -->
-        <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5" data-category="sewing">
-          <div class="aspect-[4/3] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=800&auto=format&fit=crop" alt="Stitched cotton tote bag" class="w-full h-full object-cover">
+        <!-- Product 2: Handwoven Scarf -->
+        <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5 flex flex-col justify-between" data-category="weaving">
+          <div>
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1608234807905-4466023792f5?q=80&w=800&auto=format&fit=crop" alt="Handwoven Cambodian Scarf" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5">
+              <span class="text-xs font-semibold uppercase tracking-wide text-brand-pink">Handwoven</span>
+              <h3 class="font-heading text-lg mt-1 mb-1">Handwoven Cotton Scarf</h3>
+              <p class="text-sm text-text-muted mb-4">Traditional soft cotton scarf, hand-loomed with care by our weaving trainees.</p>
+            </div>
           </div>
-          <div class="p-5">
-            <span class="text-xs font-semibold uppercase tracking-wide text-brand-pink">Sewing</span>
-            <h3 class="font-heading text-lg mt-1 mb-1">Cotton Market Tote</h3>
-            <p class="text-sm text-text-muted mb-4">Durable canvas tote stitched in our tailoring class, one size fits all.</p>
-            <div class="flex items-center justify-between">
-              <span class="font-heading text-lg">$12.50</span>
-              <button onclick="openOrderModal('Cotton Market Tote', '$12.50')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
+          <div class="p-5 pt-0">
+            <div class="flex items-center justify-between border-t border-brand-brown/5 pt-4">
+              <span class="font-heading text-lg">$12.00</span>
+              <button onclick="openOrderModal('Handwoven Cotton Scarf', '$12.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
             </div>
           </div>
         </div>
 
-        <!-- Product 3 -->
-        <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5" data-category="woodwork">
-          <div class="aspect-[4/3] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?q=80&w=800&auto=format&fit=crop" alt="Carved wooden serving tray" class="w-full h-full object-cover">
-          </div>
-          <div class="p-5">
-            <span class="text-xs font-semibold uppercase tracking-wide text-brand-orange">Woodwork</span>
-            <h3 class="font-heading text-lg mt-1 mb-1">Carved Serving Tray</h3>
-            <p class="text-sm text-text-muted mb-4">Made from reclaimed mango wood by our carpentry apprentices.</p>
-            <div class="flex items-center justify-between">
-              <span class="font-heading text-lg">$24.00</span>
-              <button onclick="openOrderModal('Carved Serving Tray', '$24.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
+        <!-- Product 3: Handmade Earrings -->
+        <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5 flex flex-col justify-between" data-category="crafts">
+          <div>
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop" alt="Handmade Craft Earrings" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5">
+              <span class="text-xs font-semibold uppercase tracking-wide text-brand-orange">Crafts</span>
+              <h3 class="font-heading text-lg mt-1 mb-1">Artisan Handmade Earrings</h3>
+              <p class="text-sm text-text-muted mb-4">Beautifully crafted lightweight earrings handmade by our craft students.</p>
             </div>
           </div>
-        </div>
-
-        <!-- Product 4 -->
-        <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5" data-category="bakery">
-          <div class="aspect-[4/3] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800&auto=format&fit=crop" alt="Fresh baked bread" class="w-full h-full object-cover">
-          </div>
-          <div class="p-5">
-            <span class="text-xs font-semibold uppercase tracking-wide text-brand-yellow">Bakery</span>
-            <h3 class="font-heading text-lg mt-1 mb-1">Sourdough Loaf</h3>
-            <p class="text-sm text-text-muted mb-4">Baked fresh daily by students in our culinary vocational track.</p>
-            <div class="flex items-center justify-between">
+          <div class="p-5 pt-0">
+            <div class="flex items-center justify-between border-t border-brand-brown/5 pt-4">
               <span class="font-heading text-lg">$5.00</span>
-              <button onclick="openOrderModal('Sourdough Loaf', '$5.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Product 5 -->
-        <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5" data-category="ceramics">
-          <div class="aspect-[4/3] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop" alt="Hand-painted ceramic mug" class="w-full h-full object-cover">
-          </div>
-          <div class="p-5">
-            <span class="text-xs font-semibold uppercase tracking-wide text-brand-blue">Ceramics</span>
-            <h3 class="font-heading text-lg mt-1 mb-1">Painted Clay Mug</h3>
-            <p class="text-sm text-text-muted mb-4">Thrown and glazed by hand, no two pieces are exactly alike.</p>
-            <div class="flex items-center justify-between">
-              <span class="font-heading text-lg">$9.00</span>
-              <button onclick="openOrderModal('Painted Clay Mug', '$9.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Product 6 -->
-        <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5" data-category="sewing">
-          <div class="aspect-[4/3] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=800&auto=format&fit=crop" alt="Embroidered pillow cover" class="w-full h-full object-cover">
-          </div>
-          <div class="p-5">
-            <span class="text-xs font-semibold uppercase tracking-wide text-brand-pink">Sewing</span>
-            <h3 class="font-heading text-lg mt-1 mb-1">Embroidered Cushion Cover</h3>
-            <p class="text-sm text-text-muted mb-4">Traditional Khmer motifs hand-embroidered onto raw cotton.</p>
-            <div class="flex items-center justify-between">
-              <span class="font-heading text-lg">$15.00</span>
-              <button onclick="openOrderModal('Embroidered Cushion Cover', '$15.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
+              <button onclick="openOrderModal('Artisan Handmade Earrings', '$5.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
             </div>
           </div>
         </div>
@@ -221,61 +190,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ============ CATEGORIES ============ -->
-  <section id="categories" class="py-20">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-      <p class="uppercase tracking-widest text-brand-orange text-xs font-semibold mb-2">Shop by craft</p>
-      <h2 class="font-heading text-3xl md:text-4xl mb-3">Categories</h2>
-      <p class="text-text-muted max-w-xl mx-auto mb-12">Every category represents a real vocational track our students train in.</p>
-
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-
-        <button onclick="filterCategory('weaving', this)" class="cat-card relative rounded-2xl overflow-hidden aspect-[4/5] block group text-left">
-          <img src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=600&auto=format&fit=crop" alt="Weaving category" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-brown/80 via-brand-brown/10 to-transparent"></div>
-          <span class="absolute bottom-4 left-4 bg-white text-brand-brown text-xs font-semibold px-3 py-1.5 rounded-full">Weaving</span>
-        </button>
-
-        <button onclick="filterCategory('sewing', this)" class="cat-card relative rounded-2xl overflow-hidden aspect-[4/5] block group text-left">
-          <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=600&auto=format&fit=crop" alt="Sewing category" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-brown/80 via-brand-brown/10 to-transparent"></div>
-          <span class="absolute bottom-4 left-4 bg-white text-brand-brown text-xs font-semibold px-3 py-1.5 rounded-full">Sewing</span>
-        </button>
-
-        <button onclick="filterCategory('woodwork', this)" class="cat-card relative rounded-2xl overflow-hidden aspect-[4/5] block group text-left">
-          <img src="https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?q=80&w=600&auto=format&fit=crop" alt="Woodwork category" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-brown/80 via-brand-brown/10 to-transparent"></div>
-          <span class="absolute bottom-4 left-4 bg-white text-brand-brown text-xs font-semibold px-3 py-1.5 rounded-full">Woodwork</span>
-        </button>
-
-        <button onclick="filterCategory('bakery', this)" class="cat-card relative rounded-2xl overflow-hidden aspect-[4/5] block group text-left">
-          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop" alt="Bakery category" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-brown/80 via-brand-brown/10 to-transparent"></div>
-          <span class="absolute bottom-4 left-4 bg-white text-brand-brown text-xs font-semibold px-3 py-1.5 rounded-full">Bakery</span>
-        </button>
-
-        <button onclick="filterCategory('ceramics', this)" class="cat-card relative rounded-2xl overflow-hidden aspect-[4/5] block group text-left">
-          <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=600&auto=format&fit=crop" alt="Ceramics category" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-brown/80 via-brand-brown/10 to-transparent"></div>
-          <span class="absolute bottom-4 left-4 bg-white text-brand-brown text-xs font-semibold px-3 py-1.5 rounded-full">Ceramics</span>
-        </button>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CTA / DONATE STRIP ============ -->
-  <section class="bg-brand-brown">
-    <div class="max-w-5xl mx-auto px-6 py-16 text-center">
-      <h2 class="font-heading text-white text-2xl md:text-3xl mb-4">Not ready to buy? You can still help.</h2>
-      <p class="text-white/80 max-w-xl mx-auto mb-8">A donation covers materials and mentorship for a student who isn't selling yet — but is learning.</p>
-      <a href="#" class="inline-flex items-center gap-2 bg-brand-yellow text-brand-brown font-semibold px-8 py-3 rounded-full">
-        <span class="icon-[solar--heart-bold] w-4 h-4"></span> Donate Instead
-      </a>
-    </div>
-  </section>
-
 
   <!-- ============ ORDER MODAL ============ -->
   <div id="orderModal" class="hidden fixed inset-0 z-50 items-center justify-center p-4">
@@ -337,7 +251,6 @@
   </div>
 
   <script>
-    // TODO: replace these with your real contact handles
     const WHATSAPP_NUMBER = "85512345678";     // country code + number, no spaces or plus sign
     const TELEGRAM_USERNAME = "rabbitschoolshop"; // your Telegram username, no @
     const MESSENGER_PAGE = "rabbitschoolcambodia"; // your Facebook Page username
@@ -367,7 +280,6 @@
       const phone = document.getElementById('orderPhone');
       const qty = document.getElementById('orderQty');
 
-      // manual validation since the buttons aren't a native submit
       if (!name.value.trim() || !phone.value.trim() || !qty.value) {
         [name, phone, qty].forEach(f => { if (!f.value.trim()) f.reportValidity(); });
         return;
@@ -387,7 +299,6 @@
       } else if (platform === 'telegram') {
         url = `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(message)}`;
       } else if (platform === 'messenger') {
-        // Messenger links don't support pre-filled text, so we copy the order to the clipboard instead
         navigator.clipboard?.writeText(message).catch(() => {});
         url = `https://m.me/${MESSENGER_PAGE}`;
         alert("Your order details were copied — just paste them into the Messenger chat that opens.");
@@ -397,7 +308,6 @@
       closeOrderModal();
     }
 
-    // ---- Category filtering ----
     function filterCategory(category, buttonEl) {
       const cards = document.querySelectorAll('#productGrid .product-card');
       cards.forEach(card => {
@@ -424,7 +334,6 @@
       statusBar.classList.remove('flex');
     }
 
-    // Close modal on Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeOrderModal();
     });
@@ -432,3 +341,5 @@
 
 </body>
 </html>
+
+<?php get_footer(); ?>
