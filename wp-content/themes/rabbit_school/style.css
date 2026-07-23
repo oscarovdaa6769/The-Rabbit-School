@@ -6,8 +6,10 @@
     --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-300: oklch(80.8% 0.114 19.571);
     --color-red-400: oklch(70.4% 0.191 22.216);
     --color-red-600: oklch(57.7% 0.245 27.325);
+    --color-green-300: oklch(87.1% 0.15 154.449);
     --color-green-700: oklch(52.7% 0.154 150.069);
     --color-gray-50: oklch(98.5% 0.002 247.839);
     --color-gray-100: oklch(96.7% 0.003 264.542);
@@ -621,6 +623,9 @@
   }
   .hidden {
     display: none;
+  }
+  .inline {
+    display: inline;
   }
   .inline-block {
     display: inline-block;
@@ -1513,8 +1518,14 @@
   .text-gray-700 {
     color: var(--color-gray-700);
   }
+  .text-green-300 {
+    color: var(--color-green-300);
+  }
   .text-green-700 {
     color: var(--color-green-700);
+  }
+  .text-red-300 {
+    color: var(--color-red-300);
   }
   .text-red-600 {
     color: var(--color-red-600);
@@ -1623,6 +1634,13 @@
   .shadow-xl {
     --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .ring-2 {
+    --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .ring-red-400 {
+    --tw-ring-color: var(--color-red-400);
   }
   .brightness-0 {
     --tw-brightness: brightness(0%);
@@ -2423,9 +2441,9 @@
       aspect-ratio: 4/3;
     }
   }
-  .lg\:h-\[73\%\] {
+  .lg\:h-\[420px\] {
     @media (width >= 64rem) {
-      height: 73%;
+      height: 420px;
     }
   }
   .lg\:max-w-none {
