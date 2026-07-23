@@ -25,20 +25,62 @@ get_header();
       </div>
 </section> 
 <!-- section 2 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0 w-full font-sans">
-      <div class="flex flex-col sm:flex-row gap-4 justify-between items-stretch sm:items-center w-full">
+<section class="max-w-7xl mx-auto py-10 md:py-[50px] px-4 sm:px-6 2xl:px-0 w-full font-sans">
+      <div class="flex flex-col md:flex-row gap-6 lg:gap-8 justify-between items-stretch md:items-center w-full">
             
-            <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase">
-                  <?php echo esc_html(get_field('featured_title') ?: 'Featured Artical'); ?>
-            </h2>
+            <?php 
+            $filters = [
+                  [
+                        'text'   => get_field('filter_all_text') ?: 'All Photos',
+                        'link'   => '#all',
+                        'active' => true,
+                  ],
+                  [
+                        'text'   => get_field('filter_education_text') ?: 'Education',
+                        'link'   => '#education',
+                        'active' => false,
+                  ],
+                  [
+                        'text'   => get_field('filter_community_text') ?: 'Community',
+                        'link'   => '#community',
+                        'active' => false,
+                  ],
+                  [
+                        'text'   => get_field('filter_advocacy_text') ?: 'Advocacy',
+                        'link'   => '#advocacy',
+                        'active' => false,
+                  ],
+                  [
+                        'text'   => get_field('filter_teacher_training_text') ?: 'Teacher Training',
+                        'link'   => '#teacher-training',
+                        'active' => false,
+                  ],
+            ];
+            ?>
 
-            <div class="relative w-full sm:flex-1 sm:max-w-md">
+            <!-- Filters Container: 2-columns on small mobile, flex row on larger screens -->
+            <div class="grid grid-cols-2 xs:grid-cols-3 sm:flex sm:flex-wrap items-center gap-2.5 sm:gap-3 md:gap-[15px] lg:gap-[20px] w-full md:w-auto">
+                  <?php foreach ($filters as $item): ?>
+                        <?php 
+                        $bg_styles = $item['active'] 
+                              ? 'bg-brand-yellow hover:bg-brand-orange text-text-main font-black' 
+                              : 'bg-brand-cream border border-brand-brown/20 hover:bg-brand-yellow text-text-main font-semibold';
+                        ?>
+                        <a href="<?php echo esc_url($item['link']); ?>" 
+                           class="w-full sm:w-auto text-center inline-flex items-center justify-center py-2.5 px-3.5 sm:py-[12px] sm:px-[20px] lg:px-[24px] text-xs sm:text-sm md:text-base rounded-[8px] transition-all duration-200 shadow-sm hover:shadow-md <?php echo esc_attr($bg_styles); ?>">
+                              <?php echo esc_html($item['text']); ?>
+                        </a>
+                  <?php endforeach; ?>
+            </div>
+
+            <!-- Search Input Container -->
+            <div class="relative w-full md:max-w-xs lg:max-w-md">
                   <input 
                       type="text" 
                       placeholder="<?php echo esc_attr(get_field('placeholder_text') ?: 'Search program...'); ?>" 
-                      class="w-full border border-brand-brown/40 text-brand-brown placeholder-brand-brown/50 px-6 py-[14px] pr-12 rounded-full bg-transparent focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown transition-all duration-200 text-[16px] shadow-sm hover:border-brand-brown/70"
+                      class="w-full border border-brand-brown/40 text-brand-brown placeholder-brand-brown/50 px-5 py-3 pr-12 rounded-full bg-transparent focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown transition-all duration-200 text-sm sm:text-base shadow-sm hover:border-brand-brown/70"
                   />
-                  <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none">
+                  <div class="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 pointer-events-none flex items-center">
                       <span class="icon-[solar--magnifer-linear] w-5 h-5 text-brand-brown/60"></span>
                   </div>
             </div>
@@ -51,66 +93,51 @@ get_header();
             <?php 
                   // CARD 1
                   $img_card1_url = get_field('card_1_image') ?: get_theme_file_uri('assets/images/error.png');
+                  $subtitle_card1 = get_field('card_1_subtitle') ?: '23 July, 2026 · Education';
                   $title_card1 = get_field('card_1_title') ?: 'Discover Something New';
                   $desc_card1 = get_field('card_1_description') ?: "Explore high-quality products and services designed to make your everyday life easier. Whether you're looking for the latest trends or trusted solutions, you'll find options that fit your needs and lifestyle.";
                   $btn_text_card1 = get_field('card_1_button_text') ?: 'read more';
                   $btn_link_card1 = get_field('card_1_button_link') ?: '#';
                   // CARD 2
                   $img_card2_url = get_field('card_2_image') ?: get_theme_file_uri('assets/images/error.png');
+                  $subtitle_card2 = get_field('card_2_subtitle') ?: '23 July, 2026 · Education';
                   $title_card2 = get_field('card_2_title') ?: 'Discover Something New';
                   $desc_card2 = get_field('card_2_description') ?: "Explore high-quality products and services designed to make your everyday life easier. Whether you're looking for the latest trends or trusted solutions, you'll find options that fit your needs and lifestyle.";
                   $btn_text_card2 = get_field('card_2_button_text') ?: 'read more';
                   $btn_link_card2 = get_field('card_2_button_link') ?: '#';
                   // CARD 3
                   $img_card3_url = get_field('card_3_image') ?: get_theme_file_uri('assets/images/error.png');
+                  $subtitle_card3 = get_field('card_3_subtitle') ?: '23 July, 2026 · Education';
                   $title_card3 = get_field('card_3_title') ?: 'Discover Something New';
                   $desc_card3 = get_field('card_3_description') ?: "Explore high-quality products and services designed to make your everyday life easier. Whether you're looking for the latest trends or trusted solutions, you'll find options that fit your needs and lifestyle.";
                   $btn_text_card3 = get_field('card_3_button_text') ?: 'read more';
                   $btn_link_card3 = get_field('card_3_button_link') ?: '#';
-                  // CARD 4
-                  $img_card4_url = get_field('card_4_image') ?: get_theme_file_uri('assets/images/error.png');
-                  $title_card4 = get_field('card_4_title') ?: 'Discover Something New';
-                  $desc_card4 = get_field('card_4_description') ?: "Explore high-quality products and services designed to make your everyday life easier. Whether you're looking for the latest trends or trusted solutions, you'll find options that fit your needs and lifestyle.";
-                  $btn_text_card4 = get_field('card_4_button_text') ?: 'read more';
-                  $btn_link_card4 = get_field('card_4_button_link') ?: '#';
-                  // CARD 5
-                  $img_card5_url = get_field('card_5_image') ?: get_theme_file_uri('assets/images/error.png');
-                  $title_card5 = get_field('card_5_title') ?: 'Discover Something New';
-                  $desc_card5 = get_field('card_5_description') ?: "Explore high-quality products and services designed to make your everyday life easier. Whether you're looking for the latest trends or trusted solutions, you'll find options that fit your needs and lifestyle.";
-                  $btn_text_card5 = get_field('card_5_button_text') ?: 'read more';
-                  $btn_link_card5 = get_field('card_5_button_link') ?: '#';
-                  // CARD 6
-                  $img_card6_url = get_field('card_6_image') ?: get_theme_file_uri('assets/images/error.png');
-                  $title_card6 = get_field('card_6_title') ?: 'Discover Something New';
-                  $desc_card6 = get_field('card_6_description') ?: "Explore high-quality products and services designed to make your everyday life easier. Whether you're looking for the latest trends or trusted solutions, you'll find options that fit your needs and lifestyle.";
-                  $btn_text_card6 = get_field('card_6_button_text') ?: 'read more';
-                  $btn_link_card6 = get_field('card_6_button_link') ?: '#';
                   
                   $photos = [
-                        [$img_card1_url, $title_card1, $desc_card1, $btn_text_card1, $btn_link_card1],
-                        [$img_card2_url, $title_card2, $desc_card2, $btn_text_card2, $btn_link_card2],
-                        [$img_card3_url, $title_card3, $desc_card3, $btn_text_card3, $btn_link_card3],
-                        [$img_card4_url, $title_card4, $desc_card4, $btn_text_card4, $btn_link_card4],
-                        [$img_card5_url, $title_card5, $desc_card5, $btn_text_card5, $btn_link_card5],
-                        [$img_card6_url, $title_card6, $desc_card6, $btn_text_card6, $btn_link_card6],
+                        [$img_card1_url, $subtitle_card1, $title_card1, $desc_card1, $btn_text_card1, $btn_link_card1],
+                        [$img_card2_url, $subtitle_card2, $title_card2, $desc_card2, $btn_text_card2, $btn_link_card2],
+                        [$img_card3_url, $subtitle_card3, $title_card3, $desc_card3, $btn_text_card3, $btn_link_card3],
                   ];
             ?>
             <?php foreach ($photos as $item): ?>
-                  <div class="bg-brand-cream border border-brand-brown/30 rounded-[24px] overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div class="bg-brand-cream rounded-[24px] overflow-hidden flex flex-col shadow-md hover:shadow-xl transition-shadow duration-300">
                         <div class="w-full aspect-[4/3] overflow-hidden">
                         <img src="<?php echo esc_url($item[0]);?>" 
                               alt="" 
                               class="w-full h-full object-cover">
                         </div>
                         <div class="p-6 flex flex-col gap-[10px] md:gap-[20px] flex-grow">
-                        <h4 class="text-[16px] sm:text-[18px] font-bold text-brand-teal leading-tight uppercase">
+                        <span class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted">
                               <?php echo esc_html($item[1]); ?>
+                        </span>
+                        <h4 class="text-[16px] sm:text-[18px] md:text-[20px] font-bold text-brand-orange font-heading leading-tight uppercase">
+                              <?php echo esc_html($item[2]); ?>
                         </h4>
                         <p class="text-text-muted text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed">
-                              <?php echo esc_html($item[2]); ?>
-                        </p>
-                        <a href="<?php echo esc_url($item[4]); ?>" class="bg-brand-yellow text-text-main px-[24px] py-[12px] rounded-[8px] inline-flex items-center self-start gap-[10px] group shadow-md hover:shadow-xl transition-all font-bold text-sm uppercase tracking-widest">
                               <?php echo esc_html($item[3]); ?>
+                        </p>
+                        <a href="<?php echo esc_url($item[5]); ?>" class="bg-brand-yellow hover:bg-brand-orange hover:text-text-light tracking-wider text-text-main px-[24px] py-[12px] rounded-[8px] inline-flex items-center self-start gap-[10px] group shadow-md hover:shadow-xl transition-all font-bold text-sm uppercase">
+                              <?php echo esc_html($item[4]); ?>
                               <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
                         </a>
                         </div>

@@ -24,7 +24,7 @@ get_header();?>
     </div>
 </section>
 <!-- section 2 -->
-<section class="bg-brand-cream py-16 md:py-24">
+<section class="bg-brand-cream">
     <div class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
             <!-- image -->

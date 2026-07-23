@@ -105,7 +105,7 @@ $btn_6_lnk   = get_field('button_6_link') ?: '#';
                         </p>
                         <?php if ( !empty($btn_2_txt) ) : ?>
                         <div class="flex justify-start mt-[10px]">
-                              <a href="<?php echo esc_url($btn_2_lnk); ?>" class="group bg-brand-brown text-text-light font-bold text-sm px-[24px] py-[12px] rounded-[8px] shadow-md hover:shadow-xl transition-all inline-flex gap-3 items-center uppercase tracking-widest">
+                              <a href="<?php echo esc_url($btn_2_lnk); ?>" class="group bg-brand-yellow hover:bg-brand-orange text-text-main/80 hover:text-text-light font-bold text-sm px-[24px] py-[12px] rounded-[8px] shadow-md hover:shadow-xl transition-all inline-flex gap-3 items-center uppercase tracking-widest">
                                     <?php echo esc_html($btn_2_txt); ?>
                                     <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
                               </a>
@@ -133,7 +133,7 @@ $btn_6_lnk   = get_field('button_6_link') ?: '#';
                   </p>
                   <?php if ( !empty($btn_3_txt) ) : ?>
                   <div class="flex justify-start">
-                        <a href="<?php echo esc_url($btn_3_lnk); ?>" class="group bg-brand-brown text-text-light font-bold text-sm px-[24px] py-[12px] rounded-[8px] shadow-md hover:bg-brand-brown/90 hover:shadow-xl transition-all inline-flex gap-3 items-center uppercase tracking-widest">
+                        <a href="<?php echo esc_url($btn_3_lnk); ?>" class="group bg-brand-yellow hover:bg-brand-orange text-text-main/80 hover:text-text-light font-bold text-sm px-[24px] py-[12px] rounded-[8px] shadow-md hover:bg-brand-brown/90 hover:shadow-xl transition-all inline-flex gap-3 items-center uppercase tracking-widest">
                               <?php echo esc_html($btn_3_txt); ?>
                               <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
                         </a>
@@ -284,7 +284,7 @@ $btn_6_lnk   = get_field('button_6_link') ?: '#';
                               <?php echo esc_html($desc_6); ?>
                         </p>
                         <div class="flex justify-start">
-                              <a href="<?php echo esc_url($btn_6_lnk); ?>" class="group bg-brand-brown text-text-light font-bold text-sm px-[24px] py-[12px] rounded-[8px] shadow-md hover:bg-brand-brown/90 hover:shadow-xl transition-all inline-flex gap-3 items-center uppercase tracking-widest">
+                              <a href="<?php echo esc_url($btn_6_lnk); ?>" class="group bg-brand-yellow hover:bg-brand-orange text-text-main/80 hover:text-text-light font-bold text-sm px-[24px] py-[12px] rounded-[8px] shadow-md hover:bg-brand-brown/90 hover:shadow-xl transition-all inline-flex gap-3 items-center uppercase tracking-widest">
                                     <?php echo esc_html($btn_6_txt); ?>
                                     <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
                               </a>
