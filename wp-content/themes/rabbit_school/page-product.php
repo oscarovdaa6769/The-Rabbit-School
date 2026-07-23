@@ -1,40 +1,51 @@
 <?php
-/* Template Name: Product*/
+/**
+ * Template Name: Rabbit School Shop
+ */
+
 get_header();
 
-// Hero
-$hero_bg_image    = get_field('hero_bg_image') ? esc_url(get_field('hero_bg_image')) : '';
-$hero_heading     = get_field('hero_heading') ?: 'no data ';
-$hero_description = get_field('hero_description') ?: "no data";
 
-// Features Section
-$feature1_icon = get_field('feature1_icon') ?: 'no data';
-$feature1_title = get_field('feature1_title') ?: 'no data';
-$feature1_desc = get_field('feature1_desc') ?: 'no data';
+// section 1
 
-$feature2_icon = get_field('feature2_icon') ?: 'no data';
-$feature2_title = get_field('feature2_title') ?: 'no data';
-$feature2_desc = get_field('feature2_desc') ?: 'no data';
+$img_1_url = get_field('image_1') ?: get_theme_file_uri('assets/images/error.png');
+$title_1 = get_field('heading_1') ?: 'SECTION 1 NOT WORKING';
+$desc_1 = get_field('description_1') ?: 'DESC 1 NOT WORKING';
 
-$feature3_icon = get_field('feature3_icon') ?: 'nota';
-$feature3_title = get_field('feature3_title') ?: 'no data';
-$feature3_desc = get_field('feature3_desc') ?: 'no data';
 
-$feature4_icon = get_field('feature4_icon') ?: 'no data';
-$feature4_title = get_field('feature4_title') ?: 'no dat';
-$feature4_desc = get_field('feature4_desc') ?: 'no data';
+// section 2
 
-// Products Header Section
-$section_eyebrow = get_field('section_eyebrow') ?: 'no data';
-$section_title   = get_field('section_title') ?: 'no data';
+// feature 1
+$card1_title       = get_field('card_title') ?: 'No data';
+$card1_description = get_field('card1_description') ?: 'No data';
+
+// feature 2
+$card2_title       = get_field('card2_title') ?: 'No data';
+$card2_description = get_field('card2_description') ?: 'No data';
+
+// feature 3
+$card3_title       = get_field('card3_title') ?: 'No data';
+$card3_description = get_field('card3_description') ?: 'No data';
+
+// feature 4
+$card4_title       = get_field('card4_title') ?: 'No data';
+$card4_description = get_field('card4_description') ?: 'No data';
+
+
+// section 3 
+$title_3 = get_field('heading_3') ?: 'SECTION 3 NOT WORKING';
+$heading_4 = get_field('heading_4') ?: 'SECTION 4 NOT WORKING';
+$img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png');
+
+
+
+
+
+
+
+
+
 ?>
-
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Koulen&family=Inter:wght@400;500;600;700;800&family=Battambang:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -69,24 +80,28 @@ $section_title   = get_field('section_title') ?: 'no data';
   h1,h2,h3,h4, .font-heading { font-family: 'Oswald', 'Koulen', sans-serif; }
   .product-card { transition: transform .25s ease, box-shadow .25s ease; }
   .product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -12px rgba(98,61,60,0.18); }
+  .cat-card img { transition: transform .5s ease; }
+  .cat-card:hover img { transform: scale(1.06); }
+  .cat-card.active { outline: 3px solid #FED45F; outline-offset: 2px; }
+  .product-card.is-hidden { display: none; }
+  #orderModal { transition: opacity .2s ease; }
 </style>
-</head>
 
-<main class="bg-[#F7F5F4] min-h-screen font-sans antialiased">
+<body class="bg-white text-brand-brown">
 
   <!-- ============ HERO ============ -->
   <section class="relative overflow-hidden">
     <div class="absolute inset-0 -z-10">
-      <img src="<?php echo esc_url($hero_bg_image); ?>" alt="Rabbit School Vocational Workshop" class="w-full h-full object-cover">
+      <img src="<?php echo esc_url($img_1_url); ?>" alt="<?php echo esc_attr($title_1); ?>" alt="Rabbit School Vocational Workshop" class="w-full h-full object-cover">
       <div class="absolute inset-0 bg-brand-brown/80"></div>
     </div>
 
     <div class="max-w-4xl mx-auto text-center px-6 py-24 md:py-32">
       <h1 class="font-heading text-white text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-6">
-        <?php echo $hero_heading; ?>
+        <?php echo esc_html($title_1);?>
       </h1>
       <p class="text-white/85 max-w-2xl mx-auto text-base md:text-lg leading-relaxed mb-10">
-        <?php echo wp_kses_post($hero_description); ?>
+        Each item in this shop is crafted by students in Rabbit School's vocational training program. Your purchase directly covers training supplies, tools, and mentorship for students learning a valuable trade.
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="#shop" class="bg-brand-yellow text-brand-brown font-semibold px-8 py-3 rounded-full hover:bg-white transition">Shop Now</a>
@@ -97,86 +112,123 @@ $section_title   = get_field('section_title') ?: 'no data';
   <!-- ============ FEATURES STRIP ============ -->
   <section class="max-w-7xl mx-auto px-6 py-16">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6 text-center">
+
       <div class="flex flex-col items-center gap-3">
-        <div class="w-14 h-14 rounded-full bg-brand-yellow/20 flex items-center justify-center text-2xl"><?php echo esc_html($feature1_icon); ?></div>
-        <h3 class="font-heading text-base"><?php echo esc_html($feature1_title); ?></h3>
-        <p class="text-sm text-text-muted leading-snug"><?php echo esc_html($feature1_desc); ?></p>
+        <div class="w-14 h-14 rounded-full bg-brand-yellow/20 flex items-center justify-center text-2xl">🚚</div>
+        <h3 class="font-heading text-base">Local Delivery</h3>
+        <p class="text-sm text-text-muted leading-snug">Quick delivery options available across Phnom Penh & Cambodia.</p>
       </div>
+
       <div class="flex flex-col items-center gap-3">
-        <div class="w-14 h-14 rounded-full bg-brand-teal/20 flex items-center justify-center text-2xl"><?php echo esc_html($feature2_icon); ?></div>
-        <h3 class="font-heading text-base"><?php echo esc_html($feature2_title); ?></h3>
-        <p class="text-sm text-text-muted leading-snug"><?php echo esc_html($feature2_desc); ?></p>
+        <div class="w-14 h-14 rounded-full bg-brand-teal/20 flex items-center justify-center text-2xl">✋</div>
+        <h3 class="font-heading text-base">Handmade with Care</h3>
+        <p class="text-sm text-text-muted leading-snug">Every piece crafted by hand in our student workshops.</p>
       </div>
+
       <div class="flex flex-col items-center gap-3">
-        <div class="w-14 h-14 rounded-full bg-brand-pink/20 flex items-center justify-center text-2xl"><?php echo esc_html($feature3_icon); ?></div>
-        <h3 class="font-heading text-base"><?php echo esc_html($feature3_title); ?></h3>
-        <p class="text-sm text-text-muted leading-snug"><?php echo esc_html($feature3_desc); ?></p>
+        <div class="w-14 h-14 rounded-full bg-brand-pink/20 flex items-center justify-center text-2xl">🎓</div>
+        <h3 class="font-heading text-base">Funds Real Training</h3>
+        <p class="text-sm text-text-muted leading-snug">100% of profit goes back into student vocational training.</p>
       </div>
+
       <div class="flex flex-col items-center gap-3">
-        <div class="w-14 h-14 rounded-full bg-brand-orange/20 flex items-center justify-center text-2xl"><?php echo esc_html($feature4_icon); ?></div>
-        <h3 class="font-heading text-base"><?php echo esc_html($feature4_title); ?></h3>
-        <p class="text-sm text-text-muted leading-snug"><?php echo esc_html($feature4_desc); ?></p>
+        <div class="w-14 h-14 rounded-full bg-brand-orange/20 flex items-center justify-center text-2xl">💬</div>
+        <h3 class="font-heading text-base">Easy Direct Order</h3>
+        <p class="text-sm text-text-muted leading-snug">Order instantly via WhatsApp, Telegram, or Messenger.</p>
       </div>
+
     </div>
   </section>
 
   <!-- ============ PRODUCTS SECTION ============ -->
-  <section id="shop" class="bg-white py-20 border-t border-brand-brown/5">
+  <section id="shop" class="bg-brand-cream py-20">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex items-end justify-between mb-10">
         <div>
-          <p class="uppercase tracking-widest text-brand-orange text-xs font-semibold mb-2"><?php echo esc_html($section_eyebrow); ?></p>
-          <h2 class="font-heading text-3xl md:text-4xl text-brand-brown"><?php echo esc_html($section_title); ?></h2>
+          <p class="uppercase tracking-widest text-brand-orange text-xs font-semibold mb-2">From our student workshop</p>
+          <h2 class="font-heading text-3xl md:text-4xl">Our Products</h2>
         </div>
+      </div>
+
+      <div id="filterStatus" class="hidden items-center gap-3 mb-6">
+        <span class="text-sm text-text-muted">Showing: <span id="filterLabel" class="font-semibold text-brand-brown"></span></span>
+        <button onclick="clearFilter()" class="text-xs font-semibold text-brand-brown bg-white border border-brand-brown/20 px-3 py-1.5 rounded-full hover:bg-brand-brown hover:text-white transition">Clear filter ✕</button>
       </div>
 
       <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <?php if( have_rows('shop_products') ): ?>
-          <?php while( have_rows('shop_products') ): the_row(); 
-            $category_label      = get_sub_field('category_label') ?: 'Daily Use';
-            $product_image       = get_sub_field('product_image') ? esc_url(get_sub_field('product_image')) : 'https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=800&auto=format&fit=crop';
-            $product_title       = get_sub_field('product_title') ?: 'Product Name';
-            $product_description = get_sub_field('product_description') ?: 'Product description goes here.';
-            $product_price       = get_sub_field('product_price') ?: '$0.00';
-          ?>
-            <div class="product-card bg-[#F7F5F4] rounded-3xl overflow-hidden border border-brand-brown/5 flex flex-col justify-between">
-              <div>
-                <div class="aspect-[4/3] overflow-hidden">
-                  <img src="<?php echo $product_image; ?>" alt="<?php echo esc_attr($product_title); ?>" class="w-full h-full object-cover">
-                </div>
-                <div class="p-6">
-                  <span class="text-xs font-semibold uppercase tracking-wide text-brand-teal"><?php echo esc_html($category_label); ?></span>
-                  <h3 class="font-heading text-xl mt-1 mb-2 text-brand-brown"><?php echo esc_html($product_title); ?></h3>
-                  <p class="text-sm text-text-muted leading-relaxed mb-4"><?php echo esc_html($product_description); ?></p>
-                </div>
-              </div>
-              <div class="p-6 pt-0">
-                <div class="flex items-center justify-between border-t border-brand-brown/10 pt-4">
-                  <span class="font-heading text-lg text-brand-brown"><?php echo esc_html($product_price); ?></span>
-                  <button onclick="openOrderModal('<?php echo esc_attr($product_title); ?>', '<?php echo esc_attr($product_price); ?>')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-brown hover:text-white transition">Buy Now</button>
-                </div>
-              </div>
+        <!-- Product 1: Water Bottle -->
+        <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5 flex flex-col justify-between" data-category="daily">
+          <div>
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="<?php echo esc_url($img_3_url); ?>" alt="Rabbit School Eco Water Bottle" class="w-full h-full object-cover">
             </div>
-          <?php endwhile; ?>
-        <?php else: ?>
-          <p class="text-text-muted col-span-3 text-center py-10">No products found. Please add products using the WordPress dashboard editor.</p>
-        <?php endif; ?>
+            <div class="p-5">
+              <span class="text-xs font-semibold uppercase tracking-wide text-brand-teal">Daily Use</span>
+              <h3 class="font-heading text-lg mt-1 mb-1">Eco Stainless Water Bottle</h3>
+              <p class="text-sm text-text-muted mb-4">Reusable, stainless steel bottle featuring the Rabbit School logo design.</p>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <div class="flex items-center justify-between border-t border-brand-brown/5 pt-4">
+              <span class="font-heading text-lg">$8.00</span>
+              <button onclick="openOrderModal('Eco Stainless Water Bottle', '$8.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2: Handwoven Scarf -->
+        <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5 flex flex-col justify-between" data-category="weaving">
+          <div>
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1608234807905-4466023792f5?q=80&w=800&auto=format&fit=crop" alt="Handwoven Cambodian Scarf" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5">
+              <span class="text-xs font-semibold uppercase tracking-wide text-brand-pink">Handwoven</span>
+              <h3 class="font-heading text-lg mt-1 mb-1">Handwoven Cotton Scarf</h3>
+              <p class="text-sm text-text-muted mb-4">Traditional soft cotton scarf, hand-loomed with care by our weaving trainees.</p>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <div class="flex items-center justify-between border-t border-brand-brown/5 pt-4">
+              <span class="font-heading text-lg">$12.00</span>
+              <button onclick="openOrderModal('Handwoven Cotton Scarf', '$12.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3: Handmade Earrings -->
+        <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5 flex flex-col justify-between" data-category="crafts">
+          <div>
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop" alt="Handmade Craft Earrings" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5">
+              <span class="text-xs font-semibold uppercase tracking-wide text-brand-orange">Crafts</span>
+              <h3 class="font-heading text-lg mt-1 mb-1">Artisan Handmade Earrings</h3>
+              <p class="text-sm text-text-muted mb-4">Beautifully crafted lightweight earrings handmade by our craft students.</p>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <div class="flex items-center justify-between border-t border-brand-brown/5 pt-4">
+              <span class="font-heading text-lg">$5.00</span>
+              <button onclick="openOrderModal('Artisan Handmade Earrings', '$5.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
   </section>
 
-</main>
-
   <!-- ============ ORDER MODAL ============ -->
-  <div id="orderModal" class="hidden fixed inset-0 z-50 items-center justify-center p-4">
+    <div id="orderModal" class="hidden fixed inset-0 z-50 items-center justify-center p-4">
     <div class="absolute inset-0 bg-brand-brown/70 backdrop-blur-sm" onclick="closeOrderModal()"></div>
     <div class="relative bg-white rounded-3xl w-full max-w-md p-7 md:p-9 shadow-2xl">
       <button onclick="closeOrderModal()" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full text-text-muted hover:bg-brand-brown/5 hover:text-brand-brown transition text-lg leading-none">✕</button>
 
       <p class="uppercase tracking-widest text-brand-orange text-xs font-semibold mb-2">Place your order</p>
-      <h3 class="font-heading text-2xl mb-1 text-brand-brown" id="modalProductName">Product Name</h3>
+      <h3 class="font-heading text-2xl mb-1" id="modalProductName">Product Name</h3>
       <p class="text-text-muted text-sm mb-6" id="modalProductPrice">$0.00</p>
 
       <form id="orderForm" class="space-y-4" onsubmit="return false;">
@@ -193,6 +245,7 @@ $section_title   = get_field('section_title') ?: 'no data';
           <input type="number" id="orderQty" min="1" value="1" required class="w-full border border-brand-brown/15 bg-brand-cream/40 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition">
         </div>
 
+        <!-- ============ CLEAN SIMPLE SHADOW BUTTONS ============ -->
         <div class="pt-2">
           <p class="text-xs font-semibold uppercase tracking-wide text-text-muted mb-3">Send order via</p>
           <div class="grid grid-cols-1 gap-2.5">
@@ -292,9 +345,42 @@ $section_title   = get_field('section_title') ?: 'no data';
       closeOrderModal();
     }
 
+    function filterCategory(category, buttonEl) {
+      const cards = document.querySelectorAll('#productGrid .product-card');
+      cards.forEach(card => {
+        card.classList.toggle('is-hidden', card.dataset.category !== category);
+      });
+
+      document.querySelectorAll('.cat-card').forEach(btn => btn.classList.remove('active'));
+      if (buttonEl) buttonEl.classList.add('active');
+
+      const statusBar = document.getElementById('filterStatus');
+      statusBar.classList.remove('hidden');
+      statusBar.classList.add('flex');
+      document.getElementById('filterLabel').textContent =
+        category.charAt(0).toUpperCase() + category.slice(1);
+
+      document.getElementById('shop').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function clearFilter() {
+      document.querySelectorAll('#productGrid .product-card').forEach(card => card.classList.remove('is-hidden'));
+      document.querySelectorAll('.cat-card').forEach(btn => btn.classList.remove('active'));
+      const statusBar = document.getElementById('filterStatus');
+      statusBar.classList.add('hidden');
+      statusBar.classList.remove('flex');
+    }
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeOrderModal();
     });
   </script>
+
+
+
+
+
+</body>
+</html>
 
 <?php get_footer(); ?>
