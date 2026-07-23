@@ -1,30 +1,32 @@
 # WordPress Core Ignores
 /wp-admin/
-/wp-content/index.php
-/wp-content/languages
 /wp-includes/
+/wp-*.php
 /index.php
 /license.txt
 /readme.html
-/wp-*.php
 /xmlrpc.php
-wp-config.php
+/wp-config.php
 /.htaccess
 *.log
 
-# Ignore all uploads
+# Ignore Content, Uploads & Plugins
 /wp-content/uploads/
-
-# Ignore ALL plugins 
 /wp-content/plugins/
+/wp-content/languages/
+/wp-content/index.php
 
 # Ignore ALL themes EXCEPT your custom theme
 /wp-content/themes/*
 !/wp-content/themes/rabbit_school/
+!/wp-content/themes/rabbit_school/**
 
-# Tailwind & Node.js Ignores
+# Ignore compiled Tailwind style.css to prevent merge conflicts
+/wp-content/themes/rabbit_school/style.css
+
+# Node & OS Ignores
 **/node_modules/
+.npm/
+npm-debug.log*
 **/.DS_Store
-
-# Ignore any file named style.css anywhere in the project
-**/style.css
+Thumbs.db
