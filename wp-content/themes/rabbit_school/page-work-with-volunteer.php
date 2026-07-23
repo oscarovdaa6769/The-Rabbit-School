@@ -3,43 +3,27 @@
  * Template Name: Work With Volunteer
 */
 get_header();
-
-// Hero Content Fields with strict Design Mockup fallbacks
+// SECTION 1
+$hero_image       = get_field('hero_image') ?: get_theme_file_uri('assets/images/error.png');
 $hero_title       = get_field('hero_title') ?: 'JOIN OUR TEAM';
 $hero_description = get_field('hero_description') ?: 'help create opportunities for children and youth with intellectual disabilities and autism Cambodia';
 $hero_button_text = get_field('hero_button_text') ?: 'LEARN MORE ABOUT US';
 $hero_button_link = get_field('hero_button_link') ?: '#';
-$hero_image       = get_field('hero_image');
 
-// Opportunities Content Fields
+// SECTION 2
 $opportunities_title = get_field('opportunities_title') ?: "OPPORTUNITIES WE'RE PREPARING FOR YOU";
 
-// Feature Cards with Design Mockup fallbacks
-$card_1_title       = get_field('card_1_title') ?: 'CAREERS';
-$card_1_description = get_field('card_1_description') ?: 'Full-time opportunities to grow your career while creating impact.';
-
-$card_2_title       = get_field('card_2_title') ?: 'VOLUNTEER';
-$card_2_description = get_field('card_2_description') ?: 'Full-time opportunities to grow your career while creating impact.';
-
-$card_3_title       = get_field('card_3_title') ?: 'INTERNSHIP';
-$card_3_description = get_field('card_3_description') ?: 'Full-time opportunities to grow your career while creating impact.';
-
-// Open Job Roles with Design Mockup fallbacks
-$open_roles_heading  = get_field('open_roles_heading') ?: 'OPEN ROLES';
-
-$role_1_title        = get_field('role_1_title') ?: 'SPECIAL EDUCATION TEACHER';
-$role_1_typelocation = get_field('role_1_typelocation') ?: 'Full-time · Phnom Penh';
-$role_1_link         = get_field('role_1_link') ?: '#';
-
-$role_2_title        = get_field('role_2_title') ?: 'VOCATIONAL TRAINING ASSISTANT';
-$role_2_typelocation = get_field('role_2_typelocation') ?: 'Part-time · Siem Reap';
-$role_2_link         = get_field('role_2_link') ?: '#';
-
-$role_3_title        = get_field('role_3_title') ?: 'SOCIAL WORK COORDINATOR';
-$role_3_typelocation = get_field('role_3_typelocation') ?: 'Full-time · Kampong Speu';
-$role_3_link         = get_field('role_3_link') ?: '#';
-
-// Stay Connected Channels with Design Mockup fallbacks
+// SECTION 3
+$open_roles_heading    = get_field('open_roles_heading') ?: 'OPEN ROLES';
+$role_1_title          = get_field('role_1_title') ?: 'SPECIAL EDUCATION TEACHER';
+$role_1_typelocation   = get_field('role_1_typelocation') ?: 'Full-time · Phnom Penh';
+$role_1_link           = get_field('role_1_link') ?: '#';
+$role_2_title          = get_field('role_2_title') ?: 'VOCATIONAL TRAINING ASSISTANT';
+$role_2_typelocation   = get_field('role_2_typelocation') ?: 'Part-time · Siem Reap';
+$role_2_link           = get_field('role_2_link') ?: '#';
+$role_3_title          = get_field('role_3_title') ?: 'SOCIAL WORK COORDINATOR';
+$role_3_typelocation   = get_field('role_3_typelocation') ?: 'Full-time · Kampong Speu';
+$role_3_link           = get_field('role_3_link') ?: '#';
 $connected_heading     = get_field('connected_heading') ?: 'STAY CONNECTED';
 $connected_description = get_field('connected_description') ?: "While we're preparing this page, we'd love to hear from passionate people who want to make a difference.";
 $email_title           = get_field('email_title') ?: 'EMAIL US';
@@ -50,13 +34,11 @@ $telegram_link         = get_field('telegram_link') ?: 't.me/rabbitschool';
 $phone_title           = get_field('phone_title') ?: 'CALL HOTLINE';
 $phone_number          = get_field('phone_number') ?: '(+855) 68 901 971';
 ?>
-
-<div class="relative overflow-hidden">
-    <?php if ($hero_image): ?>
-        <img src="<?php echo esc_url($hero_image['url']); ?>" alt="<?php echo esc_attr($hero_title); ?>" class="h-[500px] md:h-[700px] w-full object-cover">
-    <?php else: ?>
-        <img src="<?php echo esc_url(get_theme_file_uri('assets/images/error.png')); ?>" alt="Hero Banner" class="h-[500px] md:h-[700px] w-full object-cover">
-    <?php endif; ?>
+<!-- section 1 -->
+<section class="relative overflow-hidden">
+    <img src="<?php echo esc_url($hero_image); ?>" 
+    alt="<?php echo esc_attr($hero_title); ?>" 
+    class="h-[500px] md:h-[700px] w-full object-cover">
     
     <div class="absolute inset-0 z-50 bg-black/30 flex items-end pb-6 md:pb-20">
         <div class="w-full max-w-7xl mx-auto px-4 md:px-[20px]">
@@ -78,52 +60,44 @@ $phone_number          = get_field('phone_number') ?: '(+855) 68 901 971';
             </div>
         </div>
     </div>
-</div>
-
-<section class="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-[20px]">
-    <h2 class="text-center text-brand-brown text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black uppercase mb-16 tracking-wide">
+</section>
+<!-- section 2 -->
+<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0 w-full">
+    <h2 class="text-center text-brand-brown text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black uppercase mb-[50px] tracking-wide">
         <?php echo esc_html($opportunities_title); ?>
     </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[20px] lg:gap-[50px] max-w-7xl mx-auto">
+    <?php 
+    // CARD 1
+    $card_1_title       = get_field('card_1_title') ?: 'CAREERS';
+    $card_1_description = get_field('card_1_description') ?: 'Full-time opportunities to grow your career while creating impact.';
+    // CARD 2
+    $card_2_title       = get_field('card_2_title') ?: 'VOLUNTEER';
+    $card_2_description = get_field('card_2_description') ?: 'Full-time opportunities to grow your career while creating impact.';
+    // CARD 3
+    $card_3_title       = get_field('card_3_title') ?: 'INTERNSHIP';
+    $card_3_description = get_field('card_3_description') ?: 'Full-time opportunities to grow your career while creating impact.';
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-brand-cream border border-brand-brown/10 rounded-[24px] p-8 pb-10 text-center flex flex-col items-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
-            <div class="mb-6 h-16 w-16 bg-white border border-brand-brown/10 rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-brand-brown group-hover:text-text-light text-brand-brown shadow-sm">
-                <span class="inline-block icon-[ph--briefcase-fill] w-7 h-7"></span>
-            </div>
-            <h3 class="text-brand-yellow text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black uppercase tracking-wide mb-3">
-                <?php echo esc_html($card_1_title); ?>
-            </h3>
-            <p class="text-text-muted text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed max-w-xs font-semibold opacity-90 mb-6">
-                <?php echo esc_html($card_1_description); ?>
-            </p>
-            <div class="w-16 h-[3px] bg-brand-yellow rounded-full mt-auto"></div>
-        </div>
-
-        <div class="bg-brand-cream border border-brand-brown/10 rounded-[24px] p-8 pb-10 text-center flex flex-col items-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
-            <div class="mb-6 h-16 w-16 bg-white border border-brand-brown/10 rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-brand-brown group-hover:text-text-light text-brand-brown shadow-sm">
-                <span class="inline-block icon-[fa6-solid--hand-holding-heart] w-7 h-7"></span>
-            </div>
-            <h3 class="text-brand-yellow text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black uppercase tracking-wide mb-3">
-                <?php echo esc_html($card_2_title); ?>
-            </h3>
-            <p class="text-text-muted text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed max-w-xs font-semibold opacity-90 mb-6">
-                <?php echo esc_html($card_2_description); ?>
-            </p>
-            <div class="w-16 h-[3px] bg-brand-yellow rounded-full mt-auto"></div>
-        </div>
-
+    $opportunities = [
+        [$card_1_title, $card_1_description],
+        [$card_2_title, $card_2_description],
+        [$card_3_title, $card_3_description],
+    ]
+    ?>
+    <?php foreach ($opportunities as $item): ?>
         <div class="bg-brand-cream border border-brand-brown/10 rounded-[24px] p-8 pb-10 text-center flex flex-col items-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
             <div class="mb-6 h-16 w-16 bg-white border border-brand-brown/10 rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-brand-brown group-hover:text-text-light text-brand-brown shadow-sm">
                 <span class="inline-block icon-[fluent--hat-graduation-24-filled] w-7 h-7"></span>
             </div>
             <h3 class="text-brand-yellow text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black uppercase tracking-wide mb-3">
-                <?php echo esc_html($card_3_title); ?>
+                <?php echo esc_html($item[0]); ?>
             </h3>
-            <p class="text-text-muted text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed max-w-xs font-semibold opacity-90 mb-6">
-                <?php echo esc_html($card_3_description); ?>
+            <p class="text-text-muted text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed max-w-xs mb-6">
+                <?php echo esc_html($item[1]); ?>
             </p>
             <div class="w-16 h-[3px] bg-brand-yellow rounded-full mt-auto"></div>
         </div>
+    <?php endforeach; ?>
     </div>
 </section>
 

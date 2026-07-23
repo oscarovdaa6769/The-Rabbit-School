@@ -1,41 +1,41 @@
 <?php get_header();?>
 <?php
 
-// section 1
+// SECTION 1
 $img_1_url = get_field('image_1') ?: get_theme_file_uri('assets/images/error.png');
-$title_1 = get_field('heading_1') ?: 'SECTION 1 NOT WORKING';
-$desc_1 = get_field('description_1') ?: 'DESC 1 NOT WORKING';
+$title_1   = get_field('heading_1') ?: 'SECTION 1 NOT WORKING';
+$desc_1    = get_field('description_1') ?: 'DESC 1 NOT WORKING';
 
-// section 2
+// SECTION 2
 $img_2_url = get_field('image_2') ?: get_theme_file_uri('assets/images/error.png');
-$title_2 = get_field('heading_2') ?: 'SECTION 2 NOT WORKING';
-$desc_2 = get_field('description_2') ?: 'DESC 2 NOT WORKING';
+$title_2   = get_field('heading_2') ?: 'SECTION 2 NOT WORKING';
+$desc_2    = get_field('description_2') ?: 'DESC 2 NOT WORKING';
 $btn_2_txt = get_field('button_2_text') ?: 'BTN 2 NOT WORKING';
 $btn_2_lnk = get_field('button_2_link') ?: '#';
 
-// section 3
-$img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png');
+// SECTION 3
+$img_3_url   = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png');
 $sub_title_3 = get_field('sub_heading_3') ?: 'SUB SECTION 3 NOT WORKING';
-$title_3 = get_field('heading_3') ?: 'SECTION 3 NOT WORKING';
-$desc_3 = get_field('description_3') ?: 'DESC 3 NOT WORKING';
-$btn_3_txt = get_field('button_3_text') ?: 'BTN 3 NOT WORKING';
-$btn_3_lnk = get_field('button_3_link') ?: '#';
+$title_3     = get_field('heading_3') ?: 'SECTION 3 NOT WORKING';
+$desc_3      = get_field('description_3') ?: 'DESC 3 NOT WORKING';
+$btn_3_txt   = get_field('button_3_text') ?: 'BTN 3 NOT WORKING';
+$btn_3_lnk   = get_field('button_3_link') ?: '#';
 
-// section 4 
-$title_4 = get_field('heading_4') ?: 'SECTION 4 NOT WORKING';
-$desc_4 = get_field('description_4') ?: 'DESC 4 NOT WORKING';
+// SECTION 4 
+$title_4       = get_field('heading_4') ?: 'SECTION 4 NOT WORKING';
+$desc_4        = get_field('description_4') ?: 'DESC 4 NOT WORKING';
 $img_card1_url = get_field('image_card1') ?: get_theme_file_uri('assets/images/error.png');
-$title_card1 = get_field('title_card1') ?: 'TITLE CARD NOT WORKING';
-$desc_card1 = get_field('description_card1') ?: 'DESC CARD1 NOT WORKING';
+$title_card1   = get_field('title_card1') ?: 'TITLE CARD NOT WORKING';
+$desc_card1    = get_field('description_card1') ?: 'DESC CARD1 NOT WORKING';
 $img_card2_url = get_field('image_card2') ?: get_theme_file_uri('assets/images/error.png');
-$title_card2 = get_field('title_card2') ?: 'TITLE CARD NOT WORKING';
-$desc_card2 = get_field('description_card2') ?: 'DESC CARD2 NOT WORKING';
+$title_card2   = get_field('title_card2') ?: 'TITLE CARD NOT WORKING';
+$desc_card2    = get_field('description_card2') ?: 'DESC CARD2 NOT WORKING';
 $img_card3_url = get_field('image_card3') ?: get_theme_file_uri('assets/images/error.png');
-$title_card3 = get_field('title_card3') ?: 'TITLE CARD NOT WORKING';
-$desc_card3 = get_field('description_card3') ?: 'DESC CARD3 NOT WORKING';
+$title_card3   = get_field('title_card3') ?: 'TITLE CARD NOT WORKING';
+$desc_card3    = get_field('description_card3') ?: 'DESC CARD3 NOT WORKING';
 $img_card4_url = get_field('image_card4') ?: get_theme_file_uri('assets/images/error.png');
-$title_card4 = get_field('title_card4') ?: 'TITLE CARD NOT WORKING';
-$desc_card4 = get_field('description_card4') ?: 'DESC CARD4 NOT WORKING';
+$title_card4   = get_field('title_card4') ?: 'TITLE CARD NOT WORKING';
+$desc_card4    = get_field('description_card4') ?: 'DESC CARD4 NOT WORKING';
 
 $impacts = [
     [$img_card1_url, $title_card1, $desc_card1],
@@ -44,7 +44,7 @@ $impacts = [
     [$img_card4_url, $title_card4, $desc_card4]
 ];
 
-// section 5
+// SECTION 5
 $donor_logos = [
     get_field('image_donor1'), get_field('image_donor2'), get_field('image_donor3'),
     get_field('image_donor4'), get_field('image_donor5'), get_field('image_donor6'),
@@ -59,51 +59,53 @@ $partner_logos = [
 ];
 $fallback_img = get_theme_file_uri('assets/images/error.png');
 
-// section 6
-$img_6_url = get_field('image_6') ?: get_theme_file_uri('assets/images/error.png');
+// SECTION 6
+$img_6_url   = get_field('image_6') ?: get_theme_file_uri('assets/images/error.png');
 $sub_title_6 = get_field('sub_heading_6') ?: 'SUB SECTION 6 NOT WORKING';
-$title_6 = get_field('heading_6') ?: 'SECTION 6 NOT WORKING';
-$desc_6 = get_field('description_6') ?: 'DESC 6 NOT WORKING';
-$btn_6_txt = get_field('button_6_text') ?: 'BTN 6 NOT WORKING';
-$btn_6_lnk = get_field('button_6_link') ?: '#';
+$title_6     = get_field('heading_6') ?: 'SECTION 6 NOT WORKING';
+$desc_6      = get_field('description_6') ?: 'DESC 6 NOT WORKING';
+$btn_6_txt   = get_field('button_6_text') ?: 'BTN 6 NOT WORKING';
+$btn_6_lnk   = get_field('button_6_link') ?: '#';
 ?>
 
-<!-- section 1 -->
-<div class="relative overflow-hidden">
+<!-- SECTION 1 -->
+<section class="relative overflow-hidden">
       <img src="<?php echo esc_url($img_1_url); ?>" 
       alt="<?php echo esc_attr($title_1); ?>" 
       class="h-[500px] md:h-[700px] w-full object-cover">
       
-      <div class="absolute inset-0 z-50 bg-black/20 flex items-end pb-6 md:pb-20">
-            <div class="w-full max-w-7xl mx-auto px-[20px] 2xl:px-0">
+      <div class="absolute inset-0 z-50 bg-black/20 flex items-end">
+            <div class="w-full max-w-7xl mx-auto py-[64px] md:py[50px] px-[20px] 2xl:px-0">
                   <div class="max-w-2xl text-text-light">
-                        <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
+                        <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-[10px] md:mb-[20px] uppercase">
                               <?php echo esc_html($title_1); ?>
                         </h1>
-                        <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
+                        <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed">
                               <?php echo esc_html($desc_1); ?>
                         </p>
                   </div>
             </div>
       </div>
-</div>
+</section>
 
-<!-- section 2 -->
-<div class="relative overflow-hidden">
-      <img src="<?php echo esc_url($img_2_url); ?>" alt="<?php echo esc_attr($title_2); ?>" class="h-[500px] md:h-[700px] w-full object-cover">
+<!-- SECTION 2 -->
+<section class="relative overflow-hidden">
+      <img src="<?php echo esc_url($img_2_url); ?>" 
+      alt="<?php echo esc_attr($title_2); ?>" 
+      class="h-[500px] md:h-[700px] w-full object-cover">
       
-      <div class="absolute inset-0 z-50 bg-black/20 flex items-end pb-6 md:pb-20">
-            <div class="w-full max-w-7xl mx-auto px-[20px] 2xl:px-0">
+      <div class="absolute inset-0 z-50 bg-black/20 flex items-end">
+            <div class="w-full max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0">
                   <div class="max-w-2xl text-text-light">
-                        <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
+                        <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-[10px] md:mb-[20px] uppercase">
                               <?php echo esc_html($title_2); ?>
                         </h1>
-                        <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
+                        <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed">
                               <?php echo esc_html($desc_2); ?>
                         </p>
                         <?php if ( !empty($btn_2_txt) ) : ?>
-                        <div class="flex justify-start mt-6">
-                              <a href="<?php echo esc_url($btn_2_lnk); ?>" class="group bg-brand-brown text-text-light font-bold text-sm px-[24px] py-[12px] rounded-[8px] shadow-lg hover:scale-105 active:scale-95 transition-all inline-flex gap-3 items-center uppercase tracking-widest">
+                        <div class="flex justify-start mt-[10px]">
+                              <a href="<?php echo esc_url($btn_2_lnk); ?>" class="group bg-brand-brown text-text-light font-bold text-sm px-[24px] py-[12px] rounded-[8px] shadow-md hover:shadow-xl transition-all inline-flex gap-3 items-center uppercase tracking-widest">
                                     <?php echo esc_html($btn_2_txt); ?>
                                     <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
                               </a>
@@ -112,7 +114,7 @@ $btn_6_lnk = get_field('button_6_link') ?: '#';
                   </div>
             </div>
       </div>
-</div>
+</section>
 
 <!-- section 3 -->
 <section class="bg-white py-[64px] md:py-[50px] px-[20px] 2xl:px-0">

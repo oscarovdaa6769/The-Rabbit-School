@@ -7,7 +7,9 @@ get_header();
 
 <!-- section 1 -->
 <section class="relative overflow-hidden">
-      <img src="<?php echo get_theme_file_uri('assets/images/photo1.png'); ?>" alt="" class="h-[500px] md:h-[700px] w-full object-cover">
+      <img src="<?php echo esc_url(get_field('hero_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" 
+      alt="" 
+      class="h-[500px] md:h-[700px] w-full object-cover">
       
       <div class="absolute inset-0 z-50 bg-black/20 flex items-end pb-6 md:pb-20">
             <div class="w-full max-w-7xl mx-auto px-[20px] 2xl:px-0">
@@ -27,7 +29,7 @@ get_header();
       <div class="flex flex-col sm:flex-row gap-4 justify-between items-stretch sm:items-center w-full">
             
             <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase">
-                  <?php echo esc_html(get_field('featured_text') ?: 'Featured Artical'); ?>
+                  <?php echo esc_html(get_field('featured_title') ?: 'Featured Artical'); ?>
             </h2>
 
             <div class="relative w-full sm:flex-1 sm:max-w-md">
@@ -44,8 +46,8 @@ get_header();
       </div>
 </section>
 <!-- section 3 -->
-<section class="max-w-7xl mx-auto px-4 md:px-[20px] font-sans">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+<section class="max-w-7xl mx-auto px-[20px] 2xl:px-0 font-sans">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[20px] lg:gap-[50px] max-w-7xl mx-auto">
             <?php 
                   // CARD 1
                   $img_card1_url = get_field('card_1_image') ?: get_theme_file_uri('assets/images/error.png');
@@ -83,6 +85,7 @@ get_header();
                   $desc_card6 = get_field('card_6_description') ?: "Explore high-quality products and services designed to make your everyday life easier. Whether you're looking for the latest trends or trusted solutions, you'll find options that fit your needs and lifestyle.";
                   $btn_text_card6 = get_field('card_6_button_text') ?: 'read more';
                   $btn_link_card6 = get_field('card_6_button_link') ?: '#';
+                  
                   $photos = [
                         [$img_card1_url, $title_card1, $desc_card1, $btn_text_card1, $btn_link_card1],
                         [$img_card2_url, $title_card2, $desc_card2, $btn_text_card2, $btn_link_card2],
@@ -106,7 +109,7 @@ get_header();
                         <p class="text-text-muted text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed">
                               <?php echo esc_html($item[2]); ?>
                         </p>
-                        <a href="<?php echo esc_url($item[4]); ?>" class="bg-brand-yellow px-[24px] py-[12px] rounded-[8px] inline-flex items-center self-start gap-[10px] group shadow-md hover:shadow-xl transition-all font-bold text-sm uppercase tracking-widest">
+                        <a href="<?php echo esc_url($item[4]); ?>" class="bg-brand-yellow text-text-main px-[24px] py-[12px] rounded-[8px] inline-flex items-center self-start gap-[10px] group shadow-md hover:shadow-xl transition-all font-bold text-sm uppercase tracking-widest">
                               <?php echo esc_html($item[3]); ?>
                               <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
                         </a>
@@ -116,7 +119,7 @@ get_header();
       </div>
 </section>
 <!-- section 4 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-4 md:px-[20px] font-sans">
+<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0 font-sans">
       <div class="flex items-center gap-[20px]">
             <div class="border border-brand-brown flex items-center justify-center rounded-full p-[16px] group hover:bg-brand-brown hover:text-text-light transition-all shadow-md hover:shadow-xl">
                   <span class="icon-[solar--arrow-left-linear] w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1"></span>
