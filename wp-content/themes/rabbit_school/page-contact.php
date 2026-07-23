@@ -40,15 +40,15 @@ get_header();
 
 <section class="py-16 px-4">
     <div class="anim-fade-up max-w-7xl mx-auto text-center mb-12">
-        <h1 class="text-4xl font-black text-[#5c2e2e] tracking-wide"><?php echo esc_html( get_field('_hero_title') ); ?></h1>
-        <p class="text-[#5c2e2e]  mt-3 max-w-xl mx-auto">
+        <h1 class="text-4xl font-black text-[#5c2e2e] tracking-wide font-heading"><?php echo esc_html( get_field('_hero_title') ); ?></h1>
+        <p class="text-[#5c2e2e] font-sans mt-3 max-w-xl mx-auto">
            <?php echo esc_html( get_field('hero_text') ); ?>
         </p>
     </div>
 
     <div class="max-w-7xl mx-auto mb-6">
-        <h2 class="text-3xl font-extrabold text-[#5c2e2e] mb-1"><?php echo esc_html( get_field('title') ); ?></h2>
-        <p class="text-[#5c2e2e]"><?php echo esc_html( get_field('text_long') ); ?></p>
+        <h2 class="text-3xl font-extrabold text-[#5c2e2e] mb-1 font-heading"><?php echo esc_html( get_field('title') ); ?></h2>
+        <p class="text-[#5c2e2e] font-sans"><?php echo esc_html( get_field('text_long') ); ?></p>
     </div>
 
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
@@ -120,7 +120,7 @@ get_header();
         </div>
 
         <!-- RIGHT: Location Image Card -->
-        <div class="anim-slide-right anim-delay-2 order-1 lg:order-2 relative w-full h-[300px] md:h-[400px] lg:h-[420px] rounded-3xl overflow-hidden shadow-lg group">
+        <div class="anim-slide-right anim-delay-2 order-1 lg:order-2 relative w-full h-[300px] md:h-[400px] lg:h-[400] rounded-3xl overflow-hidden shadow-lg group">
             <img
                 src="<?php echo esc_html( get_field('pata') ); ?>"
                 alt="Our Location"
@@ -140,8 +140,8 @@ get_header();
     <div class="anim-fade-up anim-delay-3 max-w-2xl mx-auto px-6">
         <div class="bg-white rounded-3xl shadow-lg border border-[#f0e4e0] p-8 sm:p-10 md:p-12">
             <div class="text-center mb-8">
-                <h2 class="text-3xl md:text-4xl font-extrabold uppercase text-[#5c1f2e] mb-3 tracking-wide"><?php echo esc_html( get_field('general_inquiries') ); ?></h2>
-                <p class="text-[#5c1f2e] text-base text-ls"><?php echo esc_html( get_field('feel_free_to_drop_us_a_line_below') ); ?></p>
+                <h2 class="text-3xl md:text-4xl font-extrabold font-heading uppercase text-[#5c1f2e] mb-3 tracking-wide"><?php echo esc_html( get_field('general_inquiries') ); ?></h2>
+                <p class="text-[#5c1f2e] font-sans text-base text-ls"><?php echo esc_html( get_field('feel_free_to_drop_us_a_line_below') ); ?></p>
             </div>
 
             <!-- Success / error message shown after JS submission (no page reload now) -->
@@ -153,7 +153,7 @@ get_header();
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label for="your_name" class="block text-ls font-medium text-[#5c1f2e] mb-2"><?php echo esc_html( get_field('your_name') ); ?></label>
+                        <label for="your_name" class="block text-ls font-sans font-medium text-[#5c1f2e] mb-2"><?php echo esc_html( get_field('your_name') ); ?></label>
                         <input type="text" id="your_name" name="your_name" placeholder="<?php echo esc_html( get_field('john_doe') ); ?>" required
                             class="w-full border border-gray-300 rounded-2xl px-4 py-4 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-double focus:border-[#5c1f2e]">
                         <p class="error-message hidden items-center gap-1 text-red-600 text-sm mt-2">
@@ -166,7 +166,7 @@ get_header();
                         </p>
                     </div>
                     <div>
-                        <label for="your_email" class="block text-ls font-medium text-[#5c1f2e] mb-2"><?php echo esc_html( get_field('your_email') ); ?></label>
+                        <label for="your_email" class="block text-ls font-sans font-medium text-[#5c1f2e] mb-2"><?php echo esc_html( get_field('your_email') ); ?></label>
                         <input type="email" id="your_email" name="your_email" placeholder="<?php echo esc_html( get_field('example@gmailcom') ); ?>" required
                             class="w-full border border-gray-300 rounded-2xl px-4 py-4 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-double  focus:border-[#5c1f2e]">
                         <p class="error-message hidden items-center gap-1 text-red-600 text-sm mt-2">
@@ -181,7 +181,7 @@ get_header();
                 </div>
 
                 <div>
-                    <label for="subject" class="block text-ls font-medium text-[#5c1f2e] mb-2"><?php echo esc_html( get_field('subject') ); ?></label>
+                    <label for="subject" class="block text-ls font-sans font-medium text-[#5c1f2e] mb-2"><?php echo esc_html( get_field('subject') ); ?></label>
                     <input type="text" id="subject" name="subject" placeholder="<?php echo esc_html( get_field('whats_on_your_mind') ); ?>" required
                         class="w-full border border-gray-300 rounded-2xl px-4 py-4 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-double  focus:border-[#5c1f2e]">
                     <p class="error-message hidden items-center gap-1 text-red-600 text-sm mt-2">
@@ -195,7 +195,7 @@ get_header();
                 </div>
 
                 <div>
-                    <label for="message" class="block text-ls font-medium text-[#5c1f2e] mb-2"><?php echo esc_html( get_field('your_message') ); ?></label>
+                    <label for="message" class="block text-ls font-sans font-medium text-[#5c1f2e] mb-2"><?php echo esc_html( get_field('your_message') ); ?></label>
                     <textarea id="message" name="message" rows="6" placeholder="<?php echo esc_html( get_field('write_your_message_here_wed_love_to_hear_from_you!') ); ?>" required
                         class="w-full border border-gray-300 rounded-2xl px-4 py-4 text-gray-700 placeholder-gray-400 resize-none focus:outline-none focus:border-double  focus:border-[#5c1f2e]"></textarea>
                     <p class="error-message hidden items-center gap-1 text-red-600 text-sm mt-2">
