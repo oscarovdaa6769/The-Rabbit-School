@@ -6,6 +6,7 @@
 get_header();
 
 
+
 // section 1
 
 $img_1_url = get_field('image_1') ?: get_theme_file_uri('assets/images/error.png');
@@ -36,13 +37,6 @@ $card4_description = get_field('card4_description') ?: 'No data';
 $title_3 = get_field('heading_3') ?: 'SECTION 3 NOT WORKING';
 $heading_4 = get_field('heading_4') ?: 'SECTION 4 NOT WORKING';
 $img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png');
-
-
-
-
-
-
-
 
 
 ?>
@@ -90,7 +84,7 @@ $img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png
 <body class="bg-white text-brand-brown">
 
   <!-- ============ HERO ============ -->
-  <section class="relative overflow-hidden">
+  <section class="relative overflow-hidden bg-brand-brown">
     <div class="absolute inset-0 -z-10">
       <img src="<?php echo esc_url($img_1_url); ?>" alt="<?php echo esc_attr($title_1); ?>" alt="Rabbit School Vocational Workshop" class="w-full h-full object-cover">
       <div class="absolute inset-0 bg-brand-brown/80"></div>
