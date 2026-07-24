@@ -16,6 +16,11 @@
 /wp-content/languages/
 /wp-content/index.php
 
+#for testing 
+wp-content/ai1wm-backups/
+wp-content/backups-dup-lite/
+
+
 # Ignore ALL themes EXCEPT your custom theme
 /wp-content/themes/*
 !/wp-content/themes/rabbit_school/
