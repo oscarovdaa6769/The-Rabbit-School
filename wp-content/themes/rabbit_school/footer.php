@@ -32,7 +32,15 @@
                   </div>
 
                   <div class="lg:col-span-2 flex flex-col gap-4">
-                        <h3 class="text-brand-yellow font-bold text-sm uppercase tracking-widest opacity-95">Our Program</h3>
+                        <h3 class="text-brand-yellow font-bold text-sm uppercase tracking-widest opacity-95">
+                              <?php 
+                              if ( function_exists('pll_current_language') && pll_current_language() == 'km' ) {
+                                    echo 'កម្មវិធីរបស់យើង';
+                              } else {
+                                    echo 'Our Program';
+                              }
+                              ?>
+                        </h3>
                         <?php wp_nav_menu(array(
                               'theme_location' => 'our-program-footer',
                               'container' => false,
@@ -43,7 +51,15 @@
                   </div>
 
                   <div class="lg:col-span-2 flex flex-col gap-4">
-                        <h3 class="text-brand-yellow font-bold text-sm uppercase tracking-widest opacity-95">About Us</h3>
+                        <h3 class="text-brand-yellow font-bold text-sm uppercase tracking-widest opacity-95">
+                              <?php 
+                              if ( function_exists('pll_current_language') && pll_current_language() == 'km' ) {
+                                    echo 'អំពីយើង';
+                              } else {
+                                    echo 'About Us';
+                              }
+                              ?>
+                        </h3>
                         <?php wp_nav_menu(array(
                               'theme_location' => 'about-us-footer',
                               'container' => false,
@@ -54,7 +70,15 @@
                   </div>
 
                   <div class="lg:col-span-1 flex flex-col gap-4">
-                        <h3 class="text-brand-yellow font-bold text-sm uppercase tracking-widest opacity-95">News</h3>
+                        <h3 class="text-brand-yellow font-bold text-sm uppercase tracking-widest opacity-95">
+                              <?php 
+                              if ( function_exists('pll_current_language') && pll_current_language() == 'km' ) {
+                                    echo 'ព័ត៌មាន';
+                              } else {
+                                    echo 'News';
+                              }
+                              ?>
+                        </h3>
                         <?php wp_nav_menu(array(
                               'theme_location' => 'news-footer',
                               'container' => false,
@@ -65,7 +89,15 @@
                   </div>
 
                   <div class="lg:col-span-2 flex flex-col gap-4">
-                        <h3 class="text-brand-yellow font-bold text-sm uppercase tracking-widest opacity-95">Get Involved</h3>
+                        <h3 class="text-brand-yellow font-bold text-sm uppercase tracking-widest opacity-95">
+                              <?php 
+                              if ( function_exists('pll_current_language') && pll_current_language() == 'km' ) {
+                                    echo 'ចូលរួម';
+                              } else {
+                                    echo 'Get Involved';
+                              }
+                              ?>
+                        </h3>
                         <?php wp_nav_menu(array(
                               'theme_location' => 'get-involved-footer',
                               'container' => false,
@@ -76,41 +108,51 @@
                   </div>
 
                   <div class="sm:col-span-2 md:col-span-1 lg:col-span-2 flex flex-col gap-4">
-                        <h3 class="text-brand-yellow font-bold text-sm uppercase tracking-widest opacity-95">Contact</h3>
+                        <h3 class="text-brand-yellow font-bold text-sm uppercase tracking-widest opacity-95">
+                              <?php 
+                              if ( function_exists('pll_current_language') && pll_current_language() == 'km' ) {
+                                    echo 'ទំនាក់ទំនង';
+                              } else {
+                                    echo 'Contact';
+                              }
+                              ?>
+                        </h3>
                         <ul class="flex flex-col gap-3 text-white/80 font-medium">
                               <li>
                                     <a href="mailto:info@rabbitschoolcambodia.net" class="hover:text-brand-yellow transition-all flex items-start gap-2.5 group">
-                                          <span class="icon-[solar--letter-bold] w-5 h-5 shrink-0 text-white/60 group-hover:text-brand-yellow transition-colors"></span>
-                                          <span class="break-all">info@rabbitschoolcambodia.net</span>
+                                          <span class="icon-[material-symbols--mail-outline-rounded] w-5 h-5 shrink-0 text-white/60 group-hover:text-brand-yellow transition-colors"></span>
+                                          <span class="break-all">
+                                                info@rabbitschoolcambodia.net
+                                          </span>
                                     </a>
                               </li>
                               <li class="flex items-start gap-2.5">
-                                    <span class="icon-[solar--phone-bold] w-5 h-5 shrink-0 text-white/60"></span>
-                                    <span class="leading-tight">(+855) 68 901 971<br>(+855) 17 525 815</span>
+                                    <span class="icon-[material-symbols--call] w-5 h-5 shrink-0 text-white/60"></span>
+                                    <span class="leading-tight">
+                                          (+855) 68 901 971
+                                          <br>
+                                          (+855) 17 525 815
+                                    </span>
                               </li>
                               <li class="flex items-start gap-2.5">
-                                    <span class="icon-[solar--map-point-bold] w-5 h-5 shrink-0 text-white/60"></span>
-                                    <span class="leading-snug">Toul Kork Primary School, Phnom Penh</span>
+                                    <span class="icon-[material-symbols--location-on] w-5 h-5 shrink-0 text-white/60"></span>
+                                    <span class="leading-snug">
+                                          <?php 
+                                          if ( function_exists('pll_current_language') && pll_current_language() == 'km' ) {
+                                                echo 'សាលាបឋមសិក្សាទួលគោក រាជធានីភ្នំពេញ';
+                                          } else {
+                                                echo 'Toul Kork Primary School, Phnom Penh';
+                                          }
+                                          ?>
+                                    </span>
                               </li>
                         </ul>
                   </div>
 
             </div>
 
-            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-white/60 text-xs font-medium">
+            <div class="pt-8 text-white/60 text-sm font-medium">
                   <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All rights reserved.</p>
-                  
-                  <div class="flex items-center gap-4">
-                        <span class="uppercase tracking-wider opacity-60 text-[10px] font-bold">Follow Us</span>
-                        <div class="flex items-center gap-2">
-                              <a href="#" class="w-8 h-8 rounded-full bg-white/5 hover:bg-brand-yellow hover:text-brand-brown flex items-center justify-center transition-all duration-300" aria-label="Facebook">
-                                    <span class="icon-[solar--users-group-rounded-bold] w-4 h-4"></span>
-                              </a>
-                              <a href="#" class="w-8 h-8 rounded-full bg-white/5 hover:bg-brand-yellow hover:text-brand-brown flex items-center justify-center transition-all duration-300" aria-label="YouTube">
-                                    <span class="icon-[solar--videocamera-record-bold] w-4 h-4"></span>
-                              </a>
-                        </div>
-                  </div>
             </div>
       </div>
 </footer>

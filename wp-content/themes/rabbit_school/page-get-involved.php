@@ -83,7 +83,7 @@
             Join our passionate team and help empower children and youth with intellectual disabilities and autism to reach their full potential.
           </p>
         </div>
-        <a class="inline-flex items-center gap-2 text-white font-bold transition-all duration-300 focus:outline-none focus:underline" href="/donate">
+        <a class="inline-flex items-center gap-2 text-white font-bold transition-all duration-300 focus:outline-none focus:underline" href="work-with-volunteer">
           <span class="relative py-1">
             Work & volunteer
             <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
