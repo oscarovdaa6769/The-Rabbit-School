@@ -1,8 +1,9 @@
 <?php
 
-/**
- * Template Name: How We Work Page
- */
+/*
+Template Name: How We Work
+Template Post Type: post, page, product
+*/
 
 get_header();
 ?>
@@ -19,10 +20,10 @@ get_header();
     <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pb-16 pt-32 w-full">
         <div class="max-w-3xl space-y-4">
             <h1 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-white uppercase mb-6m">
-                How We Work
+                <?php echo esc_html(get_field('heading_1')?: 'error'); ?>
             </h1>
             <p class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed max-w-2xl drop-shadow">
-                Our programs empower children and youth with intellectual disabilities to reach their full potential through tailored education, vocational training, inclusive community building, and advocacy for lasting change.
+                <?php echo esc_html(get_field('paragraph_1')?: 'error'); ?>
             </p>
         </div>
     </div>
@@ -31,7 +32,7 @@ get_header();
 <section class="pt-12 md:pt-16 text-center ">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black  uppercase mb-6  text-[#477CAF] ">
-            Learn More About Our Programs
+            <?php echo esc_html(get_field('heading_2')?: 'error'); ?>
         </h2>
     </div>
 </section>

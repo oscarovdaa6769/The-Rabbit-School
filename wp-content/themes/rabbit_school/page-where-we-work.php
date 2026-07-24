@@ -24,17 +24,17 @@ get_header();
         </div>
     </section>
 
-    <main class="container mx-auto px-6 md:px-12 py-16 space-y-20">
+    <main class="container mx-auto py-16 space-y-20">
 
-        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div class="lg:col-span-5 space-y-6">
-                <div>
+        <section class="flex flex-col md:flex-row gap-12 items-end">
+            <div class="w-full">
+                <div class="">
                     <h2 class="text-3xl font-black text-[#6b4242] uppercase tracking-wide mb-3"><?php echo esc_html(get_field('heading_2')?: 'error'); ?> </h2>
-                    <p class="text-gray-600 text-sm leading-relaxed"><?php echo esc_html(get_field('paragraph_2')?: 'error'); ?></p>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-3"><?php echo esc_html(get_field('paragraph_2')?: 'error'); ?></p>
                 </div>
                 
                 <div class="space-y-4">
-                    <div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
+                    <a href="https://maps.app.goo.gl/6JKfpfUYgfv4pSTf9" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
                         <div class="w-12 h-12 rounded-full bg-[#6b4242] text-white flex items-center justify-center shrink-0">
                             <i class="fa-solid fa-location-dot text-lg"></i>
                         </div>
@@ -42,8 +42,8 @@ get_header();
                             <h4 class="font-bold text-gray-800 uppercase tracking-wide text-sm"><?php echo esc_html(get_field('heading_card_1')?: 'error'); ?></h4>
                             <p class="text-xs text-gray-500"><?php echo esc_html(get_field('paragraph_card_1')?: 'error'); ?></p>
                         </div>
-                    </div>
-                    <div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
+                    </a>
+                    <a href="https://maps.app.goo.gl/RHpoYsFjb1mx4iEEA" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
                         <div class="w-12 h-12 rounded-full bg-[#6b4242] text-white flex items-center justify-center shrink-0">
                             <i class="fa-solid fa-location-dot text-lg"></i>
                         </div>
@@ -51,8 +51,8 @@ get_header();
                             <h4 class="font-bold text-gray-800 uppercase tracking-wide text-sm"><?php echo esc_html(get_field('heading_card_2')?: 'error'); ?></h4>
                             <p class="text-xs text-gray-500"><?php echo esc_html(get_field('paragraph_card_2')?: 'error'); ?></p>
                         </div>
-                    </div>
-                    <div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
+                    </a>
+                    <a href="https://maps.app.goo.gl/CYFSfvZ1p983VMvN9" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
                         <div class="w-12 h-12 rounded-full bg-[#6b4242] text-white flex items-center justify-center shrink-0">
                             <i class="fa-solid fa-location-dot text-lg"></i>
                         </div>
@@ -60,8 +60,8 @@ get_header();
                             <h4 class="font-bold text-gray-800 uppercase tracking-wide text-sm"><?php echo esc_html(get_field('heading_card_3')?: 'error'); ?></h4>
                             <p class="text-xs text-gray-500"><?php echo esc_html(get_field('paragraph_card_3')?: 'error'); ?></p>
                         </div>
-                    </div>
-                    <div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
+                    </a>
+                    <a href="https://maps.app.goo.gl/7wBaVivukozvcSHFA" class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
                         <div class="w-12 h-12 rounded-full bg-[#6b4242] text-white flex items-center justify-center shrink-0">
                             <i class="fa-solid fa-location-dot text-lg"></i>
                         </div>
@@ -69,12 +69,12 @@ get_header();
                             <h4 class="font-bold text-gray-800 uppercase tracking-wide text-sm"><?php echo esc_html(get_field('heading_card_4')?: 'error'); ?></h4>
                             <p class="text-xs text-gray-500"><?php echo esc_html(get_field('paragraph_card_4')?: 'error'); ?></p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 
-            <div class="lg:col-span-7 flex justify-center overflow-hidden">
-                <?php echo get_field('google_map')?: 'error'; ?>
+            <div class="w-full flex justify-center overflow-hidden rounded-[24px]">
+                <img src="<?php echo esc_url(get_field('google_map')) ?>" alt="Students" class="w-full h-full object-cover">
             </div>
         </section>
 
@@ -168,6 +168,8 @@ get_header();
         </section>
 
     </main>
+
+    
 
 </body>
 <?php get_footer();?>
