@@ -28,3 +28,37 @@ add_action( 'init', function() {
         pll_register_string( 'Header Program Label', 'Our Program', 'rabbit_school' );
     }
 });
+
+function register_photo_essays_cpt() {
+    $labels = [
+        'name'               => 'Photo Essays',
+        'singular_name'      => 'Photo Essay',
+        'menu_name'          => 'Photo Essays',
+        'add_new'            => 'Add New Essay',
+        'add_new_item'       => 'Add New Photo Essay',
+        'edit_item'          => 'Edit Photo Essay',
+        'new_item'           => 'New Photo Essay',
+        'view_item'          => 'View Photo Essay',
+        'search_items'       => 'Search Photo Essays',
+        'not_found'          => 'No photo essays found',
+        'not_found_in_trash' => 'No photo essays found in Trash',
+    ];
+
+    $args = [
+        'labels'              => $labels,
+        'public'              => true,
+        'has_archive'         => true,
+        'publicly_queryable'  => true,
+        'query_var'           => true,
+        'rewrite'             => ['slug' => 'photo-essay'],
+        'capability_type'     => 'post',
+        'hierarchical'        => false,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-format-gallery', // Gallery icon in WP Admin
+        'supports'            => ['title', 'editor', 'thumbnail', 'excerpt'],
+        'show_in_rest'        => true, // Enables Gutenberg Editor
+    ];
+
+    register_post_type('photo_essay', $args);
+}
+add_action('init', 'register_photo_essays_cpt');

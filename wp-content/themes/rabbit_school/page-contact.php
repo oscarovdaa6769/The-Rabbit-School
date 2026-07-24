@@ -37,199 +37,334 @@ get_header();
 .anim-delay-5 { animation-delay: 0.5s; }
 .anim-delay-6 { animation-delay: 0.6s; }
 </style>
-
-<section class="py-16 md:py-20 px-6 text-center bg-white">
-    <div class="anim-fade-up">
-        <h1 class="font-heading text-4xl md:text-5xl font-extrabold tracking-wide text-[#5c1f2e] uppercase mb-4 md:mb-6">
-            Contact Us
-        </h1>
-        <p class="max-w-2xl mx-auto text-[#5c1f2e] text-lg leading-relaxed">
-            We'd love to hear from you! Whether you have questions, feedback, or just want to say hello,
-            feel free to reach out.
-        </p>
+<!-- SECTION 1 -->
+<section class="bg-brand-brown h-[500px] md:h-[700px]">
+    <div class="max-w-7xl mx-auto px-[20px] 2xl:px-0 py-[64px] md:py-[50px] h-full flex items-end">
+        <div class="max-w-2xl flex flex-col gap-[10px]">
+            <h1 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black text-text-light font-heading uppercase">
+                REACH OUT TODAY 
+            </h1>
+            <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] text-text-light/80">
+                Have questions about our work or want to support our mission? Get in touch with our team and let’s start a conversation.
+            </p>
+        </div>
     </div>
 </section>
-
-<section class="max-w-7xl mx-auto px-6 pb-16 md:pb-24 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
-
-    <!-- LEFT: Get In Touch -->
-    <div class="anim-slide-left">
-        <h2 class="text-3xl font-extrabold text-[#5c1f2e] mb-3">Get In Touch</h2>
-        <p class="text-[#5c1f2e] text-base mb-6 md:mb-8">Have any questions? We'd love to hear from you!</p>
-
-        <div class="space-y-4 md:space-y-5">
-
-            <!-- Email -->
-            <div class="anim-fade-up anim-delay-1 flex items-center gap-4 bg-gray-50 rounded-xl p-4 md:p-5">
-                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-[#5c1f2e] text-white shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
+<!-- SECTION 2 -->
+<section class="bg-brand-cream">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-[50px] py-[64px] md:py-[50px] px-[20px] 2xl:px-o">
+        <div class="anim-slide-left anim-delay-1 order-2 md:order-1 flex flex-col gap-[20px]">
+            <div class="rounded-[28px] p-[20px] flex items-center border-l-5 border-brand-blue gap-[20px] shadow-md hover:shadow-xl transition-all">
+                <div class="w-16 h-16 rounded-full bg-brand-blue/20 flex items-center justify-center flex-shrink-0 text-brand-blue">
+                    <span class="icon-[material-symbols--mail-rounded] w-6 h-6"></span>
                 </div>
                 <div>
-                    <p class="text-gray-500 text-sm">E-mail</p>
-                    <p class="font-bold text-[#5c1f2e] text-base break-all">info@rabbitschoolcambodia.net</p>
-                </div>
-            </div>
-
-            <!-- Address -->
-            <div class="anim-fade-up anim-delay-2 flex items-center gap-4 bg-gray-50 rounded-xl p-4 md:p-5">
-                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-[#5c1f2e] text-white shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                </div>
-                <div>
-                    <p class="text-gray-500 text-sm">Address</p>
-                    <p class="font-bold text-[#5c1f2e] text-base">Toul Kork Primary School, Phnom Penh</p>
-                </div>
-            </div>
-
-            <!-- Telephone -->
-            <div class="anim-fade-up anim-delay-3 flex items-start gap-4 bg-gray-50 rounded-xl p-4 md:p-5">
-                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-[#5c1f2e] text-white shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                </div>
-                <div>
-                    <p class="text-gray-500 text-sm mb-1">Telephone</p>
-                    <p class="font-bold text-[#5c1f2e] leading-relaxed text-base">
-                        Head Office: (+855) 68 901 971 /17 525 815<br>
-                        Siem Reap Area Supervisor: +855 93 329 698<br>
-                        Kampong Speu Area Supervisor: +855 12 603 877<br>
-                        Kandal Area Supervisor: +855 081 49 61 78
+                    <h3 class="font-bold text-text-main uppercase text-[16px] sm:text-[18px] md:text-[20px] tracking-wide">
+                        Email
+                    </h3>
+                    <p class="text-text-main/80 text-[14px] sm:text-[15px] md:text-[16px]">
+                        example@gmail.com
                     </p>
                 </div>
             </div>
+            <div class="rounded-[28px] p-[20px] flex items-center border-l-5 border-brand-pink gap-[20px] shadow-md hover:shadow-xl transition-all">
+                <div class="w-16 h-16 rounded-full bg-brand-pink/20 flex items-center justify-center flex-shrink-0 text-brand-pink">
+                    <span class="icon-[ic--sharp-location-on] w-6 h-6"></span>
+                </div>
+                <div>
+                    <h3 class="font-bold text-text-main uppercase text-[16px] sm:text-[18px] md:text-[20px] tracking-wide">
+                        Address
+                    </h3>
+                    <p class="text-text-main/80 text-[14px] sm:text-[15px] md:text-[16px]">
+                        Toul Kork primary school, phnom penh 
+                    </p>
+                </div>
+            </div>
+            <div class="rounded-[28px] p-[20px] flex items-start border-l-5 border-brand-orange gap-[20px] shadow-md hover:shadow-xl transition-all">
+                <div class="w-16 h-16 rounded-full bg-brand-orange/20 flex items-center justify-center flex-shrink-0 text-brand-orange">
+                    <span class="icon-[solar--phone-bold] w-6 h-6"></span>
+                </div>
+                <div class="w-full">
+                    <h3 class="font-bold text-text-main uppercase text-[16px] sm:text-[18px] md:text-[20px] tracking-wide">
+                        telephone
+                    </h3>
+                    <div class="space-y-[10px] text-text-main/80 text-[14px] sm:text-[15px] md:text-[16px]">
+                        <div class="flex justify-between">
+                            <span>Head Office:</span>
+                            <span>(+855) 68 901 971 /17 525 815</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Siem Reap Area Supervisor:</span>
+                            <span>+855 93 329 698</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Kampong Speu Area Supervisor:</span>
+                            <span>+855 12 603 877</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Kandal Area Supervisor:</span>
+                            <span>+855 081 49 61 78</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-brand-brown/20 border-l-5 border-brand-brown rounded-[28px] p-5 text-text-main text-[14px] sm:text-[15px] md:text-[16px]">
+                Please use the contact information above, or fill the form below:
+            </div>
+        </div>
 
-            <!-- Notice -->
-            <div class="anim-fade-up anim-delay-4 bg-yellow-50 border border-yellow-100 rounded-xl p-4 md:p-5">
-                <p class="text-yellow-800 text-sm">
-                    Please use the contact information above, or fill the form below:
+        <div class="anim-slide-right anim-delay-2 order-1 lg:order-2 relative w-full h-[300px] md:h-[400px] rounded-[28px] overflow-hidden shadow-md group">
+            <img
+                src="<?php echo get_theme_file_uri('assets/images/error.png'); ?>"
+                alt="Our Location"
+                class="w-full h-full object-cover transition-all group-hover:scale-105"
+            >
+            <div class="absolute bottom-3 left-3 right-3 md:bottom-5 md:left-5 md:right-5 bg-white rounded-[8px] px-[24px] py-[12px] shadow-md">
+                <h3 class="text-[16px] sm:text-[18px] md:text-[20px] font-bold uppercase">
+                    our location 
+                </h3>
+                <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-main/80">
+                    toul kork primary school, phnom penh
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- SECTION 3 -->
+<section class="bg-brand-teal py-[64px] md:py-[50px] px-[20px] 2xl:px-o">
+    <div class="anim-fade-up anim-delay-3 max-w-2xl mx-auto">
+        <div class="bg-brand-cream rounded-[28px] shadow-md p-[20px] md:p-[50px] flex flex-col gap-[20px]">
+            <div class="text-center flex flex-col gap-[10px]">
+                <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold font-heading uppercase text-text-main tracking-wide">
+                    SEND US A MESSAGE
+                </h2>
+                <p class="text-text-main/80 font-sans text-[14px] sm:text-[15px] md:text-[16px]">
+                    Fill out the form below and a member of our administrative staff will get back to you as soon as possible.
                 </p>
             </div>
 
-        </div>
-    </div>
+            <!-- Success / error message shown after JS submission (no page reload now) -->
+            <p id="form-feedback" class="hidden text-center font-medium mb-4"></p>
 
-    <!-- RIGHT: Location Image Card -->
-    <div class="anim-slide-right anim-delay-2 relative w-full h-[300px] md:h-[400px] lg:h-[80%] rounded-2xl overflow-hidden shadow-lg group">
-        <img
-            src="<?php echo get_theme_file_uri(); ?>/assets/images/NewPictureP15.webp"
-            alt="Our Location"
-            class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-        >
-        <div class="absolute bottom-3 left-3 right-3 md:bottom-5 md:left-5 md:right-5 bg-white rounded-xl shadow-lg p-4 md:p-5">
-            <h3 class="font-extrabold text-[#5c1f2e] uppercase tracking-wide mb-1 text-base">Our Location</h3>
-            <p class="text-[#5c1f2e] text-sm">Toul Kork Primary School, Phnom Penh</p>
-        </div>
-    </div>
+            <form id="contact-form" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" class="space-y-[20px]" novalidate>
+                <input type="hidden" name="action" value="handle_general_inquiry">
+                <?php wp_nonce_field('general_inquiry_nonce', 'general_inquiry_nonce_field'); ?>
 
-</section>
-
-<!-- GENERAL INQUIRIES FORM -->
-<section class="bg-[#623D3C]/[9%] py-12 md:py-24">
-    <div class="max-w-3xl mx-auto px-6">
-        <div class="anim-fade-up anim-delay-5 bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-12">
-            <div class="text-center mb-6 md:mb-8">
-                <h2 class="text-3xl font-extrabold text-[#5c1f2e] mb-2">General Inquiries</h2>
-                <p class="text-[#5c1f2e] text-base">Feel free to drop us a line below.</p>
-            </div>
-
-            <form id="contact-form" action="" method="post" class="space-y-5 md:space-y-6" novalidate>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
                     <div>
-                        <label for="your_name" class="block text-sm text-[#5c1f2e] mb-2">Your Name</label>
-                        <input type="text" id="your_name" name="your_name" placeholder="Enter your name" required
-                            class="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-700 placeholder-gray-400 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[#5c1f2e] focus:border-transparent focus:scale-[1.02] focus:shadow-md">
-                        <p class="error-message hidden items-center gap-1 text-red-600 text-sm mt-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="9" />
-                                <path stroke-linecap="round" d="M12 8v4" />
-                                <path stroke-linecap="round" d="M12 16h.01" />
-                            </svg>
-                            Name is required
+                        <label for="your_name" class="block text-[14px] sm:text-[15px] md:text-[16px] font-sans font-medium text-text-main/80 mb-[10px]">
+                            Your name
+                        </label>
+                        <input type="text" id="your_name" name="your_name" placeholder="John Doe" required
+                            class="w-full border-l-5 border border-brand-yellow rounded-[28px] p-[20px] text-text-muted placeholder:text-text-muted/50 focus:outline-brand-yellow">
+                        <p class="error-message hidden items-center gap-1 text-red-500 text-sm mt-2">
+                            <span class="icon-[material-symbols--error-circle-rounded-outline-sharp] w-5 h-5"></span>
+                            <span>name required</span>
                         </p>
                     </div>
                     <div>
-                        <label for="your_email" class="block text-sm text-[#5c1f2e] mb-2">Your Email</label>
-                        <input type="email" id="your_email" name="your_email" placeholder="Enter your email" required
-                            class="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-700 placeholder-gray-400 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[#5c1f2e] focus:border-transparent focus:scale-[1.02] focus:shadow-md">
-                        <p class="error-message hidden items-center gap-1 text-red-600 text-sm mt-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="9" />
-                                <path stroke-linecap="round" d="M12 8v4" />
-                                <path stroke-linecap="round" d="M12 16h.01" />
-                            </svg>
-                            Email is required
+                        <label for="your_email" class="block text-[14px] sm:text-[15px] md:text-[16px] font-sans font-medium text-text-main/80 mb-[10px]">
+                            Your email
+                        </label>
+                        <input type="email" id="your_email" name="your_email" placeholder="example@gmail.com" required
+                            class="w-full border-l-5 border border-brand-yellow rounded-[28px] p-[20px] text-text-muted placeholder:text-text-muted/50 focus:outline-brand-yellow">
+                        <p class="error-message hidden items-center gap-1 text-red-500 text-sm mt-2">
+                            <span class="icon-[material-symbols--error-circle-rounded-outline-sharp] w-5 h-5"></span>
+                            <span>email required</span>
                         </p>
                     </div>
                 </div>
 
                 <div>
-                    <label for="subject" class="block text-sm text-[#5c1f2e] mb-2">Subject</label>
-                    <input type="text" id="subject" name="subject" placeholder="Enter subject" required
-                        class="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-700 placeholder-gray-400 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[#5c1f2e] focus:border-transparent focus:scale-[1.02] focus:shadow-md">
-                    <p class="error-message hidden items-center gap-1 text-red-600 text-sm mt-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="9" />
-                            <path stroke-linecap="round" d="M12 8v4" />
-                            <path stroke-linecap="round" d="M12 16h.01" />
-                        </svg>
-                        Subject is required
+                    <label for="subject" class="block text-[14px] sm:text-[15px] md:text-[16px] font-sans font-medium text-text-main/80 mb-[10px]">
+                        Subject
+                    </label>
+                    <input type="text" id="subject" name="subject" placeholder="what is on your mind?" required
+                        class="w-full border-l-5 border border-brand-yellow rounded-[28px] p-[20px] text-text-muted placeholder:text-text-muted/50 focus:outline-brand-yellow">
+                    <p class="error-message hidden items-center gap-1 text-red-500 text-sm mt-2">
+                        <span class="icon-[material-symbols--error-circle-rounded-outline-sharp] w-5 h-5"></span>
+                        <span>subject required</span>
                     </p>
                 </div>
 
                 <div>
-                    <label for="message" class="block text-sm text-[#5c1f2e] mb-2">Your Message</label>
-                    <textarea id="message" name="message" rows="6" placeholder="Enter your message" required
-                        class="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-700 placeholder-gray-400 resize-none transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[#5c1f2e] focus:border-transparent focus:scale-[1.02] focus:shadow-md"></textarea>
-                    <p class="error-message hidden items-center gap-1 text-red-600 text-sm mt-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="9" />
-                            <path stroke-linecap="round" d="M12 8v4" />
-                            <path stroke-linecap="round" d="M12 16h.01" />
-                        </svg>
-                        Message is required
+                    <label for="message" class="block text-[14px] sm:text-[15px] md:text-[16px] font-sans font-medium text-text-main/80 mb-[10px]">
+                        Your message
+                    </label>
+                    <textarea id="message" name="message" rows="6" placeholder="write your message here..." required
+                        class="w-full border-l-5 border border-brand-yellow rounded-[28px] p-[20px] text-text-muted placeholder:text-text-muted/50 focus:outline-brand-yellow resize-none"></textarea>
+                    <p class="error-message hidden items-center gap-1 text-red-500 text-sm mt-2">
+                        <span class="icon-[material-symbols--error-circle-rounded-outline-sharp] w-5 h-5"></span>
+                        <span>message required</span>
                     </p>
                 </div>
 
-                <button type="submit"
-                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#5c1f2e] text-white font-semibold px-6 py-3 rounded-full hover:bg-[#4a1824] focus:outline-none focus:ring-2 focus:ring-[#5c1f2e] focus:ring-offset-2 transition-colors duration-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-                    </svg>
-                    Send
+                <button type="submit" id="contact-submit-btn"
+                    class="inline-flex items-center justify-center gap-2 bg-brand-yellow text-text-main/80 font-semibold px-[24px] py-[12px] rounded-[28px] hover:bg-brand-orange hover:text-text-light focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:ring-offset-2 transition-all hover:scale-105 active:scale-95">
+                    <span>Send</span>
+                    <span class="icon-[mynaui--send-solid] w-5 h-5"></span>
                 </button>
-
             </form>
         </div>
     </div>
 </section>
 
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 <script>
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    let valid = true;
-    this.querySelectorAll('[required]').forEach(function(field) {
-        const errorMsg = field.parentElement.querySelector('.error-message');
-        if (!field.value.trim()) {
-            valid = false;
-            errorMsg.classList.remove('hidden');
-            errorMsg.classList.add('flex');
-            field.classList.add('border-red-400');
-        } else {
-            errorMsg.classList.add('hidden');
-            errorMsg.classList.remove('flex');
-            field.classList.remove('border-red-400');
-        }
-    });
-    if (valid) {
-        this.submit();
+document.addEventListener('DOMContentLoaded', function () {
+
+    // ---- Config ----
+    const EMAILJS_PUBLIC_KEY = "9t73pdHwxTmtiFX1S";
+    const EMAILJS_SERVICE_ID = "service_rtxxxej";
+    const EMAILJS_TEMPLATE_ID = "template_wra01kt";
+    const SUCCESS_HIDE_DELAY_MS = 5000;
+
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('contact-submit-btn');
+    const feedback = document.getElementById('form-feedback');
+
+    if (!form || !submitBtn || !feedback) {
+        console.error('Contact form: required element(s) missing (#contact-form, #contact-submit-btn, #form-feedback).');
+        return;
     }
+
+    let hideTimer = null;
+
+    function showFeedback(message, type) {
+        // Clear any pending auto-hide from a previous message
+        if (hideTimer) {
+            clearTimeout(hideTimer);
+            hideTimer = null;
+        }
+
+        feedback.textContent = message;
+        feedback.classList.remove('hidden', 'text-red-600', 'text-green-700');
+        feedback.classList.add(type === 'error' ? 'text-red-600' : 'text-green-700');
+        feedback.setAttribute('role', 'status');
+        feedback.setAttribute('aria-live', 'polite');
+
+        // Only success messages auto-hide; errors stay until the user fixes things and resubmits
+        if (type === 'success') {
+            hideTimer = setTimeout(function () {
+                feedback.classList.add('hidden');
+                hideTimer = null;
+            }, SUCCESS_HIDE_DELAY_MS);
+        }
+    }
+
+    function setFieldError(field, hasError) {
+        const errorMsg = field.parentElement.querySelector('.error-message');
+        field.classList.toggle('border-red-400', hasError);
+        field.setAttribute('aria-invalid', hasError ? 'true' : 'false');
+        if (errorMsg) {
+            errorMsg.classList.toggle('hidden', !hasError);
+            errorMsg.classList.toggle('flex', hasError);
+        }
+    }
+
+    function isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+    }
+
+    function validateForm() {
+        let valid = true;
+
+        form.querySelectorAll('[required]').forEach(function (field) {
+            const value = field.value.trim();
+            let fieldValid = value.length > 0;
+
+            if (fieldValid && field.type === 'email' && !isValidEmail(value)) {
+                fieldValid = false;
+            }
+
+            setFieldError(field, !fieldValid);
+            if (!fieldValid) valid = false;
+        });
+
+        return valid;
+    }
+
+    function setLoading(isLoading) {
+        submitBtn.disabled = isLoading;
+        submitBtn.classList.toggle('opacity-60', isLoading);
+        submitBtn.classList.toggle('cursor-not-allowed', isLoading);
+        // Button text is left untouched so the layout never shifts
+    }
+
+    // Guard: make sure the EmailJS library actually loaded
+    if (typeof emailjs === 'undefined') {
+        console.error('EmailJS library failed to load (check ad-blockers, network, or CDN access).');
+        showFeedback('<?php echo esc_html( get_field('error_massage_not_fine') ); ?>', 'error');
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-60', 'cursor-not-allowed');
+        return;
+    }
+
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    // Clear inline error state as the user fixes a field
+    form.querySelectorAll('[required]').forEach(function (field) {
+        field.addEventListener('input', function () {
+            if (field.value.trim()) setFieldError(field, false);
+        });
+    });
+
+    let isSubmitting = false;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        if (isSubmitting) return; // guard against double-click / double-submit
+        if (!validateForm()) return;
+
+        // Honeypot check (add a hidden input named "website" in the form if not present)
+        const honeypot = form.querySelector('[name="website"]');
+        if (honeypot && honeypot.value.trim() !== '') {
+            console.warn('Honeypot triggered, silently ignoring submission.');
+            form.reset();
+            return;
+        }
+
+        isSubmitting = true;
+        setLoading(true);
+        feedback.classList.add('hidden');
+
+        const templateParams = {
+            name: document.getElementById('your_name').value.trim(),
+            email: document.getElementById('your_email').value.trim(),
+            subject: document.getElementById('subject').value.trim(),
+            message: document.getElementById('message').value.trim()
+        };
+
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+            .then(function (response) {
+                console.log('EmailJS SUCCESS!', response.status, response.text);
+
+                // Fire-and-forget WP logging; don't block success UX on it
+                const formData = new FormData(form);
+                fetch(form.action, { method: 'POST', body: formData })
+                    .catch(function (err) {
+                        console.error('WP logging failed (email still sent):', err);
+                    });
+
+                showFeedback('<?php echo esc_html( get_field('sent_message_fine') ); ?>', 'success');
+                form.reset();
+            })
+            .catch(function (error) {
+                console.error('EmailJS FAILED...', error);
+                showFeedback(
+                    'Something went wrong: ' + (error && error.text ? error.text : 'please try again.'),
+                    'error'
+                );
+            })
+            .finally(function () {
+                isSubmitting = false;
+                setLoading(false);
+            });
+    });
 });
 </script>
 

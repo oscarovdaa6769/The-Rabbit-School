@@ -254,10 +254,10 @@ $card_3_link = get_field('card_3_link');
                          class="w-full aspect-[4/3] md:aspect-square lg:aspect-[4/3] object-cover block">
                     
                     <div class="absolute bottom-4 left-4 right-4 bg-brand-cream p-4 rounded-xl shadow-md border border-gray-100">
-                        <span class="block text-[14px] font-sans font-bold text-text-main uppercase tracking-wider mb-1">
+                        <span class="block text-[16px] sm:text-[18px] md:text-[20px] font-sans font-bold text-text-main uppercase tracking-wider">
                             <?php echo esc_html(get_field('location_label') ?: 'Our Location'); ?>
                         </span>
-                        <span class="block text-[14px] font-sans text-text-muted">
+                        <span class="block text-[14px] sm:text-[15px] md:text-[16px] font-sans text-text-muted">
                             <?php echo esc_html(get_field('location_details') ?: 'Toul Kork Primary School, Phnom Penh'); ?>
                         </span>
                     </div>
