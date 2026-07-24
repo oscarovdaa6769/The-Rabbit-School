@@ -36,6 +36,8 @@ $card4_description = get_field('card4_description') ?: 'No data';
 // section 3 
 $title_3 = get_field('heading_3') ?: 'SECTION 3 NOT WORKING';
 $heading_4 = get_field('heading_4') ?: 'SECTION 4 NOT WORKING';
+
+//  product card1
 $img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png');
 
 
@@ -84,10 +86,10 @@ $img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png
 <body class="bg-white text-brand-brown">
 
   <!-- ============ HERO ============ -->
-  <section class="relative overflow-hidden bg-brand-brown">
+  <section class="relative overflow-hidden ">
     <div class="absolute inset-0 -z-10">
       <img src="<?php echo esc_url($img_1_url); ?>" alt="<?php echo esc_attr($title_1); ?>" alt="Rabbit School Vocational Workshop" class="w-full h-full object-cover">
-      <div class="absolute inset-0 bg-brand-brown/80"></div>
+      <div class="absolute inset-0 "></div>
     </div>
 
     <div class="max-w-4xl mx-auto text-center px-6 py-24 md:py-32">
@@ -95,7 +97,7 @@ $img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png
         <?php echo esc_html($title_1);?>
       </h1>
       <p class="text-white/85 max-w-2xl mx-auto text-base md:text-lg leading-relaxed mb-10">
-        Each item in this shop is crafted by students in Rabbit School's vocational training program. Your purchase directly covers training supplies, tools, and mentorship for students learning a valuable trade.
+        <?php echo esc_html($desc_1);?>
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="#shop" class="bg-brand-yellow text-brand-brown font-semibold px-8 py-3 rounded-full hover:bg-white transition">Shop Now</a>
@@ -108,27 +110,47 @@ $img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6 text-center">
 
       <div class="flex flex-col items-center gap-3">
-        <div class="w-14 h-14 rounded-full bg-brand-yellow/20 flex items-center justify-center text-2xl">🚚</div>
-        <h3 class="font-heading text-base">Local Delivery</h3>
-        <p class="text-sm text-text-muted leading-snug">Quick delivery options available across Phnom Penh & Cambodia.</p>
+        <div class="w-14 h-14 rounded-full bg-[#DDB0D1] flex items-center justify-center text-2xl">
+          <img src="<?php echo get_theme_file_uri('assets/icons/express-delivery(2).png');?>"
+                 alt="Delivery Icon"
+                 loading="lazy"
+                 class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
+        </div>
+        <h3 class="font-heading text-base"> <?php echo esc_html($card1_title);?></h3>
+        <p class="text-sm text-text-muted leading-snug"><?php echo esc_html($card1_description)?></p>
       </div>
 
       <div class="flex flex-col items-center gap-3">
-        <div class="w-14 h-14 rounded-full bg-brand-teal/20 flex items-center justify-center text-2xl">✋</div>
-        <h3 class="font-heading text-base">Handmade with Care</h3>
-        <p class="text-sm text-text-muted leading-snug">Every piece crafted by hand in our student workshops.</p>
+        <div class="w-14 h-14 rounded-full bg-[#F5AE6A] flex items-center justify-center text-2xl">
+            <img src="<?php echo get_theme_file_uri('assets/icons/palm.png');?>"
+                 alt="Delivery Icon"
+                 loading="lazy"
+                 class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
+        </div>
+        <h3 class="font-heading text-base"><?php echo esc_html($card2_title);?></h3>
+        <p class="text-sm text-text-muted leading-snug"><?php echo esc_html($card2_description)?></p>
       </div>
 
       <div class="flex flex-col items-center gap-3">
-        <div class="w-14 h-14 rounded-full bg-brand-pink/20 flex items-center justify-center text-2xl">🎓</div>
-        <h3 class="font-heading text-base">Funds Real Training</h3>
-        <p class="text-sm text-text-muted leading-snug">100% of profit goes back into student vocational training.</p>
+        <div class="w-14 h-14 rounded-full bg-[#8BAEA7] flex items-center justify-center text-2xl">
+          <img src="<?php echo get_theme_file_uri('assets/icons/graduation-hat.png');?>"
+                 alt="Delivery Icon"
+                 loading="lazy"
+                 class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
+        </div>
+        <h3 class="font-heading text-base"><?php echo esc_html($card3_title);?></h3>
+        <p class="text-sm text-text-muted leading-snug"><?php echo esc_html($card3_description)?></p>
       </div>
 
       <div class="flex flex-col items-center gap-3">
-        <div class="w-14 h-14 rounded-full bg-brand-orange/20 flex items-center justify-center text-2xl">💬</div>
-        <h3 class="font-heading text-base">Easy Direct Order</h3>
-        <p class="text-sm text-text-muted leading-snug">Order instantly via WhatsApp, Telegram, or Messenger.</p>
+        <div class="w-14 h-14 rounded-full bg-[#FED45F] flex items-center justify-center text-2xl">
+          <img src="<?php echo get_theme_file_uri('assets/icons/chat.png');?>"
+                 alt="Delivery Icon"
+                 loading="lazy"
+                 class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
+        </div>
+        <h3 class="font-heading text-base"><?php echo esc_html($card4_title);?></h3>
+        <p class="text-sm text-text-muted leading-snug"><?php echo esc_html($card4_title);?></p>
       </div>
 
     </div>
@@ -139,8 +161,8 @@ $img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex items-end justify-between mb-10">
         <div>
-          <p class="uppercase tracking-widest text-brand-orange text-xs font-semibold mb-2">From our student workshop</p>
-          <h2 class="font-heading text-3xl md:text-4xl">Our Products</h2>
+          <p class="uppercase tracking-widest text-brand-orange text-xs font-semibold mb-2"><?php echo esc_html($title_3);?></p>
+          <h2 class="font-heading text-3xl md:text-4xl"><?php echo esc_html($heading_4);?></h2>
         </div>
       </div>
 
@@ -149,69 +171,68 @@ $img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png
         <button onclick="clearFilter()" class="text-xs font-semibold text-brand-brown bg-white border border-brand-brown/20 px-3 py-1.5 rounded-full hover:bg-brand-brown hover:text-white transition">Clear filter ✕</button>
       </div>
 
+
       <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <!-- Product 1: Water Bottle -->
-        <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5 flex flex-col justify-between" data-category="daily">
-          <div>
-            <div class="aspect-[4/3] overflow-hidden">
-              <img src="<?php echo esc_url($img_3_url); ?>" alt="Rabbit School Eco Water Bottle" class="w-full h-full object-cover">
-            </div>
-            <div class="p-5">
-              <span class="text-xs font-semibold uppercase tracking-wide text-brand-teal">Daily Use</span>
-              <h3 class="font-heading text-lg mt-1 mb-1">Eco Stainless Water Bottle</h3>
-              <p class="text-sm text-text-muted mb-4">Reusable, stainless steel bottle featuring the Rabbit School logo design.</p>
-            </div>
-          </div>
-          <div class="p-5 pt-0">
-            <div class="flex items-center justify-between border-t border-brand-brown/5 pt-4">
-              <span class="font-heading text-lg">$8.00</span>
-              <button onclick="openOrderModal('Eco Stainless Water Bottle', '$8.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
-            </div>
-          </div>
-        </div>
+<?php
+$products_query = new WP_Query( array(
+    'post_type'      => 'product',
+    'posts_per_page' => -1, // show all products
+) );
 
-        <!-- Product 2: Handwoven Scarf -->
-        <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5 flex flex-col justify-between" data-category="weaving">
-          <div>
-            <div class="aspect-[4/3] overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1608234807905-4466023792f5?q=80&w=800&auto=format&fit=crop" alt="Handwoven Cambodian Scarf" class="w-full h-full object-cover">
-            </div>
-            <div class="p-5">
-              <span class="text-xs font-semibold uppercase tracking-wide text-brand-pink">Handwoven</span>
-              <h3 class="font-heading text-lg mt-1 mb-1">Handwoven Cotton Scarf</h3>
-              <p class="text-sm text-text-muted mb-4">Traditional soft cotton scarf, hand-loomed with care by our weaving trainees.</p>
-            </div>
-          </div>
-          <div class="p-5 pt-0">
-            <div class="flex items-center justify-between border-t border-brand-brown/5 pt-4">
-              <span class="font-heading text-lg">$12.00</span>
-              <button onclick="openOrderModal('Handwoven Cotton Scarf', '$12.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
-            </div>
-          </div>
-        </div>
+if ( $products_query->have_posts() ) :
+    while ( $products_query->have_posts() ) : $products_query->the_post();
 
-        <!-- Product 3: Handmade Earrings -->
-        <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5 flex flex-col justify-between" data-category="crafts">
-          <div>
-            <div class="aspect-[4/3] overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop" alt="Handmade Craft Earrings" class="w-full h-full object-cover">
-            </div>
-            <div class="p-5">
-              <span class="text-xs font-semibold uppercase tracking-wide text-brand-orange">Crafts</span>
-              <h3 class="font-heading text-lg mt-1 mb-1">Artisan Handmade Earrings</h3>
-              <p class="text-sm text-text-muted mb-4">Beautifully crafted lightweight earrings handmade by our craft students.</p>
-            </div>
-          </div>
-          <div class="p-5 pt-0">
-            <div class="flex items-center justify-between border-t border-brand-brown/5 pt-4">
-              <span class="font-heading text-lg">$5.00</span>
-              <button onclick="openOrderModal('Artisan Handmade Earrings', '$5.00')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
-            </div>
-          </div>
-        </div>
+     // get the price field
+        $price = get_field('product_price') ?: '$0.00';
 
+        // get the category slug (for filter buttons: daily / weaving / crafts)
+        $terms = get_the_terms( get_the_ID(), 'product_category' );
+        $category_slug = ( $terms && ! is_wp_error( $terms ) ) ? $terms[0]->slug : '';
+
+        // get image from ACF "image" field
+        $image_field = get_field('image');
+        if ( is_array( $image_field ) && isset( $image_field['url'] ) ) {
+            $image = $image_field['url']; // if ACF Image field returns "Array"
+        } elseif ( is_string( $image_field ) && $image_field ) {
+            $image = $image_field; // if ACF Image field returns "URL"
+        } else {
+            $image = get_theme_file_uri('assets/images/error.png'); // fallback
+        }
+
+        // get description from ACF field
+        $description = get_field('description_box') ?: '';
+?>
+
+  <div class="product-card bg-white rounded-2xl overflow-hidden border border-brand-brown/5 flex flex-col justify-between" data-category="<?php echo esc_attr( $category_slug ); ?>">
+    <div>
+      <div class="aspect-[4/3] overflow-hidden">
+        <img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" class="w-full h-full object-cover">
       </div>
+      <div class="p-5">
+        <h3 class="font-heading text-lg mt-1 mb-1"><?php the_title(); ?></h3>
+        <p class="text-sm text-text-muted mb-4"><?php echo esc_html( $description ); ?></p>
+      </div>
+    </div>
+    <div class="p-5 pt-0">
+      <div class="flex items-center justify-between border-t border-brand-brown/5 pt-4">
+        <span class="font-heading text-lg"><?php echo esc_html( $price ); ?></span>
+        <button onclick="openOrderModal('<?php echo esc_js( get_the_title() ); ?>', '<?php echo esc_js( $price ); ?>')" class="bg-brand-yellow text-brand-brown text-sm font-semibold px-4 py-2 rounded-full">Buy Now</button>
+      </div>
+    </div>
+  </div>
+
+<?php
+    endwhile;
+    wp_reset_postdata();
+else :
+    echo '<p>No products found. Add some in Products → Add New Product.</p>';
+endif;
+?>
+
+</div>
+
+
     </div>
   </section>
 
@@ -228,11 +249,11 @@ $img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png
       <form id="orderForm" class="space-y-4" onsubmit="return false;">
         <div>
           <label class="block text-xs font-semibold uppercase tracking-wide text-text-muted mb-1.5">Your Name</label>
-          <input type="text" id="orderName" required placeholder="Sok Dara" class="w-full border border-brand-brown/15 bg-brand-cream/40 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition">
+          <input type="text" id="orderName" required placeholder="your name" class="w-full border border-brand-brown/15 bg-brand-cream/40 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition">
         </div>
         <div>
           <label class="block text-xs font-semibold uppercase tracking-wide text-text-muted mb-1.5">Phone Number</label>
-          <input type="tel" id="orderPhone" required placeholder="012 345 678" class="w-full border border-brand-brown/15 bg-brand-cream/40 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition">
+          <input type="tel" id="orderPhone" required placeholder="phone number" class="w-full border border-brand-brown/15 bg-brand-cream/40 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition">
         </div>
         <div>
           <label class="block text-xs font-semibold uppercase tracking-wide text-text-muted mb-1.5">Quantity</label>
@@ -278,7 +299,7 @@ $img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png
   </div>
 
   <script>
-    const GMAIL_ADDRESS = "info@rabbitschoolcambodia.net";
+    const GMAIL_ADDRESS = "chheunnita169@gmail.com";
     const FACEBOOK_LINK = "https://www.facebook.com/share/199iFs28pU/";
     const INSTAGRAM_LINK = "https://www.instagram.com/rabbitschoolcbd";
 
