@@ -5,20 +5,21 @@ Template Name: Get Involved
 get_header();
 ?>
 
-
+<!-- SECTION 1: HERO -->
 <section class="bg-brand-brown h-[500px] md:h-[700px]">
   <div class="max-w-7xl mx-auto px-[20px] 2xl:px-0 py-[64px] md:py-[50px] h-full flex items-end">
     <div class="max-w-2xl flex flex-col gap-[10px]">
       <h1 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black text-text-light font-heading uppercase">
         Get Involved Today
       </h1>
-      <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] text-text-light/80">
+      <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] text-text-light/80 leading-relaxed">
         There are many ways to support Rabbit School and help transform the lives of children and youth with intellectual disabilities and autism in Cambodia. Choose the path that speaks to you—and become the reason a child can grow up with dignity, opportunity, and self-reliance.
       </p>
     </div>
   </div>
 </section>
-<!-- Cards-Section -->
+
+<!-- SECTION 2: CARDS GRID -->
 <?php 
   $cta_cards = [
       // Card 1 - Donation
@@ -61,38 +62,42 @@ get_header();
 ?>
 
 <section class="max-w-7xl mx-auto px-[20px] 2xl:px-0 py-[64px] md:py-[50px]">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-[50px]">
-        <?php foreach ($cta_cards as $card): ?>
-            <div class="<?php echo esc_attr($card['bg_class']); ?> rounded-[28px] shadow-md hover:shadow-xl p-[20px] md:p-[30px] flex flex-col justify-between transition-all transform hover:-translate-y-1 group">
-                <div class="flex flex-col gap-[20px] mb-[20px]">
-                    <div class="p-[10px] bg-brand-cream/20 border border-brand-cream/30 rounded-full w-16 h-16 flex items-center justify-center backdrop-blur-md transition-all group-hover:scale-110">
-                        <img src="<?php echo esc_url($card['icon']); ?>"
-                            alt="<?php echo esc_attr($card['title']); ?>"
-                            loading="lazy"
-                            class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
-                    </div>
-                    <h3 class="text-[16px] sm:text-[18px] md:text-[20px] font-heading uppercase font-black <?php echo esc_attr($card['text_class']); ?> tracking-tight">
-                        <?php echo esc_html($card['title']); ?>
-                    </h3>
-                    <p class="<?php echo esc_attr($card['desc_class']); ?> text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed">
-                        <?php echo esc_html($card['description']); ?>
-                    </p>
-                </div>
-                <a class="inline-flex items-center gap-2 <?php echo esc_attr($card['text_class']); ?> font-bold transition-all focus:outline-none focus:underline" href="<?php echo esc_url($card['btn_link']); ?>">
-                    <span class="relative py-1">
-                        <?php echo esc_html($card['btn_text']); ?>
-                        <span class="absolute left-0 bottom-0 h-[2px] w-0 <?php echo esc_attr($card['line_bg']); ?> transition-all duration-300 group-hover:w-full"></span>
-                    </span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 transition-all group-hover:translate-x-1.5" aria-hidden="true">
-                        <path d="M5 12h14"></path>
-                        <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                </a>
-            </div>
-        <?php endforeach; ?>
-    </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-[30px] lg:gap-[50px]">
+    <?php foreach ($cta_cards as $card): ?>
+      <div class="<?php echo esc_attr($card['bg_class']); ?> rounded-[28px] shadow-md hover:shadow-xl p-[24px] md:p-[32px] flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-1 group">
+        
+        <div class="flex flex-col gap-[20px] mb-[20px]">
+          <div class="p-[10px] bg-brand-cream/20 border border-brand-cream/30 rounded-full w-16 h-16 flex items-center justify-center backdrop-blur-md flex-shrink-0 transition-transform duration-500 group-hover:scale-110">
+            <img src="<?php echo esc_url($card['icon']); ?>"
+                alt="<?php echo esc_attr($card['title']); ?>"
+                loading="lazy"
+                class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)] transition-transform duration-500 group-hover:rotate-45" />
+          </div>
+          <h3 class="text-[16px] sm:text-[18px] md:text-[20px] font-heading uppercase font-black <?php echo esc_attr($card['text_class']); ?> tracking-tight">
+            <?php echo esc_html($card['title']); ?>
+          </h3>
+          <p class="<?php echo esc_attr($card['desc_class']); ?> text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed">
+            <?php echo esc_html($card['description']); ?>
+          </p>
+        </div>
+
+        <a class="inline-flex items-center gap-2 <?php echo esc_attr($card['text_class']); ?> font-bold transition-all focus:outline-none focus:underline" href="<?php echo esc_url($card['btn_link']); ?>">
+          <span class="relative py-1">
+            <?php echo esc_html($card['btn_text']); ?>
+            <span class="absolute left-0 bottom-0 h-[2px] w-0 <?php echo esc_attr($card['line_bg']); ?> transition-all duration-300 group-hover:w-full"></span>
+          </span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1.5" aria-hidden="true">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
+
+      </div>
+    <?php endforeach; ?>
+  </div>
 </section>
-<!-- CTA-Section -->
+
+<!-- SECTION 3: FINAL CTA -->
 <?php 
   // ACF Fields with Fallback Defaults
   $cta_title        = get_field('final_cta_title') ?: 'Ready to Make a Difference?';
@@ -107,35 +112,35 @@ get_header();
   $btn2_link        = get_field('final_cta_button_2_link') ?: '/contact';
 ?>
 
-<section class="bg-brand-teal py-[64px] md:py-[50px] px-[20px] 2xl:px-o">
-    <div class="max-w-5xl mx-auto text-center">
-      <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading uppercase font-bold text-text-light mb-[20px] tracking-tight">
-        <?php echo esc_html($cta_title); ?>
-      </h2>
-      <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] text-text-light/90 mb-[20px] leading-relaxed">
-        <?php echo esc_html($cta_description); ?>
-      </p>
-      <div class="flex flex-col sm:flex-row gap-[10px] justify-center items-center">
-        <!-- Button 1 -->
-        <a class="flex items-center justify-center gap-2 py-[12px] px-[24px] bg-brand-yellow hover:bg-brand-orange text-text-main/90 hover:text-text-light font-black rounded-[8px] transition-all transform focus:outline-none focus:ring-4 focus:ring-brand-brown/20 group text-sm uppercase shadow-md hover:shadow-xl" 
-          href="<?php echo esc_url($btn1_link); ?>">
-          <span><?php echo esc_html($btn1_text); ?></span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 transition-all group-hover:translate-x-1.5" aria-hidden="true">
-            <path d="M5 12h14"></path>
-            <path d="m12 5 7 7-7 7"></path>
-          </svg>
-        </a>
+<section class="bg-brand-teal py-[64px] md:py-[50px] px-[20px] 2xl:px-0">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading uppercase font-bold text-text-light mb-[20px] tracking-tight">
+      <?php echo esc_html($cta_title); ?>
+    </h2>
+    <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] text-text-light/90 mb-[24px] leading-relaxed max-w-3xl mx-auto">
+      <?php echo esc_html($cta_description); ?>
+    </p>
+    <div class="flex flex-col sm:flex-row gap-[16px] justify-center items-center">
+      <!-- Button 1 (Primary) -->
+      <a class="inline-flex items-center justify-center gap-2 py-[12px] px-[24px] bg-brand-yellow hover:bg-brand-orange text-text-main/90 hover:text-text-light font-bold rounded-[8px] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:ring-offset-2 group text-sm uppercase tracking-widest shadow-md hover:shadow-xl hover:scale-105 active:scale-95" 
+        href="<?php echo esc_url($btn1_link); ?>">
+        <span><?php echo esc_html($btn1_text); ?></span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1.5" aria-hidden="true">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
 
-        <!-- Button 2 -->
-        <a class="inline-flex items-center justify-center gap-2 py-[12px] px-[24px] text-text-light hover:bg-brand-orange hover:text-text-light font-black rounded-[8px] transition-all transform focus:outline-none focus:ring-4 focus:ring-brand-brown/20 group text-sm uppercase shadow-md hover:shadow-xl" 
-          href="<?php echo esc_url($btn2_link); ?>">
-          <span><?php echo esc_html($btn2_text); ?></span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 transition-all group-hover:translate-x-1.5" aria-hidden="true">
-            <path d="M5 12h14"></path>
-            <path d="m12 5 7 7-7 7"></path>
-          </svg>
-        </a>
-      </div>
+      <!-- Button 2 (Secondary Border) -->
+      <a class="inline-flex items-center justify-center gap-2 py-[12px] px-[24px] border-2 border-text-light text-text-light hover:bg-brand-orange hover:border-brand-orange hover:text-text-light font-bold rounded-[8px] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-text-light focus:ring-offset-2 group text-sm uppercase tracking-widest shadow-md hover:shadow-xl hover:scale-105 active:scale-95" 
+        href="<?php echo esc_url($btn2_link); ?>">
+        <span><?php echo esc_html($btn2_text); ?></span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1.5" aria-hidden="true">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
     </div>
+  </div>
 </section>
 <?php get_footer(); ?>

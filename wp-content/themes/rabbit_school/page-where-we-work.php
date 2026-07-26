@@ -1,142 +1,256 @@
 <?php
+/*
+Template Name: Where We Work
+*/
 get_header();
 ?>
 
-<section class="max-w-7xl mx-auto px-4 py-12">
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-    
-    
-    <div class="lg:col-span-5 space-y-6">
-      <h2 class="text-3xl font-black text-[#623D3C] uppercase tracking-tight mb-6">
-        Communities We Serve
-      </h2>
-      
-      <div class="space-y-4">
-       
-        <div class="flex items-center gap-4 bg-[#F9F6F0] p-4 rounded-2xl border border-gray-100 shadow-xs">
-          <div class="flex items-center justify-center w-12 h-12 rounded-full bg-[#623D3C] text-white shrink-0">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path d="M22 10v6M2 10l10-5 10 5-10 5zM6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
-            </svg>
-          </div>
-          <div>
-            <h4 class="text-md font-extrabold text-[#623D3C] uppercase tracking-wide">Schools</h4>
-            <p class="text-xs text-gray-500 font-medium leading-tight mt-0.5">Supporting students with quality education</p>
-          </div>
-        </div>
-
-       
-        <div class="flex items-center gap-4 bg-[#F9F6F0] p-4 rounded-2xl border border-gray-100 shadow-xs">
-          <div class="flex items-center justify-center w-12 h-12 rounded-full bg-[#623D3C] text-white shrink-0">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-          </div>
-          <div>
-            <h4 class="text-md font-extrabold text-[#623D3C] uppercase tracking-wide">Families</h4>
-            <p class="text-xs text-gray-500 font-medium leading-tight mt-0.5">Empowering parents and strengthening communities</p>
-          </div>
-        </div>
-
-        
-        <div class="flex items-center gap-4 bg-[#F9F6F0] p-4 rounded-2xl border border-gray-100 shadow-xs">
-          <div class="flex items-center justify-center w-12 h-12 rounded-full bg-[#623D3C] text-white shrink-0">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-            </svg>
-          </div>
-          <div>
-            <h4 class="text-md font-extrabold text-[#623D3C] uppercase tracking-wide">Rural Communities</h4>
-            <p class="text-xs text-gray-500 font-medium leading-tight mt-0.5">Expanding learning opportunities in rural areas</p>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-4 bg-[#F9F6F0] p-4 rounded-2xl border border-gray-100 shadow-xs">
-          <div class="flex items-center justify-center w-12 h-12 rounded-full bg-[#623D3C] text-white shrink-0">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14 10h4.757a2 2 0 110 4h-1.291a2 2 0 00-1.414.586L14 16M14 10L10 6M14 10V4a2 2 0 10-4 0v2m0 0a2 2 0 11-4 0V4a2 2 0 10-4 0v10c0 2 2 3 5 3h3" />
-            </svg>
-          </div>
-          <div>
-            <h4 class="text-md font-extrabold text-[#623D3C] uppercase tracking-wide">Partners</h4>
-            <p class="text-xs text-gray-500 font-medium leading-tight mt-0.5">Working with local organizations and partners</p>
-          </div>
-        </div>
+<!-- SECTION 1: HERO -->
+<section class="relative overflow-hidden">
+  <img src="<?php echo get_theme_file_uri('assets/images/error.png'); ?>" 
+  alt="hero-banner" 
+  class="h-[500px] md:h-[700px] w-full object-cover">
+  
+  <div class="absolute inset-0 z-10 bg-black/30 flex items-end">
+    <div class="w-full max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0">
+      <div class="max-w-2xl text-text-light">
+        <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-[10px] md:mb-[20px] uppercase">
+          hello
+        </h1>
+        <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
+          hello world
+        </p>
       </div>
     </div>
-
-    <div class="lg:col-span-7 space-y-6">
-      <h2 class="text-3xl font-black text-[#623D3C] uppercase tracking-tight mb-6">
-        Our Impact
-      </h2>
-
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-
-        <div class="flex flex-col items-center justify-center text-center p-6 bg-[#F9F6F0] rounded-2xl border border-gray-100 shadow-xs">
-          <div class="text-[#623D3C] mb-3">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-          </div>
-          <span class="text-3xl font-black text-[#623D3C]">10+</span>
-          <span class="text-[10px] text-gray-500 font-bold uppercase tracking-wider mt-1">Locations</span>
-        </div>
-
-      
-        <div class="flex flex-col items-center justify-center text-center p-6 bg-[#F9F6F0] rounded-2xl border border-gray-100 shadow-xs">
-          <div class="text-[#623D3C] mb-3">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path d="M12 14l9-5-9-5-9 5 9 5z" />
-              <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-            </svg>
-          </div>
-          <span class="text-3xl font-black text-[#623D3C]">5,000+</span>
-          <span class="text-[10px] text-gray-500 font-bold uppercase tracking-wider mt-1">Students Served</span>
-        </div>
-
-        <div class="flex flex-col items-center justify-center text-center p-6 bg-[#F9F6F0] rounded-2xl border border-gray-100 shadow-xs">
-          <div class="text-[#623D3C] mb-3">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <span class="text-3xl font-black text-[#623D3C]">200+</span>
-          <span class="text-[10px] text-gray-500 font-bold uppercase tracking-wider mt-1">Teachers Training</span>
-        </div>
-
-        <div class="flex flex-col items-center justify-center text-center p-6 bg-[#F9F6F0] rounded-2xl border border-gray-100 shadow-xs">
-          <div class="text-[#623D3C] mb-3">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 009 11a13.917 13.917 0 00-3.44-8.441L5.5 2.5m.41 18.11a13.943 13.943 0 01-2.262-4.4M18.5 2.5l-.054.09A13.916 13.916 0 0015 11a13.916 13.916 0 003.44 8.441l.056.09M18 21.05a13.945 13.945 0 002.262-4.4M12 11a4 4 0 100-8 4 4 0 000 8z" />
-            </svg>
-          </div>
-          <span class="text-3xl font-black text-[#623D3C]">20+</span>
-          <span class="text-[10px] text-gray-500 font-bold uppercase tracking-wider mt-1">Community Partners</span>
-        </div>
-      </div>
-      
- 
-      <div class="grid grid-cols-3 gap-3 mt-4 pt-2">
-         <div class="overflow-hidden rounded-2xl `aspect-[4/5]`">
-            <img src="<?php echo get_theme_file_uri('assets/images/gallery1.jpg'); ?>" class="w-full h-full object-cover" alt="Community Activity 1">
-         </div>
-         <div class="grid grid-rows-2 gap-3">
-            <div class="overflow-hidden rounded-2xl aspect-video">
-               <img src="<?php echo get_theme_file_uri('assets/images/gallery2.jpg'); ?>" class="w-full h-full object-cover" alt="Community Activity 2">
-            </div>
-            <div class="overflow-hidden rounded-2xl aspect-video">
-               <img src="<?php echo get_theme_file_uri('assets/images/gallery3.jpg'); ?>" class="w-full h-full object-cover" alt="Community Activity 3">
-            </div>
-         </div>
-         <div class="overflow-hidden rounded-2xl `aspect-[4/5]`">
-            <img src="<?php echo get_theme_file_uri('assets/images/gallery4.jpg'); ?>" class="w-full h-full object-cover" alt="Community Activity 4">
-         </div>
-      </div>
-
-    </div>
-
   </div>
 </section>
 
-<?php get_footer(); ?>
+<!-- SECTION 2: OUR LOCATION -->
+<section class="bg-brand-cream py-[64px] md:py-[50px] px-[20px] 2xl:px-0">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-[30px] lg:gap-[50px] items-center">
+      
+      <!-- Left Column -->
+      <div class="lg:col-span-5 flex flex-col gap-[20px]">
+        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] text-text-main uppercase font-heading font-black leading-tight">
+          our location
+        </h2>
+        <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] text-text-muted">
+          We work in different communities to bring quality education and a brighter future for children.
+        </p>
+
+        <!-- Yellow Location Card -->
+        <div class="group bg-white p-[24px] md:p-[32px] rounded-[28px] border-l-4 border-brand-yellow flex gap-[20px] items-start shadow-md hover:shadow-xl transition-shadow duration-300">
+          <div class="w-16 h-16 bg-brand-yellow/20 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="icon-[solar--map-point-bold] w-6 h-6 text-brand-yellow flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+          </div>
+          <div>
+            <h3 class="text-[16px] sm:text-[18px] md:text-[20px] uppercase font-bold text-brand-yellow">
+              phnom penh
+            </h3>
+            <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted mt-1">
+              Main Campus & Training Center
+            </p>
+          </div>
+        </div>
+
+        <!-- Blue Location Card -->
+        <div class="group bg-white p-[24px] md:p-[32px] rounded-[28px] border-l-4 border-brand-blue flex gap-[20px] items-start shadow-md hover:shadow-xl transition-shadow duration-300">
+          <div class="w-16 h-16 bg-brand-blue/20 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="icon-[solar--map-point-bold] w-6 h-6 text-brand-blue flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+          </div>
+          <div>
+            <h3 class="text-[16px] sm:text-[18px] md:text-[20px] uppercase font-bold text-brand-blue">
+              phnom penh
+            </h3>
+            <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted mt-1">
+              Main Campus & Training Center
+            </p>
+          </div>
+        </div>
+
+        <!-- Pink Location Card -->
+        <div class="group bg-white p-[24px] md:p-[32px] rounded-[28px] border-l-4 border-brand-pink flex gap-[20px] items-start shadow-md hover:shadow-xl transition-shadow duration-300">
+          <div class="w-16 h-16 bg-brand-pink/20 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="icon-[solar--map-point-bold] w-6 h-6 text-brand-pink flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+          </div>
+          <div>
+            <h3 class="text-[16px] sm:text-[18px] md:text-[20px] uppercase font-bold text-brand-pink">
+              phnom penh
+            </h3>
+            <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted mt-1">
+              Main Campus & Training Center
+            </p>
+          </div>
+        </div>
+
+        <!-- Orange Location Card -->
+        <div class="group bg-white p-[24px] md:p-[32px] rounded-[28px] border-l-4 border-brand-orange flex gap-[20px] items-start shadow-md hover:shadow-xl transition-shadow duration-300">
+          <div class="w-16 h-16 bg-brand-orange/20 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="icon-[solar--map-point-bold] w-6 h-6 text-brand-orange flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+          </div>
+          <div>
+            <h3 class="text-[16px] sm:text-[18px] md:text-[20px] uppercase font-bold text-brand-orange">
+              phnom penh
+            </h3>
+            <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted mt-1">
+              Main Campus & Training Center
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Location Map Image -->
+      <div class="lg:col-span-7 h-full min-h-[400px] rounded-[28px] overflow-hidden">
+        <img src="<?php echo get_theme_file_uri('assets/images/error.png'); ?>" alt="Map or Location Image" class="w-full h-full object-cover">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: WHAT WE SERVE & OUR IMPACT -->
+<section class="bg-brand-teal py-[64px] md:py-[50px] px-[20px] 2xl:px-0">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-[30px] lg:gap-[50px] items-start">
+      
+      <!-- Left Column: What We Serve -->
+      <div class="lg:col-span-5 flex flex-col gap-[20px]">
+        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] text-text-light uppercase font-heading font-black leading-tight">
+          what we serve
+        </h2>
+
+        <!-- Yellow Service Card -->
+        <div class="group bg-white p-[24px] md:p-[32px] rounded-[28px] border-l-4 border-brand-yellow flex gap-[20px] items-start shadow-md hover:shadow-xl transition-shadow duration-300">
+          <div class="w-16 h-16 bg-brand-yellow/20 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="icon-[solar--map-point-bold] w-6 h-6 text-brand-yellow flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+          </div>
+          <div>
+            <h3 class="text-[16px] sm:text-[18px] md:text-[20px] uppercase font-bold text-brand-yellow">
+              phnom penh
+            </h3>
+            <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted mt-1">
+              Main Campus & Training Center
+            </p>
+          </div>
+        </div>
+
+        <!-- Blue Service Card -->
+        <div class="group bg-white p-[24px] md:p-[32px] rounded-[28px] border-l-4 border-brand-blue flex gap-[20px] items-start shadow-md hover:shadow-xl transition-shadow duration-300">
+          <div class="w-16 h-16 bg-brand-blue/20 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="icon-[solar--map-point-bold] w-6 h-6 text-brand-blue flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+          </div>
+          <div>
+            <h3 class="text-[16px] sm:text-[18px] md:text-[20px] uppercase font-bold text-brand-blue">
+              phnom penh
+            </h3>
+            <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted mt-1">
+              Main Campus & Training Center
+            </p>
+          </div>
+        </div>
+
+        <!-- Pink Service Card -->
+        <div class="group bg-white p-[24px] md:p-[32px] rounded-[28px] border-l-4 border-brand-pink flex gap-[20px] items-start shadow-md hover:shadow-xl transition-shadow duration-300">
+          <div class="w-16 h-16 bg-brand-pink/20 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="icon-[solar--map-point-bold] w-6 h-6 text-brand-pink flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+          </div>
+          <div>
+            <h3 class="text-[16px] sm:text-[18px] md:text-[20px] uppercase font-bold text-brand-pink">
+              phnom penh
+            </h3>
+            <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted mt-1">
+              Main Campus & Training Center
+            </p>
+          </div>
+        </div>
+
+        <!-- Orange Service Card -->
+        <div class="group bg-white p-[24px] md:p-[32px] rounded-[28px] border-l-4 border-brand-orange flex gap-[20px] items-start shadow-md hover:shadow-xl transition-shadow duration-300">
+          <div class="w-16 h-16 bg-brand-orange/20 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="icon-[solar--map-point-bold] w-6 h-6 text-brand-orange flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+          </div>
+          <div>
+            <h3 class="text-[16px] sm:text-[18px] md:text-[20px] uppercase font-bold text-brand-orange">
+              phnom penh
+            </h3>
+            <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted mt-1">
+              Main Campus & Training Center
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Our Impact Section -->
+      <div class="lg:col-span-7 flex flex-col gap-[20px]">
+        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] text-text-light uppercase font-heading font-black leading-tight text-center lg:text-left">
+          our impact
+        </h2>
+
+        <!-- Stat Cards Grid -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-[16px] sm:gap-[20px] w-full">
+          
+          <!-- Stat 1 -->
+          <div class="group flex flex-col items-center gap-[10px] border-t-4 border-brand-yellow bg-brand-cream p-[24px] rounded-[20px] w-full shadow-md hover:shadow-xl transition-all">
+            <div class="w-14 h-14 bg-brand-yellow/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="icon-[solar--map-point-bold] w-6 h-6 text-brand-yellow flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+            </div>
+            <span class="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] text-brand-yellow font-heading font-black leading-none">10+</span>
+            <p class="text-[14px] sm:text-[15px] text-text-muted font-medium capitalize text-center">locations</p>
+          </div>
+
+          <!-- Stat 2 -->
+          <div class="group flex flex-col items-center gap-[10px] border-t-4 border-brand-blue bg-brand-cream p-[24px] rounded-[20px] w-full shadow-md hover:shadow-xl transition-all">
+            <div class="w-14 h-14 bg-brand-blue/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="icon-[solar--map-point-bold] w-6 h-6 text-brand-blue flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+            </div>
+            <span class="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] text-brand-blue font-heading font-black leading-none">10+</span>
+            <p class="text-[14px] sm:text-[15px] text-text-muted font-medium capitalize text-center">locations</p>
+          </div>
+
+          <!-- Stat 3 -->
+          <div class="group flex flex-col items-center gap-[10px] border-t-4 border-brand-pink bg-brand-cream p-[24px] rounded-[20px] w-full shadow-md hover:shadow-xl transition-all">
+            <div class="w-14 h-14 bg-brand-pink/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="icon-[solar--map-point-bold] w-6 h-6 text-brand-pink flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+            </div>
+            <span class="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] text-brand-pink font-heading font-black leading-none">10+</span>
+            <p class="text-[14px] sm:text-[15px] text-text-muted font-medium capitalize text-center">locations</p>
+          </div>
+
+          <!-- Stat 4 -->
+          <div class="group flex flex-col items-center gap-[10px] border-t-4 border-brand-orange bg-brand-cream p-[24px] rounded-[20px] w-full shadow-md hover:shadow-xl transition-all">
+            <div class="w-14 h-14 bg-brand-orange/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="icon-[solar--map-point-bold] w-6 h-6 text-brand-orange flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+            </div>
+            <span class="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] text-brand-orange font-heading font-black leading-none">10+</span>
+            <p class="text-[14px] sm:text-[15px] text-text-muted font-medium capitalize text-center">locations</p>
+          </div>
+
+        </div>
+
+        <!-- Impact Image Gallery Grid -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-[16px] sm:gap-[20px] w-full mt-2">
+          <div class="w-full aspect-[4/3] rounded-[20px] overflow-hidden shadow-md">
+            <img src="<?php echo get_theme_file_uri('assets/images/error.png'); ?>" alt="Impact photo 1" class="w-full h-full object-cover">
+          </div>
+          <div class="w-full aspect-[4/3] rounded-[20px] overflow-hidden shadow-md">
+            <img src="<?php echo get_theme_file_uri('assets/images/error.png'); ?>" alt="Impact photo 2" class="w-full h-full object-cover">
+          </div>
+          <div class="w-full aspect-[4/3] rounded-[20px] overflow-hidden shadow-md">
+            <img src="<?php echo get_theme_file_uri('assets/images/error.png'); ?>" alt="Impact photo 3" class="w-full h-full object-cover">
+          </div>
+          <div class="w-full aspect-[4/3] rounded-[20px] overflow-hidden shadow-md">
+            <img src="<?php echo get_theme_file_uri('assets/images/error.png'); ?>" alt="Impact photo 4" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    
+
+</body>
+<?php get_footer();?>

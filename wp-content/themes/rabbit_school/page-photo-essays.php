@@ -22,13 +22,13 @@ $filters = [
 <section class="relative overflow-hidden">
     <img src="<?php echo esc_url($hero_img); ?>" alt="<?php echo esc_attr($hero_title); ?>" class="h-[500px] md:h-[700px] w-full object-cover">
     
-    <div class="absolute inset-0 z-10 bg-black/20 flex items-end pb-6 md:pb-20">
+    <div class="absolute inset-0 z-10 bg-black/30 flex items-end pb-6 md:pb-20">
         <div class="w-full max-w-7xl mx-auto px-[20px] 2xl:px-0">
             <div class="max-w-2xl text-text-light">
                 <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
                     <?php echo esc_html($hero_title); ?>
                 </h1>
-                <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] leading-relaxed opacity-90">
+                <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
                     <?php echo esc_html($hero_desc); ?>
                 </p>
             </div>
@@ -45,11 +45,11 @@ $filters = [
             <?php foreach ($filters as $item): ?>
                 <?php 
                 $bg_styles = $item['active'] 
-                    ? 'bg-brand-yellow hover:bg-brand-orange text-text-main font-black' 
-                    : 'bg-brand-cream border border-brand-brown/20 hover:bg-brand-yellow text-text-main font-semibold';
+                    ? 'bg-brand-yellow text-brand-brown font-black shadow-md' 
+                    : 'bg-brand-cream border border-brand-brown/20 hover:bg-brand-yellow text-brand-brown font-bold';
                 ?>
                 <a href="<?php echo esc_url($item['link']); ?>" 
-                   class="w-full sm:w-auto text-center inline-flex items-center justify-center py-2.5 px-3.5 sm:py-[12px] sm:px-[20px] lg:px-[24px] text-xs sm:text-sm md:text-base rounded-[8px] transition-all duration-200 shadow-sm hover:shadow-md <?php echo esc_attr($bg_styles); ?>">
+                   class="w-full sm:w-auto text-center inline-flex items-center justify-center py-2.5 px-3.5 sm:py-[12px] sm:px-[20px] lg:px-[24px] text-xs sm:text-sm md:text-base rounded-[8px] transition-all duration-300 shadow-sm hover:shadow-md uppercase <?php echo esc_attr($bg_styles); ?>">
                     <?php echo esc_html($item['text']); ?>
                 </a>
             <?php endforeach; ?>
@@ -58,6 +58,7 @@ $filters = [
         <!-- Search Input -->
         <div class="relative w-full md:max-w-xs lg:max-w-md">
             <input 
+                id="program-search-input"
                 type="text" 
                 placeholder="<?php echo esc_attr(get_field('placeholder_text') ?: 'Search program...'); ?>" 
                 class="w-full border border-brand-brown/40 text-brand-brown placeholder-brand-brown/50 px-5 py-3 pr-12 rounded-full bg-transparent focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown transition-all duration-200 text-sm sm:text-base shadow-sm hover:border-brand-brown/70"
@@ -75,7 +76,7 @@ $filters = [
     <?php 
     $args = [
         'post_type'      => 'photo_essay',
-        'posts_per_page' => -1, // Fetch all posts at once
+        'posts_per_page' => -1, // Fetch all posts for client pagination
         'post_status'    => 'publish',
     ];
     $photo_essays_query = new WP_Query($args);
@@ -85,103 +86,134 @@ $filters = [
         <div id="photo-essay-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[20px] lg:gap-[50px] max-w-7xl mx-auto">
             <?php while ($photo_essays_query->have_posts()) : $photo_essays_query->the_post(); ?>
                 <?php 
-                $card_img      = get_the_post_thumbnail_url(get_the_ID(), 'large') 
+                $card_img       = get_the_post_thumbnail_url(get_the_ID(), 'large') 
                     ?: (get_field('card_image') ?: get_theme_file_uri('assets/images/error.png'));
-                $card_subtitle = get_field('essay_subtitle_date') ?: get_the_date('d F, Y');
+                $card_subtitle  = get_field('essay_subtitle_date') ?: get_the_date('d F, Y');
                 $card_subtitle2 = get_field('essay_subtitle_type') ?: 'Education';
-                $card_desc     = get_field('essay_description') ?: get_the_excerpt();
-                $btn_text      = get_field('button_text') ?: 'Read More';
+                $card_desc      = get_field('essay_description') ?: get_the_excerpt();
+                $btn_text       = get_field('button_text') ?: 'Read More';
                 ?>
                 <!-- Individual Post Card -->
-                <div class="essay-card bg-brand-cream rounded-[24px] overflow-hidden flex flex-col shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div class="essay-card bg-brand-cream rounded-[24px] overflow-hidden flex flex-col shadow-md hover:shadow-xl transition-all duration-300 group">
                     <div class="w-full aspect-[4/3] overflow-hidden">
-                        <img src="<?php echo esc_url($card_img); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="w-full h-full object-cover">
+                        <img src="<?php echo esc_url($card_img); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     </div>
-                    <div class="p-6 flex flex-col gap-[10px] md:gap-[20px] flex-grow">
-                        <span class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted uppercase">
+                    <div class="p-6 flex flex-col gap-[10px] md:gap-[16px] flex-grow">
+                        <span class="text-[13px] sm:text-[14px] text-text-muted uppercase font-bold tracking-wider">
                             <?php echo esc_html($card_subtitle); ?> · <?php echo esc_html($card_subtitle2); ?>
                         </span>
-                        <h3 class="text-[16px] sm:text-[18px] md:text-[20px] font-bold text-brand-orange font-heading leading-tight uppercase">
+                        <h3 class="card-title text-[16px] sm:text-[18px] md:text-[20px] font-bold text-brand-orange font-heading leading-tight uppercase">
                             <?php the_title(); ?>
                         </h3>
-                        <p class="text-text-muted text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed">
+                        <p class="card-desc text-text-muted text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed">
                             <?php echo esc_html($card_desc); ?>
                         </p>
-                        <a href="<?php the_permalink(); ?>" class="bg-brand-yellow hover:bg-brand-orange text-brand-brown tracking-wider px-[24px] py-[12px] rounded-[8px] inline-flex items-center self-start gap-[10px] group shadow-md hover:shadow-xl transition-all font-bold text-sm uppercase mt-auto">
+                        <a href="<?php the_permalink(); ?>" class="bg-brand-yellow hover:bg-brand-orange text-brand-brown hover:text-text-light tracking-wider px-[24px] py-[12px] rounded-[8px] inline-flex items-center self-start gap-[10px] group/btn shadow-md hover:shadow-xl transition-all duration-300 font-bold text-sm uppercase mt-auto">
                             <span><?php echo esc_html($btn_text); ?></span>
-                            <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
+                            <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-1"></span>
                         </a>
                     </div>
                 </div>
             <?php endwhile; ?>
         </div>
+        <div id="no-results" class="hidden text-center py-12 text-brand-brown font-bold text-lg">
+            No matching programs found.
+        </div>
+    <?php else : ?>
+        <p class="text-center py-12 text-brand-brown">No posts found.</p>
     <?php endif; wp_reset_postdata(); ?>
 </section>
 
 <!-- SECTION 4: PAGINATION CONTROLS -->
 <section id="pagination-wrapper" class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0 font-sans">
-    <div class="flex items-center gap-[20px]">
-        <button id="prev-btn" class="border border-brand-brown flex items-center justify-center rounded-full p-[16px] group hover:bg-brand-brown hover:text-text-light transition-all shadow-md hover:shadow-xl disabled:opacity-30 disabled:cursor-not-allowed">
+    <div class="flex items-center justify-center gap-[20px]">
+        <button id="prev-btn" aria-label="Previous Page" class="border border-brand-brown text-brand-brown flex items-center justify-center rounded-full p-[14px] group hover:bg-brand-brown hover:text-text-light transition-all duration-300 shadow-md hover:shadow-xl disabled:opacity-30 disabled:cursor-not-allowed">
             <span class="icon-[solar--arrow-left-linear] w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1"></span>
         </button>
 
-        <span id="page-indicator" class="font-bold text-brand-brown text-sm sm:text-base"></span>
+        <span id="page-indicator" class="font-bold text-brand-brown text-sm sm:text-base tracking-wider"></span>
 
-        <button id="next-btn" class="border border-brand-brown flex items-center justify-center rounded-full p-[16px] group hover:bg-brand-brown hover:text-text-light transition-all shadow-md hover:shadow-xl disabled:opacity-30 disabled:cursor-not-allowed">
+        <button id="next-btn" aria-label="Next Page" class="border border-brand-brown text-brand-brown flex items-center justify-center rounded-full p-[14px] group hover:bg-brand-brown hover:text-text-light transition-all duration-300 shadow-md hover:shadow-xl disabled:opacity-30 disabled:cursor-not-allowed">
             <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
         </button>
     </div>
 </section>
 
-<!-- SIMPLE JS PAGINATION (No Server Requests) -->
+<!-- PAGINATION & SEARCH SCRIPT -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const cards = Array.from(document.querySelectorAll('.essay-card'));
+document.addEventListener('DOMContentLoaded', () => {
     const itemsPerPage = 6;
     let currentPage = 1;
-    const totalPages = Math.ceil(cards.length / itemsPerPage);
 
+    const cards = Array.from(document.querySelectorAll('.essay-card'));
+    const searchInput = document.getElementById('program-search-input');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
-    const indicator = document.getElementById('page-indicator');
-    const paginationWrapper = document.getElementById('pagination-wrapper');
+    const pageIndicator = document.getElementById('page-indicator');
+    const noResults = document.getElementById('no-results');
 
-    if (cards.length === 0) {
-        if (paginationWrapper) paginationWrapper.style.display = 'none';
-        return;
+    let visibleCards = [...cards];
+
+    function renderPage() {
+        const totalPages = Math.ceil(visibleCards.length / itemsPerPage) || 1;
+        if (currentPage > totalPages) currentPage = totalPages;
+
+        cards.forEach(card => card.style.display = 'none');
+
+        if (visibleCards.length === 0) {
+            if (noResults) noResults.classList.remove('hidden');
+            if (pageIndicator) pageIndicator.textContent = '';
+            prevBtn.disabled = true;
+            nextBtn.disabled = true;
+            return;
+        }
+
+        if (noResults) noResults.classList.add('hidden');
+
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        visibleCards.slice(start, end).forEach(card => card.style.display = 'flex');
+
+        if (pageIndicator) pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
+        if (prevBtn) prevBtn.disabled = currentPage === 1;
+        if (nextBtn) nextBtn.disabled = currentPage === totalPages;
     }
 
-    function renderPage(page) {
-        cards.forEach((card, index) => {
-            const start = (page - 1) * itemsPerPage;
-            const end = start + itemsPerPage;
-            if (index >= start && index < end) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
+    function filterCards() {
+        const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+        visibleCards = cards.filter(card => {
+            const title = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
+            const desc = card.querySelector('.card-desc')?.textContent.toLowerCase() || '';
+            return title.includes(query) || desc.includes(query);
+        });
+        currentPage = 1;
+        renderPage();
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener('input', filterCards);
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderPage();
             }
         });
-
-        indicator.textContent = `${page} of ${totalPages}`;
-        prevBtn.disabled = (page === 1);
-        nextBtn.disabled = (page === totalPages);
     }
 
-    prevBtn.addEventListener('click', () => {
-        if (currentPage > 1) {
-            currentPage--;
-            renderPage(currentPage);
-        }
-    });
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            const totalPages = Math.ceil(visibleCards.length / itemsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderPage();
+            }
+        });
+    }
 
-    nextBtn.addEventListener('click', () => {
-        if (currentPage < totalPages) {
-            currentPage++;
-            renderPage(currentPage);
-        }
-    });
-
-    renderPage(1);
+    renderPage();
 });
 </script>
 <?php 
