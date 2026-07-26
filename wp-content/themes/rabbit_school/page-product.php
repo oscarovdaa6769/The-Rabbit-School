@@ -12,6 +12,7 @@ get_header();
 $img_1_url = get_field('image_1') ?: get_theme_file_uri('assets/images/error.png');
 $title_1 = get_field('heading_1') ?: 'SECTION 1 NOT WORKING';
 $desc_1 = get_field('description_1') ?: 'DESC 1 NOT WORKING';
+$btn_1 = get_field('buntton_1')?: 'No data';
 
 
 // section 2
@@ -100,7 +101,7 @@ $img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png
         <?php echo esc_html($desc_1);?>
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#shop" class="bg-brand-yellow text-brand-brown font-semibold px-8 py-3 rounded-full hover:bg-white transition">Shop Now</a>
+        <a href="#shop" class="bg-brand-yellow text-brand-brown font-semibold px-8 py-3 rounded-full hover:bg-white transition"> <?php echo esc_html($btn_1); ?> </a>
       </div>
     </div>
   </section>

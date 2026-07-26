@@ -6,6 +6,7 @@ get_header();
 $hero_header = get_field('hero_header') ?: 'No data';
 $hero_title  = get_field('hero_title') ?: 'No data';
 
+
 // Card 1 - Donation
 $card1_title       = get_field('card_title') ?: 'No data';
 $card1_description = get_field('card1_description') ?: 'No data';
