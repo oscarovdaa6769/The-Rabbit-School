@@ -63,7 +63,7 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
                 <?php echo esc_html( get_field('news') ?: 'RSOS Corner' ); ?>
             </p>
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase mb-4 font-heading leading-tight">
-                <?php echo esc_html( $rsos_corner_fallback ); ?>
+                <?php echo esc_html( $rsos_corner_fallback ); ''?>
             </h1>
             <p class="text-text-light/85 max-w-2xl font-sans mb-8 leading-relaxed text-sm sm:text-base">
                <?php echo esc_html( get_field('stories_from_the_ground') ?: 'Stories from the ground.' ); ?>

@@ -51,15 +51,15 @@ get_header();?>
 </section>
 
 <!-- SECTION 3: YELLOW BG (IMAGE RIGHT) -->
-<section class="bg-brand-yellow py-[64px] md:py-[50px] px-[20px] 2xl:px-0">
+<section class="bg-brand-brown py-[64px] md:py-[50px] px-[20px] 2xl:px-0">
   <div class="max-w-7xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
       <!-- Content Left -->
       <div class="flex flex-col">
-        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-brand-brown mb-6 leading-tight uppercase">
+        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-text-light mb-6 leading-tight uppercase">
           <?php echo esc_html(get_field('section_3_title') ?: 'Error'); ?>
         </h2>
-        <p class="text-brand-brown text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
+        <p class="text-text-light text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
           <?php echo esc_html(get_field('section_3_description') ?: 'Error'); ?>
         </p>
       </div>

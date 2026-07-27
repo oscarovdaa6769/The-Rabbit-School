@@ -56,7 +56,7 @@ get_header();
           'title'       => get_field('cta_card_3_title') ?: 'Work with Volunteer',
           'description' => get_field('cta_card_3_description') ?: 'Join our passionate team and help empower children and youth with intellectual disabilities and autism to reach their full potential.',
           'btn_text'    => get_field('cta_card_3_button_text') ?: 'Work & volunteer',
-          'btn_link'    => get_field('cta_card_3_button_link') ?: 'work-with-volunteer',
+          'btn_link'    => get_field('cta_card_3_button_link') ?: '/wordpress/work-with-volunteer',
       ],
   ];
 ?>
@@ -122,7 +122,7 @@ get_header();
     </p>
     <div class="flex flex-col sm:flex-row gap-[16px] justify-center items-center">
       <!-- Button 1 (Primary) -->
-      <a class="inline-flex items-center justify-center gap-2 py-[12px] px-[24px] bg-brand-yellow hover:bg-brand-orange text-text-main/90 hover:text-text-light font-bold rounded-[8px] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:ring-offset-2 group text-sm uppercase tracking-widest shadow-md hover:shadow-xl hover:scale-105 active:scale-95" 
+      <a class="inline-flex items-center justify-center gap-2 py-[12px] px-[24px] bg-brand-yellow hover:bg-brand-orange text-text-main/90 hover:text-text-light font-bold rounded-[8px] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:ring-offset-2 group text-sm uppercase tracking-widest shadow-md hover:shadow-xl" 
         href="<?php echo esc_url($btn1_link); ?>">
         <span><?php echo esc_html($btn1_text); ?></span>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1.5" aria-hidden="true">
@@ -132,7 +132,7 @@ get_header();
       </a>
 
       <!-- Button 2 (Secondary Border) -->
-      <a class="inline-flex items-center justify-center gap-2 py-[12px] px-[24px] border-2 border-text-light text-text-light hover:bg-brand-orange hover:border-brand-orange hover:text-text-light font-bold rounded-[8px] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-text-light focus:ring-offset-2 group text-sm uppercase tracking-widest shadow-md hover:shadow-xl hover:scale-105 active:scale-95" 
+      <a class="inline-flex items-center justify-center gap-2 py-[12px] px-[24px] border-2 border-text-light text-text-light hover:bg-brand-orange hover:border-brand-orange hover:text-text-light font-bold rounded-[8px] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-text-light focus:ring-offset-2 group text-sm uppercase tracking-widest shadow-md hover:shadow-xl" 
         href="<?php echo esc_url($btn2_link); ?>">
         <span><?php echo esc_html($btn2_text); ?></span>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1.5" aria-hidden="true">

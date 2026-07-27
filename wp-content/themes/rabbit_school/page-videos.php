@@ -43,7 +43,7 @@ get_header();
       <div>
         <div class="overflow-hidden rounded-[16px] aspect-video bg-black mb-5 relative group-hover:scale-[1.02] transition-transform duration-300">
           <video controls class="w-full h-full object-cover">
-            <source src="<?php echo esc_url( get_theme_file_uri('assets/images/video1.mp4') ); ?>" type="video/mp4">
+            <source src="<?php echo esc_url( get_field('image_1') ?: get_theme_file_uri('assets/images/video1.mp4') ); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>

@@ -37,11 +37,11 @@ $filters = [
 </section> 
 
 <!-- SECTION 2: FILTERS & SEARCH -->
-<section class="max-w-7xl mx-auto py-10 md:py-[50px] px-[20px] 2xl:px-0 w-full font-sans">
+<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0 w-full font-sans">
     <div class="flex flex-col md:flex-row gap-6 lg:gap-8 justify-between items-stretch md:items-center w-full">
         
         <!-- Filters -->
-        <div class="grid grid-cols-2 xs:grid-cols-3 sm:flex sm:flex-wrap items-center gap-2.5 sm:gap-3 md:gap-[15px] lg:gap-[20px] w-full md:w-auto">
+        <div class="grid grid-cols-2 xs:grid-cols-3 sm:flex sm:flex-wrap items-center gap-[10px] w-full">
             <?php foreach ($filters as $item): ?>
                 <?php 
                 $bg_styles = $item['active'] 
@@ -49,7 +49,7 @@ $filters = [
                     : 'bg-brand-cream border border-brand-brown/20 hover:bg-brand-yellow text-brand-brown font-bold';
                 ?>
                 <a href="<?php echo esc_url($item['link']); ?>" 
-                   class="w-full sm:w-auto text-center inline-flex items-center justify-center py-2.5 px-3.5 sm:py-[12px] sm:px-[20px] lg:px-[24px] text-xs sm:text-sm md:text-base rounded-[8px] transition-all duration-300 shadow-sm hover:shadow-md uppercase <?php echo esc_attr($bg_styles); ?>">
+                   class="w-full sm:w-auto text-center inline-flex items-center justify-center px-[24px] py-[12px] text-sm rounded-[8px] transition-all duration-300 shadow-md hover:shadow-xl uppercase <?php echo esc_attr($bg_styles); ?>">
                     <?php echo esc_html($item['text']); ?>
                 </a>
             <?php endforeach; ?>
@@ -61,7 +61,7 @@ $filters = [
                 id="program-search-input"
                 type="text" 
                 placeholder="<?php echo esc_attr(get_field('placeholder_text') ?: 'Search program...'); ?>" 
-                class="w-full border border-brand-brown/40 text-brand-brown placeholder-brand-brown/50 px-5 py-3 pr-12 rounded-full bg-transparent focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown transition-all duration-200 text-sm sm:text-base shadow-sm hover:border-brand-brown/70"
+                class="w-full border border-brand-brown/40 text-brand-brown placeholder-brand-brown/50 px-[24px] py-[12px] rounded-[16px] bg-transparent focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown transition-all duration-200 text-sm shadow-md hover:shadow-xl hover:border-brand-brown/70"
             />
             <div class="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 pointer-events-none flex items-center">
                 <span class="icon-[solar--magnifer-linear] w-5 h-5 text-brand-brown/60"></span>
@@ -72,7 +72,7 @@ $filters = [
 </section>
 
 <!-- SECTION 3: ALL POSTS -->
-<section class="max-w-7xl mx-auto px-[20px] 2xl:px-0 font-sans">
+<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0 font-sans">
     <?php 
     $args = [
         'post_type'      => 'photo_essay',
@@ -94,12 +94,12 @@ $filters = [
                 $btn_text       = get_field('button_text') ?: 'Read More';
                 ?>
                 <!-- Individual Post Card -->
-                <div class="essay-card bg-brand-cream rounded-[24px] overflow-hidden flex flex-col shadow-md hover:shadow-xl transition-all duration-300 group">
+                <div class="essay-card bg-brand-cream rounded-[16px] overflow-hidden flex flex-col shadow-md hover:shadow-xl transition-all duration-300 group">
                     <div class="w-full aspect-[4/3] overflow-hidden">
                         <img src="<?php echo esc_url($card_img); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     </div>
                     <div class="p-6 flex flex-col gap-[10px] md:gap-[16px] flex-grow">
-                        <span class="text-[13px] sm:text-[14px] text-text-muted uppercase font-bold tracking-wider">
+                        <span class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted uppercase font-bold tracking-wider">
                             <?php echo esc_html($card_subtitle); ?> · <?php echo esc_html($card_subtitle2); ?>
                         </span>
                         <h3 class="card-title text-[16px] sm:text-[18px] md:text-[20px] font-bold text-brand-orange font-heading leading-tight uppercase">
@@ -116,11 +116,11 @@ $filters = [
                 </div>
             <?php endwhile; ?>
         </div>
-        <div id="no-results" class="hidden text-center py-12 text-brand-brown font-bold text-lg">
+        <div id="no-results" class="hidden text-center py-12 text-brand-brown font-bold text-[16px] sm:text-[18px] md:text-[20px]">
             No matching programs found.
         </div>
     <?php else : ?>
-        <p class="text-center py-12 text-brand-brown">No posts found.</p>
+        <p class="text-center py-12 text-brand-brown text-[16px] sm:text-[18px] md:text-[20px]">No posts found.</p>
     <?php endif; wp_reset_postdata(); ?>
 </section>
 
@@ -131,7 +131,7 @@ $filters = [
             <span class="icon-[solar--arrow-left-linear] w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1"></span>
         </button>
 
-        <span id="page-indicator" class="font-bold text-brand-brown text-sm sm:text-base tracking-wider"></span>
+        <span id="page-indicator" class="font-bold text-brand-brown text-sm tracking-wider"></span>
 
         <button id="next-btn" aria-label="Next Page" class="border border-brand-brown text-brand-brown flex items-center justify-center rounded-full p-[14px] group hover:bg-brand-brown hover:text-text-light transition-all duration-300 shadow-md hover:shadow-xl disabled:opacity-30 disabled:cursor-not-allowed">
             <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
