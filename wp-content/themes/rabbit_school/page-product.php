@@ -20,18 +20,18 @@ $btn_1 = get_field('buntton_1')?: 'No data';
 // feature 1
 $card1_title       = get_field('card_title') ?: 'No data';
 $card1_description = get_field('card1_description') ?: 'No data';
+$card1_icon = get_field('card1_icon ') ?: 'No data';
+
 
 // feature 2
-$card2_title       = get_field('card2_title') ?: 'No data';
-$card2_description = get_field('card2_description') ?: 'No data';
-
-// feature 3
 $card3_title       = get_field('card3_title') ?: 'No data';
 $card3_description = get_field('card3_description') ?: 'No data';
+$card3_icon = get_field('card1_icon ') ?: 'No data';
 
-// feature 4
+// feature 3
 $card4_title       = get_field('card4_title') ?: 'No data';
 $card4_description = get_field('card4_description') ?: 'No data';
+$card4_icon = get_field('card1_icon ') ?: 'No data';
 
 
 // section 3 
@@ -109,35 +109,25 @@ $img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png
 
   <!-- ============ FEATURES STRIP ============ -->
   <section class="max-w-7xl mx-auto px-6 py-16">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6 text-center">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-6 text-center items-center justify-center">
 
       <div class="flex flex-col items-center gap-3">
         <div class="w-14 h-14 rounded-full bg-[#DDB0D1] flex items-center justify-center text-2xl">
-          <img src="<?php echo get_theme_file_uri('assets/icons/express-delivery(2).png');?>"
-                alt="Delivery Icon"
-                loading="lazy"
+          <img src="<?php echo esc_url($card1_icon); ?>"
+                alt=""
+                loading=""
                 class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
         </div>
         <h3 class="font-heading text-base"> <?php echo esc_html($card1_title);?></h3>
         <p class="text-sm text-text-muted leading-snug"><?php echo esc_html($card1_description)?></p>
       </div>
 
-      <div class="flex flex-col items-center gap-3">
-        <div class="w-14 h-14 rounded-full bg-[#F5AE6A] flex items-center justify-center text-2xl">
-            <img src="<?php echo get_theme_file_uri('assets/icons/palm.png');?>"
-                alt="Delivery Icon"
-                loading="lazy"
-                class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
-        </div>
-        <h3 class="font-heading text-base"><?php echo esc_html($card2_title);?></h3>
-        <p class="text-sm text-text-muted leading-snug"><?php echo esc_html($card2_description)?></p>
-      </div>
 
       <div class="flex flex-col items-center gap-3">
         <div class="w-14 h-14 rounded-full bg-[#8BAEA7] flex items-center justify-center text-2xl">
-          <img src="<?php echo get_theme_file_uri('assets/icons/graduation-hat.png');?>"
+          <img src="<?php echo esc_url($card4_icon); ?>"
                 alt="Delivery Icon"
-                loading="lazy"
+                loading=""
                 class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
         </div>
         <h3 class="font-heading text-base"><?php echo esc_html($card3_title);?></h3>
@@ -146,9 +136,9 @@ $img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png
 
       <div class="flex flex-col items-center gap-3">
         <div class="w-14 h-14 rounded-full bg-[#FED45F] flex items-center justify-center text-2xl">
-          <img src="<?php echo get_theme_file_uri('assets/icons/chat.png');?>"
-                alt="Delivery Icon"
-                loading="lazy"
+          <img src="<?php echo esc_url($card4_icon); ?>"
+                alt="Delivery Icn"
+                loading=""
                 class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
         </div>
         <h3 class="font-heading text-base"><?php echo esc_html($card4_title);?></h3>
