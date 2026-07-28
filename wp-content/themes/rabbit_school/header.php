@@ -98,7 +98,7 @@
                         }
                         ?>
 
-                        <button id="mobile-menu-btn" class="lg:hidden text-text-main p-2 hover:bg-gray-100 rounded-lg focus:outline-none transition-colors flex items-center justify-center" aria-label="Toggle Navigation Menu">
+                        <button id="mobile-menu-btn" class="lg:hidden text-text-main p-2 focus:outline-none flex items-center justify-center" aria-label="Toggle Navigation Menu">
                               <span id="hamburger-icon-slot" class="block">
                                     <span class="icon-[solar--hamburger-menu-linear] w-6 h-6"></span>
                               </span>
