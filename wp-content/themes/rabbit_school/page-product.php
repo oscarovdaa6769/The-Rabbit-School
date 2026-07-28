@@ -16,22 +16,22 @@ $desc_1 = get_field('description_1') ?: 'DESC 1 NOT WORKING';
 
 // section 2
 
+// section 2
+
 // feature 1
-$card1_title       = get_field('card_title') ?: 'No data';
+$card1_icon        = get_field('card1_icon') ?: get_theme_file_uri('assets/images/error.png');
+$card1_title        = get_field('card_title') ?: 'No data'; // field name is "card_title", no number
 $card1_description = get_field('card1_description') ?: 'No data';
 
 // feature 2
-$card2_title       = get_field('card2_title') ?: 'No data';
-$card2_description = get_field('card2_description') ?: 'No data';
-
-// feature 3
+$card3_icon        = get_field('card3_icon') ?: get_theme_file_uri('assets/images/error.png');
 $card3_title       = get_field('card3_title') ?: 'No data';
 $card3_description = get_field('card3_description') ?: 'No data';
 
-// feature 4
+// feature 3
+$card4_icon        = get_field('card4_icon') ?: get_theme_file_uri('assets/images/error.png');
 $card4_title       = get_field('card4_title') ?: 'No data';
 $card4_description = get_field('card4_description') ?: 'No data';
-
 
 // section 3 
 $title_3 = get_field('heading_3') ?: 'SECTION 3 NOT WORKING';
@@ -106,55 +106,47 @@ $img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png
   </section>
 
   <!-- ============ FEATURES STRIP ============ -->
-  <section class="max-w-7xl mx-auto px-6 py-16">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6 text-center">
+<section class="max-w-7xl mx-auto px-6 py-16">
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-6 text-center items-center justify-center">
 
-      <div class="flex flex-col items-center gap-3">
-        <div class="w-14 h-14 rounded-full bg-[#DDB0D1] flex items-center justify-center text-2xl">
-          <img src="<?php echo get_theme_file_uri('assets/icons/express-delivery(2).png');?>"
-                 alt="Delivery Icon"
-                 loading="lazy"
-                 class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
-        </div>
-        <h3 class="font-heading text-base"> <?php echo esc_html($card1_title);?></h3>
-        <p class="text-sm text-text-muted leading-snug"><?php echo esc_html($card1_description)?></p>
+    <!-- feature 1 -->
+    <div class="flex flex-col items-center gap-3">
+      <div class="w-14 h-14 rounded-full bg-[#DDB0D1] flex items-center justify-center text-2xl">
+        <img src="<?php echo esc_url($card1_icon); ?>"
+             alt="<?php echo esc_attr($card1_title); ?>"
+             loading="lazy"
+             class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
       </div>
-
-      <div class="flex flex-col items-center gap-3">
-        <div class="w-14 h-14 rounded-full bg-[#F5AE6A] flex items-center justify-center text-2xl">
-            <img src="<?php echo get_theme_file_uri('assets/icons/palm.png');?>"
-                 alt="Delivery Icon"
-                 loading="lazy"
-                 class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
-        </div>
-        <h3 class="font-heading text-base"><?php echo esc_html($card2_title);?></h3>
-        <p class="text-sm text-text-muted leading-snug"><?php echo esc_html($card2_description)?></p>
-      </div>
-
-      <div class="flex flex-col items-center gap-3">
-        <div class="w-14 h-14 rounded-full bg-[#8BAEA7] flex items-center justify-center text-2xl">
-          <img src="<?php echo get_theme_file_uri('assets/icons/graduation-hat.png');?>"
-                 alt="Delivery Icon"
-                 loading="lazy"
-                 class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
-        </div>
-        <h3 class="font-heading text-base"><?php echo esc_html($card3_title);?></h3>
-        <p class="text-sm text-text-muted leading-snug"><?php echo esc_html($card3_description)?></p>
-      </div>
-
-      <div class="flex flex-col items-center gap-3">
-        <div class="w-14 h-14 rounded-full bg-[#FED45F] flex items-center justify-center text-2xl">
-          <img src="<?php echo get_theme_file_uri('assets/icons/chat.png');?>"
-                 alt="Delivery Icon"
-                 loading="lazy"
-                 class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
-        </div>
-        <h3 class="font-heading text-base"><?php echo esc_html($card4_title);?></h3>
-        <p class="text-sm text-text-muted leading-snug"><?php echo esc_html($card4_title);?></p>
-      </div>
-
+      <h3 class="font-heading text-base"><?php echo esc_html($card1_title); ?></h3>
+      <p class="text-sm text-text-muted leading-snug"><?php echo esc_html($card1_description); ?></p>
     </div>
-  </section>
+
+    <!-- feature 2 -->
+    <div class="flex flex-col items-center gap-3">
+      <div class="w-14 h-14 rounded-full bg-[#8BAEA7] flex items-center justify-center text-2xl">
+        <img src="<?php echo esc_url($card3_icon); ?>"
+             alt="<?php echo esc_attr($card3_title); ?>"
+             loading="lazy"
+             class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
+      </div>
+      <h3 class="font-heading text-base"><?php echo esc_html($card3_title); ?></h3>
+      <p class="text-sm text-text-muted leading-snug"><?php echo esc_html($card3_description); ?></p>
+    </div>
+
+    <!-- feature 3 -->
+    <div class="flex flex-col items-center gap-3">
+      <div class="w-14 h-14 rounded-full bg-[#FED45F] flex items-center justify-center text-2xl">
+        <img src="<?php echo esc_url($card4_icon); ?>"
+             alt="<?php echo esc_attr($card4_title); ?>"
+             loading="lazy"
+             class="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]" />
+      </div>
+      <h3 class="font-heading text-base"><?php echo esc_html($card4_title); ?></h3>
+      <p class="text-sm text-text-muted leading-snug"><?php echo esc_html($card4_description); ?></p>
+    </div>
+
+  </div>
+</section>
 
   <!-- ============ PRODUCTS SECTION ============ -->
   <section id="shop" class="bg-brand-cream py-20">
