@@ -69,7 +69,7 @@
                         ));?>
                   </div>
 
-                  <div class="lg:col-span-1 flex flex-col gap-4">
+                  <div class="lg:col-span-2 flex flex-col gap-4">
                         <h3 class="text-brand-yellow font-bold text-sm uppercase tracking-widest opacity-95">
                               <?php 
                               if ( function_exists('pll_current_language') && pll_current_language() == 'km' ) {
@@ -88,7 +88,7 @@
                         ));?>
                   </div>
 
-                  <div class="lg:col-span-2 flex flex-col gap-4">
+                  <div class="lg:col-span-1 flex flex-col gap-4">
                         <h3 class="text-brand-yellow font-bold text-sm uppercase tracking-widest opacity-95">
                               <?php 
                               if ( function_exists('pll_current_language') && pll_current_language() == 'km' ) {

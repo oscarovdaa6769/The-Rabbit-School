@@ -6,15 +6,21 @@ get_header();
 ?>
 
 <!-- SECTION 1: HERO -->
-<section class="bg-brand-brown h-[500px] md:h-[700px]">
-  <div class="max-w-7xl mx-auto px-[20px] 2xl:px-0 py-[64px] md:py-[50px] h-full flex items-end">
-    <div class="max-w-2xl flex flex-col gap-[10px]">
-      <h1 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black text-text-light font-heading uppercase">
-        Get Involved Today
-      </h1>
-      <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] text-text-light/80 leading-relaxed">
-        There are many ways to support Rabbit School and help transform the lives of children and youth with intellectual disabilities and autism in Cambodia. Choose the path that speaks to you—and become the reason a child can grow up with dignity, opportunity, and self-reliance.
-      </p>
+<section class="relative overflow-hidden">
+  <img src="<?php echo esc_url(get_field('section_1_image') ?: get_theme_file_uri('assets/images/error.png')); ?>"
+       alt="<?php echo esc_attr(get_field('section_1_title') ?: 'How We Work'); ?>"
+       class="h-[500px] md:h-[700px] w-full object-cover">
+
+  <div class="absolute inset-0 z-10 bg-black/30 flex items-end pb-6 md:pb-20">
+    <div class="w-full max-w-7xl mx-auto px-4 md:px-[20px]">
+      <div class="max-w-2xl text-text-light">
+        <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
+          <?php echo esc_html(get_field('section_1_title') ?: 'Get Involved Today'); ?>
+        </h1>
+        <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
+          <?php echo esc_html(get_field('section_1_description') ?: 'There are many ways to support Rabbit School and help transform the lives of children and youth with intellectual disabilities and autism in Cambodia. Choose the path that speaks to you—and become the reason a child can grow up with dignity, opportunity, and self-reliance.'); ?>
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -105,11 +111,11 @@ get_header();
   
   // Button 1
   $btn1_text        = get_field('final_cta_button_1_text') ?: 'Get Involved';
-  $btn1_link        = get_field('final_cta_button_1_link') ?: '/donate';
+  $btn1_link        = get_field('final_cta_button_1_link') ?: '/wordpress/donate';
   
   // Button 2
   $btn2_text        = get_field('final_cta_button_2_text') ?: 'Contact Us';
-  $btn2_link        = get_field('final_cta_button_2_link') ?: '/contact';
+  $btn2_link        = get_field('final_cta_button_2_link') ?: '/wordpress/contact';
 ?>
 
 <section class="bg-brand-teal py-[64px] md:py-[50px] px-[20px] 2xl:px-0">
