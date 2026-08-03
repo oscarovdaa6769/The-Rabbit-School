@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template Name: Work With Volunteer
  */
@@ -42,7 +43,7 @@ $volunteer_location        = get_field('volunteer_location');
 $volunteer_employment_type = get_field('volunteer_employment_type');
 $volunteer_description     = get_field('volunteer_description');
 $volunteer_details         = get_field('volunteer_details');
-$volunteer_read_more__text = get_field('volunteer_read_more__text');
+$volunteer_read_more_text = get_field('volunteer_read_more_text');
 
 // Card 3 - Internship
 $card_3_title                       = get_field('card_3_title');
@@ -114,6 +115,8 @@ $phone_number = get_field('phone_number');
     </h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 dynamic-cards-container">
+        
+        <!-- Card 1: Career / Jobs -->
         <div class="opportunity-card cursor-pointer bg-amber-50/20 border border-gray-200 rounded-2xl p-8 text-center flex flex-col items-center group hover:scale-[1.03] hover:shadow-2xl hover:border-amber-200 transition-all duration-300 ease-out transform opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
             data-title="<?php echo esc_attr($card_1_title); ?>"
             data-icon="fa-briefcase">
@@ -134,6 +137,7 @@ $phone_number = get_field('phone_number');
             <template class="modal-roles-template">
                 <div class="border border-gray-200 rounded-2xl p-6 bg-white flex-1 flex flex-col space-y-4 text-left">
 
+                    <!-- Role 1 -->
                     <div class="bg-gray-50 p-5 rounded-xl flex flex-col group transition duration-300">
                         <div class="flex flex-col w-full">
                             <div>
@@ -143,10 +147,12 @@ $phone_number = get_field('phone_number');
 
                                 <div class="flex flex-wrap items-center gap-4 text-xs text-amber-900 mt-2 font-medium">
                                     <span class="flex items-center gap-1">
-                                        <i class="fa-solid fa-location-dot text-amber-600"></i> <?php echo esc_html($career_role_1_location); ?>
+                                        <i class="fa-solid fa-location-dot text-amber-600"></i>
+                                        <?php echo esc_html($career_role_1_location); ?>
                                     </span>
                                     <span class="flex items-center gap-1">
-                                        <i class="fa-solid fa-clock text-amber-600"></i><?php echo esc_html($career_role_1_employment_type); ?>
+                                        <i class="fa-solid fa-clock text-amber-600"></i>
+                                        <?php echo esc_html($career_role_1_employment_type); ?>
                                     </span>
                                 </div>
                             </div>
@@ -159,19 +165,28 @@ $phone_number = get_field('phone_number');
                                 </span>
                             </div>
 
-                            <div class="flex justify-end mt-3">
+                            <div class="flex justify-between items-center mt-4">
                                 <button
                                     type="button"
-                                    class="read-more-btn inline-flex items-center gap-1 px-3 py-1.5 border border-amber-950/20 text-amber-950 font-semibold text-xs rounded-full bg-white shadow-sm hover:bg-amber-950 hover:text-white transition duration-300"
+                                    class="read-more-btn inline-flex items-center gap-1.5 px-3 py-1.5 border border-amber-950/20 text-amber-950 font-semibold text-xs rounded-full bg-white shadow-sm hover:bg-amber-950 hover:text-white transition duration-300"
                                     data-read-more="<?php echo esc_attr($read_more_1_text); ?>"
                                     data-show-less="Show Less">
                                     <span class="btn-text"><?php echo esc_html($read_more_1_text); ?></span>
-                                    <span class="btn-arrow">↓</span>
+                                    <i class="btn-arrow fa-solid fa-chevron-down text-[10px] transition-transform duration-300"></i>
                                 </button>
+
+                                <a href="https://www.linkedin.com/company/the-rabbit-school-organization/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-950 text-white text-xs font-semibold rounded-full hover:bg-amber-800 transition">
+                                    Apply Now
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Role 2 -->
                     <div class="bg-gray-50 p-5 rounded-xl flex flex-col group transition duration-300">
                         <div class="flex flex-col w-full">
                             <div>
@@ -181,10 +196,12 @@ $phone_number = get_field('phone_number');
 
                                 <div class="flex flex-wrap items-center gap-4 text-xs text-amber-900 mt-2 font-medium">
                                     <span class="flex items-center gap-1">
-                                        <i class="fa-solid fa-location-dot text-amber-600"></i> <?php echo esc_html($career_role_2_location); ?>
+                                        <i class="fa-solid fa-location-dot text-amber-600"></i>
+                                        <?php echo esc_html($career_role_2_location); ?>
                                     </span>
                                     <span class="flex items-center gap-1">
-                                        <i class="fa-solid fa-clock text-amber-600"></i> <?php echo esc_html($career_role_2_employment_type); ?>
+                                        <i class="fa-solid fa-clock text-amber-600"></i>
+                                        <?php echo esc_html($career_role_2_employment_type); ?>
                                     </span>
                                 </div>
                             </div>
@@ -197,15 +214,23 @@ $phone_number = get_field('phone_number');
                                 </span>
                             </div>
 
-                            <div class="flex justify-end mt-3">
+                            <div class="flex justify-between items-center mt-4">
                                 <button
                                     type="button"
-                                    class="read-more-btn inline-flex items-center gap-1 px-3 py-1.5 border border-amber-950/20 text-amber-950 font-semibold text-xs rounded-full bg-white shadow-sm hover:bg-amber-950 hover:text-white transition duration-300"
+                                    class="read-more-btn inline-flex items-center gap-1.5 px-3 py-1.5 border border-amber-950/20 text-amber-950 font-semibold text-xs rounded-full bg-white shadow-sm hover:bg-amber-950 hover:text-white transition duration-300"
                                     data-read-more="<?php echo esc_attr($read_more_2_text); ?>"
                                     data-show-less="Show Less">
                                     <span class="btn-text"><?php echo esc_html($read_more_2_text); ?></span>
-                                    <span class="btn-arrow">↓</span>
+                                    <i class="btn-arrow fa-solid fa-chevron-down text-[10px] transition-transform duration-300"></i>
                                 </button>
+
+                                <a href="https://www.linkedin.com/company/the-rabbit-school-organization/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-950 text-white text-xs font-semibold rounded-full hover:bg-amber-800 transition">
+                                    Apply Now
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -214,6 +239,7 @@ $phone_number = get_field('phone_number');
             </template>
         </div>
 
+        <!-- Card 2: Volunteer Opportunities -->
         <div class="opportunity-card cursor-pointer bg-amber-50/20 border border-gray-200 rounded-2xl p-8 text-center flex flex-col items-center group hover:scale-[1.03] hover:shadow-2xl hover:border-amber-200 transition-all duration-300 ease-out transform opacity-0 animate-[fadeInUp_0.6s_ease-out_0.2s_forwards]"
             data-title="<?php echo esc_attr($card_2_title); ?>"
             data-icon="fa-hand-holding-heart">
@@ -237,14 +263,18 @@ $phone_number = get_field('phone_number');
                     <div class="bg-gray-50 p-5 rounded-xl flex flex-col group transition duration-300">
                         <div class="flex flex-col w-full">
                             <div>
-                                <h4 class="font-bold text-amber-950 text-sm md:text-base tracking-wide uppercase"><?php echo esc_html($volunteer_role_title); ?></h4>
+                                <h4 class="font-bold text-amber-950 text-sm md:text-base tracking-wide uppercase">
+                                    <?php echo esc_html($volunteer_role_title); ?>
+                                </h4>
 
                                 <div class="flex flex-wrap items-center gap-4 text-xs text-amber-900 mt-2 font-medium">
                                     <span class="flex items-center gap-1">
-                                        <i class="fa-solid fa-location-dot text-amber-600"></i><?php echo esc_html($volunteer_location); ?>
+                                        <i class="fa-solid fa-location-dot text-amber-600"></i>
+                                        <?php echo esc_html($volunteer_location); ?>
                                     </span>
                                     <span class="flex items-center gap-1">
-                                        <i class="fa-solid fa-clock text-amber-600"></i><?php echo esc_html($volunteer_employment_type); ?>
+                                        <i class="fa-solid fa-clock text-amber-600"></i>
+                                        <?php echo esc_html($volunteer_employment_type); ?>
                                     </span>
                                 </div>
                             </div>
@@ -257,15 +287,23 @@ $phone_number = get_field('phone_number');
                                 </span>
                             </div>
 
-                            <div class="flex justify-end mt-3">
-                                <button
+                            <div class="flex justify-between items-center mt-4">
+                                   <button
                                     type="button"
-                                    class="read-more-btn inline-flex items-center gap-1 px-3 py-1.5 border border-amber-950/20 text-amber-950 font-semibold text-xs rounded-full bg-white shadow-sm hover:bg-amber-950 hover:text-white transition duration-300"
-                                    data-read-more="<?php echo esc_attr($volunteer_read_more__text); ?>"
+                                    class="read-more-btn inline-flex items-center gap-1.5 px-3 py-1.5 border border-amber-950/20 text-amber-950 font-semibold text-xs rounded-full bg-white shadow-sm hover:bg-amber-950 hover:text-white transition duration-300"
+                                    data-read-more="<?php echo esc_attr($volunteer_read_more_text); ?>"
                                     data-show-less="Show Less">
-                                    <span class="btn-text"><?php echo esc_html($volunteer_read_more__text); ?></span>
-                                    <span class="btn-arrow">↓</span>
+                                    <span class="btn-text"><?php echo esc_html($volunteer_read_more_text); ?></span>
+                                    <i class="btn-arrow fa-solid fa-chevron-down text-[10px] transition-transform duration-300"></i>
                                 </button>
+
+                                <a href="https://www.linkedin.com/company/the-rabbit-school-organization/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-950 text-white text-xs font-semibold rounded-full hover:bg-amber-800 transition">
+                                    Apply Now
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -274,6 +312,7 @@ $phone_number = get_field('phone_number');
             </template>
         </div>
 
+        <!-- Card 3: Internship Opportunities -->
         <div class="opportunity-card cursor-pointer bg-amber-50/20 border border-gray-200 rounded-2xl p-8 text-center flex flex-col items-center group hover:scale-[1.03] hover:shadow-2xl hover:border-amber-200 transition-all duration-300 ease-out transform opacity-0 animate-[fadeInUp_0.6s_ease-out_0.4s_forwards]"
             data-title="<?php echo esc_attr($card_3_title); ?>"
             data-icon="fa-user-graduate">
@@ -294,17 +333,22 @@ $phone_number = get_field('phone_number');
             <template class="modal-roles-template">
                 <div class="border border-gray-200 rounded-2xl p-6 bg-white flex-1 flex flex-col space-y-4 text-left">
 
+                    <!-- Internship Role 1 -->
                     <div class="bg-gray-50 p-5 rounded-xl flex flex-col group transition duration-300">
                         <div class="flex flex-col w-full">
                             <div>
-                                <h4 class="font-bold text-amber-950 text-sm md:text-base tracking-wide uppercase"><?php echo esc_html($internship_role_1_title); ?></h4>
+                                <h4 class="font-bold text-amber-950 text-sm md:text-base tracking-wide uppercase">
+                                    <?php echo esc_html($internship_role_1_title); ?>
+                                </h4>
 
                                 <div class="flex flex-wrap items-center gap-4 text-xs text-amber-900 mt-2 font-medium">
                                     <span class="flex items-center gap-1">
-                                        <i class="fa-solid fa-location-dot text-amber-600"></i> <?php echo esc_html($internship_role_1_location); ?>
+                                        <i class="fa-solid fa-location-dot text-amber-600"></i>
+                                        <?php echo esc_html($internship_role_1_location); ?>
                                     </span>
                                     <span class="flex items-center gap-1">
-                                        <i class="fa-solid fa-clock text-amber-600"></i> <?php echo esc_html($internship_role_1_employment_type); ?>
+                                        <i class="fa-solid fa-clock text-amber-600"></i>
+                                        <?php echo esc_html($internship_role_1_employment_type); ?>
                                     </span>
                                 </div>
                             </div>
@@ -317,30 +361,43 @@ $phone_number = get_field('phone_number');
                                 </span>
                             </div>
 
-                            <div class="flex justify-end mt-3">
+                            <div class="flex justify-between items-center mt-4">
                                 <button
                                     type="button"
-                                    class="read-more-btn inline-flex items-center gap-1 px-3 py-1.5 border border-amber-950/20 text-amber-950 font-semibold text-xs rounded-full bg-white shadow-sm hover:bg-amber-950 hover:text-white transition duration-300"
+                                    class="read-more-btn inline-flex items-center gap-1.5 px-3 py-1.5 border border-amber-950/20 text-amber-950 font-semibold text-xs rounded-full bg-white shadow-sm hover:bg-amber-950 hover:text-white transition duration-300"
                                     data-read-more="<?php echo esc_attr($internship_read_more_1_text); ?>"
                                     data-show-less="Show Less">
                                     <span class="btn-text"><?php echo esc_html($internship_read_more_1_text); ?></span>
-                                    <span class="btn-arrow">↓</span>
+                                    <i class="btn-arrow fa-solid fa-chevron-down text-[10px] transition-transform duration-300"></i>
                                 </button>
+
+                                <a href="https://www.linkedin.com/company/the-rabbit-school-organization/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-950 text-white text-xs font-semibold rounded-full hover:bg-amber-800 transition">
+                                    Apply Now
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Internship Role 2 -->
                     <div class="bg-gray-50 p-5 rounded-xl flex flex-col group transition duration-300">
                         <div class="flex flex-col w-full">
                             <div>
-                                <h4 class="font-bold text-amber-950 text-sm md:text-base tracking-wide uppercase"><?php echo esc_html($internship_role_2_title); ?></h4>
+                                <h4 class="font-bold text-amber-950 text-sm md:text-base tracking-wide uppercase">
+                                    <?php echo esc_html($internship_role_2_title); ?>
+                                </h4>
 
                                 <div class="flex flex-wrap items-center gap-4 text-xs text-amber-900 mt-2 font-medium">
                                     <span class="flex items-center gap-1">
-                                        <i class="fa-solid fa-location-dot text-amber-600"></i><?php echo esc_html($internship_role_2_location); ?>
+                                        <i class="fa-solid fa-location-dot text-amber-600"></i>
+                                        <?php echo esc_html($internship_role_2_location); ?>
                                     </span>
                                     <span class="flex items-center gap-1">
-                                        <i class="fa-solid fa-clock text-amber-600"></i><?php echo esc_html($internship_role_2_employment_type); ?>
+                                        <i class="fa-solid fa-clock text-amber-600"></i>
+                                        <?php echo esc_html($internship_role_2_employment_type); ?>
                                     </span>
                                 </div>
                             </div>
@@ -353,15 +410,23 @@ $phone_number = get_field('phone_number');
                                 </span>
                             </div>
 
-                            <div class="flex justify-end mt-3">
+                            <div class="flex justify-between items-center mt-4">
                                 <button
                                     type="button"
-                                    class="read-more-btn inline-flex items-center gap-1 px-3 py-1.5 border border-amber-950/20 text-amber-950 font-semibold text-xs rounded-full bg-white shadow-sm hover:bg-amber-950 hover:text-white transition duration-300"
+                                    class="read-more-btn inline-flex items-center gap-1.5 px-3 py-1.5 border border-amber-950/20 text-amber-950 font-semibold text-xs rounded-full bg-white shadow-sm hover:bg-amber-950 hover:text-white transition duration-300"
                                     data-read-more="<?php echo esc_attr($internship_read_more_2_text); ?>"
                                     data-show-less="Show Less">
                                     <span class="btn-text"><?php echo esc_html($internship_read_more_2_text); ?></span>
-                                    <span class="btn-arrow">↓</span>
+                                    <i class="btn-arrow fa-solid fa-chevron-down text-[10px] transition-transform duration-300"></i>
                                 </button>
+
+                                <a href="https://www.linkedin.com/company/the-rabbit-school-organization/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-950 text-white text-xs font-semibold rounded-full hover:bg-amber-800 transition">
+                                    Apply Now
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -371,7 +436,6 @@ $phone_number = get_field('phone_number');
         </div>
     </div>
 </section>
-
 <div id="opportunityModal" class="fixed inset-0 z-[2000] flex items-center justify-center p-4 bg-black/70 opacity-0 pointer-events-none transition-opacity duration-300">
     <div id="modalContainer" class="relative w-full max-w-xl bg-white rounded-2xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 flex flex-col max-h-[90vh]">
         <div class="overflow-y-auto p-6 md:p-8">
@@ -390,86 +454,68 @@ $phone_number = get_field('phone_number');
         </div>
     </div>
 </div>
-
 <section class="max-w-7xl mx-auto px-6 pb-28">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-
-        <div class="flex flex-col">
-            <div class="relative bg-[#f2eadb] rounded-[30px] p-8 lg:p-10 overflow-hidden h-full">
-                <div class="flex items-start gap-6">
-                    <div>
-                        <h2 class="font-heading text-4xl uppercase tracking-wide mb-4 font-black text-[#4A302D]">
-                            <?php echo nl2br(esc_html($ideas_title)); ?>
-                        </h2>
-                        <div class="w-20 h-1 bg-[#F5B335] rounded-full mt-6 mb-8"></div>
-
-                        <p class="text-[#5A514C] text-lg leading-9 max-w-xl">
-                            <?php echo esc_html($ideas_description); ?>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-amber-950 text-white rounded-2xl p-8 md:p-10 shadow-xl flex flex-col justify-between pt-[76px]">
-            <div>
-                <h3 class="font-heading text-4xl uppercase tracking-wide mb-4 font-black">
+    <div class="bg-amber-950 text-white rounded-3xl p-8 md:p-12 lg:p-16 shadow-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <!-- Left Info -->
+            <div class="lg:col-span-6">
+                <h3 class="font-heading text-3xl md:text-4xl lg:text-5xl uppercase tracking-wide mb-4 font-black">
                     <?php echo esc_html($connected_heading); ?>
                 </h3>
-                <p class="text-sm text-gray-300 leading-relaxed mb-8 font-medium">
+                <p class="text-sm md:text-base text-gray-300 leading-relaxed font-medium">
                     <?php echo esc_html($connected_description); ?>
                 </p>
             </div>
 
-            <div class="space-y-6">
+            <!-- Right Contacts -->
+            <div class="lg:col-span-6 space-y-6 bg-white/5 p-6 md:p-8 rounded-2xl border border-white/10">
                 <div class="flex items-center space-x-4">
-                    <div class="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center text-xl flex-shrink-0">
-                        <i class="fa-regular fa-envelope"></i>
+                    <div class="w-12 h-12 bg-amber-400 text-amber-950 rounded-full flex items-center justify-center text-lg flex-shrink-0 font-bold">
+                        <i class="fa-regular fa-envelope  text-amber-50"></i>
                     </div>
                     <div>
-                        <h5 class="text-[14px] font-black uppercase tracking-widest text-white">
+                        <h5 class="text-xs font-black uppercase tracking-widest text-amber-400">
                             <?php echo esc_html($email_title); ?>
                         </h5>
-                        <a href="mailto:<?php echo esc_attr($email_address); ?>" class="text-sm md:text-base hover:underline font-semibold text-gray-100 block mt-0.5">
+                        <a href="mailto:<?php echo esc_attr($email_address); ?>" class="text-sm md:text-base hover:underline font-semibold text-white block mt-0.5">
                             <?php echo esc_html($email_address); ?>
                         </a>
                     </div>
                 </div>
 
                 <div class="flex items-center space-x-4">
-                    <div class="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center text-xl flex-shrink-0">
-                        <i class="fa-brands fa-facebook-f" style="color: rgb(245, 249, 255);"></i>
+                    <div class="w-12 h-12 bg-[#DDB0D1] text-amber-950 rounded-full flex items-center justify-center text-lg flex-shrink-0 font-bold">
+                        <i class="fa-brands fa-facebook-f text-amber-50"></i>
                     </div>
                     <div>
-                        <h5 class="text-[14px] font-black uppercase tracking-widest text-white">
+                        <h5 class="text-xs font-black uppercase tracking-widest text-amber-400">
                             <?php echo esc_html($faceboook_page); ?>
                         </h5>
-                        <a href="<?php echo esc_url($faceboook_page_link); ?>" class="text-sm md:text-base hover:underline font-semibold text-gray-100 block mt-0.5">
+                        <a href="<?php echo esc_url($faceboook_page_link); ?>" target="_blank" rel="noopener noreferrer" class="text-sm md:text-base hover:underline font-semibold text-white block mt-0.5">
                             <?php echo esc_html($faceboook_page_link); ?>
                         </a>
                     </div>
                 </div>
 
                 <div class="flex items-center space-x-4">
-                    <div class="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center text-xl flex-shrink-0">
-                        <i class="fa-solid fa-phone"></i>
+                    <div class="w-12 h-12 bg-[#79A2C9] text-amber-950 rounded-full flex items-center justify-center text-lg flex-shrink-0 font-bold">
+                        <i class="fa-solid fa-phone  text-amber-50"></i>
                     </div>
                     <div>
-                        <h5 class="text-[14px] font-black uppercase tracking-widest text-white">
+                        <h5 class="text-xs font-black uppercase tracking-widest text-amber-400">
                             <?php echo esc_html($phone_title); ?>
                         </h5>
-                        <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone_number)); ?>" class="text-sm md:text-base hover:underline font-semibold text-gray-100 block mt-0.5">
+                        <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone_number)); ?>" class="text-sm md:text-base hover:underline font-semibold text-white block mt-0.5">
                             <?php echo esc_html($phone_number); ?>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 
-  <script>
+<script>
     document.addEventListener('DOMContentLoaded', () => {
 
         const cards = document.querySelectorAll('.opportunity-card');
@@ -561,12 +607,12 @@ $phone_number = get_field('phone_number');
                 }
 
                 if (btnText) {
-                    // Changed fallback from Khmer 'បង្រួម' to 'Show Less'
                     btnText.textContent = btn.dataset.showLess || 'Show Less';
                 }
 
                 if (btnArrow) {
-                    btnArrow.textContent = '↑';
+                    // Rotates icon upside-down dynamically
+                    btnArrow.classList.add('rotate-180');
                 }
 
             } else {
@@ -575,12 +621,12 @@ $phone_number = get_field('phone_number');
                 }
 
                 if (btnText) {
-                    // Changed fallback from Khmer 'អានបន្ថែម' to 'Read More'
                     btnText.textContent = btn.dataset.readMore || 'Read More';
                 }
 
                 if (btnArrow) {
-                    btnArrow.textContent = '↓';
+                    // Resets icon rotation back to pointing down
+                    btnArrow.classList.remove('rotate-180');
                 }
             }
         });
@@ -588,29 +634,29 @@ $phone_number = get_field('phone_number');
     });
 </script>
 
-  <?php get_footer(); ?>
+<?php get_footer(); ?>
 
 
 
-  <style>
-      .font-heading {
-          font-family: 'Oswald', sans-serif;
-      }
+<style>
+    .font-heading {
+        font-family: 'Oswald', sans-serif;
+    }
 
-      .font-body {
-          font-family: 'Inter', sans-serif;
-      }
+    .font-body {
+        font-family: 'Inter', sans-serif;
+    }
 
-      @keyframes fadeInUp {
-          from {
-              opacity: 0;
-              transform: translateY(30px);
-          }
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
 
-          to {
-              opacity: 1;
-              transform: translateY(0);
-          }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-      }
-  </style>
+    }
+</style>
