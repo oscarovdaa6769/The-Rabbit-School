@@ -16,6 +16,55 @@ get_header();
 ?>
 
 <style>
+/* ========== YOUR ORIGINAL STYLES STAY 100% THE SAME ========== */
+/* (keep everything you already have) */
+
+/* ========== ONLY NEW ANIMATIONS ADDED BELOW ========== */
+
+/* Soft fade + slide up for any text that has .rso-animate */
+.rso-animate {
+    /* we keep your original rules, just making the movement a little smoother */
+}
+
+/* Extra nice text entrance (works with your existing .rso-animate + .rso-in) */
+.rso-animate h1,
+.rso-animate h2,
+.rso-animate h3,
+.rso-animate p {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rso-animate.rso-in h1,
+.rso-animate.rso-in h2,
+.rso-animate.rso-in h3,
+.rso-animate.rso-in p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger the text inside each section so it feels lively */
+.rso-animate.rso-in h1 { transition-delay: 0.05s; }
+.rso-animate.rso-in h2 { transition-delay: 0.12s; }
+.rso-animate.rso-in h3 { transition-delay: 0.18s; }
+.rso-animate.rso-in p  { transition-delay: 0.25s; }
+
+/* Small extra polish for the hero buttons text */
+.rso-animate.rso-in button {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.rso-animate.rso-in button {
+    opacity: 1;
+    transform: translateY(0);
+}
+.rso-animate.rso-in button:nth-child(1) { transition-delay: 0.30s; }
+.rso-animate.rso-in button:nth-child(2) { transition-delay: 0.38s; }
+.rso-animate.rso-in button:nth-child(3) { transition-delay: 0.46s; }
+.rso-animate.rso-in button:nth-child(4) { transition-delay: 0.54s; }
 .rso-animate {
     opacity: 0;
     transform: translateY(24px);
