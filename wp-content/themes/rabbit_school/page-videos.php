@@ -20,14 +20,37 @@ $filter_categories = [
 ];
 
 $category_color_map = [
-    'education'        => ['badge' => 'bg-brand-orange/20 text-brand-orange border-brand-orange/40', 'border' => 'border-l-6 border-l-brand-orange'],
-    'community'        => ['badge' => 'bg-brand-blue/20 text-brand-blue border-brand-blue/40', 'border' => 'border-l-6 border-l-brand-blue'],
-    'advocacy'         => ['badge' => 'bg-brand-teal/20 text-brand-teal border-brand-teal/40', 'border' => 'border-l-6 border-l-brand-teal'],
-    'teacher-training' => ['badge' => 'bg-brand-pink/20 text-brand-pink border-brand-pink/40', 'border' => 'border-l-6 border-l-brand-pink'],
-    'default'          => ['badge' => 'bg-brand-yellow/20 text-brand-yellow border-brand-yellow/50', 'border' => 'border-l-6 border-l-brand-yellow'],
+    'education'        => [
+        'badge'  => 'bg-brand-orange/20 text-brand-orange border-brand-orange/40', 
+        'border' => 'border-l-6 border-l-brand-orange',
+        'button' => 'bg-brand-orange text-text-light hover:bg-brand-brown hover:text-text-light',
+        'play'   => 'bg-brand-orange'
+    ],
+    'community'        => [
+        'badge'  => 'bg-brand-blue/20 text-brand-blue border-brand-blue/40', 
+        'border' => 'border-l-6 border-l-brand-blue',
+        'button' => 'bg-brand-blue text-text-light hover:bg-brand-brown hover:text-text-light',
+        'play'   => 'bg-brand-blue'
+    ],
+    'advocacy'         => [
+        'badge'  => 'bg-brand-teal/20 text-brand-teal border-brand-teal/40', 
+        'border' => 'border-l-6 border-l-brand-teal',
+        'button' => 'bg-brand-teal text-text-light hover:bg-brand-brown hover:text-text-light',
+        'play'   => 'bg-brand-teal'
+    ],
+    'teacher-training' => [
+        'badge'  => 'bg-brand-pink/20 text-brand-pink border-brand-pink/40', 
+        'border' => 'border-l-6 border-l-brand-pink',
+        'button' => 'bg-brand-pink text-text-light hover:bg-brand-brown hover:text-text-light',
+        'play'   => 'bg-brand-pink'
+    ],
+    'default'          => [
+        'badge'  => 'bg-brand-yellow/20 text-brand-brown border-brand-yellow/50', 
+        'border' => 'border-l-6 border-l-brand-yellow',
+        'button' => 'bg-brand-yellow text-text-yellow hover:bg-brand-brown hover:text-text-light',
+        'play'   => 'bg-brand-yellow'
+    ],
 ];
-
-$btn_bg_color = 'bg-brand-orange text-text-light hover:bg-brand-brown hover:text-text-light';
 ?>
 
 <!-- SECTION 1: HERO BANNER -->
@@ -92,25 +115,47 @@ $btn_bg_color = 'bg-brand-orange text-text-light hover:bg-brand-brown hover:text
     <?php if ($video_query->have_posts()) : ?>
         <div id="video-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
             <?php while ($video_query->have_posts()) : $video_query->the_post(); 
-                
-                // Taxonomy setup
-                $terms = get_the_terms(get_the_ID(), 'video_category');
+
+                // 1. Term & Taxonomy Handling
+                $terms    = get_the_terms(get_the_ID(), 'video_category');
+                $cat_slug = 'default';
+                $cat_name = __( 'Education', 'rabbit-school' );
+
                 if (!empty($terms) && !is_wp_error($terms)) {
                     $term_obj = $terms[0];
                     $cat_name = $term_obj->name;
-                    $cat_slug = urldecode($term_obj->slug);
-                } else {
-                    $cat_slug = 'education';
-                    $cat_name = __( 'Education', 'rabbit-school' );
+
+                    if (function_exists('pll_get_term')) {
+                        $default_lang = pll_default_language();
+                        $orig_id      = pll_get_term($term_obj->term_id, $default_lang);
+                        if ($orig_id && ($orig_term = get_term($orig_id, 'video_category')) && !is_wp_error($orig_term)) {
+                            $term_obj = $orig_term;
+                        }
+                    }
+
+                    // Raw slug from WP
+                    $raw_slug = strtolower($term_obj->slug);
+
+                    // Standardize variants (handles teacher-training vs teacher_training vs education)
+                    if (str_contains($raw_slug, 'teacher') || str_contains($raw_slug, 'training')) {
+                        $cat_slug = 'teacher-training';
+                    } elseif (str_contains($raw_slug, 'edu')) {
+                        $cat_slug = 'education';
+                    } elseif (str_contains($raw_slug, 'comm')) {
+                        $cat_slug = 'community';
+                    } elseif (str_contains($raw_slug, 'advoc')) {
+                        $cat_slug = 'advocacy';
+                    } else {
+                        $cat_slug = sanitize_title(str_replace('_', '-', $raw_slug));
+                    }
                 }
 
-                // Updated to match your exact ACF field name 'url'
+                // 2. Video URL Field
                 $video_raw = get_field('url');
                 $video_url = '';
-
                 if (!empty($video_raw)) {
                     if (is_array($video_raw)) {
-                        $video_url = isset($video_raw['url']) ? $video_raw['url'] : '';
+                        $video_url = $video_raw['url'] ?? '';
                     } elseif (is_numeric($video_raw)) {
                         $video_url = wp_get_attachment_url($video_raw);
                     } elseif (is_string($video_raw)) {
@@ -118,11 +163,15 @@ $btn_bg_color = 'bg-brand-orange text-text-light hover:bg-brand-brown hover:text
                     }
                 }
 
-                $card_date  = get_the_date(get_option('date_format'));
-                $card_desc  = get_field('video_description') ?: get_the_excerpt();
-                $btn_text   = __( 'Watch Video', 'rabbit-school' );
+                // 3. Card Variables
+                $card_date = get_the_date(get_option('date_format'));
+                $card_desc = get_field('video_description') ?: get_the_excerpt();
+                $btn_text  = __( 'Watch Video', 'rabbit-school' );
 
-                $color_scheme = isset($category_color_map[$cat_slug]) ? $category_color_map[$cat_slug] : $category_color_map['default'];
+                // 4. Color Scheme Lookup
+                $color_scheme = $category_color_map[$cat_slug] ?? $category_color_map['default'];
+                $btn_class    = $color_scheme['button'];
+                $play_bg     = $color_scheme['play'];
             ?>
                 <!-- Individual Video Card -->
                 <article 
@@ -149,9 +198,9 @@ $btn_bg_color = 'bg-brand-orange text-text-light hover:bg-brand-brown hover:text
                                 </div>
                             <?php endif; ?>
 
-                            <!-- Overlay Play Button -->
+                            <!-- Dynamic Overlay Play Button -->
                             <div class="absolute inset-0 bg-black/20 flex items-center justify-center transition-all duration-300 group-hover:bg-black/40">
-                                <span class="w-12 h-12 rounded-full bg-brand-orange text-text-light flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+                                <span class="w-12 h-12 rounded-full <?php echo esc_attr($play_bg); ?> text-text-light flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
                                     <span class="icon-[solar--play-bold] w-6 h-6 ml-0.5"></span>
                                 </span>
                             </div>
@@ -181,8 +230,8 @@ $btn_bg_color = 'bg-brand-orange text-text-light hover:bg-brand-brown hover:text
                         <?php endif; ?>
                     </div>
 
-                    <!-- Watch Video Button -->
-                    <button type="button" data-video-file="<?php echo esc_url($video_url); ?>" class="trigger-video-modal cursor-pointer tracking-wider px-[24px] py-[12px] rounded-[8px] inline-flex items-center justify-between w-full shadow-md hover:shadow-xl transition-all duration-300 font-bold text-sm uppercase mt-auto <?php echo esc_attr( $btn_bg_color ); ?>">
+                    <!-- Watch Video Button with Category-specific Color -->
+                    <button type="button" data-video-file="<?php echo esc_url($video_url); ?>" class="trigger-video-modal cursor-pointer tracking-wider px-[24px] py-[12px] rounded-[8px] inline-flex items-center justify-between w-full shadow-md hover:shadow-xl transition-all duration-300 font-bold text-sm uppercase mt-auto <?php echo esc_attr($btn_class); ?>">
                         <span><?php echo esc_html($btn_text); ?></span>
                         <span class="icon-[solar--play-circle-linear] w-5 h-5"></span>
                     </button>
@@ -261,8 +310,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        if (noResults) noResults.classList.hidden = false;
         if (noResults) noResults.classList.add('hidden');
-        if (paginationContainer) paginationContainer.innerHTML = '';
 
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
@@ -325,7 +374,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const source = document.getElementById('video-modal-source');
     const closeBtn = document.getElementById('close-video-modal');
 
-    // Event delegation for opening video modal dynamically
     document.addEventListener('click', (e) => {
         const trigger = e.target.closest('.trigger-video-modal');
         if (!trigger) return;

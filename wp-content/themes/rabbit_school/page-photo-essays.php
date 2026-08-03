@@ -48,20 +48,6 @@ $category_color_map = [
         'button' => 'bg-brand-yellow text-text-light hover:bg-brand-brown hover:text-text-light'
     ],
 ];
-
-// 2. UNIFIED BUTTON COLOR 
-$terms = get_the_terms(get_the_ID(), 'category'); // Replace 'category' with your custom taxonomy name if different
-$category_slug = ($terms && !is_wp_error($terms)) ? strtolower($terms[0]->slug) : 'default';
-
-$btn_bg_color = [
-    'education'        => 'bg-brand-orange text-text-light hover:bg-brand-brown hover:text-text-light',
-    'community'        => 'bg-brand-blue text-text-light hover:bg-brand-brown hover:text-text-light',
-    'advocacy'         => 'bg-brand-teal text-text-light hover:bg-brand-brown hover:text-text-light',
-    'teacher-training' => 'bg-brand-pink text-text-light hover:bg-brand-brown hover:text-text-light',
-    'default'          => 'bg-brand-yellow text-text-light hover:bg-brand-brown hover:text-text-light'
-];
-
-$class = $btn_bg_color[$category_slug] ?? $btn_bg_color['default'];
 ?>
 
 <!-- SECTION 1: HERO BANNER -->
