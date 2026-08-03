@@ -25,27 +25,43 @@ $category_color_map = [
     'education'        => [
         'badge' => 'bg-brand-orange/20 text-brand-orange border-brand-orange/40',
         'border'=> 'border-l-6 border-l-brand-orange',
+        'button' => 'bg-brand-orange text-text-light hover:bg-brand-brown hover:text-text-light'
     ],
     'community'        => [
         'badge' => 'bg-brand-blue/20 text-brand-blue border-brand-blue/40',
         'border'=> 'border-l-6 border-l-brand-blue',
+        'button' => 'bg-brand-blue text-text-light hover:bg-brand-brown hover:text-text-light'
     ],
     'advocacy'         => [
         'badge' => 'bg-brand-teal/20 text-brand-teal border-brand-teal/40',
         'border'=> 'border-l-6 border-l-brand-teal',
+        'button' => 'bg-brand-teal text-text-light hover:bg-brand-brown hover:text-text-light'
     ],
     'teacher-training' => [
         'badge' => 'bg-brand-pink/20 text-brand-pink border-brand-pink/40',
         'border'=> 'border-l-6 border-l-brand-pink',
+        'button' => 'bg-brand-pink text-text-light hover:bg-brand-brown hover:text-text-light'
     ],
     'default'          => [
         'badge' => 'bg-brand-yellow/20 text-brand-yellow border-brand-yellow/50',
         'border'=> 'border-l-6 border-l-brand-yellow',
+        'button' => 'bg-brand-yellow text-text-light hover:bg-brand-brown hover:text-text-light'
     ],
 ];
 
-// 2. UNIFIED BUTTON COLOR (Orange BG + Brown Hover for all languages)
-$btn_bg_color = 'bg-brand-orange text-text-light hover:bg-brand-brown hover:text-text-light';
+// 2. UNIFIED BUTTON COLOR 
+$terms = get_the_terms(get_the_ID(), 'category'); // Replace 'category' with your custom taxonomy name if different
+$category_slug = ($terms && !is_wp_error($terms)) ? strtolower($terms[0]->slug) : 'default';
+
+$btn_bg_color = [
+    'education'        => 'bg-brand-orange text-text-light hover:bg-brand-brown hover:text-text-light',
+    'community'        => 'bg-brand-blue text-text-light hover:bg-brand-brown hover:text-text-light',
+    'advocacy'         => 'bg-brand-teal text-text-light hover:bg-brand-brown hover:text-text-light',
+    'teacher-training' => 'bg-brand-pink text-text-light hover:bg-brand-brown hover:text-text-light',
+    'default'          => 'bg-brand-yellow text-text-light hover:bg-brand-brown hover:text-text-light'
+];
+
+$class = $btn_bg_color[$category_slug] ?? $btn_bg_color['default'];
 ?>
 
 <!-- SECTION 1: HERO BANNER -->
@@ -149,7 +165,11 @@ $btn_bg_color = 'bg-brand-orange text-text-light hover:bg-brand-brown hover:text
                 $card_desc      = get_field('essay_description') ?: get_the_excerpt();
                 $btn_text       = get_field('button_text') ?: __( 'Read More', 'rabbit-school' );
 
+                // 1. Fetch color scheme array from $category_color_map
                 $color_scheme   = isset($category_color_map[$cat_slug]) ? $category_color_map[$cat_slug] : $category_color_map['default'];
+
+                // 2. Resolve button class safely (checks for 'button' key or falls back)
+                $btn_class      = isset($color_scheme['button']) ? $color_scheme['button'] : 'bg-brand-orange text-text-light hover:bg-brand-brown';
             ?>
                 <!-- Individual Post Card -->
                 <article 
@@ -186,8 +206,8 @@ $btn_bg_color = 'bg-brand-orange text-text-light hover:bg-brand-brown hover:text
                         </p>
                     </div>
 
-                    <!-- Button with Standardized Orange BG + Brown Hover -->
-                    <a href="<?php the_permalink(); ?>" class="tracking-wider px-[24px] py-[12px] rounded-[8px] inline-flex items-center justify-between w-full shadow-md hover:shadow-xl transition-all duration-300 font-bold text-sm uppercase mt-auto <?php echo esc_attr( $btn_bg_color ); ?>">
+                    <!-- Button with Dynamic Category Styling -->
+                    <a href="<?php the_permalink(); ?>" class="tracking-wider px-[24px] py-[12px] rounded-[8px] inline-flex items-center justify-between w-full shadow-md hover:shadow-xl transition-all duration-300 font-bold text-sm uppercase mt-auto <?php echo esc_attr( $btn_class ); ?>">
                         <span><?php echo esc_html($btn_text); ?></span>
                         <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
                     </a>
