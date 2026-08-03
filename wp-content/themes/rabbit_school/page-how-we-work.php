@@ -316,7 +316,7 @@ $card_3_link = get_field('card_3_link');
 </section>
 
 <!-- SECTION 5: TEACHER TRAINING -->
-<section class="bg-brand-pink">
+<section class="bg-brand-brown">
   <div class="py-[32px] md:py-[40px]" id="teacher-training"></div>
   <div class="max-w-7xl mx-auto pb-[64px] md:pb-[50px] px-[20px] 2xl:px-0 font-sans">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">

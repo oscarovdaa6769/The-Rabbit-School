@@ -61,10 +61,10 @@ get_header();
           </div>
           <div>
             <h3 class="text-[16px] sm:text-[18px] md:text-[20px] uppercase font-bold text-brand-blue">
-              phnom penh
+              Siem Reap
             </h3>
             <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted mt-1">
-              Main Campus & Training Center
+              Community Learning Center
             </p>
           </div>
         </div>
@@ -76,10 +76,10 @@ get_header();
           </div>
           <div>
             <h3 class="text-[16px] sm:text-[18px] md:text-[20px] uppercase font-bold text-brand-pink">
-              phnom penh
+              Battambang
             </h3>
             <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted mt-1">
-              Main Campus & Training Center
+              Education Support Program
             </p>
           </div>
         </div>
@@ -91,10 +91,10 @@ get_header();
           </div>
           <div>
             <h3 class="text-[16px] sm:text-[18px] md:text-[20px] uppercase font-bold text-brand-orange">
-              phnom penh
+              Kampong Cham
             </h3>
             <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted mt-1">
-              Main Campus & Training Center
+              Community Outreach Program
             </p>
           </div>
         </div>
@@ -125,14 +125,14 @@ get_header();
           <!-- Yellow Service Card -->
           <div class="group bg-white p-[16px] md:p-[24px] rounded-[28px] border-l-6 border-brand-yellow flex gap-[20px] items-start shadow-md hover:shadow-xl transition-all duration-300">
             <div class="w-16 h-16 bg-brand-yellow/20 rounded-full flex items-center justify-center flex-shrink-0">
-              <span class="icon-[solar--map-point-bold] w-6 h-6 text-brand-yellow flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+              <span class="icon-[lucide--graduation-cap] w-6 h-6 text-brand-yellow flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
             </div>
             <div>
               <h3 class="text-[16px] sm:text-[18px] md:text-[20px] uppercase font-bold text-brand-yellow">
-                phnom penh
+                school
               </h3>
               <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted mt-1">
-                Main Campus & Training Center
+                Supporting students with quality education
               </p>
             </div>
           </div>
@@ -140,14 +140,14 @@ get_header();
           <!-- Blue Service Card -->
           <div class="group bg-white p-[16px] md:p-[24px] rounded-[28px] border-l-6 border-brand-blue flex gap-[20px] items-start shadow-md hover:shadow-xl transition-all duration-300">
             <div class="w-16 h-16 bg-brand-blue/20 rounded-full flex items-center justify-center flex-shrink-0">
-              <span class="icon-[solar--map-point-bold] w-6 h-6 text-brand-blue flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+              <span class="icon-[lucide--users] w-6 h-6 text-brand-blue flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
             </div>
             <div>
               <h3 class="text-[16px] sm:text-[18px] md:text-[20px] uppercase font-bold text-brand-blue">
-                phnom penh
+                families
               </h3>
               <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted mt-1">
-                Main Campus & Training Center
+                Empowering parents and strengthening communities
               </p>
             </div>
           </div>
@@ -155,14 +155,14 @@ get_header();
           <!-- Pink Service Card -->
           <div class="group bg-white p-[16px] md:p-[24px] rounded-[28px] border-l-6 border-brand-pink flex gap-[20px] items-start shadow-md hover:shadow-xl transition-all duration-300">
             <div class="w-16 h-16 bg-brand-pink/20 rounded-full flex items-center justify-center flex-shrink-0">
-              <span class="icon-[solar--map-point-bold] w-6 h-6 text-brand-pink flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+              <span class="icon-[lucide--sprout] w-6 h-6 text-brand-pink flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
             </div>
             <div>
               <h3 class="text-[16px] sm:text-[18px] md:text-[20px] uppercase font-bold text-brand-pink">
-                phnom penh
+                rural communities
               </h3>
               <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted mt-1">
-                Main Campus & Training Center
+                Expanding learning opportunities in rural areas
               </p>
             </div>
           </div>
@@ -170,14 +170,14 @@ get_header();
           <!-- Orange Service Card -->
           <div class="group bg-white p-[16px] md:p-[24px] rounded-[28px] border-l-6 border-brand-orange flex gap-[20px] items-start shadow-md hover:shadow-xl transition-all duration-300">
             <div class="w-16 h-16 bg-brand-orange/20 rounded-full flex items-center justify-center flex-shrink-0">
-              <span class="icon-[solar--map-point-bold] w-6 h-6 text-brand-orange flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+              <span class="icon-[lucide--handshake] w-6 h-6 text-brand-orange flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
             </div>
             <div>
               <h3 class="text-[16px] sm:text-[18px] md:text-[20px] uppercase font-bold text-brand-orange">
-                phnom penh
+                partners
               </h3>
               <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted mt-1">
-                Main Campus & Training Center
+                Working with local organizations and partners
               </p>
             </div>
           </div>
@@ -198,35 +198,35 @@ get_header();
             <div class="w-12 h-12 bg-brand-yellow/20 rounded-full flex items-center justify-center flex-shrink-0">
               <span class="icon-[solar--map-point-bold] w-5 h-5 text-brand-yellow flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
             </div>
-            <span class="text-[28px] sm:text-[32px] md:text-[36px] text-brand-yellow font-heading font-black leading-none">10+</span>
+            <span class="text-[20px] sm:text-[24px] md:text-[28px] text-brand-yellow font-heading font-black leading-none">10+</span>
             <p class="text-[14px] text-text-muted font-medium capitalize text-center">locations</p>
           </div>
 
           <!-- Stat 2 -->
           <div class="group flex flex-col items-center gap-[10px] border-t-6 border-brand-blue bg-brand-cream p-[16px] sm:p-[20px] rounded-[28px] w-full shadow-md hover:shadow-xl transition-all duration-300">
             <div class="w-12 h-12 bg-brand-blue/20 rounded-full flex items-center justify-center flex-shrink-0">
-              <span class="icon-[solar--map-point-bold] w-5 h-5 text-brand-blue flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+              <span class="icon-[solar--diploma-verified-bold] w-5 h-5 text-brand-blue flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
             </div>
-            <span class="text-[28px] sm:text-[32px] md:text-[36px] text-brand-blue font-heading font-black leading-none">10+</span>
-            <p class="text-[14px] text-text-muted font-medium capitalize text-center">locations</p>
+            <span class="text-[20px] sm:text-[24px] md:text-[28px] text-brand-blue font-heading font-black leading-none">5000+</span>
+            <p class="text-[14px] text-text-muted font-medium capitalize text-center">students served</p>
           </div>
 
           <!-- Stat 3 -->
           <div class="group flex flex-col items-center gap-[10px] border-t-6 border-brand-pink bg-brand-cream p-[16px] sm:p-[20px] rounded-[28px] w-full shadow-md hover:shadow-xl transition-all duration-300">
             <div class="w-12 h-12 bg-brand-pink/20 rounded-full flex items-center justify-center flex-shrink-0">
-              <span class="icon-[solar--map-point-bold] w-5 h-5 text-brand-pink flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+              <span class="icon-[solar--presentation-graph-bold] w-5 h-5 text-brand-pink flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
             </div>
-            <span class="text-[28px] sm:text-[32px] md:text-[36px] text-brand-pink font-heading font-black leading-none">10+</span>
-            <p class="text-[14px] text-text-muted font-medium capitalize text-center">locations</p>
+            <span class="text-[20px] sm:text-[24px] md:text-[28px] text-brand-pink font-heading font-black leading-none">200+</span>
+            <p class="text-[14px] text-text-muted font-medium capitalize text-center">teachers training</p>
           </div>
 
           <!-- Stat 4 -->
           <div class="group flex flex-col items-center gap-[10px] border-t-6 border-brand-orange bg-brand-cream p-[16px] sm:p-[20px] rounded-[28px] w-full shadow-md hover:shadow-xl transition-all duration-300">
             <div class="w-12 h-12 bg-brand-orange/20 rounded-full flex items-center justify-center flex-shrink-0">
-              <span class="icon-[solar--map-point-bold] w-5 h-5 text-brand-orange flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
+              <span class="icon-[solar--hand-shake-bold] w-5 h-5 text-brand-orange flex-shrink-0 transition-transform duration-500 group-hover:rotate-45"></span>
             </div>
-            <span class="text-[28px] sm:text-[32px] md:text-[36px] text-brand-orange font-heading font-black leading-none">10+</span>
-            <p class="text-[14px] text-text-muted font-medium capitalize text-center">locations</p>
+            <span class="text-[20px] sm:text-[24px] md:text-[28px] text-brand-orange font-heading font-black leading-none">20+</span>
+            <p class="text-[14px] text-text-muted font-medium capitalize text-center">community partners</p>
           </div>
 
         </div>

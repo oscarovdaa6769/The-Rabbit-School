@@ -3,7 +3,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-12 gap-8 lg:gap-6 pb-12 border-b border-white/10">
       
       <!-- Brand & Donate CTA -->
-      <div class="lg:col-span-2 md:col-span-2 flex flex-col gap-6 items-start">
+      <div class="sm:col-span-2 md:col-span-3 lg:col-span-3 flex flex-col gap-6 items-start">
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center gap-3 transition-transform duration-300 hover:opacity-90">
           <img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/logo2.png' ) ); ?>"
                alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?> Logo"
@@ -73,7 +73,7 @@
       </div>
 
       <!-- Footer Menu 3: News -->
-      <div class="lg:col-span-2 flex flex-col gap-4">
+      <div class="lg:col-span-1 flex flex-col gap-4">
         <h3 class="font-heading text-brand-yellow font-bold text-sm uppercase tracking-widest opacity-95">
           <?php 
           if ( function_exists( 'pll_current_language' ) && pll_current_language() === 'km' ) {

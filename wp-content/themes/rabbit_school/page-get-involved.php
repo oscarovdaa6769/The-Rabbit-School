@@ -28,7 +28,7 @@ get_header();
 <!-- SECTION 2: CARDS GRID -->
 <?php 
   $cta_cards = [
-      // Card 1 - Donation
+      // Card 1 - Product
       [
           'bg_class'    => 'bg-brand-blue hover:bg-brand-blue/95',
           'text_class'  => 'text-text-light',

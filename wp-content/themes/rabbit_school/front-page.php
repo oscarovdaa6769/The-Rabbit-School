@@ -186,6 +186,7 @@ $btn_6_lnk   = get_field('button_6_link') ?: '#';
 </section>
 
 <!-- SECTION 5: Donors & Partners Marquee -->
+<div id="our-partners"></div>
 <section class="bg-gray-50/50 py-16 overflow-hidden border-t border-b border-gray-100">
   
   <div class="max-w-7xl mx-auto px-[20px] 2xl:px-0 text-center mb-10">
