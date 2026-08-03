@@ -19,10 +19,12 @@ function rabbit_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'rabbit_styles' );
 
-// 3. Theme Supports
-add_action( 'after_setup_theme', function() {
+// 3. Theme Setup & Supports
+function rabbit_school_theme_setup() {
     add_theme_support( 'title-tag' );
-} );
+    add_theme_support( 'post-thumbnails' ); // Enables featured images site-wide
+}
+add_action( 'after_setup_theme', 'rabbit_school_theme_setup' );
 
 // 4. Polylang Strings Registration
 add_action( 'init', function() {
@@ -32,39 +34,34 @@ add_action( 'init', function() {
 } );
 
 // 5. Custom Post Type: Photo Essays
-function register_photo_essays_cpt() {
-    $labels = array(
-        'name'               => 'Photo Essays',
-        'singular_name'      => 'Photo Essay',
-        'menu_name'          => 'Photo Essays',
-        'add_new'            => 'Add New Essay',
-        'add_new_item'       => 'Add New Photo Essay',
-        'edit_item'          => 'Edit Photo Essay',
-        'new_item'           => 'New Photo Essay',
-        'view_item'          => 'View Photo Essay',
-        'search_items'       => 'Search Photo Essays',
-        'not_found'          => 'No photo essays found',
-        'not_found_in_trash' => 'No photo essays found in Trash',
-    );
+function register_rabbit_photo_essays_cpt() {
+    // 1. Register Photo Essay Categories Taxonomy
+    register_taxonomy('photo_essay_category', 'photo_essay', [
+        'labels'            => [
+            'name'          => 'Photo Essay Categories',
+            'singular_name' => 'Category',
+        ],
+        'hierarchical'      => true,
+        'public'            => true,
+        'show_in_rest'      => true,
+        'rewrite'           => ['slug' => 'photo-essay-category'],
+    ]);
 
-    $args = array(
-        'labels'              => $labels,
-        'public'              => true,
-        'has_archive'         => true,
-        'publicly_queryable'  => true,
-        'query_var'           => true,
-        'rewrite'             => array( 'slug' => 'photo-essay' ),
-        'capability_type'     => 'post',
-        'hierarchical'        => false,
-        'menu_position'       => 5,
-        'menu_icon'           => 'dashicons-format-gallery',
-        'supports'            => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
-        'show_in_rest'        => true, // Enables Block Editor
-    );
-
-    register_post_type( 'photo_essay', $args );
+    // 2. Register Photo Essay Post Type
+    register_post_type('photo_essay', [
+        'labels'            => [
+            'name'          => 'Photo Essays',
+            'singular_name' => 'Photo Essay',
+            'add_new_item'   => 'Add New Photo Essay',
+        ],
+        'public'            => true,
+        'menu_icon'         => 'dashicons-format-gallery',
+        'supports'          => ['title', 'editor', 'thumbnail', 'excerpt'],
+        'show_in_rest'      => true,
+        'has_archive'       => false,
+    ]);
 }
-add_action( 'init', 'register_photo_essays_cpt' );
+add_action('init', 'register_rabbit_photo_essays_cpt');
 
 // 6. Custom Post Type: Products
 function rabbit_register_product_cpt() {
@@ -86,3 +83,34 @@ function rabbit_register_product_cpt() {
     register_post_type( 'product', $args );
 }
 add_action( 'init', 'rabbit_register_product_cpt' );
+
+// 7. Custom Post Type: Videos
+function register_rabbit_videos_cpt() {
+    // 1. Register Video Categories Taxonomy
+    register_taxonomy('video_category', 'video_item', [
+        'labels'            => [
+            'name'          => 'Video Categories',
+            'singular_name' => 'Category',
+        ],
+        'hierarchical'      => true,
+        'public'            => true,
+        'show_in_rest'      => true,
+        'rewrite'           => ['slug' => 'video-category'],
+    ]);
+
+    // 2. Register Video Post Type
+    register_post_type('video_item', [
+        'labels'            => [
+            'name'          => 'Videos',
+            'singular_name' => 'Video',
+            'add_new_item'   => 'Add New Video',
+        ],
+        'public'            => true,
+        'menu_icon'         => 'dashicons-video-alt3',
+        // 'thumbnail' added below to enable Featured Images in WP Admin
+        'supports'          => ['title', 'editor', 'thumbnail', 'excerpt'], 
+        'show_in_rest'      => true,
+        'has_archive'       => false,
+    ]);
+}
+add_action('init', 'register_rabbit_videos_cpt');

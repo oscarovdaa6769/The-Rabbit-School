@@ -125,15 +125,21 @@ $button_link = get_field('button_link');
   }
 </style>
 <!-- SECTION 1: HERO -->
-<section class="bg-brand-brown h-[500px] md:h-[700px]">
-  <div class="max-w-7xl mx-auto px-[20px] 2xl:px-0 py-[64px] md:py-[50px] h-full flex items-end">
-    <div class="max-w-2xl flex flex-col gap-[10px]">
-      <h1 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black text-text-light font-heading uppercase">
-        <?php echo esc_html($hero_title); ?>
-      </h1>
-      <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] text-text-light/80">
-        <?php echo esc_html($hero_description); ?>
-      </p>
+<section class="relative overflow-hidden">
+  <img src="<?php echo esc_url(get_field('section_1_image') ?: get_theme_file_uri('assets/images/error.png')); ?>"
+       alt="<?php echo esc_attr(get_field('section_1_title') ?: 'How We Work'); ?>"
+       class="h-[500px] md:h-[700px] w-full object-cover">
+
+  <div class="absolute inset-0 z-10 bg-black/30 flex items-end pb-6 md:pb-20">
+    <div class="w-full max-w-7xl mx-auto px-4 md:px-[20px]">
+      <div class="max-w-2xl text-text-light">
+        <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
+          <?php echo esc_html(get_field('section_1_title') ?: 'REACH OUT TODAY'); ?>
+        </h1>
+        <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
+          <?php echo esc_html(get_field('section_1_description') ?: 'Have questions about our work or want to support our mission? Get in touch with our team and let’s start a conversation.'); ?>
+        </p>
+      </div>
     </div>
   </div>
 </section>

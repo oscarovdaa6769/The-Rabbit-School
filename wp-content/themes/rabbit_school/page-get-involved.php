@@ -34,11 +34,11 @@ get_header();
           'text_class'  => 'text-text-light',
           'desc_class'  => 'text-text-light/80',
           'line_bg'     => 'bg-brand-cream',
-          'icon'        => get_theme_file_uri('assets/icons/donation.png'),
-          'title'       => get_field('cta_card_1_title') ?: 'Make a Donation',
+          'icon'        => get_theme_file_uri('assets/icons/cart.png'),
+          'title'       => get_field('cta_card_1_title') ?: 'Shop Our Product',
           'description' => get_field('cta_card_1_description') ?: 'Every contribution helps us strengthen and expand our programs, ensuring the highest quality education and opportunities for our students.',
-          'btn_text'    => get_field('cta_card_1_button_text') ?: 'Donate now',
-          'btn_link'    => get_field('cta_card_1_button_link') ?: '/donate',
+          'btn_text'    => get_field('cta_card_1_button_text') ?: 'Shop now',
+          'btn_link'    => get_field('cta_card_1_button_link') ?: '/wordpress/product',
       ],
       // Card 2 - Join Hands
       [
@@ -50,7 +50,7 @@ get_header();
           'title'       => get_field('cta_card_2_title') ?: 'Join Hands with Us',
           'description' => get_field('cta_card_2_description') ?: 'Partner your company with Rabbit School to create opportunities for children and youth with intellectual disabilities and autism in Cambodia.',
           'btn_text'    => get_field('cta_card_2_button_text') ?: 'Join with us',
-          'btn_link'    => get_field('cta_card_2_button_link') ?: '/donate',
+          'btn_link'    => get_field('cta_card_2_button_link') ?: '/wordpress/donate',
       ],
       // Card 3 - Volunteer
       [
