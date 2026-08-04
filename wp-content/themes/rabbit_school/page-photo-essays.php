@@ -486,6 +486,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   bindClickRipples();
 
+document.addEventListener("DOMContentLoaded", function () {
+  // Trigger page visibility load smoothly
+  document.body.classList.add("loaded");
+
+  // Local ripple + press effect on elements with .click-fx
+  document.querySelectorAll('.click-fx').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      var rect = el.getBoundingClientRect();
+      var ripple = document.createElement('span');
+      var size = Math.max(rect.width, rect.height);
+      var x = e.clientX - rect.left - size / 2;
+      var y = e.clientY - rect.top - size / 2;
+
+      ripple.className = 'ripple';
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+
+      el.appendChild(ripple);
+      ripple.addEventListener('animationend', function () {
+        ripple.remove();
+      });
+    });
+  });
+
   // Global full-page click ripple effect
   document.addEventListener('click', function (e) {
     var size = 24;
@@ -501,20 +526,8 @@ document.addEventListener('DOMContentLoaded', () => {
       ripple.remove();
     });
   });
+});
 
-  // Smooth fade-out action when clicking internal links
-  document.querySelectorAll('a').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      var href = this.getAttribute('href');
-      if (href && !href.startsWith('#') && !href.startsWith('javascript') && this.hostname === window.location.hostname) {
-        e.preventDefault();
-        document.body.classList.add('fade-out');
-        setTimeout(function() {
-          window.location.href = href;
-        }, 400);
-      }
-    });
-  });
 
   renderGallery();
 });

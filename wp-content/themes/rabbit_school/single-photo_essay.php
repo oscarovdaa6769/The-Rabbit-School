@@ -204,11 +204,11 @@ $colors = isset( $category_color_mix[ $cat_slug ] )
 
 <!-- INTERACTION SCRIPT -->
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Trigger page visibility load
+document.addEventListener("DOMContentLoaded", function () {
+  // Trigger page visibility load smoothly
   document.body.classList.add("loaded");
 
-  // Local click ripple + press effect on elements (.click-fx)
+  // Local ripple + press effect on elements with .click-fx
   document.querySelectorAll('.click-fx').forEach(function (el) {
     el.addEventListener('click', function (e) {
       var rect = el.getBoundingClientRect();
@@ -242,20 +242,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(ripple);
     ripple.addEventListener('animationend', function () {
       ripple.remove();
-    });
-  });
-
-  // Smooth fade-out action when clicking internal links
-  document.querySelectorAll('a').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      var href = this.getAttribute('href');
-      if (href && !href.startsWith('#') && !href.startsWith('javascript') && this.hostname === window.location.hostname) {
-        e.preventDefault();
-        document.body.classList.add('fade-out');
-        setTimeout(function() {
-          window.location.href = href;
-        }, 400);
-      }
     });
   });
 });

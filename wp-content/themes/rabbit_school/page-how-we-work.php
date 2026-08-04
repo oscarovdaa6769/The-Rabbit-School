@@ -6,6 +6,11 @@ get_header();
 ?>
 
 <style>
+  /* Root & Body background color fallback to prevent white flash during navigation */
+  html, body {
+    background-color: #FDFBF7 !important;
+  }
+  
   /* Page Load & Exit Animation */
   body {
     opacity: 0;
@@ -96,7 +101,7 @@ get_header();
 </style>
 
 <!-- section 1 -->
-<section class="relative overflow-hidden">
+<section class="relative overflow-hidden bg-brand-cream">
     <img src="<?php echo esc_url(get_field('section_1_image') ?: get_theme_file_uri('assets/images/error.png')); ?>"
         alt="<?php echo esc_attr(get_field('section_1_title') ?: 'How We Work'); ?>"
         class="h-[500px] md:h-[700px] w-full object-cover">
@@ -108,7 +113,7 @@ get_header();
                             <?php echo esc_html(get_field('section_1_title') ?: 'How We Work'); ?>
                     </h1>
                     <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
-                            <?php echo esc_html(get_field('section_1_description') ?: 'Our programs empower children and youth with intellectual disabilities  to reach their full potential through tailored education, vocational  training, inclusive community building, and advocacy for lasting change.'); ?>
+                            <?php echo esc_html(get_field('section_1_description') ?: 'Our programs empower children and youth with intellectual disabilities to reach their full potential through tailored education, vocational training, inclusive community building, and advocacy for lasting change.'); ?>
                     </p>
                 </div>
         </div>
@@ -144,7 +149,7 @@ get_header();
 </section>
 
 <!-- section 3 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] font-sans px-6">
+<section class="bg-brand-cream max-w-7xl mx-auto py-[64px] md:py-[50px] font-sans px-6">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
         
         <div class="anim-slide-left anim-delay-2 lg:col-span-7 flex flex-col items-start">
@@ -210,7 +215,7 @@ get_header();
                         ?>
                         <li>Follow an adapted curriculum designed to their level</li>
                         <li>Access to support services such as speech and occupational therapy</li>
-                        <li>Receive an Individual Education Plan (IEP) updated every 3 Teachers receive ongoing training and support from our team</li>
+                        <li>Receive an Individual Education Plan (IEP) updated every 3 months</li>
                         <li>Each child with a disability has a personalized IEP</li>
                         <li>Follows the national curriculum and schedule with adapted teaching methods</li>
                         <li>Focus on peer interaction, mutual respect, and building inclusive values</li>
@@ -235,7 +240,7 @@ get_header();
 </section>
 
 <!-- section 4 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] font-sans px-6">
+<section class="bg-brand-cream max-w-7xl mx-auto py-[64px] md:py-[50px] font-sans px-6">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
         
         <div class="anim-slide-left anim-delay-1 lg:col-span-5 w-full order-2 lg:order-1">
@@ -305,7 +310,7 @@ get_header();
 </section>
 
 <!-- section 5 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[80px] font-sans px-6">
+<section class="bg-brand-cream max-w-7xl mx-auto py-[64px] md:py-[80px] font-sans px-6">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
         
         <div class="anim-slide-left anim-delay-3 lg:col-span-7 flex flex-col items-start">
@@ -366,7 +371,7 @@ get_header();
 </section>
 
 <!-- section 6 -->
-<section class="max-w-7xl mx-auto py-[64px] md:py-[50px] font-sans px-6">
+<section class="bg-brand-cream max-w-7xl mx-auto py-[64px] md:py-[50px] font-sans px-6">
     <div class="anim-fade-up anim-delay-5 max-w-5xl mx-auto text-center mb-12">
         <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase mb-4 leading-tight">
             <?php echo esc_html(get_field('advocacy_title') ?: 'Advocacy and Community Building'); ?>
@@ -423,7 +428,7 @@ get_header();
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // Trigger page visibility load
+  // Trigger page visibility load smoothly
   document.body.classList.add("loaded");
 
   // Local ripple + press effect on elements with .click-fx
@@ -460,20 +465,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(ripple);
     ripple.addEventListener('animationend', function () {
       ripple.remove();
-    });
-  });
-
-  // Smooth fade-out action when clicking internal links
-  document.querySelectorAll('a').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      var href = this.getAttribute('href');
-      if (href && !href.startsWith('#') && !href.startsWith('javascript') && this.hostname === window.location.hostname) {
-        e.preventDefault();
-        document.body.classList.add('fade-out');
-        setTimeout(function() {
-          window.location.href = href;
-        }, 400);
-      }
     });
   });
 });

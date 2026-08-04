@@ -2,22 +2,26 @@
 /*
 Template Name: About Us
 */
-get_header();?>
+get_header();
+?>
 
 <style>
-  /* Page Load & Exit Animation */
+  /* Root & Body background color fallback to prevent white flash during navigation */
+  html {
+    background-color: #FDFBF7;
+  }
+  
+  /* Page Load Animation */
   body {
+    background-color: #FDFBF7;
     opacity: 0;
     transition: opacity 0.4s ease-in-out;
   }
   body.loaded {
     opacity: 1;
   }
-  body.fade-out {
-    opacity: 0;
-  }
 
-  /* Keyframe Animations Matching Get Involved Page */
+  /* Keyframe Animations Matching Other Pages */
   @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -92,147 +96,325 @@ get_header();?>
       opacity: 0;
     }
   }
+
+  /* Marquee animation */
+  @keyframes marqueeLeft {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+  @keyframes marqueeRight {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0%); }
+  }
+  .animate-marquee-left {
+    display: flex;
+    width: max-content;
+    animation: marqueeLeft 35s linear infinite;
+  }
+  .animate-marquee-right {
+    display: flex;
+    width: max-content;
+    animation: marqueeRight 35s linear infinite;
+  }
+  .animate-marquee-left:hover,
+  .animate-marquee-right:hover {
+    animation-play-state: paused;
+  }
 </style>
 
-<!-- section 1 -->
-<section class="relative overflow-hidden">
-    <img src="<?php echo esc_url(get_field('section_1_image') ?: get_theme_file_uri('assets/images/error.png')); ?>"
-        alt="<?php echo esc_attr(get_field('section_1_title') ?: 'Error'); ?>"
-        class="h-[500px] md:h-[700px] w-full object-cover">
+<?php
+// section 1
+$img_1_url = get_field('image_1') ?: get_theme_file_uri('assets/images/error.png');
+$title_1 = get_field('heading_1') ?: __('SECTION 1 NOT WORKING', 'your-theme-domain');
+$desc_1 = get_field('description_1') ?: __('DESC 1 NOT WORKING', 'your-theme-domain');
 
-    <div class="absolute inset-0 z-50 bg-black/20 flex items-end pb-6 md:pb-20">
-        <div class="w-full max-w-7xl mx-auto px-6">
-                <div class="anim-fade-up max-w-2xl text-text-light">
-                    <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
-                            <?php echo esc_html(get_field('section_1_title') ?: 'Error'); ?>
-                    </h1>
-                    <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
-                            <?php echo esc_html(get_field('section_1_description') ?: 'Error'); ?>
-                    </p>
-                </div>
-        </div>
-    </div>
-</section>
+// section 2
+$img_2_url = get_field('image_2') ?: get_theme_file_uri('assets/images/error.png');
+$title_2 = get_field('heading_2') ?: __('SECTION 2 NOT WORKING', 'your-theme-domain');
+$desc_2 = get_field('description_2') ?: __('DESC 2 NOT WORKING', 'your-theme-domain');
+$btn_2_txt = get_field('button_2_text') ?: __('BTN 2 NOT WORKING', 'your-theme-domain');
+$btn_2_lnk = get_field('button_2_link') ?: '#';
+
+// section 3
+$img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png');
+$sub_title_3 = get_field('sub_heading_3') ?: __('SUB SECTION 3 NOT WORKING', 'your-theme-domain');
+$title_3 = get_field('heading_3') ?: __('SECTION 3 NOT WORKING', 'your-theme-domain');
+$desc_3 = get_field('description_3') ?: __('DESC 3 NOT WORKING', 'your-theme-domain');
+$btn_3_txt = get_field('button_3_text') ?: __('BTN 3 NOT WORKING', 'your-theme-domain');
+$btn_3_lnk = get_field('button_3_link') ?: '#';
+
+// section 4 
+$title_4 = get_field('heading_4') ?: __('SECTION 4 NOT WORKING', 'your-theme-domain');
+$desc_4 = get_field('description_4') ?: __('DESC 4 NOT WORKING', 'your-theme-domain');
+$img_card1_url = get_field('image_card1') ?: get_theme_file_uri('assets/images/error.png');
+$title_card1 = get_field('title_card1') ?: __('TITLE CARD NOT WORKING', 'your-theme-domain');
+$desc_card1 = get_field('description_card1') ?: __('DESC CARD1 NOT WORKING', 'your-theme-domain');
+$img_card2_url = get_field('image_card2') ?: get_theme_file_uri('assets/images/error.png');
+$title_card2 = get_field('title_card2') ?: __('TITLE CARD NOT WORKING', 'your-theme-domain');
+$desc_card2 = get_field('description_card2') ?: __('DESC CARD2 NOT WORKING', 'your-theme-domain');
+$img_card3_url = get_field('image_card3') ?: get_theme_file_uri('assets/images/error.png');
+$title_card3 = get_field('title_card3') ?: __('TITLE CARD NOT WORKING', 'your-theme-domain');
+$desc_card3 = get_field('description_card3') ?: __('DESC CARD3 NOT WORKING', 'your-theme-domain');
+$img_card4_url = get_field('image_card4') ?: get_theme_file_uri('assets/images/error.png');
+$title_card4 = get_field('title_card4') ?: __('TITLE CARD NOT WORKING', 'your-theme-domain');
+$desc_card4 = get_field('description_card4') ?: __('DESC CARD4 NOT WORKING', 'your-theme-domain');
+
+$impacts = [
+    [$img_card1_url, $title_card1, $desc_card1],
+    [$img_card2_url, $title_card2, $desc_card2],
+    [$img_card3_url, $title_card3, $desc_card3],
+    [$img_card4_url, $title_card4, $desc_card4]
+];
+
+// section 5
+$donor_logos = [
+    get_field('image_donor1'), get_field('image_donor2'), get_field('image_donor3'),
+    get_field('image_donor4'), get_field('image_donor5'), get_field('image_donor6'),
+    get_field('image_donor7'), get_field('image_donor8'), get_field('image_donor9'),
+    get_field('image_donor10'), get_field('image_donor11'), get_field('image_donor12'),
+    get_field('image_donor13')
+];
+$partner_logos = [
+    get_field('image_partner1'), get_field('image_partner2'),
+    get_field('image_partner3'), get_field('image_partner4'),
+    get_field('image_partner5')
+];
+$fallback_img = get_theme_file_uri('assets/images/error.png');
+
+// section 6
+$img_6_url = get_field('image_6') ?: get_theme_file_uri('assets/images/error.png');
+$sub_title_6 = get_field('sub_heading_6') ?: __('SUB SECTION 6 NOT WORKING', 'your-theme-domain');
+$title_6 = get_field('heading_6') ?: __('SECTION 6 NOT WORKING', 'your-theme-domain');
+$desc_6 = get_field('description_6') ?: __('DESC 6 NOT WORKING', 'your-theme-domain');
+$btn_6_txt = get_field('button_6_text') ?: __('BTN 6 NOT WORKING', 'your-theme-domain');
+$btn_6_lnk = get_field('button_6_link') ?: '#';
+?>
+
+<!-- section 1 -->
+<div class="relative overflow-hidden">
+      <img src="<?php echo esc_url($img_1_url); ?>" alt="<?php echo esc_attr($title_1); ?>" class="h-[500px] md:h-[700px] w-full object-cover">
+      
+      <div class="absolute inset-0 z-50 bg-black/20 flex items-end pb-6 md:pb-20 px-6">
+            <div class="anim-fade-up w-full max-w-7xl mx-auto">
+                  <div class="max-w-2xl text-text-light">
+                        <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
+                              <?php echo esc_html($title_1); ?>
+                        </h1>
+                        <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
+                              <?php echo esc_html($desc_1); ?>
+                        </p>
+                  </div>
+            </div>
+      </div>
+</div>
 
 <!-- section 2 -->
-<section class="bg-brand-cream py-16 md:py-24 px-6">
-    <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <!-- image -->
-            <div class="anim-slide-left anim-delay-1 relative">
-                <div class="absolute -top-4 -right-4 w-full h-full border-2 border-brand-yellow rounded-2xl -z-10 hidden md:block"></div>
-                <div class="w-full aspect-[4/3] md:aspect-video rounded-[24px] overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
-                        <img src="<?php echo esc_url(get_field('section_2_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" 
-                        alt="<?php echo esc_attr(get_field('section_2_title') ?: 'Error'); ?>" 
-                        class="h-full w-full object-cover">
-                </div>
+<div class="relative overflow-hidden">
+      <img src="<?php echo esc_url($img_2_url); ?>" alt="<?php echo esc_attr($title_2); ?>" class="h-[500px] md:h-[700px] w-full object-cover">
+      
+      <div class="absolute inset-0 z-50 bg-black/20 flex items-end pb-6 md:pb-20 px-6">
+            <div class="anim-fade-up w-full max-w-7xl mx-auto">
+                  <div class="max-w-2xl text-text-light">
+                        <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
+                              <?php echo esc_html($title_2); ?>
+                        </h1>
+                        <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
+                              <?php echo esc_html($desc_2); ?>
+                        </p>
+                        <?php if ( !empty($btn_2_txt) ) : ?>
+                        <div class="flex justify-start mt-6">
+                              <a href="<?php echo esc_url($btn_2_lnk); ?>" class="click-fx click-fx--dark group bg-brand-brown text-text-light font-bold text-sm px-[24px] py-[12px] rounded-[8px] shadow-lg hover:scale-105 active:scale-95 transition-all inline-flex gap-3 items-center uppercase tracking-widest">
+                                    <?php echo esc_html($btn_2_txt); ?>
+                                    <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
+                              </a>
+                        </div>
+                        <?php endif; ?>
+                  </div>
             </div>
-            <!-- context -->
-            <div class="anim-slide-right anim-delay-2 flex flex-col">
-                    <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-brand-brown mb-6 leading-tight">
-                            <?php echo esc_html(get_field('section_2_title') ?: 'Error'); ?>
-                    </h2>
-                    <p class="text-text-main text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed mb-8">
-                            <?php echo esc_html(get_field('section_2_description') ?: 'Error'); ?>
-                    </p>
-                </div>
-        </div>
-    </div>
-</section>
+      </div>
+</div>
 
 <!-- section 3 -->
-<section class="bg-brand-yellow py-16 md:py-24 px-6">
+<section class="bg-white py-16 md:py-24 px-6">
     <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <!-- context -->
-            <div class="anim-slide-left anim-delay-3 flex flex-col">
-                <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-brand-brown mb-6 leading-tight">
-                    <?php echo esc_html(get_field('section_3_title') ?: 'Error'); ?>
-                </h2>
-                <p class="text-text-main text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed mb-8">
-                    <?php echo esc_html(get_field('section_3_description') ?: 'Error'); ?>
-                </p>
+            
+            <div class="anim-slide-left anim-delay-1 flex flex-col">
+                  <span class="text-brand-brown/60 font-bold tracking-[0.2em] text-[16px] uppercase mb-3">
+                        <?php echo esc_html($sub_title_3); ?>
+                  </span>
+                  <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown mb-6 uppercase leading-tight">
+                        <?php echo esc_html($title_3); ?>
+                  </h2>
+                  <p class="text-text-main text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed mb-8">
+                        <?php echo esc_html($desc_3); ?>
+                  </p>
+                  <?php if ( !empty($btn_3_txt) ) : ?>
+                  <div class="flex justify-start">
+                        <a href="<?php echo esc_url($btn_3_lnk); ?>" class="click-fx click-fx--dark group bg-brand-brown text-text-light font-bold text-sm px-[24px] py-[12px] rounded-[8px] shadow-md hover:bg-brand-brown/90 hover:shadow-xl transition-all inline-flex gap-3 items-center uppercase tracking-widest">
+                              <?php echo esc_html($btn_3_txt); ?>
+                              <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
+                        </a>
+                  </div>
+                  <?php endif; ?>
             </div>
-            <!-- image -->
-            <div class="anim-slide-right anim-delay-4 relative">
-                <div class="absolute -top-4 -right-4 w-full h-full border-2 border-brand-brown/30 rounded-2xl -z-10 hidden md:block"></div>
-                <div class="w-full aspect-[4/3] md:aspect-video rounded-[24px] overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
-                        <img src="<?php echo esc_url(get_field('section_3_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" 
-                        alt="<?php echo esc_attr(get_field('section_3_title') ?: 'Error'); ?>" 
-                        class="h-full w-full object-cover">
-                </div>
+                  
+            <div class="anim-slide-right anim-delay-2 relative">
+                  <div class="absolute -top-4 -right-4 w-full h-full border-2 border-brand-yellow rounded-2xl -z-10 hidden md:block"></div>
+                  <div class="w-full aspect-[4/3] md:aspect-video rounded-[24px] overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+                        <img src="<?php echo esc_url($img_3_url) ?>" alt="<?php echo esc_attr($title_3); ?>" class="h-full w-full object-cover">
+                  </div>
             </div>
+
         </div>
     </div>
 </section>
 
 <!-- section 4 -->
-<section class="bg-brand-blue py-16 md:py-24 px-6">
-    <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <!-- image -->
-            <div class="anim-slide-left anim-delay-1 relative">
-                <div class="absolute -top-4 -right-4 w-full h-full border-2 border-brand-yellow rounded-2xl -z-10 hidden md:block"></div>
-                <div class="w-full aspect-[4/3] md:aspect-video rounded-[24px] overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
-                        <img src="<?php echo esc_url(get_field('section_4_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" 
-                        alt="<?php echo esc_attr(get_field('section_4_title') ?: 'Error'); ?>" 
-                        class="h-full w-full object-cover">
-                </div>
+<section class="bg-brand-yellow py-20 px-6 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]"></div>
+
+      <div class="anim-fade-up anim-delay-3 max-w-7xl mx-auto text-center relative z-10">
+            <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase mb-6">
+                  <?php echo esc_html($title_4); ?>
+            </h2>
+            <div class="w-20 h-1.5 bg-brand-brown mx-auto mb-8 rounded-full"></div>
+            <p class="max-w-3xl mx-auto text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] text-brand-brown leading-relaxed font-medium mb-16 opacity-90">
+                  <?php echo esc_html($desc_4); ?>
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+                  <?php foreach ($impacts as $item): ?>
+                  <div class="click-fx bg-white/95 backdrop-blur-sm rounded-[24px] shadow-xl p-10 flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl group border-b-8 border-transparent hover:border-brand-brown">
+                        <div class="mb-6 h-20 w-20 bg-brand-yellow/25 rounded-full flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+                              <img src="<?php echo esc_url($item[0]); ?>" alt="" class="h-12 w-auto object-contain">
+                        </div>
+                        <h3 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown mb-4 tracking-tighter">
+                              <?php echo esc_html($item[1]); ?>
+                        </h3>
+                        <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] text-text-main leading-relaxed font-medium opacity-80">
+                              <?php echo esc_html($item[2]); ?>
+                        </p>
+                  </div>
+                  <?php endforeach; ?>
+
             </div>
-            <!-- context -->
-            <div class="anim-slide-right anim-delay-2 flex flex-col">
-                    <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-brand-brown mb-6 leading-tight">
-                            <?php echo esc_html(get_field('section_4_title') ?: 'Error'); ?>
-                    </h2>
-                    <p class="text-text-main text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed mb-8">
-                            <?php echo esc_html(get_field('section_4_description') ?: 'Error'); ?>
-                    </p>
-                </div>
-        </div>
-    </div>
+      </div>
 </section>
 
 <!-- section 5 -->
-<section class="bg-brand-pink py-16 md:py-24 px-6">
-    <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <!-- context -->
-            <div class="anim-slide-left anim-delay-3 flex flex-col">
-                <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-brand-brown mb-6 leading-tight">
-                    <?php echo esc_html(get_field('section_5_title') ?: 'Error'); ?>
-                </h2>
-                <p class="text-text-main text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed mb-8">
-                    <?php echo esc_html(get_field('section_5_description') ?: 'Error'); ?>
-                </p>
+<section class="bg-gray-50/50 py-16 overflow-hidden border-t border-b border-gray-100">
+      
+      <div class="anim-fade-up anim-delay-4 max-w-7xl mx-auto px-6 text-center mb-10">
+            <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase mb-3">
+                  <?php echo esc_html(get_field('title_5_1') ?: __('TITLE 5_1 NOT WORKING', 'your-theme-domain')); ?>
+            </h2>
+            <p class="max-w-3xl mx-auto text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] text-text-main/80 leading-relaxed font-medium">
+                  <?php echo esc_html(get_field('description_5') ?: __('DESCRIPTION 5 NOT WORKING', 'your-theme-domain')); ?>
+            </p>
+      </div>
+
+      <div class="relative w-full flex items-center overflow-x-hidden mb-16">
+            <div class="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-gray-50/50 to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-gray-50/50 to-transparent z-10 pointer-events-none"></div>
+
+            <div class="flex gap-20 md:gap-32 shrink-0 animate-marquee-left items-center px-12">
+                  <?php foreach ($donor_logos as $logo): 
+                        $img_url = $logo ?: $fallback_img; ?>
+                        <div class="h-10 md:h-14 flex items-center justify-center">
+                              <img src="<?php echo esc_url($img_url); ?>" 
+                                   alt="<? esc_attr_e('Donor Logo', 'your-theme-domain'); ?>" 
+                                   class="max-h-full w-auto object-contain mix-blend-multiply opacity-60 contrast-125 hover:opacity-100 hover:scale-105 transition-all duration-300 ease-out">
+                        </div>
+                  <?php endforeach; ?>
             </div>
-            <!-- image -->
-            <div class="anim-slide-right anim-delay-4 relative">
-                <div class="absolute -top-4 -right-4 w-full h-full border-2 border-brand-yellow rounded-2xl -z-10 hidden md:block"></div>
-                <div class="w-full aspect-[4/3] md:aspect-video rounded-[24px] overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
-                        <img src="<?php echo esc_url(get_field('section_5_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" 
-                        alt="<?php echo esc_attr(get_field('section_5_title') ?: 'Error'); ?>" 
-                        class="h-full w-full object-cover">
-                </div>
+
+            <div class="flex gap-20 md:gap-32 shrink-0 animate-marquee-left items-center px-12" aria-hidden="true">
+                  <?php foreach ($donor_logos as $logo): 
+                        $img_url = $logo ?: $fallback_img; ?>
+                        <div class="h-10 md:h-14 flex items-center justify-center">
+                              <img src="<?php echo esc_url($img_url); ?>" 
+                                   alt="<?php esc_attr_e('Donor Logo', 'your-theme-domain'); ?>" 
+                                   class="max-h-full w-auto object-contain mix-blend-multiply opacity-60 contrast-125 hover:opacity-100 hover:scale-105 transition-all duration-300 ease-out">
+                        </div>
+                  <?php endforeach; ?>
             </div>
-        </div>
-    </div>
+      </div>
+
+
+      <div class="anim-fade-up max-w-4xl mx-auto px-6 text-center mb-10">
+            <div class="w-16 h-0.5 bg-brand-brown/10 mx-auto mb-10"></div>
+            <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-black text-brand-brown uppercase mb-4">
+                  <?php echo esc_html(get_field('title_5_2') ?: __('TITLE 5_2 NOT WORKING', 'your-theme-domain')); ?>
+            </h2>
+      </div>
+
+      <div class="relative w-full flex items-center overflow-x-hidden pb-2">
+            <div class="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-gray-50/50 to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-gray-50/50 to-transparent z-10 pointer-events-none"></div>
+
+            <div class="flex gap-20 md:gap-32 shrink-0 animate-marquee-right items-center px-12">
+                  <?php foreach ($partner_logos as $logo): 
+                        $img_url = $logo ?: $fallback_img; ?>
+                        <div class="h-10 md:h-14 flex items-center justify-center">
+                              <img src="<?php echo esc_url($img_url); ?>" 
+                                   alt="<?php esc_attr_e('Partner Logo', 'your-theme-domain'); ?>" 
+                                   class="max-h-full w-auto object-contain mix-blend-multiply opacity-60 contrast-125 hover:opacity-100 hover:scale-105 transition-all duration-300 ease-out">
+                        </div>
+                  <?php endforeach; ?>
+            </div>
+
+            <div class="flex gap-20 md:gap-32 shrink-0 animate-marquee-right items-center px-12" aria-hidden="true">
+                  <?php foreach ($partner_logos as $logo): 
+                        $img_url = $logo ?: $fallback_img; ?>
+                        <div class="h-10 md:h-14 flex items-center justify-center">
+                              <img src="<?php echo esc_url($img_url); ?>" 
+                                   alt="<?php esc_attr_e('Partner Logo', 'your-theme-domain'); ?>" 
+                                   class="max-h-full w-auto object-contain mix-blend-multiply opacity-60 contrast-125 hover:opacity-100 hover:scale-105 transition-all duration-300 ease-out">
+                        </div>
+                  <?php endforeach; ?>
+            </div>
+      </div>
+
 </section>
 
 <!-- section 6 -->
-<section class="bg-brand-teal py-[100px] text-center px-6">
-    <div class="anim-fade-up anim-delay-5 max-w-7xl mx-auto">
-        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-text-light mb-6 leading-tight uppercase">
-            <?php echo esc_html(get_field('section_6_title') ?: 'Error'); ?>
-        </h2>
-        <p class="text-text-light text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed mb-8 max-w-3xl mx-auto">
-            <?php echo esc_html(get_field('section_6_description') ?: 'Error'); ?>
-        </p>
-    </div>
+<section class="bg-brand-teal py-16 md:py-24 px-6">
+      <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                  
+                  <div class="anim-slide-left anim-delay-5 relative">
+                        <div class="absolute -top-4 -right-4 w-full h-full border-2 border-brand-yellow rounded-2xl -z-10 hidden md:block"></div>
+                        <div class="w-full aspect-[4/3] md:aspect-video rounded-[24px] overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+                              <img src="<?php echo esc_url($img_6_url); ?>" alt="<?php echo esc_attr($title_6); ?>" class="h-full w-full object-cover">
+                        </div>
+                  </div>
+                  
+                  <div class="anim-slide-right anim-delay-5 flex flex-col">
+                        <span class="text-brand-brown/60 font-bold tracking-[0.2em] text-[16px] uppercase mb-3">
+                              <?php echo esc_html($sub_title_6); ?>
+                        </span>
+                        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-brand-brown mb-6 leading-tight uppercase">
+                              <?php echo esc_html($title_6); ?>
+                        </h2>
+                        <p class="text-text-main text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed mb-8">
+                              <?php echo esc_html($desc_6); ?>
+                        </p>
+                        <div class="flex justify-start">
+                              <a href="<?php echo esc_url($btn_6_lnk); ?>" class="click-fx click-fx--dark group bg-brand-brown text-text-light font-bold text-sm px-[24px] py-[12px] rounded-[8px] shadow-md hover:bg-brand-brown/90 hover:shadow-xl transition-all inline-flex gap-3 items-center uppercase tracking-widest">
+                                    <?php echo esc_html($btn_6_txt); ?>
+                                    <span class="icon-[solar--arrow-right-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
+                              </a>
+                        </div>
+                  </div>
+            </div>
+      </div>
 </section>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // Trigger page visibility load
+  // Trigger page visibility load smoothly
   document.body.classList.add("loaded");
 
   // Local ripple + press effect on elements with .click-fx
@@ -269,20 +451,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(ripple);
     ripple.addEventListener('animationend', function () {
       ripple.remove();
-    });
-  });
-
-  // Smooth fade-out action when clicking internal links
-  document.querySelectorAll('a').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      var href = this.getAttribute('href');
-      if (href && !href.startsWith('#') && !href.startsWith('javascript') && this.hostname === window.location.hostname) {
-        e.preventDefault();
-        document.body.classList.add('fade-out');
-        setTimeout(function() {
-          window.location.href = href;
-        }, 400);
-      }
     });
   });
 });

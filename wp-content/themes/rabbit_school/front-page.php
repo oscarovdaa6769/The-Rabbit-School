@@ -11,7 +11,7 @@ get_header();
     background-color: #FDFBF7;
   }
   
-  /* Page Load & Exit Animation */
+  /* Page Load Animation */
   body {
     background-color: #FDFBF7;
     opacity: 0;
@@ -19,9 +19,6 @@ get_header();
   }
   body.loaded {
     opacity: 1;
-  }
-  body.fade-out {
-    opacity: 0;
   }
 
   /* Keyframe Animations Matching Other Pages */
@@ -454,20 +451,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(ripple);
     ripple.addEventListener('animationend', function () {
       ripple.remove();
-    });
-  });
-
-  // Smooth fade-out action when clicking internal links
-  document.querySelectorAll('a').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      var href = this.getAttribute('href');
-      if (href && !href.startsWith('#') && !href.startsWith('javascript') && this.hostname === window.location.hostname) {
-        e.preventDefault();
-        document.body.classList.add('fade-out');
-        setTimeout(function() {
-          window.location.href = href;
-        }, 400);
-      }
     });
   });
 });
