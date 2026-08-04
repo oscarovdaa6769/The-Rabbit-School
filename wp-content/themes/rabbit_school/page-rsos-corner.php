@@ -136,6 +136,46 @@ get_header();
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+/* ========== FLOATING HERO CARD (pinned onto the picture's bottom edge, bigger, bobbing) ========== */
+@keyframes rso-float-bob {
+    0%, 100% { transform: translateY(50%); }
+    50%      { transform: translateY(calc(50% - 10px)); }
+}
+.rso-hero-image-wrap {
+    overflow: visible !important;
+}
+.rso-hero-image-inner {
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+.rso-float-card {
+    bottom: 0;
+    transform: translateY(50%);
+    animation: rso-float-bob 3.5s ease-in-out infinite;
+    border: 3px solid #D9A441;
+}
+/* Little "pin" marker that clips the card to the photo, so it reads as
+   physically pinned onto the picture rather than just floating near it. */
+.rso-pin-marker {
+    position: absolute;
+    top: -18px;
+    left: 32px;
+    width: 40px;
+    height: 40px;
+    background: #D9A441;
+    border: 3px solid #4A2E2A;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    z-index: 2;
+}
+.rso-pin-marker svg {
+    width: 18px;
+    height: 18px;
+}
 </style>
 
 <script>
@@ -181,15 +221,23 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
         </div>
 
         <?php if ( !empty($rso_hero_image) && isset($rso_hero_image['url']) ) : ?>
-        <div class="rso-animate relative w-full h-[300px] md:h-[400px] lg:h-[420px] rounded-3xl overflow-hidden shadow-xl group" style="animation-delay: 0.15s;">
-            <img
-                src="<?php echo esc_url( $rso_hero_image['url'] ); ?>"
-                alt="<?php echo esc_attr( !empty($rso_hero_image['alt']) ? $rso_hero_image['alt'] : $rsos_corner_fallback ); ?>"
-                class="block w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-            >
-            <div class="absolute bottom-3 left-3 right-3 md:bottom-5 md:left-5 md:right-5 bg-white rounded-xl shadow-lg p-4 md:p-5">
-                <h3 class="font-extrabold text-[#4A2E2A] uppercase tracking-wide mb-1 text-base"><?php echo esc_html( get_field('community_forum') ?: 'Community Forum' ); ?></h3>
-                <p class="text-[#4A2E2A] text-sm"><?php echo esc_html( get_field('phnom_penh_monday_20th_october_2025') ?: 'Phnom Penh, Monday 20th October 2025' ); ?></p>
+        <div class="rso-animate rso-hero-image-wrap relative w-full h-[300px] md:h-[400px] lg:h-[420px] shadow-xl group mb-24 md:mb-32" style="animation-delay: 0.15s;">
+            <div class="rso-hero-image-inner w-full h-full">
+                <img
+                    src="<?php echo esc_url( $rso_hero_image['url'] ); ?>"
+                    alt="<?php echo esc_attr( !empty($rso_hero_image['alt']) ? $rso_hero_image['alt'] : $rsos_corner_fallback ); ?>"
+                    class="block w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                >
+            </div>
+            <div class="rso-float-card absolute left-4 right-4 md:left-10 md:right-10 bg-white rounded-2xl shadow-2xl p-10 md:p-14">
+                <span class="rso-pin-marker" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#4A2E2A" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 2a5 5 0 0 0-5 5c0 3.5 5 11 5 11s5-7.5 5-11a5 5 0 0 0-5-5z"/>
+                        <circle cx="12" cy="7" r="1.8" fill="#4A2E2A" stroke="none"/>
+                    </svg>
+                </span>
+                <h3 class="font-extrabold text-[#4A2E2A] uppercase tracking-wide mb-3 text-3xl md:text-4xl"><?php echo esc_html( get_field('community_forum') ?: 'Community Forum' ); ?></h3>
+                <p class="text-[#4A2E2A] text-xl md:text-2xl"><?php echo esc_html( get_field('phnom_penh_monday_20th_october_2025') ?: 'Phnom Penh, Monday 20th October 2025' ); ?></p>
             </div>
         </div>
         <?php endif; ?>
@@ -533,7 +581,7 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
      that ancestor" instead of the real viewport. Living out here means it
      always covers the whole screen, not just the section it was opened from. -->
 <div id="rso-card-modal" class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/70 px-4 py-8" onclick="closeCardModalBackdrop(event)">
-    <div class="rso-modal-panel bg-white rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-y-auto relative shadow-2xl" onclick="event.stopPropagation()">
+    <div class="rso-modal-panel bg-white rounded-3xl max-w-6xl w-full max-h-[92vh] overflow-y-auto relative shadow-2xl" onclick="event.stopPropagation()">
         <button type="button" onclick="closeCardModal()" aria-label="Close"
                 class="absolute top-4 right-4 z-10 bg-white/90 hover:bg-white text-[#4A2E2A] rounded-full w-10 h-10 flex items-center justify-center shadow cursor-pointer transition">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
@@ -541,7 +589,7 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
             </svg>
         </button>
 
-        <div class="w-full h-72 md:h-96 overflow-hidden rounded-t-3xl">
+        <div class="w-full px-8 py-8 h-72 md:h-96 overflow-hidden rounded-t-3xl ">
             <img id="rso-modal-image" src="" alt="" class="block w-full h-full object-cover">
         </div>
 
