@@ -4,6 +4,50 @@
  */
 
 get_header();
+
+// ===== HERO =====
+$hero_bg          = get_field('hero_background_image') ?: get_theme_file_uri('assets/images/error.png');
+$hero_title       = get_field('hero_title') ?: 'Together, We Can Change Lives';
+$hero_description = get_field('hero_description') ?: 'Your generosity helps us provide education and support to children who need it most.';
+
+// ===== IMPACT SECTION INTRO =====
+$impact_heading    = get_field('impact_heading') ?: 'Your Gift Makes An Impact';
+$impact_subheading = get_field('impact_subheading') ?: 'Every contribution, big or small, helps us build a brighter future for children in Cambodia.';
+
+// ===== GIVE IN KIND CARD =====
+$kind_title = get_field('kind_title') ?: 'Give In Kind';
+$kind_intro = get_field('kind_intro') ?: 'If you would like to contribute with resources, these are things that are needed most:';
+$kind_item_1 = get_field('kind_item_1') ?: "School materials such as books, pencils, DVDs (player) and educational games";
+$kind_item_2 = get_field('kind_item_2') ?: "Children's books in Khmer";
+$kind_item_3 = get_field('kind_item_3') ?: "Physiotherapy special devices and toys";
+
+// ===== GIVE FINANCIAL CARD =====
+$financial_title = get_field('financial_title') ?: 'Give Financial';
+$financial_intro = get_field('financial_intro') ?: "A single gift can change a child's entire future.";
+$financial_amount_1 = get_field('financial_amount_1') ?: '$60';
+$financial_desc_1   = get_field('financial_description_1') ?: 'opens the classroom door for one month.';
+$financial_amount_2 = get_field('financial_amount_2') ?: '$800';
+$financial_desc_2   = get_field('financial_description_2') ?: 'keeps that door open for a full year—giving one child safety, routine, and a chance to grow.';
+
+// ===== HOW TO DONATE SECTION =====
+$howto_heading = get_field('howto_heading') ?: 'How To Donate';
+
+$howto_1_title = get_field('howto_1_title') ?: 'Bank Transfer';
+$howto_1_desc  = get_field('howto_1_description') ?: 'Transfer directly to our bank account using the details below.';
+
+$howto_2_title = get_field('howto_2_title') ?: 'Scan To Donate';
+$howto_2_desc  = get_field('howto_2_description') ?: 'Scan the QR code to make your donation securely.';
+
+$howto_3_title = get_field('howto_3_title') ?: 'Contact Us';
+$howto_3_desc  = get_field('howto_3_description') ?: "Need help or have questions? We're here to assist you.";
+
+// ===== BANK DETAILS CARD =====
+$bank_name        = get_field('bank_name') ?: 'ACLEDA Bank';
+$bank_swift       = get_field('bank_swift_code') ?: 'ACLBKHPP';
+$bank_address     = get_field('bank_address') ?: 'Building N° 61, Preah Monivong Blvd., Sangkat Srah Chak, Khan Daun Penh, Phnom Penh';
+$bank_account_name   = get_field('bank_account_name') ?: 'Rabbit School';
+$bank_account_number = get_field('bank_account_number') ?: '2900-01-005152-4-2';
+$bank_qr_image        = get_field('bank_qr_image') ?: get_theme_file_uri('assets/images/error.png');
 ?>
 <?php
 // SECTION 1: ACF Fields
