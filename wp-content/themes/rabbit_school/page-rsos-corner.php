@@ -2,14 +2,75 @@
 /**
  * Template Name: RSOS Corner (News & Stories)
  *
- * Static version — no database queries. Edit the text below directly
- * whenever you want to change the categories or the featured story.
  * Hero image is pulled from the ACF "hero_image" field on this page.
- * Article card images are plain files in /images/ inside this theme.
- * Clicking "Read More" on a card opens a popup with the picture and
- * full story instead of expanding inline.
+ * Article cards are managed via the "rso_news_card" custom post type
+ * (registered in functions.php) — image, title, category, date, and
+ * story content all come from wp-admin, no code changes needed to
+ * add/remove/reorder cards. Clicking "Read More" on a card opens a
+ * popup with the picture and full story instead of expanding inline.
  *
  * @package rabbit_school
+ */
+
+/**
+ * ================================================================
+ * ACF FIELD REFERENCE — read this before editing content in wp-admin
+ * ================================================================
+ * Every field below falls back to the text shown if left empty, so
+ * the page still works with nothing filled in — but fill these in
+ * for real content.
+ *
+ * ---- A) Fields on THIS PAGE (Page > Edit > Custom Fields) --------
+ *
+ * Hero section
+ *   hero_image                (Image)     hero background photo
+ *   news                      (Text)      small label above H1 — default: "RSOS Corner"
+ *   rsos_corner               (Text)      main H1 heading      — default: "RSOS Corner"
+ *   stories_from_the_ground   (Textarea)  hero subtext         — default: "Stories from the ground."
+ *   education_box             (Text)      hero pill button     — default: "Education"
+ *   community_box              (Text)      hero pill button     — default: "Community"
+ *   advocacy_box                (Text)      hero pill button     — default: "Advocacy"
+ *   vocational_training_box    (Text)      hero pill button     — default: "Vocational Training"
+ *   community_forum            (Text)      floating card title  — default: "Community Forum"
+ *   phnom_penh_monday_20th_october_2025 (Text) floating card date line
+ *                                                              — default: "Phnom Penh, Monday 20th October 2025"
+ *
+ * Featured story section
+ *   featured_story                    (Text)     eyebrow label — default: "Featured Story"
+ *   from_classroom                    (Text)     story heading — default: "From Classroom to Employment"
+ *   at_19_dara_joined_rabbit_schools   (Textarea) visible excerpt (always shown)
+ *   dara_struggled_to_find             (Textarea) hidden paragraph (shown after "Success Story" click)
+ *   today_dara_works                   (Textarea) hidden paragraph (shown after "Success Story" click)
+ *   vocational_training_box1          (Text)     category pill  — default: "Vocational Training"
+ *   success_story_box                  (Text)     expand/collapse button — default: "Success Story"
+ *   show_less                          (Text)     button label once expanded — default: "Show Less"
+ *
+ * Latest articles section
+ *   latest_articles   (Text)  section eyebrow — default: "Latest Articles"
+ *   filter            (Text)  dropdown placeholder — default: "Filter by Category"
+ *   read_more         (Text)  card button label — default: "Read More"
+ *
+ * Newsletter section
+ *   stay_connected_with_rso                                                    (Text)     — default: "Stay Connected"
+ *   get_the_latest_stories_and_updates_from_rabbit_school_delivered_to_your_inbox (Textarea) — default: "Subscribe to get the latest updates."
+ *   ex          (Text)  email input placeholder — default: "your.email@example.com"
+ *   subscribe   (Text)  submit button label      — default: "Subscribe"
+ *   e           (Text)  invalid-email error       — default: "Please enter a valid email address."
+ *   s           (Text)  success message           — default: "Thanks! You are subscribed."
+ *   something_went_wrong                                          (Text) send-failure message
+ *   newsletter_signup_is_temporarily_unavailable                 (Text) shown if EmailJS script fails to load
+ *   emailjs_library_failed_to_load_check_ad-blockers_network_or_cdn_access (Text) console log only — visitors never see this one
+ *
+ * ---- B) Fields on EACH "News Card" post (wp-admin > News Cards) ---
+ *   Featured Image      built-in WP featured image, NOT card_image1 below unless your CPT uses that instead
+ *   card_image1         (Image)     card thumbnail + modal image
+ *   card_date_label2    (Text)      date shown in the card badge, e.g. "20 Oct 2025"
+ *   rso_news_category   (Taxonomy)  category — powers the badge AND the filter dropdown
+ *   paragraphs          (Textarea)  short excerpt — shown on the card, and as modal fallback if the
+ *                                   post content below has no parsed paragraphs
+ *   Post content (editor)           full story — split into paragraphs automatically by
+ *                                   rso_get_paragraphs_from_content() for the popup
+ * ================================================================
  */
 
 get_header();
@@ -295,31 +356,133 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
 <!-- Latest articles -->
 <section class="rso-animate bg-white px-6 md:px-12" style="animation-delay: 0.3s;">
     <div class="max-w-6xl mx-auto">
- 
+
         <div class="flex items-center gap-4 mb-8">
             <span class="uppercase text-xs font-bold tracking-widest text-[#4A2E2A] whitespace-nowrap"><?php echo esc_html( get_field('latest_articles') ?: 'Latest Articles' ); ?></span>
             <span class="flex-1 h-px bg-gray-300"></span>
         </div>
- 
-        <!-- Filter bar (multi-select: pick several categories, each becomes its own chip) -->
-        <?php 
-            $f_edu = esc_html( get_field('fiilter_education') ?: 'Education' );
-            $f_com = esc_html( get_field('filter_community') ?: 'Community' );
-            $f_adv = esc_html( get_field('filter_advocacy') ?: 'Advocacy' );
-            $f_voc = esc_html( get_field('filter_vocational_training') ?: 'Vocational Training' );
-            $f_tea = esc_html( get_field('filter_teacher_training') ?: 'Teacher Training' );
-            $f_hea = esc_html( get_field('health_') ?: 'Health' );
+
+        <?php
+        // ================================================================
+        // Cards are posts of the "rso_news_card" custom post type
+        // (registered in functions.php). Admins manage them entirely from
+        // the "News Cards" menu in wp-admin — Add New, set featured image,
+        // title, category, date label, and write the story in the editor.
+        // No code changes needed to add, remove, or reorder cards, and
+        // typing a brand-new category on any card automatically becomes
+        // a new filter option here too.
+        // ================================================================
+        $rso_card_data      = array();
+        $rso_cards_markup   = array();
+        $rso_all_categories = array();
+
+        $rso_query_args = array(
+            'post_type'      => 'rso_news_card',
+            'posts_per_page' => -1,
+            'orderby'        => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
+            'post_status'    => 'publish',
+        );
+
+        // Only pull cards in the visitor's current language, so the grid
+        // and the category filter dropdown never mix EN + KM together.
+        // Needs the pll_get_post_types filter in functions.php so Polylang
+        // is actually managing this post type — see the note there.
+        if ( function_exists( 'pll_current_language' ) ) {
+            $rso_query_args['lang'] = pll_current_language();
+        }
+
+        $rso_news_query = new WP_Query( $rso_query_args );
+
+        if ( $rso_news_query->have_posts() ) :
+            $rso_i = 0;
+            while ( $rso_news_query->have_posts() ) : $rso_news_query->the_post();
+                $rso_i++;
+                global $post;
+
+                $card_image_url = get_field( 'card_image1' );
+                $card_image_url = is_array( $card_image_url ) ? ( $card_image_url['url'] ?? '' ) : (string) $card_image_url;
+                $card_title     = get_the_title();
+                $card_date      = trim( (string) get_field( 'card_date_label2' ) );
+
+                $rso_terms     = get_the_terms( $post->ID, 'rso_news_category' );
+                $card_category = ( ! empty( $rso_terms ) && ! is_wp_error( $rso_terms ) ) ? $rso_terms[0]->name : '';
+
+                if ( $card_category !== '' ) {
+                    $rso_all_categories[ $card_category ] = true;
+                }
+
+                $card_badge = ( $card_date !== '' && $card_category !== '' )
+                    ? $card_date . ' • ' . $card_category
+                    : ( $card_category !== '' ? $card_category : $card_date );
+
+                $card_paragraphs = rso_get_paragraphs_from_content( $post );
+                $card_excerpt    = trim( (string) get_field( 'paragraphs' ) );
+
+                // NOTE: excerpt is stored per-card in $rso_card_data below (and
+                // read back out as data.excerpt in JS) precisely so the modal's
+                // "no paragraphs" fallback shows THIS card's excerpt — not
+                // whichever card happened to be last in this loop.
+                $rso_card_data[ (string) $rso_i ] = array(
+                    'image'      => $card_image_url,
+                    'category'   => $card_badge,
+                    'title'      => $card_title,
+                    'paragraphs' => $card_paragraphs,
+                    'excerpt'    => $card_excerpt,
+                    'post'       => get_the_content(),
+                );
+
+                ob_start();
+                ?>
+                <div class="rso-grid-item rso-hidden-wrapper grid h-full" data-category="<?php echo esc_attr( $card_category ); ?>">
+                    <div class="overflow-hidden h-full">
+                        <article class="rso-card-hover bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full">
+                            <div class="w-full h-40 rounded-2xl overflow-hidden mb-4">
+                                <img src="<?php echo esc_url( $card_image_url ); ?>"
+                                     alt="<?php echo esc_attr( $card_title ); ?>"
+                                     class="block w-full h-full object-cover">
+                            </div>
+                            <p class="text-xs font-bold uppercase tracking-wide text-[#4A2E2A]/70 mb-3">
+                                <?php echo esc_html( $card_badge ); ?>
+                            </p>
+                            <h3 class="rso-clamp-2 text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
+                                <?php echo esc_html( $card_title ); ?>
+                            </h3>
+                            <p class="rso-clamp-1 text-gray-600 text-ls leading-relaxed mb-4 flex-1 min-h-0">
+                                <?php echo esc_html( $card_excerpt ); ?>
+                            </p>
+                            <button type="button" onclick="openCardModal('<?php echo esc_js( $rso_i ); ?>')"
+                                    class="group inline-flex items-center gap-2 bg-[#D9A441] text-[#4A2E2A] text-sm font-bold uppercase tracking-wide px-5 py-2.5 rounded-[10px] hover:bg-[#c9953a] active:scale-95 transition w-fit cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4A2E2A] focus-visible:ring-offset-2">
+                                <span class="read-more-label"><?php echo esc_html( get_field('read_more') ?: 'Read More' ); ?></span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                        </article>
+                    </div>
+                </div>
+                <?php
+                $rso_cards_markup[] = ob_get_clean();
+
+            endwhile;
+            wp_reset_postdata();
+        endif;
+
+        $rso_category_list = array_keys( $rso_all_categories );
+        sort( $rso_category_list );
         ?>
+
+        <script>
+            var rsoCardsData = <?php echo wp_json_encode( $rso_card_data ); ?>;
+        </script>
+
+        <!-- Filter bar (multi-select: pick several categories, each becomes its own chip) -->
         <div class="flex flex-wrap items-center gap-3 mb-10">
             <div class="relative">
                 <select id="rso-filter-select" class="appearance-none bg-white border border-gray-300 rounded-[10px] text-ls text-gray-700 font-medium pl-4 pr-10 py-3 cursor-pointer hover:border-[#4A2E2A] focus:outline-none focus:border-[#4A2E2A] transition">
                     <option value=""><?php echo esc_html( get_field('filter') ?: 'Filter by Category' ); ?></option>
-                    <option value="<?php echo $f_edu; ?>"><?php echo $f_edu; ?></option>
-                    <option value="<?php echo $f_com; ?>"><?php echo $f_com; ?></option>
-                    <option value="<?php echo $f_adv; ?>"><?php echo $f_adv; ?></option>
-                    <option value="<?php echo $f_voc; ?>"><?php echo $f_voc; ?></option>
-                    <option value="<?php echo $f_tea; ?>"><?php echo $f_tea; ?></option>
-                    <option value="<?php echo $f_hea; ?>"><?php echo $f_hea; ?></option>
+                    <?php foreach ( $rso_category_list as $rso_cat ) : ?>
+                        <option value="<?php echo esc_attr( $rso_cat ); ?>"><?php echo esc_html( $rso_cat ); ?></option>
+                    <?php endforeach; ?>
                 </select>
                 <svg class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -331,246 +494,9 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
 
         <p id="rso-no-results" class="hidden text-gray-500 text-sm mb-6">No articles match your filter.</p>
 
-        <?php
-        // Data for each card's Read More popup (image, category, title, and the
-        // full story text). Edit the fallback strings directly, or fill the
-        // matching ACF text fields (same ones used on the cards below) and
-        // this will update automatically.
-        $rso_card_data = array(
-            '1' => array(
-                'image'    => get_field('imagescard-1') . '',
-                'category' => get_field('june_2026_•_education') ?: 'June 2026 • Education',
-                'title'    => get_field('opening_7_new_classrooms_in_toul_kork_primary_school') ?: 'Opening New Classrooms',
-                'paragraphs' => array(
-                    get_field('more_children') ?: 'Providing resources for more children...',
-                    get_field('the_expansion') ?: 'The expansion details...',
-                    get_field('families_in_the') ?: 'Local families feedback...',
-                ),
-            ),
-            '2' => array(
-                'image'    => get_field('imagescard-2') . '',
-                'category' => get_field('may_2026_•_community') ?: 'May 2026 • Community',
-                'title'    => get_field('parents_as_advocates:_how_families_are_shaping_policy') ?: 'Parents as Advocates',
-                'paragraphs' => array(
-                    get_field('the_rabbit_school_parents_association_is_becoming_a_powerful_voice_for_disability_rights_in_cambodia') ?: 'Shaping future community structures...',
-                    get_field('members_meet') ?: 'Members gather regularly...',
-                    get_field('several_members') ?: 'Impact evaluations...',
-                ),
-            ),
-            '3' => array(
-                'image'    => get_field('imagescard-3') . '',
-                'category' => get_field('april_2026_•_teacher_training') ?: 'April 2026 • Teacher Training',
-                'title'    => get_field('training_teachers_to_see_every_childs_potential') ?: 'Training Teachers',
-                'paragraphs' => array(
-                    get_field('rsos_teacher_training_program_is_expanding_to_kampong_speu_province_reaching_more_rural_communities') ?: 'Expanding systemic capabilities...',
-                    get_field('the_program') ?: 'Program structural models...',
-                    get_field('early_feedback') ?: 'Initial classroom metrics...',
-                ),
-            ),
-            '4' => array(
-                'image'    => get_field('imagescard-4') . '',
-                'category' => get_field('march_2026_•_advocacy') ?: 'March 2026 • Advocacy',
-                'title'    => get_field('pushing_for_inclusive_education_policy_at_the_national_level') ?: 'Inclusive Education Policy',
-                'paragraphs' => array(
-                    get_field('rso_joined') ?: 'Collaborating with national partners...',
-                    get_field('the_coalitions_') ?: 'Coalition roadmaps...',
-                    get_field('while_policy') ?: 'Long term dynamic insights...',
-                ),
-            ),
-            '5' => array(
-                'image'    => get_field('imagescard-5') . '',
-                'category' => get_field('february_2026_•_vocational_training') ?: 'February 2026 • Vocational Training',
-                'title'    => get_field('new_sewing_workshop_opens_doors_for_young_women') ?: 'New Sewing Workshop',
-                'paragraphs' => array(
-                    get_field('a_newly_equipped_sewing_workshop_is_giving_young_women_practical_marketable_skills_and_a_path_toward_financial_independence') ?: 'Providing key operational skills...',
-                    get_field('the_workshop_was_built') ?: 'Workshop facilities and logistics...',
-                    get_field('several_graduates_have_already') ?: 'Graduation status updates...',
-                ),
-            ),
-            '6' => array(
-                'image'    => get_field('imagescard-6') . '',
-                'category' => get_field('january_2026_•_health') ?: 'January 2026 • Health',
-                'title'    => get_field('new_health_checkup_program') ?: 'Free Health Checkups Reach Every Classroom',
-                'paragraphs' => array(
-                    get_field('a_new_partnership_brings_free_health_checkups_and_basic_care_to_students_and_families') ?: 'A new partnership is bringing free health screenings and basic medical care directly to students and their families each term.',
-                    get_field('details_about_the_health_program_rollout') ?: 'The screenings cover vision, hearing, and general wellness checks, with a visiting nurse on site twice a month to follow up on any concerns.',
-                    get_field('early_results_and_family_feedback') ?: 'Parents say the convenience of on-campus care has already caught early issues that might otherwise have gone unnoticed.',
-                ),
-            ),
-        );
-        ?>
-        <script>
-            var rsoCardsData = <?php echo wp_json_encode( $rso_card_data ); ?>;
-        </script>
-
         <!-- Article cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch" id="rso-article-grid">
-
-            <article class="rso-grid-item rso-card-hover bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full" data-category="<?php echo esc_attr( $f_edu ); ?>">
-                <div class="w-full h-40 rounded-2xl overflow-hidden mb-4">
-                    <img src="<?php echo esc_html( get_field('imagescard-1') ?: '' ); ?>"
-                         alt="Opening New Classrooms"
-                         class="block w-full h-full object-cover">
-                </div>
-                <p class="text-xs font-bold uppercase tracking-wide text-[#4A2E2A]/70 mb-3">
-                    <?php echo esc_html( get_field('june_2026_•_education') ?: 'June 2026 • Education' ); ?>
-                </p>
-                <h3 class="rso-clamp-2 text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
-                     <?php echo esc_html( get_field('opening_7_new_classrooms_in_toul_kork_primary_school') ?: 'Opening New Classrooms' ); ?>
-                </h3>
-                <p class="rso-clamp-1 text-gray-600 text-ls leading-relaxed mb-4 flex-1 min-h-0">
-                    <?php echo esc_html( get_field('more_children') ?: 'Providing resources for more children...' ); ?>
-                </p>
-
-                <button type="button" onclick="openCardModal('1')"
-                        class="group inline-flex items-center gap-2 bg-[#D9A441] text-[#4A2E2A] text-sm font-bold uppercase tracking-wide px-5 py-2.5 rounded-[10px] hover:bg-[#c9953a] active:scale-95 transition w-fit cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4A2E2A] focus-visible:ring-offset-2">
-                    <span class="read-more-label"><?php echo esc_html( get_field('read_more') ?: 'Read More' ); ?></span>
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </button>
-            </article>
-
-            <article class="rso-grid-item rso-card-hover bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full" data-category="<?php echo esc_attr( $f_com ); ?>">
-                <div class="w-full h-40 rounded-2xl overflow-hidden mb-4">
-                    <img src="<?php echo esc_html( get_field('imagescard-2') ?: '' ); ?>"
-                         alt="Parents as Advocates"
-                         class="block w-full h-full object-cover">
-                </div>
-                <p class="text-xs font-bold uppercase tracking-wide text-[#4A2E2A]/70 mb-3">
-                    <?php echo esc_html( get_field('may_2026_•_community') ?: 'May 2026 • Community' ); ?>
-                </p>
-                <h3 class="rso-clamp-2 text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
-                   <?php echo esc_html( get_field('parents_as_advocates:_how_families_are_shaping_policy') ?: 'Parents as Advocates' ); ?>
-                </h3>
-                <p class="rso-clamp-1 text-gray-600 text-ls leading-relaxed mb-4 flex-1 min-h-0">
-                   <?php echo esc_html( get_field('the_rabbit_school_parents_association_is_becoming_a_powerful_voice_for_disability_rights_in_cambodia') ?: 'Shaping future community structures...' ); ?>
-                </p>
-
-                <button type="button" onclick="openCardModal('2')"
-                        class="group inline-flex items-center gap-2 bg-[#D9A441] text-[#4A2E2A] text-sm font-bold uppercase tracking-wide px-5 py-2.5 rounded-[10px] hover:bg-[#c9953a] active:scale-95 transition w-fit cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4A2E2A] focus-visible:ring-offset-2">
-                    <span class="read-more-label"><?php echo esc_html( get_field('read_more') ?: 'Read More' ); ?></span>
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </button>
-            </article>
-
-            <article class="rso-grid-item rso-card-hover bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full" data-category="<?php echo esc_attr( $f_tea ); ?>">
-                <div class="w-full h-40 rounded-2xl overflow-hidden mb-4">
-                    <img src="<?php echo esc_html( get_field('imagescard-3') ?: '' ); ?>"
-                         alt="Training Teachers"
-                         class="block w-full h-full object-cover">
-                </div>
-                <p class="text-xs font-bold uppercase tracking-wide text-[#4A2E2A]/70 mb-3">
-                    <?php echo esc_html( get_field('april_2026_•_teacher_training') ?: 'April 2026 • Teacher Training' ); ?>
-                </p>
-                <h3 class="rso-clamp-2 text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
-                    <?php echo esc_html( get_field('training_teachers_to_see_every_childs_potential') ?: 'Training Teachers' ); ?>
-                </h3>
-                <p class="rso-clamp-1 text-gray-600 text-ls leading-relaxed mb-4 flex-1 min-h-0">
-                   <?php echo esc_html( get_field('rsos_teacher_training_program_is_expanding_to_kampong_speu_province_reaching_more_rural_communities') ?: 'Expanding systemic capabilities...' ); ?>
-                </p>
-
-                <button type="button" onclick="openCardModal('3')"
-                        class="group inline-flex items-center gap-2 bg-[#D9A441] text-[#4A2E2A] text-sm font-bold uppercase tracking-wide px-5 py-2.5 rounded-[10px] hover:bg-[#c9953a] active:scale-95 transition w-fit cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4A2E2A] focus-visible:ring-offset-2">
-                    <span class="read-more-label"><?php echo esc_html( get_field('read_more') ?: 'Read More' ); ?></span>
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </button>
-            </article>
-
-            <!-- Card (previously hidden by default) -->
-            <div class="rso-grid-item rso-hidden-wrapper grid h-full" data-category="<?php echo esc_attr( $f_adv ); ?>">
-                <div class="overflow-hidden h-full">
-                    <article class="rso-card-hover bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full">
-                        <div class="w-full h-40 rounded-2xl overflow-hidden mb-4">
-                            <img src="<?php echo esc_html( get_field('imagescard-4') ?: '' ); ?>"
-                                 alt="Inclusive Education Policy"
-                                 class="block w-full h-full object-cover">
-                        </div>
-                        <p class="text-xs font-bold uppercase tracking-wide text-[#4A2E2A]/70 mb-3">
-                           <?php echo esc_html( get_field('march_2026_•_advocacy') ?: 'March 2026 • Advocacy' ); ?>
-                        </p>
-                        <h3 class="rso-clamp-2 text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
-                            <?php echo esc_html( get_field('pushing_for_inclusive_education_policy_at_the_national_level') ?: 'Inclusive Education Policy' ); ?>
-                        </h3>
-                        <p class="rso-clamp-1 text-gray-600 text-ls leading-relaxed mb-4 flex-1 min-h-0">
-                           <?php echo esc_html( get_field('rso_joined') ?: 'Collaborating with national partners...' ); ?>
-                        </p>
-
-                        <button type="button" onclick="openCardModal('4')"
-                                class="group inline-flex items-center gap-2 bg-[#D9A441] text-[#4A2E2A] text-sm font-bold uppercase tracking-wide px-5 py-2.5 rounded-[10px] hover:bg-[#c9953a] active:scale-95 transition w-fit cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4A2E2A] focus-visible:ring-offset-2">
-                            <span class="read-more-label"><?php echo esc_html( get_field('read_more') ?: 'Read More' ); ?></span>
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                    </article>
-                </div>
-            </div>
-
-            <!-- Card (previously hidden by default) -->
-            <div class="rso-grid-item rso-hidden-wrapper grid h-full" data-category="<?php echo esc_attr( $f_voc ); ?>">
-                <div class="overflow-hidden h-full">
-                    <article class="rso-card-hover bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full">
-                        <div class="w-full h-40 rounded-2xl overflow-hidden mb-4">
-                            <img src="<?php echo esc_html( get_field('imagescard-5') ?: '' ); ?>"
-                                 alt="New Sewing Workshop"
-                                 class="block w-full h-full object-cover">
-                        </div>
-                        <p class="text-xs font-bold uppercase tracking-wide text-[#4A2E2A]/70 mb-3">
-                           <?php echo esc_html( get_field('february_2026_•_vocational_training') ?: 'February 2026 • Vocational Training' ); ?>
-                        </p>
-                        <h3 class="rso-clamp-2 text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
-                            <?php echo esc_html( get_field('new_sewing_workshop_opens_doors_for_young_women') ?: 'New Sewing Workshop' ); ?>
-                        </h3>
-                        <p class="rso-clamp-1 text-gray-600 text-ls leading-relaxed mb-4 flex-1 min-h-0">
-                           <?php echo esc_html( get_field('a_newly_equipped_sewing_workshop_is_giving_young_women_practical_marketable_skills_and_a_path_toward_financial_independence') ?: 'Providing key operational skills...' ); ?>
-                        </p>
-
-                        <button type="button" onclick="openCardModal('5')"
-                                class="group inline-flex items-center gap-2 bg-[#D9A441] text-[#4A2E2A] text-sm font-bold uppercase tracking-wide px-5 py-2.5 rounded-[10px] hover:bg-[#c9953a] active:scale-95 transition w-fit cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4A2E2A] focus-visible:ring-offset-2">
-                            <span class="read-more-label"><?php echo esc_html( get_field('read_more') ?: 'Read More' ); ?></span>
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                    </article>
-                </div>
-            </div>
-
-            <!-- Card (previously hidden by default) -->
-            <div class="rso-grid-item rso-hidden-wrapper grid h-full" data-category="<?php echo esc_attr( $f_hea ); ?>">
-                <div class="overflow-hidden h-full">
-                    <article class="rso-card-hover bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full">
-                        <div class="w-full h-40 rounded-2xl overflow-hidden mb-4">
-                            <img src="<?php echo esc_html( get_field('imagescard-6') ?: '' ); ?>"
-                                 alt="Free Health Checkups Reach Every Classroom"
-                                 class="block w-full h-full object-cover">
-                        </div>
-                        <p class="text-xs font-bold uppercase tracking-wide text-[#4A2E2A]/70 mb-3">
-                           <?php echo esc_html( get_field('january_2026_•_health') ?: 'January 2026 • Health' ); ?>
-                        </p>
-                        <h3 class="rso-clamp-2 text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
-                            <?php echo esc_html( get_field('new_health_checkup_program') ?: 'Free Health Checkups Reach Every Classroom' ); ?>
-                        </h3>
-                        <p class="rso-clamp-1 text-gray-600 text-ls leading-relaxed mb-4 flex-1 min-h-0">
-                           <?php echo esc_html( get_field('a_new_partnership_brings_free_health_checkups_and_basic_care_to_students_and_families') ?: 'A new partnership is bringing free health screenings and basic medical care directly to students and their families each term.' ); ?>
-                        </p>
-
-                        <button type="button" onclick="openCardModal('6')"
-                                class="group inline-flex items-center gap-2 bg-[#D9A441] text-[#4A2E2A] text-sm font-bold uppercase tracking-wide px-5 py-2.5 rounded-[10px] hover:bg-[#c9953a] active:scale-95 transition w-fit cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4A2E2A] focus-visible:ring-offset-2">
-                            <span class="read-more-label"><?php echo esc_html( get_field('read_more') ?: 'Read More' ); ?></span>
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                    </article>
-                </div>
-            </div>
- 
+            <?php echo implode( "\n", $rso_cards_markup ); ?>
         </div>
 
     </div>
@@ -627,6 +553,7 @@ function toggleReadMore(id, btn) {
 // Card Read More popup
 function openCardModal(id) {
     var data = window.rsoCardsData && window.rsoCardsData[id];
+
     if (!data) return;
 
     var modal = document.getElementById('rso-card-modal');
@@ -640,26 +567,43 @@ function openCardModal(id) {
     category.textContent = data.category || '';
     title.textContent = data.title || '';
 
+    // Display paragraphs (shown once, in the modal body only)
     body.innerHTML = '';
-    (data.paragraphs || []).forEach(function (text) {
-        if (!text) return;
-        var p = document.createElement('p');
-        p.textContent = text;
-        body.appendChild(p);
-    });
+
+    if (data.paragraphs && data.paragraphs.length > 0) {
+
+        data.paragraphs.forEach(function(text) {
+
+            if (!text) return;
+
+            var p = document.createElement('p');
+            p.className = 'mb-4 text-gray-700 leading-relaxed';
+            p.textContent = text;
+            body.appendChild(p);
+
+        });
+
+    } else if (data.excerpt) {
+        // Fall back to this specific card's excerpt (not whichever
+        // card happened to be last on the page).
+        var fallback = document.createElement('p');
+        fallback.className = 'mb-4 text-gray-700 leading-relaxed';
+        fallback.textContent = data.excerpt;
+        body.appendChild(fallback);
+    }
 
     modal.classList.remove('hidden');
     modal.classList.add('flex');
+
     requestAnimationFrame(function () {
         modal.classList.add('rso-modal-open');
     });
 
-    // Lock scrolling without shifting the page: pad the body by exactly
-    // the width of the scrollbar we're about to hide.
     var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     document.body.style.paddingRight = scrollbarWidth + 'px';
     document.body.style.overflow = 'hidden';
 }
+
 
 function closeCardModal() {
     var modal = document.getElementById('rso-card-modal');
@@ -844,13 +788,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Guard: make sure the EmailJS library actually loaded
-if (typeof emailjs === 'undefined') {
-    console.error('<?php echo esc_html( get_field('emailjs_library_failed_to_load_check_ad-blockers_network_or_cdn_access') ?: 'EmailJS library failed to load (check ad-blockers, network, or CDN access).' ); ?>');
-    showFeedback('<?php echo esc_html( get_field('newsletter_signup_is_temporarily_unavailable') ?: 'Newsletter signup is temporarily unavailable.' ); ?>', 'error');
-    submitBtn.disabled = true;
-    submitBtn.classList.add('opacity-60', 'cursor-not-allowed');
-    return;
-}
+    if (typeof emailjs === 'undefined') {
+        console.error('<?php echo esc_html( get_field('emailjs_library_failed_to_load_check_ad-blockers_network_or_cdn_access') ?: 'EmailJS library failed to load (check ad-blockers, network, or CDN access).' ); ?>');
+        showFeedback('<?php echo esc_html( get_field('newsletter_signup_is_temporarily_unavailable') ?: 'Newsletter signup is temporarily unavailable.' ); ?>', 'error');
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-60', 'cursor-not-allowed');
+        return;
+    }
 
     emailjs.init(EMAILJS_PUBLIC_KEY);
 
@@ -877,7 +821,7 @@ if (typeof emailjs === 'undefined') {
         const templateParams = {
             email: email
         };
-emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_NEWSLETTER_TEMPLATE_ID, templateParams)
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_NEWSLETTER_TEMPLATE_ID, templateParams)
             .then(function (response) {
                 console.log('EmailJS SUCCESS!', response.status, response.text);
                 feedback.style.color = 'green';

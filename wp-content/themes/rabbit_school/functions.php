@@ -75,3 +75,113 @@ function configure_smtp_mailer($phpmailer) {
 add_action('wp_mail_failed', function($wp_error) {
     error_log('wp_mail failed: ' . $wp_error->get_error_message());
 });
+/**
+ * RSOS Corner — "News Cards" custom post type.
+ *
+ * Gives admins a dedicated "News Cards" menu in wp-admin to add, edit,
+ * reorder, and delete article cards — no code or page-editing required.
+ * Paste this whole block into your theme's functions.php.
+ */
+ 
+// ---- Register the "News Cards" post type + "Categories" taxonomy ----
+add_action( 'init', function () {
+ 
+    register_post_type( 'rso_news_card', array(
+        'labels' => array(
+            'name'               => 'News Cards',
+            'singular_name'      => 'News Card',
+            'add_new'            => 'Add New Card',
+            'add_new_item'       => 'Add New News Card',
+            'edit_item'          => 'Edit News Card',
+            'new_item'           => 'New News Card',
+            'view_item'          => 'View News Card',
+            'search_items'       => 'Search News Cards',
+            'not_found'          => 'No news cards found',
+            'not_found_in_trash' => 'No news cards found in Trash',
+            'menu_name'          => 'News Cards',
+        ),
+        'public'        => false,   // no public single pages — used only for this section
+        'show_ui'       => true,    // but fully manageable in wp-admin
+        'show_in_menu'  => true,
+        'menu_icon'     => 'dashicons-media-text',
+        'menu_position' => 20,
+        'supports'      => array( 'title', 'editor', 'thumbnail', 'page-attributes' ),
+        'hierarchical'  => false,
+    ) );
+ 
+    register_taxonomy( 'rso_news_category', 'rso_news_card', array(
+        'labels' => array(
+            'name'          => 'Categories',
+            'singular_name' => 'Category',
+            'add_new_item'  => 'Add New Category',
+            'search_items'  => 'Search Categories',
+            'menu_name'     => 'Categories',
+        ),
+        'hierarchical'      => false, // tag-style: type a new one to create it on the fly
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'show_in_menu'      => true,
+        'query_var'         => true,
+    ) );
+ 
+} );
+ 
+// ---- "Date label" side meta box, e.g. "July 2026" ----
+add_action( 'add_meta_boxes', function () {
+    add_meta_box(
+        'rso_card_date_label',
+        'Date Label',
+        'rso_render_card_date_meta_box',
+        'rso_news_card',
+        'side',
+        'default'
+    );
+} );
+
+
+function rso_render_card_date_meta_box( $post ) {
+    wp_nonce_field( 'rso_save_card_date', 'rso_card_date_nonce' );
+    $value = get_post_meta( $post->ID, '_rso_date_label', true );
+    echo '<label for="rso_date_label" style="display:block;margin-bottom:6px;">e.g. "July 2026" (optional)</label>';
+    echo '<input type="text" id="rso_date_label" name="rso_date_label" value="' . esc_attr( $value ) . '" style="width:100%;">';
+}
+ 
+add_action( 'save_post_rso_news_card', function ( $post_id ) {
+    if ( ! isset( $_POST['rso_card_date_nonce'] ) || ! wp_verify_nonce( $_POST['rso_card_date_nonce'], 'rso_save_card_date' ) ) {
+        return;
+    }
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+    if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        return;
+    }
+    if ( isset( $_POST['rso_date_label'] ) ) {
+        update_post_meta( $post_id, '_rso_date_label', sanitize_text_field( $_POST['rso_date_label'] ) );
+    }
+} );
+ 
+// ---- Helper: split a card's rendered content into clean paragraphs ----
+function rso_get_paragraphs_from_content( $post ) {
+    $rendered = apply_filters( 'the_content', $post->post_content );
+ 
+    preg_match_all( '/<p[^>]*>(.*?)<\/p>/is', $rendered, $matches );
+    $paragraphs = array();
+    if ( ! empty( $matches[1] ) ) {
+        foreach ( $matches[1] as $p ) {
+            $text = trim( wp_strip_all_tags( $p ) );
+            if ( $text !== '' ) {
+                $paragraphs[] = $text;
+            }
+        }
+    }
+ 
+    if ( empty( $paragraphs ) ) {
+        $plain = trim( wp_strip_all_tags( $post->post_content ) );
+        $paragraphs = array_values( array_filter( array_map( 'trim',
+            preg_split( '/\r\n\s*\r\n|\n\s*\n/', $plain )
+        ) ) );
+    }
+ 
+    return $paragraphs;
+}
