@@ -7,6 +7,7 @@ get_header();
 // ACF Fields
 $hero_title = get_field('hero_title');
 $hero_description = get_field('hero_description');
+$hero_image = get_field('hero_image');
 
 $email = get_field('email');
 $contact_email = get_field('contact_email');
@@ -23,7 +24,6 @@ $phone_number_2 = get_field('phone_number_2');
 $kandal_area_supervisor = get_field('kandal_area_supervisor');
 $phone_number_3 = get_field('phone_number_3');
 
-
 $notice_message = get_field('notice_message');
 
 $location_image = get_field('location_image');
@@ -34,12 +34,16 @@ $form_title = get_field('form_title');
 $form_description = get_field('form_description');
 $form_your_name = get_field('form_your_name');
 $error_your_name = get_field('error_your_name');
+$placeholder_your_name = get_field('placeholder_your_name');
 $form_your_email = get_field('form_your_email');
 $error_your_email = get_field('error_your_email');
+$placeholder_your_email = get_field('placeholder_your_email');
 $form_subject = get_field('form_subject');
 $error_subject = get_field('error_subject');
+$placeholder_your_subject = get_field('placeholder_your_subject');
 $form_your_message = get_field('form_your_message');
 $error_your_message = get_field('error_your_message');
+$placeholder_your_message = get_field('placeholder_your_message');
 
 
 $success_message = get_field('sent_message_fine');
@@ -126,18 +130,18 @@ $button_link = get_field('button_link');
 </style>
 <!-- SECTION 1: HERO -->
 <section class="relative overflow-hidden">
-  <img src="<?php echo esc_url(get_field('section_1_image') ?: get_theme_file_uri('assets/images/error.png')); ?>"
-       alt="<?php echo esc_attr(get_field('section_1_title') ?: 'How We Work'); ?>"
+  <img src="<?php echo esc_url($hero_image); ?>"
+       alt="<?php echo esc_attr($hero_title); ?>"
        class="h-[500px] md:h-[700px] w-full object-cover">
 
   <div class="absolute inset-0 z-10 bg-black/30 flex items-end pb-6 md:pb-20">
     <div class="w-full max-w-7xl mx-auto px-4 md:px-[20px]">
       <div class="max-w-2xl text-text-light">
         <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
-          <?php echo esc_html(get_field('section_1_title') ?: 'REACH OUT TODAY'); ?>
+          <?php echo esc_html($hero_title); ?>
         </h1>
         <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
-          <?php echo esc_html(get_field('section_1_description') ?: 'Have questions about our work or want to support our mission? Get in touch with our team and let’s start a conversation.'); ?>
+          <?php echo esc_html($hero_description); ?>
         </p>
       </div>
     </div>
@@ -158,11 +162,10 @@ $button_link = get_field('button_link');
         </div>
         <div>
           <h3 class="font-bold text-text-main uppercase text-[16px] sm:text-[18px] md:text-[20px] tracking-wide">
-                        <?php echo esc_html($email); ?>
-
+            <?php echo esc_html($email); ?>
           </h3>
           <p class="text-text-main/80 text-[14px] sm:text-[15px] md:text-[16px] mt-0.5">
-            example@gmail.com
+            <?php echo esc_html($contact_email); ?>
           </p>
         </div>
       </div>
@@ -174,8 +177,7 @@ $button_link = get_field('button_link');
         </div>
         <div>
           <h3 class="font-bold text-text-main uppercase text-[16px] sm:text-[18px] md:text-[20px] tracking-wide">
-                                    <?php echo esc_html($address); ?>
-
+            <?php echo esc_html($address); ?>
           </h3>
           <p class="text-text-main/80 text-[14px] sm:text-[15px] md:text-[16px] mt-0.5">
             <?php echo esc_html($contact_address); ?>
@@ -190,26 +192,40 @@ $button_link = get_field('button_link');
         </div>
         <div class="w-full">
           <h3 class="font-bold text-text-main uppercase text-[16px] sm:text-[18px] md:text-[20px] tracking-wide">
-                                                <?php echo esc_html($telephone); ?>
-
+            <?php echo esc_html($telephone); ?>
           </h3>
           <div class="space-y-[10px] text-text-main/80 text-[14px] sm:text-[15px] md:text-[16px] mt-2">
             <div class="flex flex-col sm:flex-row sm:justify-between gap-0.5 sm:gap-2">
-              <span class="font-medium text-text-main"> <?php echo esc_html($head_office); ?>
-</span>
-              <span>(+855) 68 901 971 / 17 525 815</span>
+              <span class="font-medium text-text-main">
+                <?php echo esc_html($head_office); ?>
+              </span>
+              <span>
+                <?php echo esc_html($head_office_phone); ?>
+              </span>
             </div>
             <div class="flex flex-col sm:flex-row sm:justify-between gap-0.5 sm:gap-2">
-              <span class="font-medium text-text-main"> <?php echo esc_html($siem_reap_area_supervisor); ?> </span>
-              <span>+855 93 329 698</span>
+              <span class="font-medium text-text-main">
+                <?php echo esc_html($siem_reap_area_supervisor); ?>
+              </span>
+              <span>
+                <?php echo esc_html($phone_number_1); ?>
+              </span>
             </div>
             <div class="flex flex-col sm:flex-row sm:justify-between gap-0.5 sm:gap-2">
-              <span class="font-medium text-text-main"><?php echo esc_html($kampong_speu_area_supervisor); ?> </span>
-              <span>+855 12 603 877</span>
+              <span class="font-medium text-text-main">
+                <?php echo esc_html($kampong_speu_area_supervisor); ?>
+              </span>
+              <span>
+                <?php echo esc_html($phone_number_2); ?>
+              </span>
             </div>
             <div class="flex flex-col sm:flex-row sm:justify-between gap-0.5 sm:gap-2">
-              <span class="font-medium text-text-main"><?php echo esc_html($kandal_area_supervisor); ?> </span>
-              <span>+855 081 49 61 78</span>
+              <span class="font-medium text-text-main">
+                <?php echo esc_html($kandal_area_supervisor); ?>
+              </span>
+              <span>
+                <?php echo esc_html($phone_number_3); ?>
+              </span>
             </div>
           </div>
         </div>
@@ -245,9 +261,11 @@ $button_link = get_field('button_link');
       <!-- Form Title -->
       <div class="text-center flex flex-col gap-[10px]">
         <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold font-heading uppercase text-text-main tracking-wide">
-<?php echo esc_html($form_title); ?>           </h2>
+          <?php echo esc_html($form_title); ?>           
+        </h2>
         <p class="text-text-main/80 font-sans text-[14px] sm:text-[15px] md:text-[16px]">
-<?php echo esc_html($form_description); ?>         </p>
+          <?php echo esc_html($form_description); ?>         
+        </p>
       </div>
 
       <!-- Success / Error Feedback Message -->
@@ -263,7 +281,7 @@ $button_link = get_field('button_link');
           <div>
             <label for="your_name" class="block text-[14px] sm:text-[15px] md:text-[16px] font-sans font-medium text-text-main/80 mb-[10px]">
 <?php echo esc_html($form_your_email); ?>            </label>
-            <input type="text" id="your_name" name="your_name" placeholder="John Doe" required
+            <input type="text" id="your_name" name="your_name" placeholder="<?php echo esc_html($placeholder_your_name); ?>" required
               class="w-full border-l-6 border border-brand-yellow rounded-[16px] p-[16px] md:p-[20px] text-text-muted placeholder:text-text-muted/50 focus:outline-brand-yellow bg-white shadow-sm">
             <p class="error-message hidden items-center gap-1 text-red-500 text-sm mt-2">
               <span class="icon-[material-symbols--error-circle-rounded-outline-sharp] w-5 h-5 flex-shrink-0"></span>
@@ -275,7 +293,7 @@ $button_link = get_field('button_link');
           <div>
             <label for="your_email" class="block text-[14px] sm:text-[15px] md:text-[16px] font-sans font-medium text-text-main/80 mb-[10px]">
 <?php echo esc_html($form_your_name); ?>             </label>
-            <input type="email" id="your_email" name="your_email" placeholder="example@gmail.com" required
+            <input type="email" id="your_email" name="your_email" placeholder="<?php echo esc_html($placeholder_your_email); ?>" required
               class="w-full border-l-6 border border-brand-yellow rounded-[16px] p-[16px] md:p-[20px] text-text-muted placeholder:text-text-muted/50 focus:outline-brand-yellow bg-white shadow-sm">
             <p class="error-message hidden items-center gap-1 text-red-500 text-sm mt-2">
               <span class="icon-[material-symbols--error-circle-rounded-outline-sharp] w-5 h-5 flex-shrink-0"></span>
@@ -289,7 +307,7 @@ $button_link = get_field('button_link');
           <label for="subject" class="block text-[14px] sm:text-[15px] md:text-[16px] font-sans font-medium text-text-main/80 mb-[10px]">
             <?php echo esc_html($form_subject); ?> 
           </label>
-          <input type="text" id="subject" name="subject" placeholder="what is on your mind?" required
+          <input type="text" id="subject" name="subject" placeholder="<?php echo esc_html($placeholder_your_subject); ?>" required
             class="w-full border-l-6 border border-brand-yellow rounded-[16px] p-[16px] md:p-[20px] text-text-muted placeholder:text-text-muted/50 focus:outline-brand-yellow bg-white shadow-sm">
           <p class="error-message hidden items-center gap-1 text-red-500 text-sm mt-2">
             <span class="icon-[material-symbols--error-circle-rounded-outline-sharp] w-5 h-5 flex-shrink-0"></span>
@@ -301,7 +319,7 @@ $button_link = get_field('button_link');
         <div>
           <label for="message" class="block text-[14px] sm:text-[15px] md:text-[16px] font-sans font-medium text-text-main/80 mb-[10px]">
 <?php echo esc_html($form_your_message); ?>          </label>
-          <textarea id="message" name="message" rows="5" placeholder="write your message here..." required
+          <textarea id="message" name="message" rows="5" placeholder="<?php echo esc_html($placeholder_your_message); ?>" required
             class="w-full border-l-6 border border-brand-yellow rounded-[16px] p-[16px] md:p-[20px] text-text-muted placeholder:text-text-muted/50 focus:outline-brand-yellow resize-none bg-white shadow-sm"></textarea>
           <p class="error-message hidden items-center gap-1 text-red-500 text-sm mt-2">
             <span class="icon-[material-symbols--error-circle-rounded-outline-sharp] w-5 h-5 flex-shrink-0"></span>

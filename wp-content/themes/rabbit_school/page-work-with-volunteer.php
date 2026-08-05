@@ -659,11 +659,11 @@ $phone_number = get_field('phone_number');
 
 <style>
     .font-heading {
-        font-family: 'Oswald', sans-serif;
+        font-family: 'Oswald', 'Koulen', sans-serif;
     }
 
     .font-body {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Inter', 'Battambang', sans-serif;
     }
 
     @keyframes fadeInUp {

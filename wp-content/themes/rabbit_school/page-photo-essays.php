@@ -204,12 +204,26 @@ $category_color_map = [
         <!-- No Matching Filter/Search Results -->
         <div id="no-results" class="hidden text-center py-16">
             <span class="icon-[solar--gallery-wide-linear] w-12 h-12 text-text-main/40 mx-auto mb-3 block" aria-hidden="true"></span>
-            <p class="font-heading font-bold text-[20px] text-text-main uppercase"><?php esc_html_e( 'No photo essays match your search.', 'rabbit-school' ); ?></p>
+            <p class="font-heading font-bold text-[20px] text-text-main uppercase">
+                <?php if ( get_locale() === 'km_KH' ) : ?>
+                    គ្មានអត្ថបទដែលមានរូបភាពណាមួយត្រូវនឹងការស្វែងរករបស់អ្នកទេ។
+                <?php else : ?>
+                    No photo essays match your search.
+                <?php endif; ?>
+            </p>
         </div>
 
     <?php else : ?>
         <div class="text-center py-16">
-            <p class="font-heading font-bold text-[20px] text-text-main uppercase"><?php esc_html_e( 'No posts found.', 'rabbit-school' ); ?></p>
+            <p class="font-heading font-bold text-[20px] text-text-main uppercase">
+                <?php 
+                if ( ( function_exists( 'pll_current_language' ) && pll_current_language() === 'km' ) || get_locale() === 'km_KH' ) {
+                    echo 'គ្មានអត្ថបទត្រូវបានរកឃើញទេ';
+                } else {
+                    esc_html_e( 'No posts found.', 'rabbit-school' );
+                }
+                ?>
+            </p>
         </div>
     <?php endif; wp_reset_postdata(); ?>
 

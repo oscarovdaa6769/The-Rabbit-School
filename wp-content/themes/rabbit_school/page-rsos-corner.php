@@ -16,10 +16,59 @@ get_header();
 ?>
 
 <style>
+/* ========== YOUR ORIGINAL STYLES STAY 100% THE SAME ========== */
+/* (keep everything you already have) */
+
+/* ========== ONLY NEW ANIMATIONS ADDED BELOW ========== */
+
+/* Soft fade + slide up for any text that has .rso-animate */
+.rso-animate {
+    /* we keep your original rules, just making the movement a little smoother */
+}
+
+/* Extra nice text entrance (works with your existing .rso-animate + .rso-in) */
+.rso-animate h1,
+.rso-animate h2,
+.rso-animate h3,
+.rso-animate p {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rso-animate.rso-in h1,
+.rso-animate.rso-in h2,
+.rso-animate.rso-in h3,
+.rso-animate.rso-in p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger the text inside each section so it feels lively */
+.rso-animate.rso-in h1 { transition-delay: 0.05s; }
+.rso-animate.rso-in h2 { transition-delay: 0.12s; }
+.rso-animate.rso-in h3 { transition-delay: 0.18s; }
+.rso-animate.rso-in p  { transition-delay: 0.25s; }
+
+/* Small extra polish for the hero buttons text */
+.rso-animate.rso-in button {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.rso-animate.rso-in button {
+    opacity: 1;
+    transform: translateY(0);
+}
+.rso-animate.rso-in button:nth-child(1) { transition-delay: 0.30s; }
+.rso-animate.rso-in button:nth-child(2) { transition-delay: 0.38s; }
+.rso-animate.rso-in button:nth-child(3) { transition-delay: 0.46s; }
+.rso-animate.rso-in button:nth-child(4) { transition-delay: 0.54s; }
 .rso-animate {
     opacity: 0;
     transform: translateY(24px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .rso-animate.rso-in {
@@ -32,7 +81,7 @@ get_header();
     grid-template-rows: 0fr;
     opacity: 0;
     transform: translateY(-8px);
-    transition: grid-template-rows 0.5s ease-in-out, opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    transition: grid-template-rows 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease-in-out, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .rso-hidden-wrapper.rso-hidden-open {
@@ -41,13 +90,22 @@ get_header();
     transform: translateY(0);
 }
 
+/* Subtle lift on hover so cards feel more responsive */
+.rso-card-hover {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+.rso-card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -8px rgba(74, 46, 42, 0.25);
+}
+
 /* Card read-more modal */
 #rso-card-modal {
-    transition: opacity 0.25s ease-out;
+    transition: opacity 0.3s ease-out;
 }
 #rso-card-modal .rso-modal-panel {
-    transition: transform 0.25s ease-out, opacity 0.25s ease-out;
-    transform: translateY(16px) scale(0.98);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease-out;
+    transform: translateY(24px) scale(0.96);
     opacity: 0;
 }
 #rso-card-modal.rso-modal-open .rso-modal-panel {
@@ -61,6 +119,62 @@ get_header();
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+/* Card title truncation — long titles get cut to 2 lines with an ellipsis */
+.rso-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Card description truncation — long text gets cut to a single line with an ellipsis */
+.rso-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ========== FLOATING HERO CARD (pinned onto the picture's bottom edge, bigger, bobbing) ========== */
+@keyframes rso-float-bob {
+    0%, 100% { transform: translateY(50%); }
+    50%      { transform: translateY(calc(50% - 10px)); }
+}
+.rso-hero-image-wrap {
+    overflow: visible !important;
+}
+.rso-hero-image-inner {
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+.rso-float-card {
+    bottom: 0;
+    transform: translateY(50%);
+    animation: rso-float-bob 3.5s ease-in-out infinite;
+    border: 3px solid #D9A441;
+}
+/* Little "pin" marker that clips the card to the photo, so it reads as
+   physically pinned onto the picture rather than just floating near it. */
+.rso-pin-marker {
+    position: absolute;
+    top: -18px;
+    left: 32px;
+    width: 40px;
+    height: 40px;
+    background: #D9A441;
+    border: 3px solid #4A2E2A;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    z-index: 2;
+}
+.rso-pin-marker svg {
+    width: 18px;
+    height: 18px;
 }
 </style>
 
@@ -107,15 +221,23 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
         </div>
 
         <?php if ( !empty($rso_hero_image) && isset($rso_hero_image['url']) ) : ?>
-        <div class="rso-animate relative w-full h-[300px] md:h-[400px] lg:h-[420px] rounded-3xl overflow-hidden shadow-xl group" style="animation-delay: 0.15s;">
-            <img
-                src="<?php echo esc_url( $rso_hero_image['url'] ); ?>"
-                alt="<?php echo esc_attr( !empty($rso_hero_image['alt']) ? $rso_hero_image['alt'] : $rsos_corner_fallback ); ?>"
-                class="block w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-            >
-            <div class="absolute bottom-3 left-3 right-3 md:bottom-5 md:left-5 md:right-5 bg-white rounded-xl shadow-lg p-4 md:p-5">
-                <h3 class="font-extrabold text-[#4A2E2A] uppercase tracking-wide mb-1 text-base"><?php echo esc_html( get_field('community_forum') ?: 'Community Forum' ); ?></h3>
-                <p class="text-[#4A2E2A] text-sm"><?php echo esc_html( get_field('phnom_penh_monday_20th_october_2025') ?: 'Phnom Penh, Monday 20th October 2025' ); ?></p>
+        <div class="rso-animate rso-hero-image-wrap relative w-full h-[300px] md:h-[400px] lg:h-[420px] shadow-xl group mb-24 md:mb-32" style="animation-delay: 0.15s;">
+            <div class="rso-hero-image-inner w-full h-full">
+                <img
+                    src="<?php echo esc_url( $rso_hero_image['url'] ); ?>"
+                    alt="<?php echo esc_attr( !empty($rso_hero_image['alt']) ? $rso_hero_image['alt'] : $rsos_corner_fallback ); ?>"
+                    class="block w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                >
+            </div>
+            <div class="rso-float-card absolute left-4 right-4 md:left-10 md:right-10 bg-white rounded-2xl shadow-2xl p-10 md:p-14">
+                <span class="rso-pin-marker" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#4A2E2A" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 2a5 5 0 0 0-5 5c0 3.5 5 11 5 11s5-7.5 5-11a5 5 0 0 0-5-5z"/>
+                        <circle cx="12" cy="7" r="1.8" fill="#4A2E2A" stroke="none"/>
+                    </svg>
+                </span>
+                <h3 class="font-extrabold text-[#4A2E2A] uppercase tracking-wide mb-3 text-3xl md:text-4xl"><?php echo esc_html( get_field('community_forum') ?: 'Community Forum' ); ?></h3>
+                <p class="text-[#4A2E2A] text-xl md:text-2xl"><?php echo esc_html( get_field('phnom_penh_monday_20th_october_2025') ?: 'Phnom Penh, Monday 20th October 2025' ); ?></p>
             </div>
         </div>
         <?php endif; ?>
@@ -186,7 +308,7 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
             $f_adv = esc_html( get_field('filter_advocacy') ?: 'Advocacy' );
             $f_voc = esc_html( get_field('filter_vocational_training') ?: 'Vocational Training' );
             $f_tea = esc_html( get_field('filter_teacher_training') ?: 'Teacher Training' );
-            $f_hea = esc_html( get_field('heath_') ?: 'Health' );
+            $f_hea = esc_html( get_field('health_') ?: 'Health' );
         ?>
         <div class="flex flex-wrap items-center gap-3 mb-10">
             <div class="relative">
@@ -268,11 +390,11 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
             '6' => array(
                 'image'    => get_field('imagescard-6') . '',
                 'category' => get_field('january_2026_•_health') ?: 'January 2026 • Health',
-                'title'    => get_field('new_health_checkup_program') ?: 'New Health Checkup Program',
+                'title'    => get_field('new_health_checkup_program') ?: 'Free Health Checkups Reach Every Classroom',
                 'paragraphs' => array(
-                    get_field('a_new_partnership_brings_free_health_checkups_and_basic_care_to_students_and_families') ?: 'A new partnership brings free health checkups and basic care to students and families.',
-                    get_field('details_about_the_health_program_rollout') ?: 'Details about the health program rollout...',
-                    get_field('early_results_and_family_feedback') ?: 'Early results and family feedback...',
+                    get_field('a_new_partnership_brings_free_health_checkups_and_basic_care_to_students_and_families') ?: 'A new partnership is bringing free health screenings and basic medical care directly to students and their families each term.',
+                    get_field('details_about_the_health_program_rollout') ?: 'The screenings cover vision, hearing, and general wellness checks, with a visiting nurse on site twice a month to follow up on any concerns.',
+                    get_field('early_results_and_family_feedback') ?: 'Parents say the convenience of on-campus care has already caught early issues that might otherwise have gone unnoticed.',
                 ),
             ),
         );
@@ -284,7 +406,7 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
         <!-- Article cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch" id="rso-article-grid">
 
-            <article class="rso-grid-item bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full" data-category="<?php echo esc_attr( $f_edu ); ?>">
+            <article class="rso-grid-item rso-card-hover bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full" data-category="<?php echo esc_attr( $f_edu ); ?>">
                 <div class="w-full h-40 rounded-2xl overflow-hidden mb-4">
                     <img src="<?php echo esc_html( get_field('imagescard-1') ?: '' ); ?>"
                          alt="Opening New Classrooms"
@@ -293,10 +415,10 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
                 <p class="text-xs font-bold uppercase tracking-wide text-[#4A2E2A]/70 mb-3">
                     <?php echo esc_html( get_field('june_2026_•_education') ?: 'June 2026 • Education' ); ?>
                 </p>
-                <h3 class="text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
+                <h3 class="rso-clamp-2 text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
                      <?php echo esc_html( get_field('opening_7_new_classrooms_in_toul_kork_primary_school') ?: 'Opening New Classrooms' ); ?>
                 </h3>
-                <p class="rso-clamp-3 text-gray-600 text-ls leading-relaxed mb-4 flex-1">
+                <p class="rso-clamp-1 text-gray-600 text-ls leading-relaxed mb-4 flex-1 min-h-0">
                     <?php echo esc_html( get_field('more_children') ?: 'Providing resources for more children...' ); ?>
                 </p>
 
@@ -309,7 +431,7 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
                 </button>
             </article>
 
-            <article class="rso-grid-item bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full" data-category="<?php echo esc_attr( $f_com ); ?>">
+            <article class="rso-grid-item rso-card-hover bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full" data-category="<?php echo esc_attr( $f_com ); ?>">
                 <div class="w-full h-40 rounded-2xl overflow-hidden mb-4">
                     <img src="<?php echo esc_html( get_field('imagescard-2') ?: '' ); ?>"
                          alt="Parents as Advocates"
@@ -318,10 +440,10 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
                 <p class="text-xs font-bold uppercase tracking-wide text-[#4A2E2A]/70 mb-3">
                     <?php echo esc_html( get_field('may_2026_•_community') ?: 'May 2026 • Community' ); ?>
                 </p>
-                <h3 class="text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
+                <h3 class="rso-clamp-2 text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
                    <?php echo esc_html( get_field('parents_as_advocates:_how_families_are_shaping_policy') ?: 'Parents as Advocates' ); ?>
                 </h3>
-                <p class="rso-clamp-3 text-gray-600 text-ls leading-relaxed mb-4 flex-1">
+                <p class="rso-clamp-1 text-gray-600 text-ls leading-relaxed mb-4 flex-1 min-h-0">
                    <?php echo esc_html( get_field('the_rabbit_school_parents_association_is_becoming_a_powerful_voice_for_disability_rights_in_cambodia') ?: 'Shaping future community structures...' ); ?>
                 </p>
 
@@ -334,7 +456,7 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
                 </button>
             </article>
 
-            <article class="rso-grid-item bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full" data-category="<?php echo esc_attr( $f_tea ); ?>">
+            <article class="rso-grid-item rso-card-hover bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full" data-category="<?php echo esc_attr( $f_tea ); ?>">
                 <div class="w-full h-40 rounded-2xl overflow-hidden mb-4">
                     <img src="<?php echo esc_html( get_field('imagescard-3') ?: '' ); ?>"
                          alt="Training Teachers"
@@ -343,10 +465,10 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
                 <p class="text-xs font-bold uppercase tracking-wide text-[#4A2E2A]/70 mb-3">
                     <?php echo esc_html( get_field('april_2026_•_teacher_training') ?: 'April 2026 • Teacher Training' ); ?>
                 </p>
-                <h3 class="text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
+                <h3 class="rso-clamp-2 text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
                     <?php echo esc_html( get_field('training_teachers_to_see_every_childs_potential') ?: 'Training Teachers' ); ?>
                 </h3>
-                <p class="rso-clamp-3 text-gray-600 text-ls leading-relaxed mb-4 flex-1">
+                <p class="rso-clamp-1 text-gray-600 text-ls leading-relaxed mb-4 flex-1 min-h-0">
                    <?php echo esc_html( get_field('rsos_teacher_training_program_is_expanding_to_kampong_speu_province_reaching_more_rural_communities') ?: 'Expanding systemic capabilities...' ); ?>
                 </p>
 
@@ -362,7 +484,7 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
             <!-- Card (previously hidden by default) -->
             <div class="rso-grid-item rso-hidden-wrapper grid h-full" data-category="<?php echo esc_attr( $f_adv ); ?>">
                 <div class="overflow-hidden h-full">
-                    <article class="bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full">
+                    <article class="rso-card-hover bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full">
                         <div class="w-full h-40 rounded-2xl overflow-hidden mb-4">
                             <img src="<?php echo esc_html( get_field('imagescard-4') ?: '' ); ?>"
                                  alt="Inclusive Education Policy"
@@ -371,10 +493,10 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
                         <p class="text-xs font-bold uppercase tracking-wide text-[#4A2E2A]/70 mb-3">
                            <?php echo esc_html( get_field('march_2026_•_advocacy') ?: 'March 2026 • Advocacy' ); ?>
                         </p>
-                        <h3 class="text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
+                        <h3 class="rso-clamp-2 text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
                             <?php echo esc_html( get_field('pushing_for_inclusive_education_policy_at_the_national_level') ?: 'Inclusive Education Policy' ); ?>
                         </h3>
-                        <p class="rso-clamp-3 text-gray-600 text-ls leading-relaxed mb-4 flex-1">
+                        <p class="rso-clamp-1 text-gray-600 text-ls leading-relaxed mb-4 flex-1 min-h-0">
                            <?php echo esc_html( get_field('rso_joined') ?: 'Collaborating with national partners...' ); ?>
                         </p>
 
@@ -392,7 +514,7 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
             <!-- Card (previously hidden by default) -->
             <div class="rso-grid-item rso-hidden-wrapper grid h-full" data-category="<?php echo esc_attr( $f_voc ); ?>">
                 <div class="overflow-hidden h-full">
-                    <article class="bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full">
+                    <article class="rso-card-hover bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full">
                         <div class="w-full h-40 rounded-2xl overflow-hidden mb-4">
                             <img src="<?php echo esc_html( get_field('imagescard-5') ?: '' ); ?>"
                                  alt="New Sewing Workshop"
@@ -401,10 +523,10 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
                         <p class="text-xs font-bold uppercase tracking-wide text-[#4A2E2A]/70 mb-3">
                            <?php echo esc_html( get_field('february_2026_•_vocational_training') ?: 'February 2026 • Vocational Training' ); ?>
                         </p>
-                        <h3 class="text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
+                        <h3 class="rso-clamp-2 text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
                             <?php echo esc_html( get_field('new_sewing_workshop_opens_doors_for_young_women') ?: 'New Sewing Workshop' ); ?>
                         </h3>
-                        <p class="rso-clamp-3 text-gray-600 text-ls leading-relaxed mb-4 flex-1">
+                        <p class="rso-clamp-1 text-gray-600 text-ls leading-relaxed mb-4 flex-1 min-h-0">
                            <?php echo esc_html( get_field('a_newly_equipped_sewing_workshop_is_giving_young_women_practical_marketable_skills_and_a_path_toward_financial_independence') ?: 'Providing key operational skills...' ); ?>
                         </p>
 
@@ -419,23 +541,23 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
                 </div>
             </div>
 
-            <!-- Card (new) -->
+            <!-- Card (previously hidden by default) -->
             <div class="rso-grid-item rso-hidden-wrapper grid h-full" data-category="<?php echo esc_attr( $f_hea ); ?>">
                 <div class="overflow-hidden h-full">
-                    <article class="bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full">
+                    <article class="rso-card-hover bg-[#F5F3EF] rounded-3xl p-6 flex flex-col min-h-[260px] h-full">
                         <div class="w-full h-40 rounded-2xl overflow-hidden mb-4">
                             <img src="<?php echo esc_html( get_field('imagescard-6') ?: '' ); ?>"
-                                 alt="New Health Checkup Program"
+                                 alt="Free Health Checkups Reach Every Classroom"
                                  class="block w-full h-full object-cover">
                         </div>
                         <p class="text-xs font-bold uppercase tracking-wide text-[#4A2E2A]/70 mb-3">
                            <?php echo esc_html( get_field('january_2026_•_health') ?: 'January 2026 • Health' ); ?>
                         </p>
-                        <h3 class="text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
-                            <?php echo esc_html( get_field('new_health_checkup_program') ?: 'New Health Checkup Program' ); ?>
+                        <h3 class="rso-clamp-2 text-lg font-extrabold text-[#4A2E2A] uppercase leading-snug mb-3">
+                            <?php echo esc_html( get_field('new_health_checkup_program') ?: 'Free Health Checkups Reach Every Classroom' ); ?>
                         </h3>
-                        <p class="rso-clamp-3 text-gray-600 text-ls leading-relaxed mb-4 flex-1">
-                           <?php echo esc_html( get_field('a_new_partnership_brings_free_health_checkups_and_basic_care_to_students_and_families') ?: 'A new partnership brings free health checkups and basic care to students and families.' ); ?>
+                        <p class="rso-clamp-1 text-gray-600 text-ls leading-relaxed mb-4 flex-1 min-h-0">
+                           <?php echo esc_html( get_field('a_new_partnership_brings_free_health_checkups_and_basic_care_to_students_and_families') ?: 'A new partnership is bringing free health screenings and basic medical care directly to students and their families each term.' ); ?>
                         </p>
 
                         <button type="button" onclick="openCardModal('6')"
@@ -459,7 +581,7 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
      that ancestor" instead of the real viewport. Living out here means it
      always covers the whole screen, not just the section it was opened from. -->
 <div id="rso-card-modal" class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/70 px-4 py-8" onclick="closeCardModalBackdrop(event)">
-    <div class="rso-modal-panel bg-white rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-y-auto relative shadow-2xl" onclick="event.stopPropagation()">
+    <div class="rso-modal-panel bg-white rounded-3xl max-w-6xl w-full max-h-[92vh] overflow-y-auto relative shadow-2xl" onclick="event.stopPropagation()">
         <button type="button" onclick="closeCardModal()" aria-label="Close"
                 class="absolute top-4 right-4 z-10 bg-white/90 hover:bg-white text-[#4A2E2A] rounded-full w-10 h-10 flex items-center justify-center shadow cursor-pointer transition">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
@@ -467,7 +589,7 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
             </svg>
         </button>
 
-        <div class="w-full h-72 md:h-96 overflow-hidden rounded-t-3xl">
+        <div class="w-full px-8 py-8 h-72 md:h-96 overflow-hidden rounded-t-3xl ">
             <img id="rso-modal-image" src="" alt="" class="block w-full h-full object-cover">
         </div>
 

@@ -114,3 +114,29 @@ function register_rabbit_videos_cpt() {
     ]);
 }
 add_action('init', 'register_rabbit_videos_cpt');
+
+function rso_register_articles_cpt() {
+    // 1. Register Taxonomy for Filter Categories
+    register_taxonomy('article_category', 'rso_article', array(
+        'labels'            => array('name' => 'Article Categories', 'singular_name' => 'Category'),
+        'hierarchical'      => true,
+        'public'            => true,
+        'show_in_rest'      => true,
+    ));
+
+    // 2. Register Custom Post Type
+    register_post_type('rso_article', array(
+        'labels' => array(
+            'name'          => 'Articles',
+            'singular_name' => 'Article',
+            'add_new_item'  => 'Add New Article',
+        ),
+        'public'        => true,
+        'has_archive'   => true,
+        'menu_icon'     => 'dashicons-welcome-write-blog',
+        'supports'      => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'taxonomies'    => array('article_category'),
+        'show_in_rest'  => true,
+    ));
+}
+add_action('init', 'rso_register_articles_cpt');

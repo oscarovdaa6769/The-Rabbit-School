@@ -7,18 +7,18 @@ get_header();
 
 <!-- SECTION 1: HERO -->
 <section class="relative overflow-hidden">
-  <img src="<?php echo esc_url(get_field('section_1_image') ?: get_theme_file_uri('assets/images/error.png')); ?>"
-       alt="<?php echo esc_attr(get_field('section_1_title') ?: 'How We Work'); ?>"
+  <img src="<?php echo esc_url(get_field('section_1_image')); ?>"
+       alt="<?php echo esc_attr(get_field('section_1_title')); ?>"
        class="h-[500px] md:h-[700px] w-full object-cover">
 
   <div class="absolute inset-0 z-10 bg-black/30 flex items-end pb-6 md:pb-20">
     <div class="w-full max-w-7xl mx-auto px-4 md:px-[20px]">
       <div class="max-w-2xl text-text-light">
         <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
-          <?php echo esc_html(get_field('section_1_title') ?: 'Get Involved Today'); ?>
+          <?php echo esc_html(get_field('section_1_title')); ?>
         </h1>
         <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
-          <?php echo esc_html(get_field('section_1_description') ?: 'There are many ways to support Rabbit School and help transform the lives of children and youth with intellectual disabilities and autism in Cambodia. Choose the path that speaks to you—and become the reason a child can grow up with dignity, opportunity, and self-reliance.'); ?>
+          <?php echo esc_html(get_field('section_1_description')); ?>
         </p>
       </div>
     </div>
@@ -34,7 +34,7 @@ get_header();
           'text_class'  => 'text-text-light',
           'desc_class'  => 'text-text-light/80',
           'line_bg'     => 'bg-brand-cream',
-          'icon'        => get_theme_file_uri('assets/icons/cart.png'),
+          'icon'        => get_field('cta_card_1_icon'),
           'title'       => get_field('cta_card_1_title') ?: 'Shop Our Product',
           'description' => get_field('cta_card_1_description') ?: 'Every contribution helps us strengthen and expand our programs, ensuring the highest quality education and opportunities for our students.',
           'btn_text'    => get_field('cta_card_1_button_text') ?: 'Shop now',
@@ -46,7 +46,7 @@ get_header();
           'text_class'  => 'text-text-light',
           'desc_class'  => 'text-text-light/80',
           'line_bg'     => 'bg-brand-cream',
-          'icon'        => get_theme_file_uri('assets/icons/cooperation.png'),
+          'icon'        => get_field('cta_card_2_icon'),
           'title'       => get_field('cta_card_2_title') ?: 'Join Hands with Us',
           'description' => get_field('cta_card_2_description') ?: 'Partner your company with Rabbit School to create opportunities for children and youth with intellectual disabilities and autism in Cambodia.',
           'btn_text'    => get_field('cta_card_2_button_text') ?: 'Join with us',
@@ -58,7 +58,7 @@ get_header();
           'text_class'  => 'text-text-light',
           'desc_class'  => 'text-text-light/80',
           'line_bg'     => 'bg-brand-cream',
-          'icon'        => get_theme_file_uri('assets/icons/group.png'),
+          'icon'        => get_field('cta_card_3_icon'),
           'title'       => get_field('cta_card_3_title') ?: 'Work with Volunteer',
           'description' => get_field('cta_card_3_description') ?: 'Join our passionate team and help empower children and youth with intellectual disabilities and autism to reach their full potential.',
           'btn_text'    => get_field('cta_card_3_button_text') ?: 'Work & volunteer',
@@ -106,7 +106,7 @@ get_header();
 <!-- SECTION 3: FINAL CTA -->
 <?php 
   // ACF Fields with Fallback Defaults
-  $cta_title        = get_field('final_cta_title') ?: 'Ready to Make a Difference?';
+  $cta_title        = get_field('final_cta_title');
   $cta_description  = get_field('final_cta_description') ?: 'Your support can change lives. Join us in creating a more inclusive world where every child has the opportunity to thrive.';
   
   // Button 1
