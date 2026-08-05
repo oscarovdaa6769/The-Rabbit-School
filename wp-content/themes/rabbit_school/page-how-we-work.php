@@ -196,7 +196,7 @@ get_header();
 
             <div class="w-full">
                 <h3 class="text-[20px] sm:text-[22px] font-heading font-bold text-brand-brown mb-3 uppercase">
-                    <?php echo esc_html(get_field('inclusive_title') ?: 'Inclusive Classrooms'); ?>
+                    <?php echo esc_html(get_field('') ?: 'Inclusive Classrooms'); ?>                                                                                                                                                                                                                                                                                                                                                                            
                 </h3>
                 <ul class="list-disc list-outside pl-5 space-y-2 text-text-muted text-[14px] sm:text-[15px] md:text-[16px] font-sans marker:text-brand-brown">
                     <?php 

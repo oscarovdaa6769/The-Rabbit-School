@@ -225,7 +225,7 @@ $img_3_url = get_field('image_3') ?: get_theme_file_uri('assets/images/error.png
 
   <!-- ============ PRODUCTS SECTION ============ -->
   <section id="shop" class="bg-brand-cream py-20">
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-6">
       <div class="anim-fade-up anim-delay-4 flex items-end justify-between mb-10">
         <div>
           <p class="uppercase tracking-widest text-brand-orange text-xs font-semibold mb-2"><?php echo esc_html($title_3);?></p>
