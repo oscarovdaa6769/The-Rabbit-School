@@ -74,7 +74,7 @@
  */
 
 get_header();
-?>
+?>  
 
 <style>
 /* ========== YOUR ORIGINAL STYLES STAY 100% THE SAME ========== */
