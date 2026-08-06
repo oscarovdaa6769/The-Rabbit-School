@@ -98,7 +98,7 @@ add_action( 'init', function () {
             'search_items'       => 'Search News Cards',
             'not_found'          => 'No news cards found',
             'not_found_in_trash' => 'No news cards found in Trash',
-            'menu_name'          => 'News Cards',
+            'menu_name'          => 'Add New Information Card',
         ),
         'public'        => false,   // no public single pages — used only for this section
         'show_ui'       => true,    // but fully manageable in wp-admin
@@ -125,6 +125,19 @@ add_action( 'init', function () {
     ) );
  
 } );
+
+// ---- Tell Polylang this CPT + taxonomy are translatable ----
+// (Equivalent to ticking them in Languages > Settings > Custom Post Types / Custom Taxonomies,
+// but done in code so it always stays on and travels with the theme.)
+add_filter( 'pll_get_post_types', function ( $post_types, $is_settings ) {
+    $post_types['rso_news_card'] = 'rso_news_card';
+    return $post_types;
+}, 10, 2 );
+
+add_filter( 'pll_get_taxonomies', function ( $taxonomies, $is_settings ) {
+    $taxonomies['rso_news_category'] = 'rso_news_category';
+    return $taxonomies;
+}, 10, 2 );
  
 // ---- "Date label" side meta box, e.g. "July 2026" ----
 add_action( 'add_meta_boxes', function () {
