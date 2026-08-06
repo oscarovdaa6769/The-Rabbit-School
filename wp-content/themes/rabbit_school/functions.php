@@ -89,7 +89,7 @@ add_action( 'init', function () {
     register_post_type( 'rso_news_card', array(
         'labels' => array(
             'name'               => 'News Cards',
-            'singular_name'      => 'News Card',
+            'singular_name'      => 'News Card', 
             'add_new'            => 'Add New Card',
             'add_new_item'       => 'Add New News Card',
             'edit_item'          => 'Edit News Card',
