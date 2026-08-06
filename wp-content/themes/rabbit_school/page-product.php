@@ -13,7 +13,7 @@ $desc_1    = get_field('description_1') ?: 'Explore handmade crafts and goods pr
 $btn_1     = get_field('buntton_1')  ?: 'Explore Shop';
 
 // SECTION 2: FEATURES
-$card1_title       = get_field('card_title')        ?: 'Fast Delivery';
+$card1_title       = get_field('card_title')        ?: 'no data';
 $card1_description = get_field('card1_description')  ?: 'Local delivery options available.';
 
 $card3_title       = get_field('card3_title')        ?: 'Empower Students';
@@ -29,6 +29,99 @@ $heading_4 = get_field('heading_4') ?: 'Featured Creations';
 $is_km = function_exists('pll_current_language') && pll_current_language() === 'km';
 ?>
 
+<style>
+  /* Root & Body background color fallback to prevent white flash during navigation */
+  html {
+    background-color: #FDFBF7;
+  }
+
+  /* Page Load Animation */
+  body {
+    background-color: #FDFBF7;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
+  body.loaded {
+    opacity: 1;
+  }
+
+  /* Keyframe Animations Matching Other Pages */
+  @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+  }
+  .anim-fade-up {
+      opacity: 0;
+      animation: fadeUp 0.6s ease-out forwards;
+  }
+  .anim-slide-left {
+      opacity: 0;
+      animation: slideInLeft 0.6s ease-out forwards;
+  }
+  .anim-slide-right {
+      opacity: 0;
+      animation: slideInRight 0.6s ease-out forwards;
+  }
+  .anim-delay-1 { animation-delay: 0.1s; }
+  .anim-delay-2 { animation-delay: 0.2s; }
+  .anim-delay-3 { animation-delay: 0.3s; }
+  .anim-delay-4 { animation-delay: 0.4s; }
+  .anim-delay-5 { animation-delay: 0.5s; }
+
+  /* Click ripple + press animation */
+  .click-fx {
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s ease;
+  }
+  .click-fx:active {
+    transform: scale(0.97);
+  }
+  .click-fx .ripple {
+    position: absolute;
+    border-radius: 9999px;
+    transform: scale(0);
+    background: rgba(255, 255, 255, 0.55);
+    pointer-events: none;
+    animation: click-ripple 0.6s ease-out;
+  }
+  .click-fx--dark .ripple {
+    background: rgba(98, 61, 60, 0.25);
+  }
+  @keyframes click-ripple {
+    to {
+      transform: scale(2.5);
+      opacity: 0;
+    }
+  }
+
+  /* Global full-page ripple */
+  .page-ripple {
+    position: fixed;
+    border-radius: 9999px;
+    background: rgba(98, 61, 60, 0.15);
+    transform: translate(-50%, -50%) scale(0);
+    pointer-events: none;
+    z-index: 9999;
+    animation: page-ripple-anim 0.7s ease-out forwards;
+  }
+  @keyframes page-ripple-anim {
+    to {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0;
+    }
+  }
+</style>
+
 <div id="product-page-wrapper" class="bg-white min-h-screen">
 
   <!-- ============ HERO BANNER ============ -->
@@ -37,7 +130,7 @@ $is_km = function_exists('pll_current_language') && pll_current_language() === '
       <img src="<?php echo esc_url($img_1_url); ?>" alt="<?php echo esc_attr($title_1); ?>" class="w-full h-full object-cover">
     </div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-[20px] 2xl:px-0 text-center">
+    <div class="anim-fade-up relative z-10 max-w-7xl mx-auto px-[20px] 2xl:px-0 text-center">
       <h1 class="font-heading text-white text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black tracking-tight leading-tight mb-4 uppercase">
         <?php echo esc_html($title_1); ?>
       </h1>
@@ -45,7 +138,7 @@ $is_km = function_exists('pll_current_language') && pll_current_language() === '
         <?php echo esc_html($desc_1); ?>
       </p>
       <div class="flex items-center justify-center">
-        <a href="#shop" class="bg-brand-yellow text-brand-brown font-bold uppercase text-sm tracking-wider py-[12px] px-[24px] rounded-[8px] hover:bg-white transition-all shadow-md hover:shadow-xl flex items-center gap-2">
+        <a href="#shop" class="click-fx click-fx--dark bg-brand-yellow text-brand-brown font-bold uppercase text-sm tracking-wider py-[12px] px-[24px] rounded-[8px] hover:bg-white transition-all shadow-md hover:shadow-xl flex items-center gap-2">
           <span><?php echo esc_html($btn_1); ?></span>
           <span class="icon-[solar--arrow-right-linear] w-5 h-5"></span>
         </a>
@@ -58,7 +151,7 @@ $is_km = function_exists('pll_current_language') && pll_current_language() === '
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center justify-center">
 
       <!-- Feature 1 -->
-      <div class="p-6 rounded-[20px] bg-brand-cream border-l-6 border-brand-yellow shadow-md hover:shadow-xl transition-all">
+      <div class="anim-fade-up anim-delay-1 p-6 rounded-[20px] bg-brand-cream border-l-6 border-brand-yellow shadow-md hover:shadow-xl transition-all">
         <div class="w-12 h-12 rounded-[16px] bg-brand-yellow/30 flex items-center justify-center mb-4">
           <img src="<?php echo esc_url(get_theme_file_uri('assets/icons/express-delivery(2).png')); ?>" alt="Delivery Icon" loading="lazy" class="w-6 h-6 object-contain" />
         </div>
@@ -67,7 +160,7 @@ $is_km = function_exists('pll_current_language') && pll_current_language() === '
       </div>
 
       <!-- Feature 3 -->
-      <div class="p-6 rounded-[20px] bg-brand-cream border-l-6 border-brand-teal shadow-md hover:shadow-xl transition-all">
+      <div class="anim-fade-up anim-delay-2 p-6 rounded-[20px] bg-brand-cream border-l-6 border-brand-teal shadow-md hover:shadow-xl transition-all">
         <div class="w-12 h-12 rounded-[16px] bg-brand-teal/30 flex items-center justify-center mb-4">
           <img src="<?php echo esc_url(get_theme_file_uri('assets/icons/graduation-hat.png')); ?>" alt="Education Icon" loading="lazy" class="w-6 h-6 object-contain" />
         </div>
@@ -76,7 +169,7 @@ $is_km = function_exists('pll_current_language') && pll_current_language() === '
       </div>
 
       <!-- Feature 4 -->
-      <div class="p-6 rounded-[20px] bg-brand-cream border-l-6 border-brand-pink shadow-md hover:shadow-xl transition-all">
+      <div class="anim-fade-up anim-delay-3 p-6 rounded-[20px] bg-brand-cream border-l-6 border-brand-pink shadow-md hover:shadow-xl transition-all">
         <div class="w-12 h-12 rounded-[16px] bg-brand-pink/30 flex items-center justify-center mb-4">
           <img src="<?php echo esc_url(get_theme_file_uri('assets/icons/chat.png')); ?>" alt="Contact Icon" loading="lazy" class="w-6 h-6 object-contain" />
         </div>
@@ -91,7 +184,7 @@ $is_km = function_exists('pll_current_language') && pll_current_language() === '
   <section id="shop" class="bg-brand-cream py-[64px] md:py-[50px]">
     <div class="max-w-7xl mx-auto px-[20px] 2xl:px-0">
       
-      <div class="mb-10">
+      <div class="anim-fade-up mb-10">
         <p class="text-[16px] sm:text-[18px] md:text-[20px] uppercase font-bold text-brand-orange mb-1"><?php echo esc_html($title_3); ?></p>
         <h2 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black uppercase tracking-tight"><?php echo esc_html($heading_4); ?></h2>
       </div>
@@ -105,6 +198,7 @@ $is_km = function_exists('pll_current_language') && pll_current_language() === '
         ]);
 
         if ($products_query->have_posts()) :
+            $product_index = 0;
             while ($products_query->have_posts()) : $products_query->the_post();
 
                 $price = get_field('product_price') ?: '$0.00';
@@ -123,9 +217,12 @@ $is_km = function_exists('pll_current_language') && pll_current_language() === '
 
                 $description = get_field('description_box') ?: '';
                 $btn_detail  = get_field('detail') ?: ($is_km ? 'ទិញ / ព័ត៌មាន' : 'Order');
+
+                $anim_delay_class = 'anim-delay-' . ((($product_index % 5)) + 1);
+                $product_index++;
         ?>
 
-          <article class="product-card bg-white rounded-[20px] overflow-hidden border-l-4 border-brand-yellow shadow-md hover:shadow-xl flex flex-col h-full" data-category="<?php echo esc_attr($category_slug); ?>">
+          <article class="product-card click-fx anim-fade-up <?php echo esc_attr($anim_delay_class); ?> bg-white rounded-[20px] overflow-hidden border-l-4 border-brand-yellow shadow-md hover:shadow-xl flex flex-col h-full" data-category="<?php echo esc_attr($category_slug); ?>">
             
             <div class="aspect-square overflow-hidden bg-brand-cream/50 relative">
               <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="w-full h-full object-cover">
@@ -150,7 +247,7 @@ $is_km = function_exists('pll_current_language') && pll_current_language() === '
 
               <div class="flex items-center justify-between pt-4 border-t border-brand-brown/10 mt-auto">
                 <span class="font-heading text-[16px] sm:text-[18px] md:text-[20px] font-black text-brand-brown"><?php echo esc_html($price); ?></span>
-                <button type="button" onclick="openOrderModal('<?php echo esc_js(get_the_title()); ?>', '<?php echo esc_js($price); ?>')" class="bg-brand-yellow text-brand-brown text-sm font-bold uppercase py-[12px] px-[24px] rounded-[8px] hover:bg-brand-orange hover:text-white transition-all shadow-md cursor-pointer flex items-center gap-1.5">
+                <button type="button" onclick="openOrderModal('<?php echo esc_js(get_the_title()); ?>', '<?php echo esc_js($price); ?>')" class="click-fx click-fx--dark bg-brand-yellow text-brand-brown text-sm font-bold uppercase py-[12px] px-[24px] rounded-[8px] hover:bg-brand-orange hover:text-white transition-all shadow-md cursor-pointer flex items-center gap-1.5">
                   <span><?php echo esc_html($btn_detail); ?></span>
                   <span class="icon-[solar--arrow-right-linear] w-4 h-4"></span>
                 </button>
@@ -164,7 +261,7 @@ $is_km = function_exists('pll_current_language') && pll_current_language() === '
             wp_reset_postdata();
         else :
         ?>
-            <div class="col-span-full text-center py-12 text-text-muted font-bold">
+            <div class="anim-fade-up col-span-full text-center py-12 text-text-muted font-bold">
                 <p class="text-[16px] sm:text-[18px] md:text-[20px]"><?php echo $is_km ? 'មិនទាន់មានផលិតផលនៅឡើយទេ។' : 'No products found.'; ?></p>
             </div>
         <?php endif; ?>
@@ -177,8 +274,8 @@ $is_km = function_exists('pll_current_language') && pll_current_language() === '
   <div id="orderModal" class="hidden fixed inset-0 z-50 items-center justify-center p-4">
     <div class="absolute inset-0 bg-brand-brown/70 backdrop-blur-sm" onclick="closeOrderModal()"></div>
     
-    <div class="relative bg-white rounded-[28px] w-full max-w-md p-6 md:p-8 shadow-xl z-10 border border-brand-brown/10">
-      <button type="button" onclick="closeOrderModal()" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-[8px] text-text-muted hover:bg-brand-cream hover:text-brand-brown transition text-lg font-bold leading-none cursor-pointer">✕</button>
+    <div id="orderModalContainer" class="relative bg-white rounded-[28px] w-full max-w-md p-6 md:p-8 shadow-xl z-10 border border-brand-brown/10">
+      <button type="button" onclick="closeOrderModal()" class="click-fx absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-[8px] text-text-muted hover:bg-brand-cream hover:text-brand-brown transition text-lg font-bold leading-none cursor-pointer">✕</button>
 
       <p class="text-[14px] sm:text-[15px] md:text-[16px] uppercase font-bold text-brand-orange mb-1">
         <?php echo $is_km ? 'ចាប់អារម្មណ៍លើវត្ថុនេះ?' : 'Interested in this item?'; ?>
@@ -194,7 +291,7 @@ $is_km = function_exists('pll_current_language') && pll_current_language() === '
       <div class="grid grid-cols-1 gap-3">
 
         <!-- Gmail -->
-        <button type="button" onclick="submitOrder('gmail')" class="group flex items-center gap-3 w-full bg-brand-cream hover:bg-brand-cream/80 rounded-[16px] px-4 py-3 border border-brand-brown/10 shadow-md transition-all duration-200 cursor-pointer">
+        <button type="button" onclick="submitOrder('gmail')" class="click-fx group flex items-center gap-3 w-full bg-brand-cream hover:bg-brand-cream/80 rounded-[16px] px-4 py-3 border border-brand-brown/10 shadow-md transition-all duration-200 cursor-pointer">
           <span class="w-8 h-8 rounded-[8px] bg-[#EA4335]/10 flex items-center justify-center shrink-0">
             <svg class="w-4 h-4 text-[#EA4335]" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
           </span>
@@ -203,7 +300,7 @@ $is_km = function_exists('pll_current_language') && pll_current_language() === '
         </button>
 
         <!-- Facebook -->
-        <button type="button" onclick="submitOrder('facebook')" class="group flex items-center gap-3 w-full bg-brand-cream hover:bg-brand-cream/80 rounded-[16px] px-4 py-3 border border-brand-brown/10 shadow-md transition-all duration-200 cursor-pointer">
+        <button type="button" onclick="submitOrder('facebook')" class="click-fx group flex items-center gap-3 w-full bg-brand-cream hover:bg-brand-cream/80 rounded-[16px] px-4 py-3 border border-brand-brown/10 shadow-md transition-all duration-200 cursor-pointer">
           <span class="w-8 h-8 rounded-[8px] bg-[#1877F2]/10 flex items-center justify-center shrink-0">
             <svg class="w-4 h-4 text-[#1877F2]" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </span>
@@ -212,7 +309,7 @@ $is_km = function_exists('pll_current_language') && pll_current_language() === '
         </button>
 
         <!-- Instagram -->
-        <button type="button" onclick="submitOrder('instagram')" class="group flex items-center gap-3 w-full bg-brand-cream hover:bg-brand-cream/80 rounded-[16px] px-4 py-3 border border-brand-brown/10 shadow-md transition-all duration-200 cursor-pointer">
+        <button type="button" onclick="submitOrder('instagram')" class="click-fx group flex items-center gap-3 w-full bg-brand-cream hover:bg-brand-cream/80 rounded-[16px] px-4 py-3 border border-brand-brown/10 shadow-md transition-all duration-200 cursor-pointer">
           <span class="w-8 h-8 rounded-[8px] bg-[#E4405F]/10 flex items-center justify-center shrink-0">
             <svg class="w-4 h-4 text-[#E4405F]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           </span>
@@ -238,16 +335,40 @@ $is_km = function_exists('pll_current_language') && pll_current_language() === '
     document.getElementById('modalProductName').textContent = name;
     document.getElementById('modalProductPrice').textContent = price;
     const modal = document.getElementById('orderModal');
+    const modalContainer = document.getElementById('orderModalContainer');
+
     modal.classList.remove('hidden');
     modal.classList.add('flex');
     document.body.style.overflow = 'hidden';
+
+    // Smooth entrance transition, matching the site's modal pattern
+    if (modalContainer) {
+      modalContainer.style.transition = 'none';
+      modalContainer.style.opacity = '0';
+      modalContainer.style.transform = 'scale(0.95) translateY(10px)';
+      // Force reflow before animating in
+      modalContainer.offsetHeight;
+      modalContainer.style.transition = 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+      modalContainer.style.opacity = '1';
+      modalContainer.style.transform = 'scale(1) translateY(0)';
+    }
   }
 
   function closeOrderModal() {
     const modal = document.getElementById('orderModal');
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-    document.body.style.overflow = '';
+    const modalContainer = document.getElementById('orderModalContainer');
+
+    if (modalContainer) {
+      modalContainer.style.transition = 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)';
+      modalContainer.style.opacity = '0';
+      modalContainer.style.transform = 'scale(0.95) translateY(10px)';
+    }
+
+    setTimeout(() => {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }, modalContainer ? 250 : 0);
   }
 
   function submitOrder(platform) {
@@ -288,6 +409,50 @@ $is_km = function_exists('pll_current_language') && pll_current_language() === '
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeOrderModal();
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+
+    // Trigger page visibility load (matches site-wide fade-in)
+    document.body.classList.add('loaded');
+
+    // Local ripple + press effect on elements with .click-fx
+    document.querySelectorAll('.click-fx').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        var rect = el.getBoundingClientRect();
+        var ripple = document.createElement('span');
+        var size = Math.max(rect.width, rect.height);
+        var x = e.clientX - rect.left - size / 2;
+        var y = e.clientY - rect.top - size / 2;
+
+        ripple.className = 'ripple';
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+
+        el.appendChild(ripple);
+        ripple.addEventListener('animationend', function () {
+          ripple.remove();
+        });
+      });
+    });
+
+    // Global full-page click ripple effect
+    document.addEventListener('click', function (e) {
+      var size = 24;
+      var ripple = document.createElement('span');
+      ripple.className = 'page-ripple';
+      ripple.style.width = size + 'px';
+      ripple.style.height = size + 'px';
+      ripple.style.left = e.clientX + 'px';
+      ripple.style.top = e.clientY + 'px';
+
+      document.body.appendChild(ripple);
+      ripple.addEventListener('animationend', function () {
+        ripple.remove();
+      });
+    });
+
   });
 </script>
 

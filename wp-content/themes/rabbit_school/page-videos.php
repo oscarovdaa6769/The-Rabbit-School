@@ -1,7 +1,7 @@
 <?php 
 /**
  * Template Name: Videos Page
- * Description: Video gallery rendering uploaded MP4 videos directly on cards with a full video modal player.
+ * Description: Video gallery rendering uploaded MP4 videos directly on cards with dynamic CSS animations and modal player.
  */
 
 get_header(); 
@@ -12,10 +12,10 @@ $hero_title = get_field('hero_title')       ?: __( 'Video Stories & Impact', 'ra
 $hero_desc  = get_field('hero_description') ?: __( 'Watch our latest activities, impact stories, and community events.', 'rabbit-school' );
 
 $filter_categories = [
-    'all'              => get_field('filter_all_text') ?: __( 'All Videos', 'rabbit-school' ),
-    'education'        => get_field('filter_education_text') ?: __( 'Education', 'rabbit-school' ),
-    'community'        => get_field('filter_community_text') ?: __( 'Community', 'rabbit-school' ),
-    'advocacy'         => get_field('filter_advocacy_text') ?: __( 'Advocacy', 'rabbit-school' ),
+    'all'              => get_field('filter_all_text')              ?: __( 'All Videos', 'rabbit-school' ),
+    'education'        => get_field('filter_education_text')        ?: __( 'Education', 'rabbit-school' ),
+    'community'        => get_field('filter_community_text')        ?: __( 'Community', 'rabbit-school' ),
+    'advocacy'         => get_field('filter_advocacy_text')         ?: __( 'Advocacy', 'rabbit-school' ),
     'teacher-training' => get_field('filter_teacher_training_text') ?: __( 'Teacher Training', 'rabbit-school' ),
 ];
 
@@ -24,42 +24,142 @@ $category_color_map = [
         'badge'  => 'bg-brand-orange/20 text-brand-orange border-brand-orange/40', 
         'border' => 'border-l-6 border-l-brand-orange',
         'button' => 'bg-brand-orange text-text-light hover:bg-brand-brown hover:text-text-light',
-        'play'   => 'bg-brand-orange'
+        'play'   => 'bg-brand-orange',
+        'ring'   => 'ring-brand-orange/40'
     ],
     'community'        => [
         'badge'  => 'bg-brand-blue/20 text-brand-blue border-brand-blue/40', 
         'border' => 'border-l-6 border-l-brand-blue',
         'button' => 'bg-brand-blue text-text-light hover:bg-brand-brown hover:text-text-light',
-        'play'   => 'bg-brand-blue'
+        'play'   => 'bg-brand-blue',
+        'ring'   => 'ring-brand-blue/40'
     ],
     'advocacy'         => [
         'badge'  => 'bg-brand-teal/20 text-brand-teal border-brand-teal/40', 
         'border' => 'border-l-6 border-l-brand-teal',
         'button' => 'bg-brand-teal text-text-light hover:bg-brand-brown hover:text-text-light',
-        'play'   => 'bg-brand-teal'
+        'play'   => 'bg-brand-teal',
+        'ring'   => 'ring-brand-teal/40'
     ],
     'teacher-training' => [
         'badge'  => 'bg-brand-pink/20 text-brand-pink border-brand-pink/40', 
         'border' => 'border-l-6 border-l-brand-pink',
         'button' => 'bg-brand-pink text-text-light hover:bg-brand-brown hover:text-text-light',
-        'play'   => 'bg-brand-pink'
+        'play'   => 'bg-brand-pink',
+        'ring'   => 'ring-brand-pink/40'
     ],
     'default'          => [
         'badge'  => 'bg-brand-yellow/20 text-brand-brown border-brand-yellow/50', 
         'border' => 'border-l-6 border-l-brand-yellow',
         'button' => 'bg-brand-yellow text-text-yellow hover:bg-brand-brown hover:text-text-light',
-        'play'   => 'bg-brand-yellow'
+        'play'   => 'bg-brand-yellow',
+        'ring'   => 'ring-brand-yellow/40'
     ],
 ];
 ?>
 
+<style>
+    /* KEYFRAME ANIMATIONS */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(24px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes pulseRing {
+        0% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
+        }
+        70% {
+            transform: scale(1.1);
+            box-shadow: 0 0 0 16px rgba(255, 255, 255, 0);
+        }
+        100% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+        }
+    }
+
+    /* ANIMATION UTILITY CLASSES */
+    .animate-hero-content {
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animate-card-enter {
+        animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* CARD HOVER ANIMATIONS */
+    .video-card {
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .video-card:hover {
+        transform: translateY(-6px);
+    }
+
+    .video-thumb-container video {
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .video-card:hover .video-thumb-container video {
+        transform: scale(1.06);
+    }
+
+    .play-btn-pulse {
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .video-card:hover .play-btn-pulse {
+        animation: pulseRing 1.5s infinite;
+        transform: scale(1.15);
+    }
+
+    /* MODAL TRANSITIONS */
+    #video-modal {
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    #video-modal.modal-closed {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    #video-modal.modal-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    #video-modal-content {
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    }
+
+    #video-modal.modal-closed #video-modal-content {
+        transform: scale(0.92) translateY(20px);
+        opacity: 0;
+    }
+
+    #video-modal.modal-open #video-modal-content {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+</style>
+
 <!-- SECTION 1: HERO BANNER -->
 <section class="relative overflow-hidden">
-    <img src="<?php echo esc_url($hero_img); ?>" alt="<?php echo esc_attr($hero_title); ?>" class="h-[400px] md:h-[550px] w-full object-cover">
-    <div class="absolute inset-0 z-10 bg-black/50 flex items-end pb-8 md:pb-16">
+    <img src="<?php echo esc_url($hero_img); ?>" alt="<?php echo esc_attr($hero_title); ?>" class="h-[400px] md:h-[550px] w-full object-cover transition-transform duration-700 hover:scale-105">
+    <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end pb-8 md:pb-16">
         <div class="w-full max-w-7xl mx-auto px-[20px] 2xl:px-0">
-            <div class="max-w-2xl text-text-light">
-                <h1 class="font-heading text-[32px] sm:text-[40px] lg:text-[48px] font-black leading-tight mb-3 uppercase">
+            <div class="max-w-2xl text-text-light animate-hero-content">
+                <h1 class="font-heading text-[32px] sm:text-[40px] lg:text-[48px] font-black leading-tight mb-3 uppercase tracking-wide">
                     <?php echo esc_html($hero_title); ?>
                 </h1>
                 <p class="font-sans text-[15px] md:text-[18px] leading-relaxed opacity-90">
@@ -78,8 +178,8 @@ $category_color_map = [
                 <button 
                     type="button"
                     data-filter="<?php echo esc_attr($slug); ?>"
-                    class="video-filter-btn px-[24px] py-[12px] text-sm font-bold uppercase rounded-[8px] transition-all duration-300 shadow-md hover:shadow-xl cursor-pointer border border-brand-brown/20
-                           <?php echo $slug === 'all' ? 'bg-brand-brown text-text-light font-black active-filter' : 'bg-brand-cream hover:bg-brand-yellow text-text-main'; ?>">
+                    class="video-filter-btn px-[24px] py-[12px] text-sm font-bold uppercase rounded-[8px] transition-all duration-300 shadow-sm hover:shadow-lg cursor-pointer border border-brand-brown/20 transform active:scale-95
+                           <?php echo $slug === 'all' ? 'bg-brand-brown text-text-light font-black active-filter scale-105' : 'bg-brand-cream hover:bg-brand-yellow text-text-main'; ?>">
                     <?php echo esc_html($label); ?>
                 </button>
             <?php endforeach; ?>
@@ -90,17 +190,17 @@ $category_color_map = [
                 id="video-search-input"
                 type="text" 
                 placeholder="<?php echo esc_attr(get_field('placeholder_text') ?: __( 'Search videos...', 'rabbit-school' )); ?>" 
-                class="w-full border border-brand-brown/30 text-text-main placeholder-brand-brown/50 px-[24px] py-[12px] rounded-[16px] bg-brand-cream focus:outline-none focus:border-brand-brown focus:ring-2 focus:ring-brand-yellow transition-all duration-200 text-sm shadow-md hover:shadow-xl"
+                class="w-full border border-brand-brown/30 text-text-main placeholder-brand-brown/50 px-[24px] py-[12px] rounded-[16px] bg-brand-cream focus:outline-none focus:border-brand-brown focus:ring-2 focus:ring-brand-yellow transition-all duration-300 text-sm shadow-md hover:shadow-lg"
             />
             <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none flex items-center">
-                <span class="icon-[solar--magnifer-linear] w-5 h-5 text-text-main/60" aria-hidden="true"></span>
+                <span class="icon-[solar--magnifer-linear] w-5 h-5 text-text-main/60 transition-transform duration-300 group-focus-within:scale-110" aria-hidden="true"></span>
             </div>
         </div>
     </div>
 </section>
 
 <!-- SECTION 3: VIDEO GRID -->
-<section class="max-w-7xl mx-auto pb-[64px] md:pb-[80px] px-[20px] 2xl:px-0 font-sans">
+<section id="video-grid-section" class="max-w-7xl mx-auto pb-[64px] md:pb-[80px] px-[20px] 2xl:px-0 font-sans">
     <?php 
     $args = [
         'post_type'      => 'video_item',
@@ -114,7 +214,9 @@ $category_color_map = [
 
     <?php if ($video_query->have_posts()) : ?>
         <div id="video-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
-            <?php while ($video_query->have_posts()) : $video_query->the_post(); 
+            <?php 
+            $card_index = 0;
+            while ($video_query->have_posts()) : $video_query->the_post(); 
 
                 // 1. Term & Taxonomy Handling
                 $terms    = get_the_terms(get_the_ID(), 'video_category');
@@ -133,10 +235,8 @@ $category_color_map = [
                         }
                     }
 
-                    // Raw slug from WP
                     $raw_slug = strtolower($term_obj->slug);
 
-                    // Standardize variants (handles teacher-training vs teacher_training vs education)
                     if (str_contains($raw_slug, 'teacher') || str_contains($raw_slug, 'training')) {
                         $cat_slug = 'teacher-training';
                     } elseif (str_contains($raw_slug, 'edu')) {
@@ -150,7 +250,7 @@ $category_color_map = [
                     }
                 }
 
-                // 2. Video URL Field
+                // 2. Video URL Field Extraction
                 $video_raw = get_field('url');
                 $video_url = '';
                 if (!empty($video_raw)) {
@@ -172,17 +272,20 @@ $category_color_map = [
                 $color_scheme = $category_color_map[$cat_slug] ?? $category_color_map['default'];
                 $btn_class    = $color_scheme['button'];
                 $play_bg     = $color_scheme['play'];
+                $card_delay   = ($card_index % 6) * 0.08; 
+                $card_index++;
             ?>
                 <!-- Individual Video Card -->
                 <article 
-                    class="video-card bg-brand-cream rounded-[28px] overflow-hidden flex flex-col justify-between h-full p-5 <?php echo esc_attr($color_scheme['border']); ?> border-y border-r border-brand-brown/10 shadow-md hover:shadow-xl transition-all duration-300 group"
+                    class="video-card bg-brand-cream rounded-[28px] overflow-hidden flex flex-col justify-between h-full p-5 <?php echo esc_attr($color_scheme['border']); ?> border-y border-r border-brand-brown/10 shadow-md hover:shadow-2xl group"
+                    style="animation-delay: <?php echo $card_delay; ?>s;"
                     data-category="<?php echo esc_attr($cat_slug); ?>"
                     data-title="<?php echo esc_attr(strtolower(get_the_title())); ?>"
                     data-description="<?php echo esc_attr(strtolower($card_desc)); ?>">
                     
                     <div>
-                        <!-- Direct Video Element Frame -->
-                        <div class="relative w-full aspect-[16/9] overflow-hidden rounded-[20px] mb-4 bg-black group-hover:cursor-pointer trigger-video-modal" data-video-file="<?php echo esc_url($video_url); ?>">
+                        <!-- Video Frame Thumbnail with Hover Animation -->
+                        <div class="video-thumb-container relative w-full aspect-[16/9] overflow-hidden rounded-[20px] mb-4 bg-black cursor-pointer trigger-video-modal" data-video-file="<?php echo esc_url($video_url); ?>">
                             
                             <?php if (!empty($video_url)) : ?>
                                 <video 
@@ -198,9 +301,9 @@ $category_color_map = [
                                 </div>
                             <?php endif; ?>
 
-                            <!-- Dynamic Overlay Play Button -->
-                            <div class="absolute inset-0 bg-black/20 flex items-center justify-center transition-all duration-300 group-hover:bg-black/40">
-                                <span class="w-12 h-12 rounded-full <?php echo esc_attr($play_bg); ?> text-text-light flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+                            <!-- Dynamic Overlay Animated Play Button -->
+                            <div class="absolute inset-0 bg-black/20 flex items-center justify-center transition-colors duration-300 group-hover:bg-black/40">
+                                <span class="play-btn-pulse w-12 h-12 rounded-full <?php echo esc_attr($play_bg); ?> text-text-light flex items-center justify-center shadow-lg">
                                     <span class="icon-[solar--play-bold] w-6 h-6 ml-0.5"></span>
                                 </span>
                             </div>
@@ -208,17 +311,17 @@ $category_color_map = [
 
                         <!-- Date & Category -->
                         <div class="flex items-center justify-between font-sans text-[14px] font-semibold text-text-muted mb-3">
-                            <span class="flex items-center gap-1.5">
+                            <span class="flex items-center gap-1.5 transition-colors duration-200 group-hover:text-text-main">
                                 <span class="icon-[solar--calendar-minimalistic-linear] w-5 h-5 text-text-main/60" aria-hidden="true"></span>
                                 <?php echo esc_html($card_date); ?>
                             </span>
-                            <span class="px-3 py-1 rounded-[8px] text-xs font-bold uppercase tracking-wider border <?php echo esc_attr($color_scheme['badge']); ?>">
+                            <span class="px-3 py-1 rounded-[8px] text-xs font-bold uppercase tracking-wider border transition-transform duration-300 group-hover:scale-105 <?php echo esc_attr($color_scheme['badge']); ?>">
                                 <?php echo esc_html($cat_name); ?>
                             </span>
                         </div>
 
                         <!-- Video Title -->
-                        <h3 class="font-heading text-[16px] sm:text-[18px] font-black text-text-main leading-snug uppercase mb-2 line-clamp-2">
+                        <h3 class="font-heading text-[16px] sm:text-[18px] font-black text-text-main leading-snug uppercase mb-2 line-clamp-2 transition-colors duration-200 group-hover:text-brand-brown">
                             <?php the_title(); ?>
                         </h3>
 
@@ -230,39 +333,23 @@ $category_color_map = [
                         <?php endif; ?>
                     </div>
 
-                    <!-- Watch Video Button with Category-specific Color -->
-                    <button type="button" data-video-file="<?php echo esc_url($video_url); ?>" class="trigger-video-modal cursor-pointer tracking-wider px-[24px] py-[12px] rounded-[8px] inline-flex items-center justify-between w-full shadow-md hover:shadow-xl transition-all duration-300 font-bold text-sm uppercase mt-auto <?php echo esc_attr($btn_class); ?>">
+                    <!-- Watch Video Button -->
+                    <button type="button" data-video-file="<?php echo esc_url($video_url); ?>" class="trigger-video-modal cursor-pointer tracking-wider px-[24px] py-[12px] rounded-[8px] inline-flex items-center justify-between w-full shadow-md hover:shadow-xl transition-all duration-300 font-bold text-sm uppercase mt-auto transform active:scale-[0.98] <?php echo esc_attr($btn_class); ?>">
                         <span><?php echo esc_html($btn_text); ?></span>
-                        <span class="icon-[solar--play-circle-linear] w-5 h-5"></span>
+                        <span class="icon-[solar--play-circle-linear] w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></span>
                     </button>
                 </article>
             <?php endwhile; ?>
         </div>
 
-        <div id="no-video-results" class="hidden text-center py-16">
+        <div id="no-video-results" class="hidden text-center py-16 animate-hero-content">
             <span class="icon-[solar--videocamera-record-linear] w-12 h-12 text-text-main/40 mx-auto mb-3 block" aria-hidden="true"></span>
-            <p class="font-heading font-bold text-[20px] text-text-main uppercase">
-                <?php 
-                if ( ( function_exists( 'pll_current_language' ) && pll_current_language() === 'km' ) || get_locale() === 'km_KH' ) {
-                    echo 'គ្មានវីដេអូណាមួយត្រូវនឹងការស្វែងរករបស់អ្នកទេ។';
-                } else {
-                    esc_html_e( 'No videos match your search.', 'rabbit-school' );
-                }
-                ?>
-            </p>
+            <p class="font-heading font-bold text-[20px] text-text-main uppercase"><?php esc_html_e( 'No videos match your search.', 'rabbit-school' ); ?></p>
         </div>
 
     <?php else : ?>
-        <div class="text-center py-16">
-            <p class="font-heading font-bold text-[20px] text-text-main uppercase">
-                <?php 
-                if ( ( function_exists( 'pll_current_language' ) && pll_current_language() === 'km' ) || get_locale() === 'km_KH' ) {
-                    echo 'គ្មានវីដេអូត្រូវបានរកឃើញទេ';
-                } else {
-                    esc_html_e( 'No videos found.', 'rabbit-school' );
-                }
-                ?>
-            </p>
+        <div class="text-center py-16 animate-hero-content">
+            <p class="font-heading font-bold text-[20px] text-text-main uppercase"><?php esc_html_e( 'No videos found.', 'rabbit-school' ); ?></p>
         </div>
     <?php endif; wp_reset_postdata(); ?>
 
@@ -270,9 +357,9 @@ $category_color_map = [
 </section>
 
 <!-- MODAL OVERLAY FOR WATCHING MP4 VIDEOS -->
-<div id="video-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="relative w-full max-w-4xl bg-black rounded-[20px] overflow-hidden shadow-2xl">
-        <button id="close-video-modal" type="button" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/40 transition-all cursor-pointer">
+<div id="video-modal" class="modal-closed fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div id="video-modal-content" class="relative w-full max-w-4xl bg-black rounded-[20px] overflow-hidden shadow-2xl border border-white/10">
+        <button id="close-video-modal" type="button" aria-label="<?php esc_attr_e( 'Close Video', 'rabbit-school' ); ?>" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/40 hover:rotate-90 transition-all duration-300 cursor-pointer">
             ✕
         </button>
         <div class="aspect-[16/9] w-full flex items-center justify-center bg-black">
@@ -284,7 +371,7 @@ $category_color_map = [
     </div>
 </div>
 
-<!-- JAVASCRIPT FOR FILTERS, SEARCH & MODAL -->
+<!-- JAVASCRIPT FOR FILTERS, SEARCH, PAGINATION, ANIMATIONS & MODAL -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const itemsPerPage = 6;
@@ -295,6 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('video-search-input');
     const paginationContainer = document.getElementById('video-pagination');
     const noResults = document.getElementById('no-video-results');
+    const gridSection = document.getElementById('video-grid-section');
 
     let activeFilter = 'all';
     let searchQuery = '';
@@ -312,13 +400,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function renderGallery() {
+    function renderGallery(scroll = false) {
         const matchingCards = getMatchingCards();
         const totalPages = Math.ceil(matchingCards.length / itemsPerPage) || 1;
 
         if (currentPage > totalPages) currentPage = 1;
 
-        cards.forEach(card => card.classList.add('hidden'));
+        cards.forEach(card => {
+            card.classList.add('hidden');
+            card.classList.remove('animate-card-enter');
+        });
 
         if (matchingCards.length === 0) {
             if (noResults) noResults.classList.remove('hidden');
@@ -326,14 +417,26 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        if (noResults) noResults.classList.hidden = false;
         if (noResults) noResults.classList.add('hidden');
+        if (paginationContainer) paginationContainer.classList.remove('hidden');
 
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
-        matchingCards.slice(startIndex, endIndex).forEach(card => card.classList.remove('hidden'));
+        const visibleCards = matchingCards.slice(startIndex, endIndex);
+
+        visibleCards.forEach((card, index) => {
+            card.classList.remove('hidden');
+            card.style.animationDelay = `${index * 0.08}s`;
+            // Trigger animation repaint
+            void card.offsetWidth;
+            card.classList.add('animate-card-enter');
+        });
 
         renderPagination(totalPages);
+
+        if (scroll && gridSection) {
+            gridSection.scrollIntoView({ behavior: 'smooth' });
+        }
     }
 
     function renderPagination(totalPages) {
@@ -345,15 +448,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (let i = 1; i <= totalPages; i++) {
             const pageBtn = document.createElement('button');
-            pageBtn.className = `px-[20px] py-[12px] text-sm font-bold uppercase rounded-[8px] transition-all cursor-pointer ${
+            pageBtn.type = 'button';
+            pageBtn.className = `px-[20px] py-[12px] text-sm font-bold uppercase rounded-[8px] transition-all duration-300 cursor-pointer transform active:scale-95 ${
                 i === currentPage 
-                    ? 'bg-brand-brown text-text-light font-black shadow-md border border-brand-brown' 
-                    : 'border border-brand-brown/20 bg-brand-cream hover:bg-brand-yellow text-text-main shadow-md hover:shadow-xl'
+                    ? 'bg-brand-brown text-text-light font-black shadow-md border border-brand-brown scale-105' 
+                    : 'border border-brand-brown/20 bg-brand-cream hover:bg-brand-yellow text-text-main shadow-md hover:shadow-lg'
             }`;
             pageBtn.innerText = i;
             pageBtn.addEventListener('click', () => {
                 currentPage = i;
-                renderGallery();
+                renderGallery(true);
             });
             paginationContainer.appendChild(pageBtn);
         }
@@ -362,11 +466,11 @@ document.addEventListener('DOMContentLoaded', () => {
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
             filterBtns.forEach(b => {
-                b.classList.remove('bg-brand-brown', 'text-text-light', 'font-black', 'active-filter');
+                b.classList.remove('bg-brand-brown', 'text-text-light', 'font-black', 'active-filter', 'scale-105');
                 b.classList.add('bg-brand-cream', 'text-text-main');
             });
             this.classList.remove('bg-brand-cream', 'text-text-main');
-            this.classList.add('bg-brand-brown', 'text-text-light', 'font-black', 'active-filter');
+            this.classList.add('bg-brand-brown', 'text-text-light', 'font-black', 'active-filter', 'scale-105');
 
             activeFilter = this.getAttribute('data-filter');
             currentPage = 1;
@@ -398,12 +502,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const fileUrl = trigger.getAttribute('data-video-file');
         
         if (!fileUrl) {
-            alert('Please re-save your post in WP-Admin so the video file attaches properly.');
+            alert('Video URL is missing or not configured.');
             return;
         }
 
         source.src = fileUrl;
         player.load();
+        
+        modal.classList.remove('modal-closed');
+        modal.classList.add('modal-open');
+        document.body.style.overflow = 'hidden';
         
         const playPromise = player.play();
         if (playPromise !== undefined) {
@@ -411,19 +519,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('Autoplay blocked or playback error:', error);
             });
         }
-        
-        modal.classList.remove('hidden');
     });
 
     const closeModal = () => {
-        modal.classList.add('hidden');
-        player.pause();
-        source.src = '';
+        if (!modal) return;
+        modal.classList.remove('modal-open');
+        modal.classList.add('modal-closed');
+        document.body.style.overflow = '';
+        
+        setTimeout(() => {
+            if (player) {
+                player.pause();
+                player.currentTime = 0;
+            }
+            if (source) {
+                source.src = '';
+            }
+        }, 300);
     };
 
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
-    if (modal) modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && modal.classList.contains('modal-open')) {
+            closeModal();
+        }
     });
 });
 </script>
