@@ -749,9 +749,27 @@ $phone_number = get_field('phone_number');
             }
         });
 
+        // Listener lives on the modal content itself (closest ancestor to the
+        // buttons/links), so it fires before any page-wide bubble-phase click
+        // handler a theme script may have on document/body — and stopPropagation
+        // below stops it from ever reaching one.
         modalRolesContainer.addEventListener('click', function(e) {
+
+            // Apply Now — drive navigation explicitly so it can't be swallowed
+            // by another click handler further up the page.
+            const applyLink = e.target.closest('a[href]');
+            if (applyLink && modalRolesContainer.contains(applyLink)) {
+                e.preventDefault();
+                e.stopPropagation();
+                window.open(applyLink.href, applyLink.target || '_blank', 'noopener,noreferrer');
+                return;
+            }
+
             const btn = e.target.closest('.read-more-btn');
             if (!btn) return;
+
+            e.preventDefault();
+            e.stopPropagation();
 
             const cardParent = btn.closest('.bg-brand-cream');
             if (!cardParent) return;
@@ -823,7 +841,6 @@ $phone_number = get_field('phone_number');
 <?php get_footer(); ?>
 
 <style>
-    /* Font Utilities */
     .font-heading {
         font-family: 'Oswald', sans-serif;
     }
@@ -832,32 +849,18 @@ $phone_number = get_field('phone_number');
         font-family: 'Inter', sans-serif;
     }
 
-    /* Modal Backdrop Initial State */
+    /* Initial state setup for modal and modalContainer elements to work smoothly with inline transitions */
     #opportunityModal {
         opacity: 0;
-        pointer-events: none; /* Prevents invisible overlay from blocking clicks when closed */
         transition: opacity 0.3s ease-out;
     }
 
-    /* Modal Container Initial State */
     #modalContainer {
         opacity: 0;
         transform: scale(0.95) translateY(10px);
         transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Active States (Add these classes via JS when opening the modal) */
-    #opportunityModal.is-open {
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    #opportunityModal.is-open #modalContainer {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-
-    /* Keyframe Animations */
     @keyframes fadeInUp {
         from {
             opacity: 0;
@@ -868,9 +871,5 @@ $phone_number = get_field('phone_number');
             transform: translateY(0);
         }
     }
-
-    /* Utility class to apply the keyframe animation */
-    .animate-fade-in-up {
-        animation: fadeInUp 0.4s ease-out forwards;
-    }
+    
 </style>
