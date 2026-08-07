@@ -105,6 +105,9 @@ $phone_number = get_field('phone_number');
   body.loaded {
     opacity: 1;
   }
+  body.fade-out {
+    opacity: 0;
+  }
 
   /* Keyframe Animations Matching Other Pages */
   @keyframes fadeUp {
