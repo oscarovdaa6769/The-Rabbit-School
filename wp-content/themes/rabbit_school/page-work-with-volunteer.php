@@ -854,11 +854,11 @@ $phone_number = get_field('phone_number');
 
 <style>
     .font-heading {
-        font-family: 'Oswald', sans-serif;
+        font-family: 'Oswald', 'Koulen', sans-serif;
     }
 
     .font-body {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Inter', 'Battambang', sans-serif;
     }
 
     /* Initial state setup for modal and modalContainer elements to work smoothly with inline transitions */
