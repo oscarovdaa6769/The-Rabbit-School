@@ -129,29 +129,35 @@ get_header();
 </section>
 
 <!-- section 2: Program Navigation Bar -->
+<!-- section 2: Program Navigation Bar -->
 <section class="bg-brand-cream py-[64px] md:py-[50px] shadow-md px-6">
     <div class="anim-fade-up anim-delay-1 max-w-7xl mx-auto">
         <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-heading font-bold text-brand-teal mb-6 leading-tight text-center">
-            LEARN MORE ABOUT OUR PROGRAMS
+           <?php echo esc_html(get_field('section_2_title_1') ?: 'LEARN MORE ABOUT OUR PROGRAMS'); ?>
         </h2>
 
         <div class="flex flex-col lg:flex-row gap-[10px] lg:gap-[20px] items-center justify-between">
-            <a href="#education-programs" class="click-fx uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
-                <span>Education Programs</span>
+
+            <a href="<?php echo esc_url(get_field('section_2_button_link') ?: '#education-programs'); ?>" class="click-fx uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
+                <span><?php echo esc_html(get_field('section_2_button_text') ?: 'Education Programs'); ?></span>
                 <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-200"></span>
             </a>
-            <a href="#vocational-training" class="click-fx uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
-                <span>Vocational Training & Job Placement</span>
+
+            <a href="<?php echo esc_url(get_field('section_2_button_2_link') ?: '#vocational-training'); ?>" class="click-fx uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
+                <span><?php echo esc_html(get_field('section_2_button_2_text') ?: 'Vocational Training & Job Placement'); ?></span>
                 <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-200"></span>
             </a>
-            <a href="#teacher-training" class="click-fx uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
-                <span>Teacher Training</span>
+
+            <a href="<?php echo esc_url(get_field('section_2_button_3_link') ?: '#teacher-training'); ?>" class="click-fx uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
+                <span><?php echo esc_html(get_field('section_2_button_3_text') ?: 'Teacher Training'); ?></span>
                 <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-200"></span>
             </a>
-            <a href="#advocacy-community" class="click-fx uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
-                <span>Advocacy and Community Building</span>
+
+            <a href="<?php echo esc_url(get_field('section_2_button_4_link') ?: '#advocacy-community'); ?>" class="click-fx uppercase flex items-center gap-[5px] bg-brand-cream border border-brand-brown/20 hover:bg-brand-brown text-text-main hover:text-text-light text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold px-[24px] py-[12px] rounded-[8px] shadow-sm transition-all duration-200 group">
+                <span><?php echo esc_html(get_field('section_2_button_4_text') ?: 'Advocacy and Community Building'); ?></span>
                 <span class="icon-[solar--alt-arrow-right-outline] w-5 h-5 transition-transform duration-200"></span>
             </a>
+
         </div>
     </div>
 </section>

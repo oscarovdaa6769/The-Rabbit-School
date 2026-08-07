@@ -47,10 +47,18 @@
  *
  * Latest articles section
  *   latest_articles   (Text)  section eyebrow — default: "Latest Articles"
- *   filter            (Text)  dropdown placeholder — default: "Filter by Category"
- *   read_more         (Text)  card button label — default: "Read More"
+ *   filter            NOTE: no longer used — "Filter by Category" is now a
+ *                     static EN/KM string driven by pll_current_language(),
+ *                     see $rso_filter_label below. Safe to remove from wp-admin.
+ *   read_more         NOTE: no longer used — "Read More" is now a static
+ *                     EN/KM string driven by pll_current_language(), see
+ *                     $rso_read_more_label below. Remove this field from
+ *                     wp-admin if you like; it's ignored either way.
  *
  * Newsletter section
+ *   newsletter_image                                                           (Image)    optional small illustration/icon
+ *                                                                                          shown next to the heading — section
+ *                                                                                          still looks fine with nothing set
  *   stay_connected_with_rso                                                    (Text)     — default: "Stay Connected"
  *   get_the_latest_stories_and_updates_from_rabbit_school_delivered_to_your_inbox (Textarea) — default: "Subscribe to get the latest updates."
  *   ex          (Text)  email input placeholder — default: "your.email@example.com"
@@ -74,7 +82,7 @@
  */
 
 get_header();
-?>
+?>  
 
 <style>
 /* ========== YOUR ORIGINAL STYLES STAY 100% THE SAME ========== */
@@ -253,6 +261,19 @@ document.addEventListener('DOMContentLoaded', function () {
 <?php 
 $rso_hero_image = get_field('hero_image'); 
 $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
+
+// Static EN/KM label for the card "Read More" button — intentionally NOT
+// pulled from ACF, so it always matches the current Polylang language
+// regardless of what (if anything) is filled in on the page fields.
+$rso_read_more_label = ( function_exists('pll_current_language') && pll_current_language() === 'km' )
+    ? 'អានបន្ថែម'
+    : 'Read More';
+
+// Static EN/KM label for the "Filter by Category" dropdown placeholder —
+// same reasoning as $rso_read_more_label above.
+$rso_filter_label = ( function_exists('pll_current_language') && pll_current_language() === 'km' )
+    ? 'ត្រងតាមប្រភេទ'
+    : 'Filter by Category';
 ?>
 
 <!-- Hero -->
@@ -452,7 +473,7 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
                             </p>
                             <button type="button" onclick="openCardModal('<?php echo esc_js( $rso_i ); ?>')"
                                     class="group inline-flex items-center gap-2 bg-[#D9A441] text-[#4A2E2A] text-sm font-bold uppercase tracking-wide px-5 py-2.5 rounded-[10px] hover:bg-[#c9953a] active:scale-95 transition w-fit cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4A2E2A] focus-visible:ring-offset-2">
-                                <span class="read-more-label"><?php echo esc_html( get_field('read_more') ?: 'Read More' ); ?></span>
+                                <span class="read-more-label"><?php echo esc_html( $rso_read_more_label ); ?></span>
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                                 </svg>
@@ -479,7 +500,7 @@ $rsos_corner_fallback = get_field('rsos_corner') ?: 'RSOS Corner';
         <div class="flex flex-wrap items-center gap-3 mb-10">
             <div class="relative">
                 <select id="rso-filter-select" class="appearance-none bg-white border border-gray-300 rounded-[10px] text-ls text-gray-700 font-medium pl-4 pr-10 py-3 cursor-pointer hover:border-[#4A2E2A] focus:outline-none focus:border-[#4A2E2A] transition">
-                    <option value=""><?php echo esc_html( get_field('filter') ?: 'Filter by Category' ); ?></option>
+                    <option value=""><?php echo esc_html( $rso_filter_label ); ?></option>
                     <?php foreach ( $rso_category_list as $rso_cat ) : ?>
                         <option value="<?php echo esc_attr( $rso_cat ); ?>"><?php echo esc_html( $rso_cat ); ?></option>
                     <?php endforeach; ?>
@@ -711,17 +732,27 @@ document.addEventListener('keydown', function (e) {
 })();
 </script>
 
+<?php $rso_newsletter_image = get_field('newsletter_image'); ?>
 <!-- Newsletter subscribe -->
 <section class="rso-animate bg-white pt-10 px-6 md:px-12 pb-14" style="animation-delay: 0.45s;">
     <div class="max-w-6xl mx-auto">
         <div class="bg-[#4A2E2A] rounded-2xl px-8 py-8 md:px-10 md:py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div>
-                <h2 class="text-white text-xl md:text-2xl font-extrabold uppercase mb-2">
-                    <?php echo esc_html( get_field('stay_connected_with_rso') ?: 'Stay Connected' ); ?>
-                </h2>
-                <p class="text-white/80 text-sm md:text-base max-w-md">
-                   <?php echo esc_html( get_field('get_the_latest_stories_and_updates_from_rabbit_school_delivered_to_your_inbox') ?: 'Subscribe to get the latest updates.' ); ?>
-                </p>
+            <div class="flex items-center gap-5">
+                <?php if ( !empty($rso_newsletter_image) && isset($rso_newsletter_image['url']) ) : ?>
+                <img
+                    src="<?php echo esc_url( $rso_newsletter_image['url'] ); ?>"
+                    alt="<?php echo esc_attr( !empty($rso_newsletter_image['alt']) ? $rso_newsletter_image['alt'] : '' ); ?>"
+                    class="hidden sm:block w-20 h-20 md:w-24 md:h-24 rounded-2xl object-cover shrink-0"
+                >
+                <?php endif; ?>
+                <div>
+                    <h2 class="text-white text-xl md:text-2xl font-extrabold uppercase mb-2">
+                        <?php echo esc_html( get_field('stay_connected_with_rso') ?: 'Stay Connected' ); ?>
+                    </h2>
+                    <p class="text-white/80 text-sm md:text-base max-w-md">
+                       <?php echo esc_html( get_field('get_the_latest_stories_and_updates_from_rabbit_school_delivered_to_your_inbox') ?: 'Subscribe to get the latest updates.' ); ?>
+                    </p>
+                </div>
             </div>
 
             <div>

@@ -184,18 +184,18 @@ $button_link = get_field('button_link');
 </style>
 <!-- SECTION 1: HERO -->
 <section class="relative overflow-hidden">
-  <img src="<?php echo esc_url(get_field('section_1_image') ?: get_theme_file_uri('assets/images/error.png')); ?>"
-       alt="<?php echo esc_attr(get_field('section_1_title') ?: 'How We Work'); ?>"
+  <img src="<?php echo esc_url($section_1_image ?: get_theme_file_uri('assets/images/error.png')); ?>"
+       alt="<?php echo esc_attr($hero_title ?: 'How We Work'); ?>"
        class="h-[500px] md:h-[700px] w-full object-cover">
 
   <div class="absolute inset-0 z-10 bg-black/30 flex items-end pb-6 md:pb-20">
     <div class="w-full max-w-7xl mx-auto px-4 md:px-[20px]">
       <div class="anim-fade-up max-w-2xl text-text-light">
         <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-2 md:mb-4 uppercase">
-          <?php echo esc_html(get_field('section_1_title') ?: 'REACH OUT TODAY'); ?>
+          <?php echo esc_html($hero_title ?: 'REACH OUT TODAY'); ?>
         </h1>
         <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
-          <?php echo esc_html(get_field('section_1_description') ?: 'Have questions about our work or want to support our mission? Get in touch with our team and let’s start a conversation.'); ?>
+          <?php echo esc_html($hero_description ?: 'Have questions about our work or want to support our mission? Get in touch with our team and let’s start a conversation.'); ?>
         </p>
       </div>
     </div>
@@ -281,7 +281,7 @@ $button_link = get_field('button_link');
     <!-- Right Column: Location Map Card -->
     <div class="anim-slide-right anim-delay-2 order-1 md:order-2 relative w-full h-[350px] md:h-auto min-h-[350px] rounded-[28px] overflow-hidden shadow-md group">
       <img
-        src="<?php echo get_theme_file_uri('assets/images/error.png'); ?>"
+        src="<?php echo esc_url($location_image ?: get_theme_file_uri('assets/images/error.png')); ?>"
         alt="Our Location"
         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
       <div class="absolute bottom-3 left-3 right-3 md:bottom-5 md:left-5 md:right-5 bg-white/95 backdrop-blur-sm rounded-[20px] p-[24px] shadow-lg">
@@ -320,7 +320,7 @@ $button_link = get_field('button_link');
           <!-- Name Input -->
           <div>
             <label for="your_name" class="block text-[14px] sm:text-[15px] md:text-[16px] font-sans font-medium text-text-main/80 mb-[10px]">
-<?php echo esc_html($form_your_email); ?>            </label>
+<?php echo esc_html($form_your_name); ?>            </label>
             <input type="text" id="your_name" name="your_name" placeholder="John Doe" required
               class="w-full border-l-6 border border-brand-yellow rounded-[16px] p-[16px] md:p-[20px] text-text-muted placeholder:text-text-muted/50 focus:outline-brand-yellow bg-white shadow-sm">
             <p class="error-message hidden items-center gap-1 text-red-500 text-sm mt-2">
@@ -332,7 +332,7 @@ $button_link = get_field('button_link');
           <!-- Email Input -->
           <div>
             <label for="your_email" class="block text-[14px] sm:text-[15px] md:text-[16px] font-sans font-medium text-text-main/80 mb-[10px]">
-<?php echo esc_html($form_your_name); ?>             </label>
+<?php echo esc_html($form_your_email); ?>             </label>
             <input type="email" id="your_email" name="your_email" placeholder="example@gmail.com" required
               class="w-full border-l-6 border border-brand-yellow rounded-[16px] p-[16px] md:p-[20px] text-text-muted placeholder:text-text-muted/50 focus:outline-brand-yellow bg-white shadow-sm">
             <p class="error-message hidden items-center gap-1 text-red-500 text-sm mt-2">

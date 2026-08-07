@@ -97,18 +97,18 @@ get_header();
 
 <!-- SECTION 1: Hero -->
 <section class="relative overflow-hidden">
-  <img src="<?php echo get_theme_file_uri('assets/images/error.png'); ?>" 
-  alt="Donate Hero" 
+  <img src="<?php echo esc_url(get_field('hero_image') ?: get_theme_file_uri('assets/images/error.png')); ?>" 
+  alt="<?php echo esc_attr(get_field('hero_heading') ?: 'Donate Hero'); ?>" 
   class="h-[500px] md:h-[700px] w-full object-cover">
   
   <div class="absolute inset-0 z-10 bg-black/30 flex items-end">
     <div class="w-full max-w-7xl mx-auto py-[64px] md:py-[50px] px-[20px] 2xl:px-0">
       <div class="anim-fade-up max-w-2xl text-text-light">
         <h1 class="font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-black leading-tight mb-[10px] md:mb-[20px] uppercase">
-          together, we can change lives
+          <?php echo esc_html(get_field('hero_heading') ?: 'together, we can change lives'); ?>
         </h1>
         <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed opacity-90">
-          Hello world
+          <?php echo esc_html(get_field('hero_text') ?: 'Hello world'); ?>
         </p>
       </div>
     </div>
@@ -119,10 +119,10 @@ get_header();
 <section class="bg-brand-cream py-[64px] md:py-[50px] px-[20px] 2xl:px-0">
   <div class="anim-fade-up flex flex-col w-full items-center justify-center text-center mb-[40px]">
     <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold uppercase font-heading">
-      your gift makes an impact
+      <?php echo esc_html(get_field('impact_heading') ?: 'your gift makes an impact'); ?>
     </h2>
     <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] text-text-muted max-w-2xl mt-2">
-      Hello world
+      <?php echo esc_html(get_field('impact_description') ?: 'Hello world'); ?>
     </p>
   </div>
 
@@ -136,25 +136,11 @@ get_header();
         </div>
         <div class="flex flex-col gap-[12px] flex-grow">
           <h2 class="text-[18px] sm:text-[20px] md:text-[22px] font-bold uppercase font-heading text-brand-blue">
-            Give in kind
+            <?php echo esc_html(get_field('kind_title') ?: 'Give in kind'); ?>
           </h2>
           <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] text-text-muted">
-            If you would like to contribute with resources, these are things that are needed most:
+            <?php echo esc_html(get_field('kind_description') ?: 'If you would like to contribute with resources, these are things that are needed most:'); ?>
           </p>
-          <ul class="flex flex-col gap-[10px] mt-1">
-            <li class="flex items-start gap-[10px] text-[14px] sm:text-[15px] md:text-[16px]">
-              <span class="icon-[solar--check-circle-bold] w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5"></span>  
-              <span>School materials such as books, pencils, DVDs (player) and educational games</span>
-            </li>
-            <li class="flex items-start gap-[10px] text-[14px] sm:text-[15px] md:text-[16px]">
-              <span class="icon-[solar--check-circle-bold] w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5"></span>  
-              <span>Children's books in Khmer</span>
-            </li>
-            <li class="flex items-start gap-[10px] text-[14px] sm:text-[15px] md:text-[16px]">
-              <span class="icon-[solar--check-circle-bold] w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5"></span>  
-              <span>Physiotherapy special devices and toys</span>
-            </li>
-          </ul>
         </div>
       </div>
 
@@ -165,21 +151,11 @@ get_header();
         </div>
         <div class="flex flex-col gap-[12px] flex-grow">
           <h2 class="text-[18px] sm:text-[20px] md:text-[22px] font-bold uppercase font-heading text-brand-pink">
-            Give financial
+            <?php echo esc_html(get_field('financial_title') ?: 'Give financial'); ?>
           </h2>
           <p class="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] text-text-muted">
-            A single gift can change a child's entire future.
+            <?php echo esc_html(get_field('financial_description') ?: "A single gift can change a child's entire future."); ?>
           </p>
-          <ul class="flex flex-col gap-[10px] mt-1">
-            <li class="flex items-start gap-[10px] text-[14px] sm:text-[15px] md:text-[16px]">
-              <span class="icon-[solar--heart-bold] w-5 h-5 text-brand-pink flex-shrink-0 mt-0.5"></span>  
-              <span><strong class="text-brand-pink">$60</strong> opens the classroom door for one month.</span>
-            </li>
-            <li class="flex items-start gap-[10px] text-[14px] sm:text-[15px] md:text-[16px]">
-              <span class="icon-[solar--heart-bold] w-5 h-5 text-brand-pink flex-shrink-0 mt-0.5"></span>  
-              <span><strong class="text-brand-pink">$800</strong> keeps that door open for a full year—giving one child safety, routine, and a chance to grow.</span>
-            </li>
-          </ul>
         </div>
       </div>
 
@@ -193,7 +169,9 @@ get_header();
     <div class="anim-fade-up p-[24px] md:p-[32px] bg-brand-yellow rounded-[28px] w-full">
       <!-- TITLE -->
       <div class="text-center mb-[28px]">
-        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold font-heading uppercase">how to donate</h2>
+        <h2 class="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold font-heading uppercase">
+          <?php echo esc_html(get_field('how_to_donate_heading') ?: 'how to donate'); ?>
+        </h2>
         <div class="w-12 h-1 bg-brand-orange rounded-full mx-auto mt-2"></div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 w-full gap-[20px]">
@@ -204,10 +182,10 @@ get_header();
           </div>
           <div>
             <h2 class="text-[16px] sm:text-[18px] md:text-[20px] text-brand-blue font-bold font-heading uppercase mt-1">
-              bank transfer
+              <?php echo esc_html(get_field('card1_title') ?: 'bank transfer'); ?>
             </h2>
             <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted mt-1">
-              Transfer directly to our bank account using the details below.
+              <?php echo esc_html(get_field('card1_description') ?: 'Transfer directly to our bank account using the details below.'); ?>
             </p>
           </div>
         </div>
@@ -218,10 +196,10 @@ get_header();
           </div>
           <div>
             <h2 class="text-[16px] sm:text-[18px] md:text-[20px] text-brand-pink font-bold font-heading uppercase mt-1">
-              Scan To Donate
+              <?php echo esc_html(get_field('card2_title') ?: 'Scan To Donate'); ?>
             </h2>
             <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted mt-1">
-              Scan the QR code to make your donation securely.
+              <?php echo esc_html(get_field('card2_description') ?: 'Scan the QR code to make your donation securely.'); ?>
             </p>
           </div>
         </div>
@@ -232,10 +210,10 @@ get_header();
           </div>
           <div>
             <h2 class="text-[16px] sm:text-[18px] md:text-[20px] text-brand-orange font-bold font-heading uppercase mt-1">
-              Contact Us
+              <?php echo esc_html(get_field('card3_title') ?: 'Contact Us'); ?>
             </h2>
             <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted mt-1">
-              Need help or have questions? We're here to assist you.
+              <?php echo esc_html(get_field('card3_description') ?: "Need help or have questions? We're here to assist you."); ?>
             </p>
           </div>
         </div>
@@ -259,22 +237,24 @@ get_header();
           </div>
           <div class="flex flex-col gap-[10px]">
             <h2 class="uppercase font-bold font-heading text-brand-teal text-[18px] sm:text-[20px] md:text-[22px]">
-              ACLEDA BANK
+              <?php echo esc_html(get_field('bank_name') ?: 'ACLEDA BANK'); ?>
             </h2>
             <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted">
-              <strong class="text-brand-teal">SWIFT Code:</strong> ACLBKHPP
+              <strong class="text-brand-teal"><?php echo esc_html(get_field('bank_swift_title') ?: 'SWIFT Code:'); ?></strong>
+              <?php echo esc_html(get_field('bank_swift') ?: 'ACLBKHPP'); ?>
             </p>
             <p class="text-[14px] sm:text-[15px] md:text-[16px] text-text-muted">
-              <strong class="text-brand-teal">Bank address:</strong> Building N° 61, Preah Monivong Blvd., Sangkat Srah Chak, Khan Daun Penh, Phnom Penh
+              <strong class="text-brand-teal"><?php echo esc_html(get_field('bank_address_title') ?: 'Bank address:'); ?></strong>
+              <?php echo esc_html(get_field('bank_address') ?: 'Building N° 61, Preah Monivong Blvd., Sangkat Srah Chak, Khan Daun Penh, Phnom Penh'); ?>
             </p>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-[12px] pt-2">
               <p class="text-[14px] sm:text-[15px] md:text-[16px]">
-                <span class="block text-xs uppercase tracking-wider text-text-muted/80">Account Name</span>
-                <strong class="text-brand-teal uppercase text-[16px]">Rabbit School</strong>
+                <span class="block text-xs uppercase tracking-wider text-text-muted/80"><?php echo esc_html(get_field('bank_account_name_title') ?: 'Account Name'); ?></span>
+                <strong class="text-brand-teal uppercase text-[16px]"><?php echo esc_html(get_field('bank_account_name') ?: 'Rabbit School'); ?></strong>
               </p>
               <p class="text-[14px] sm:text-[15px] md:text-[16px]">
-                <span class="block text-xs uppercase tracking-wider text-text-muted/80">Account Number</span>
-                <strong class="text-brand-teal uppercase text-[16px]">2900-01-005152-4-2</strong>
+                <span class="block text-xs uppercase tracking-wider text-text-muted/80"><?php echo esc_html(get_field('bank_account_number_title') ?: 'Account Number'); ?></span>
+                <strong class="text-brand-teal uppercase text-[16px]"><?php echo esc_html(get_field('bank_account_number') ?: '2900-01-005152-4-2'); ?></strong>
               </p>
             </div>
           </div>
@@ -286,7 +266,7 @@ get_header();
         <!-- RIGHT: QR Code / Image -->
         <div class="flex-shrink-0 w-full md:w-auto flex justify-center">
           <div class="p-2 border border-gray-100 rounded-[16px] bg-white shadow-sm">
-            <img src="<?php echo get_theme_file_uri('assets/images/error.png'); ?>" alt="Bank QR Code" class="w-32 h-32 object-contain rounded-[12px]">
+            <img src="<?php echo esc_url(get_field('bank_qr_code') ?: get_theme_file_uri('assets/images/error.png')); ?>" alt="Bank QR Code" class="w-32 h-32 object-contain rounded-[12px]">
           </div>
         </div>
 
