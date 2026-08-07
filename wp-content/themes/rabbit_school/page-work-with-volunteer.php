@@ -824,6 +824,7 @@ $phone_number = get_field('phone_number');
 <?php get_footer(); ?>
 
 <style>
+    /* Font Utilities */
     .font-heading {
         font-family: 'Oswald', sans-serif;
     }
@@ -832,18 +833,32 @@ $phone_number = get_field('phone_number');
         font-family: 'Inter', sans-serif;
     }
 
-    /* Initial state setup for modal and modalContainer elements to work smoothly with inline transitions */
+    /* Modal Backdrop Initial State */
     #opportunityModal {
         opacity: 0;
+        pointer-events: none; /* Prevents invisible overlay from blocking clicks when closed */
         transition: opacity 0.3s ease-out;
     }
 
+    /* Modal Container Initial State */
     #modalContainer {
         opacity: 0;
         transform: scale(0.95) translateY(10px);
         transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
+    /* Active States (Add these classes via JS when opening the modal) */
+    #opportunityModal.is-open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    #opportunityModal.is-open #modalContainer {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+    /* Keyframe Animations */
     @keyframes fadeInUp {
         from {
             opacity: 0;
@@ -854,5 +869,9 @@ $phone_number = get_field('phone_number');
             transform: translateY(0);
         }
     }
-    
+
+    /* Utility class to apply the keyframe animation */
+    .animate-fade-in-up {
+        animation: fadeInUp 0.4s ease-out forwards;
+    }
 </style>
