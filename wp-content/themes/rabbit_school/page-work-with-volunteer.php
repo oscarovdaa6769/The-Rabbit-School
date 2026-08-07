@@ -273,7 +273,7 @@ $phone_number = get_field('phone_number');
                                     type="button"
                                     class="read-more-btn click-fx inline-flex items-center gap-1.5 px-3 py-1.5 border border-brand-brown/20 text-text-main font-semibold text-xs rounded-full bg-white shadow-sm hover:bg-brand-brown hover:text-text-light transition duration-300"
                                     data-read-more="<?php echo esc_attr($read_more_1_text); ?>"
-                                    data-show-less="Show Less">
+                                    data-show-less="បង្ហាញតិចជាង">
                                     <span class="btn-text"><?php echo esc_html($read_more_1_text); ?></span>
                                     <span class="btn-arrow icon-[solar--alt-arrow-down-linear] w-3 h-3 transition-transform duration-300"></span>
                                 </button>
@@ -282,7 +282,7 @@ $phone_number = get_field('phone_number');
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     class="click-fx click-fx--dark inline-flex items-center gap-2 px-3 py-1.5 bg-brand-brown text-text-light text-xs font-semibold rounded-full hover:bg-brand-brown/90 transition">
-                                    Apply Now
+                                    ដាក់ពាក្យសុំឥឡូវនេះ
                                     <span class="icon-[solar--export-linear] w-3.5 h-3.5"></span>
                                 </a>
                             </div>
@@ -322,7 +322,7 @@ $phone_number = get_field('phone_number');
                                     type="button"
                                     class="read-more-btn click-fx inline-flex items-center gap-1.5 px-3 py-1.5 border border-brand-brown/20 text-text-main font-semibold text-xs rounded-full bg-white shadow-sm hover:bg-brand-brown hover:text-text-light transition duration-300"
                                     data-read-more="<?php echo esc_attr($read_more_2_text); ?>"
-                                    data-show-less="Show Less">
+                                    data-show-less="បង្ហាញតិចជាង">
                                     <span class="btn-text"><?php echo esc_html($read_more_2_text); ?></span>
                                     <span class="btn-arrow icon-[solar--alt-arrow-down-linear] w-3 h-3 transition-transform duration-300"></span>
                                 </button>
@@ -331,7 +331,7 @@ $phone_number = get_field('phone_number');
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     class="click-fx click-fx--dark inline-flex items-center gap-2 px-3 py-1.5 bg-brand-brown text-text-light text-xs font-semibold rounded-full hover:bg-brand-brown/90 transition">
-                                    Apply Now
+                                    ដាក់ពាក្យសុំឥឡូវនេះ
                                     <span class="icon-[solar--export-linear] w-3.5 h-3.5"></span>
                                 </a>
                             </div>
@@ -396,7 +396,7 @@ $phone_number = get_field('phone_number');
                                     type="button"
                                     class="read-more-btn click-fx inline-flex items-center gap-1.5 px-3 py-1.5 border border-brand-brown/20 text-text-main font-semibold text-xs rounded-full bg-white shadow-sm hover:bg-brand-brown hover:text-text-light transition duration-300"
                                     data-read-more="<?php echo esc_attr($volunteer_read_more_text); ?>"
-                                    data-show-less="Show Less">
+                                    data-show-less="បង្ហាញតិចជាង">
                                     <span class="btn-text"><?php echo esc_html($volunteer_read_more_text); ?></span>
                                     <span class="btn-arrow icon-[solar--alt-arrow-down-linear] w-3 h-3 transition-transform duration-300"></span>
                                 </button>
@@ -405,7 +405,7 @@ $phone_number = get_field('phone_number');
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     class="click-fx click-fx--dark inline-flex items-center gap-2 px-3 py-1.5 bg-brand-brown text-text-light text-xs font-semibold rounded-full hover:bg-brand-brown/90 transition">
-                                    Apply Now
+                                    ដាក់ពាក្យសុំឥឡូវនេះ
                                     <span class="icon-[solar--export-linear] w-3.5 h-3.5"></span>
                                 </a>
                             </div>
@@ -436,107 +436,109 @@ $phone_number = get_field('phone_number');
             </p>
             <div class="w-16 h-1 bg-brand-pink mt-3 mb-4 rounded-full group-hover:w-24 transition-all duration-300"></div>
 
-                <template class="modal-roles-template">
-        <div class="border border-brand-brown/10 rounded-[28px] p-6 bg-white flex-1 flex flex-col space-y-4 text-left">
+            <template class="modal-roles-template">
+                <div class="border border-brand-brown/10 rounded-[28px] p-6 bg-white flex-1 flex flex-col space-y-4 text-left">
 
-            <div class="bg-brand-cream p-5 rounded-[20px] flex flex-col group transition duration-300">
-                <div class="flex flex-col w-full">
-                    <div>
-                        <h4 class="font-bold text-text-main text-sm md:text-base tracking-wide uppercase font-heading">
-                            <?php echo esc_html($internship_role_1_title); ?>
-                        </h4>
+                    <!-- Internship Role 1 -->
+                    <div class="bg-brand-cream p-5 rounded-[20px] flex flex-col group transition duration-300">
+                        <div class="flex flex-col w-full">
+                            <div>
+                                <h4 class="font-bold text-text-main text-sm md:text-base tracking-wide uppercase font-heading">
+                                    <?php echo esc_html($internship_role_1_title); ?>
+                                </h4>
 
-                        <div class="flex flex-wrap items-center gap-4 text-xs text-text-muted mt-2 font-medium font-sans">
-                            <span class="flex items-center gap-1">
-                                <span class="icon-[solar--map-point-linear] w-4 h-4 text-brand-orange"></span>
-                                <?php echo esc_html($internship_role_1_location); ?>
-                            </span>
-                            <span class="flex items-center gap-1">
-                                <span class="icon-[solar--clock-circle-linear] w-4 h-4 text-brand-orange"></span>
-                                <?php echo esc_html($internship_role_1_employment_type); ?>
-                            </span>
+                                <div class="flex flex-wrap items-center gap-4 text-xs text-text-muted mt-2 font-medium font-sans">
+                                    <span class="flex items-center gap-1">
+                                        <span class="icon-[solar--map-point-linear] w-4 h-4 text-brand-orange"></span>
+                                        <?php echo esc_html($internship_role_1_location); ?>
+                                    </span>
+                                    <span class="flex items-center gap-1">
+                                        <span class="icon-[solar--clock-circle-linear] w-4 h-4 text-brand-orange"></span>
+                                        <?php echo esc_html($internship_role_1_employment_type); ?>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="text-text-muted text-sm leading-relaxed mt-4 font-sans">
+                                <span class="short-text"><?php echo esc_html($internship_role_1_description); ?></span>
+                                <span class="dots">......</span>
+                                <span class="role-details hidden">
+                                    <span><?php echo esc_html($internship_role_1_details); ?></span>
+                                </span>
+                            </div>
+
+                            <div class="flex justify-between items-center mt-4">
+                                <button
+                                    type="button"
+                                    class="read-more-btn click-fx inline-flex items-center gap-1.5 px-3 py-1.5 border border-brand-brown/20 text-text-main font-semibold text-xs rounded-full bg-white shadow-sm hover:bg-brand-brown hover:text-text-light transition duration-300"
+                                    data-read-more="<?php echo esc_attr($internship_read_more_1_text); ?>"
+                                    data-show-less="បង្ហាញតិចជាង">
+                                    <span class="btn-text"><?php echo esc_html($internship_read_more_1_text); ?></span>
+                                    <span class="btn-arrow icon-[solar--alt-arrow-down-linear] w-3 h-3 transition-transform duration-300"></span>
+                                </button>
+
+                                <a href="https://www.linkedin.com/company/the-rabbit-school-organization/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="click-fx click-fx--dark inline-flex items-center gap-2 px-3 py-1.5 bg-brand-brown text-text-light text-xs font-semibold rounded-full hover:bg-brand-brown/90 transition">
+                                    ដាក់ពាក្យសុំឥឡូវនេះ
+                                    <span class="icon-[solar--export-linear] w-3.5 h-3.5"></span>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="text-text-muted text-sm leading-relaxed mt-4 font-sans">
-                        <span class="short-text"><?php echo esc_html($internship_role_1_description); ?></span>
-                        <span class="dots">......</span>
-                        <span class="role-details hidden">
-                            <span><?php echo esc_html($internship_role_1_details); ?></span>
-                        </span>
-                    </div>
+                    <!-- Internship Role 2 -->
+                    <div class="bg-brand-cream p-5 rounded-[20px] flex flex-col group transition duration-300">
+                        <div class="flex flex-col w-full">
+                            <div>
+                                <h4 class="font-bold text-text-main text-sm md:text-base tracking-wide uppercase font-heading">
+                                    <?php echo esc_html($internship_role_2_title); ?>
+                                </h4>
 
-                    <div class="flex justify-between items-center mt-4">
-                        <button
-                            type="button"
-                            class="read-more-btn click-fx inline-flex items-center gap-1.5 px-3 py-1.5 border border-brand-brown/20 text-text-main font-semibold text-xs rounded-full bg-white shadow-sm hover:bg-brand-brown hover:text-text-light transition duration-300"
-                            data-read-more="<?php echo esc_attr($internship_read_more_1_text); ?>"
-                            data-show-less="<?php echo esc_attr__( 'Show Less', 'your-theme-domain' ); ?>">
-                            <span class="btn-text"><?php echo esc_html($internship_read_more_1_text); ?></span>
-                            <span class="btn-arrow icon-[solar--alt-arrow-down-linear] w-3 h-3 transition-transform duration-300"></span>
-                        </button>
+                                <div class="flex flex-wrap items-center gap-4 text-xs text-text-muted mt-2 font-medium font-sans">
+                                    <span class="flex items-center gap-1">
+                                        <span class="icon-[solar--map-point-linear] w-4 h-4 text-brand-orange"></span>
+                                        <?php echo esc_html($internship_role_2_location); ?>
+                                    </span>
+                                    <span class="flex items-center gap-1">
+                                        <span class="icon-[solar--clock-circle-linear] w-4 h-4 text-brand-orange"></span>
+                                        <?php echo esc_html($internship_role_2_employment_type); ?>
+                                    </span>
+                                </div>
+                            </div>
 
-                        <a href="https://www.linkedin.com/company/the-rabbit-school-organization/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="click-fx click-fx--dark inline-flex items-center gap-2 px-3 py-1.5 bg-brand-brown text-text-light text-xs font-semibold rounded-full hover:bg-brand-brown/90 transition">
-                            Apply Now
-                            <span class="icon-[solar--export-linear] w-3.5 h-3.5"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+                            <div class="text-text-muted text-sm leading-relaxed mt-4 font-sans">
+                                <span class="short-text"><?php echo esc_html($internship_role_2_description); ?></span>
+                                <span class="dots">......</span>
+                                <span class="role-details hidden">
+                                    <span><?php echo esc_html($internship_role_2_details); ?></span>
+                                </span>
+                            </div>
 
-            <div class="bg-brand-cream p-5 rounded-[20px] flex flex-col group transition duration-300">
-                <div class="flex flex-col w-full">
-                    <div>
-                        <h4 class="font-bold text-text-main text-sm md:text-base tracking-wide uppercase font-heading">
-                            <?php echo esc_html($internship_role_2_title); ?>
-                        </h4>
+                            <div class="flex justify-between items-center mt-4">
+                                <button
+                                    type="button"
+                                    class="read-more-btn click-fx inline-flex items-center gap-1.5 px-3 py-1.5 border border-brand-brown/20 text-text-main font-semibold text-xs rounded-full bg-white shadow-sm hover:bg-brand-brown hover:text-text-light transition duration-300"
+                                    data-read-more="<?php echo esc_attr($internship_read_more_2_text); ?>"
+                                    data-show-less="បង្ហាញតិចជាង">
+                                    <span class="btn-text"><?php echo esc_html($internship_read_more_2_text); ?></span>
+                                    <span class="btn-arrow icon-[solar--alt-arrow-down-linear] w-3 h-3 transition-transform duration-300"></span>
+                                </button>
 
-                        <div class="flex flex-wrap items-center gap-4 text-xs text-text-muted mt-2 font-medium font-sans">
-                            <span class="flex items-center gap-1">
-                                <span class="icon-[solar--map-point-linear] w-4 h-4 text-brand-orange"></span>
-                                <?php echo esc_html($internship_role_2_location); ?>
-                            </span>
-                            <span class="flex items-center gap-1">
-                                <span class="icon-[solar--clock-circle-linear] w-4 h-4 text-brand-orange"></span>
-                                <?php echo esc_html($internship_role_2_employment_type); ?>
-                            </span>
+                                <a href="https://www.linkedin.com/company/the-rabbit-school-organization/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="click-fx click-fx--dark inline-flex items-center gap-2 px-3 py-1.5 bg-brand-brown text-text-light text-xs font-semibold rounded-full hover:bg-brand-brown/90 transition">
+                                    ដាក់ពាក្យសុំឥឡូវនេះ
+                                    <span class="icon-[solar--export-linear] w-3.5 h-3.5"></span>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="text-text-muted text-sm leading-relaxed mt-4 font-sans">
-                        <span class="short-text"><?php echo esc_html($internship_role_2_description); ?></span>
-                        <span class="dots">......</span>
-                        <span class="role-details hidden">
-                            <span><?php echo esc_html($internship_role_2_details); ?></span>
-                        </span>
-                    </div>
-
-                    <div class="flex justify-between items-center mt-4">
-                        <button
-                            type="button"
-                            class="read-more-btn click-fx inline-flex items-center gap-1.5 px-3 py-1.5 border border-brand-brown/20 text-text-main font-semibold text-xs rounded-full bg-white shadow-sm hover:bg-brand-brown hover:text-text-light transition duration-300"
-                            data-read-more="<?php echo esc_attr($internship_read_more_2_text); ?>"
-                            data-show-less="<?php echo esc_attr__( 'Show Less', 'your-theme-domain' ); ?>">
-                            <span class="btn-text"><?php echo esc_html($internship_read_more_2_text); ?></span>
-                            <span class="btn-arrow icon-[solar--alt-arrow-down-linear] w-3 h-3 transition-transform duration-300"></span>
-                        </button>
-
-                        <a href="https://www.linkedin.com/company/the-rabbit-school-organization/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="click-fx click-fx--dark inline-flex items-center gap-2 px-3 py-1.5 bg-brand-brown text-text-light text-xs font-semibold rounded-full hover:bg-brand-brown/90 transition">
-                            Apply Now
-                            <span class="icon-[solar--export-linear] w-3.5 h-3.5"></span>
-                        </a>
-                    </div>
                 </div>
-            </div>
-
-        </div>
-    </template>
+            </template>
         </div>
     </div>
 </section>
@@ -558,68 +560,65 @@ $phone_number = get_field('phone_number');
         </div>
     </div>
 </div>
-<section class="max-w-7xl mx-auto px-4 sm:px-6 pb-16 sm:pb-24 lg:pb-28">
-    <div class="anim-fade-up anim-delay-4 bg-amber-950 text-white rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-2xl">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
+<section class="max-w-7xl mx-auto px-4 sm:px-6 pb-16 sm:pb-28">
+    <div class="anim-fade-up anim-delay-4 bg-amber-950 text-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
             <!-- Left Info -->
             <div class="anim-slide-left lg:col-span-6">
-                <h3 class="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wide mb-4 font-black">
+                <h3 class="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wide mb-3 sm:mb-4 font-black">
                     <?php echo esc_html($connected_heading); ?>
                 </h3>
-                <p class="text-sm sm:text-base text-gray-300 leading-relaxed font-medium">
+                <p class="text-sm md:text-base text-gray-300 leading-relaxed font-medium">
                     <?php echo esc_html($connected_description); ?>
                 </p>
             </div>
 
             <!-- Right Contacts -->
-            <div class="anim-slide-right lg:col-span-6 space-y-5 sm:space-y-6 bg-white/10 p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-[20px] border border-white/10">
-                
+            <div class="anim-slide-right lg:col-span-6 space-y-4 sm:space-y-6 bg-white/10 p-5 sm:p-6 md:p-8 rounded-[16px] sm:rounded-[20px] border border-white/10">
                 <!-- Email -->
-                <div class="flex items-center space-x-3 sm:space-x-4">
-                    <div class="w-12 h-12 bg-brand-yellow text-text-main rounded-xl sm:rounded-[16px] flex items-center justify-center flex-shrink-0">
-                        <span class="icon-[solar--letter-linear] w-6 h-6 text-text-main"></span>
+                <div class="flex items-center gap-3 sm:gap-4">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-brand-yellow text-text-main rounded-[14px] sm:rounded-[16px] flex items-center justify-center flex-shrink-0">
+                        <span class="icon-[solar--letter-linear] w-5 h-5 sm:w-6 sm:h-6 text-text-main"></span>
                     </div>
-                    <div class="min-w-0 flex-1">
-                        <h5 class="text-xs sm:text-sm font-heading uppercase text-brand-yellow truncate">
+                    <div class="min-w-0">
+                        <h5 class="text-sm font-heading uppercase text-brand-yellow">
                             <?php echo esc_html($email_title); ?>
                         </h5>
-                        <a href="mailto:<?php echo esc_attr($email_address); ?>" class="text-xs sm:text-[14px] md:text-[16px] hover:underline font-sans text-text-light block mt-0.5 break-all sm:break-normal">
+                        <a href="mailto:<?php echo esc_attr($email_address); ?>" class="text-[13px] sm:text-[15px] md:text-[16px] hover:underline font-sans text-text-light block mt-0.5 break-all">
                             <?php echo esc_html($email_address); ?>
                         </a>
                     </div>
                 </div>
 
                 <!-- Facebook -->
-                <div class="flex items-center space-x-3 sm:space-x-4">
-                    <div class="w-12 h-12 bg-brand-blue text-text-light rounded-xl sm:rounded-[16px] flex items-center justify-center flex-shrink-0">
-                        <span class="icon-[ic--baseline-facebook] w-6 h-6 text-text-light"></span>
+                <div class="flex items-center gap-3 sm:gap-4">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-brand-blue text-text-light rounded-[14px] sm:rounded-[16px] flex items-center justify-center flex-shrink-0">
+                        <span class="icon-[ic--baseline-facebook] w-5 h-5 sm:w-6 sm:h-6 text-text-light"></span>
                     </div>
-                    <div class="min-w-0 flex-1">
-                        <h5 class="text-xs sm:text-sm font-heading uppercase text-brand-yellow truncate">
+                    <div class="min-w-0">
+                        <h5 class="text-sm font-heading uppercase text-brand-yellow">
                             <?php echo esc_html($facebook_page); ?>
                         </h5>
-                        <a href="<?php echo esc_url($facebook_page_link); ?>" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-[14px] md:text-[16px] hover:underline font-sans text-text-light block mt-0.5 truncate">
+                        <a href="<?php echo esc_url($facebook_page_link); ?>" target="_blank" rel="noopener noreferrer" class="text-[13px] sm:text-[15px] md:text-[16px] hover:underline font-sans text-text-light block mt-0.5 break-all">
                             <?php echo esc_html($facebook_page_link); ?>
                         </a>
                     </div>
                 </div>
 
                 <!-- Phone -->
-                <div class="flex items-center space-x-3 sm:space-x-4">
-                    <div class="w-12 h-12 bg-brand-pink text-text-main rounded-xl sm:rounded-[16px] flex items-center justify-center flex-shrink-0">
-                        <span class="icon-[solar--phone-calling-linear] w-6 h-6 text-text-main"></span>
+                <div class="flex items-center gap-3 sm:gap-4">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-brand-pink text-text-main rounded-[14px] sm:rounded-[16px] flex items-center justify-center flex-shrink-0">
+                        <span class="icon-[solar--phone-calling-linear] w-5 h-5 sm:w-6 sm:h-6 text-text-main"></span>
                     </div>
-                    <div class="min-w-0 flex-1">
-                        <h5 class="text-xs sm:text-sm font-heading uppercase text-brand-yellow truncate">
+                    <div class="min-w-0">
+                        <h5 class="text-sm font-heading uppercase text-brand-yellow">
                             <?php echo esc_html($phone_title); ?>
                         </h5>
-                        <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone_number)); ?>" class="text-xs sm:text-[14px] md:text-[16px] hover:underline font-sans text-text-light block mt-0.5">
+                        <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone_number)); ?>" class="text-[13px] sm:text-[15px] md:text-[16px] hover:underline font-sans text-text-light block mt-0.5 break-all">
                             <?php echo esc_html($phone_number); ?>
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -787,7 +786,7 @@ $phone_number = get_field('phone_number');
                 }, 350);
 
                 if (dots) dots.classList.add('hidden');
-                if (btnText) btnText.textContent = btn.dataset.showLess || 'Show Less';
+                if (btnText) btnText.textContent = btn.dataset.showLess || 'បង្ហាញតិចជាង';
                 if (btnArrow) btnArrow.classList.add('rotate-180');
 
             } else {
